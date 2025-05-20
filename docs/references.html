@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Machine Learning and Artificial Intelligence – STRAT 490R - Understanding AI: From Foundations to Strategy</title>
+<title>References – STRAT 490R - Understanding AI: From Foundations to Strategy</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,7 +20,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -30,8 +49,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./03-deep-learning.html" rel="next">
-<link href="./01-history.html" rel="prev">
+<link href="./03-deep-learning.html" rel="prev">
 <link href="./images/understanding-ai-favicon.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -83,7 +101,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./02-machine-learning.html"><span class="chapter-title">Machine Learning and Artificial Intelligence</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./references.html">References</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -120,7 +138,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02-machine-learning.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Machine Learning and Artificial Intelligence</span></a>
+  <a href="./02-machine-learning.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Machine Learning and Artificial Intelligence</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -130,7 +148,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link">
+  <a href="./references.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">References</span></a>
   </div>
 </li>
@@ -139,35 +157,15 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#machine-learning" id="toc-machine-learning" class="nav-link active" data-scroll-target="#machine-learning">Machine Learning</a></li>
-  <li><a href="#supervised-learning" id="toc-supervised-learning" class="nav-link" data-scroll-target="#supervised-learning">Supervised Learning</a>
-  <ul class="collapse">
-  <li><a href="#regression" id="toc-regression" class="nav-link" data-scroll-target="#regression">Regression</a></li>
-  <li><a href="#classification" id="toc-classification" class="nav-link" data-scroll-target="#classification">Classification</a></li>
-  <li><a href="#supervised-learning-use-cases" id="toc-supervised-learning-use-cases" class="nav-link" data-scroll-target="#supervised-learning-use-cases">Supervised Learning Use Cases</a></li>
-  </ul></li>
-  <li><a href="#unsupervised-learning" id="toc-unsupervised-learning" class="nav-link" data-scroll-target="#unsupervised-learning">Unsupervised Learning</a>
-  <ul class="collapse">
-  <li><a href="#unsupervised-learning-use-cases" id="toc-unsupervised-learning-use-cases" class="nav-link" data-scroll-target="#unsupervised-learning-use-cases">Unsupervised Learning Use Cases</a></li>
-  </ul></li>
-  <li><a href="#reinforcement-learning" id="toc-reinforcement-learning" class="nav-link" data-scroll-target="#reinforcement-learning">Reinforcement Learning</a>
-  <ul class="collapse">
-  <li><a href="#reinforcement-learning-use-cases" id="toc-reinforcement-learning-use-cases" class="nav-link" data-scroll-target="#reinforcement-learning-use-cases">Reinforcement Learning Use Cases</a></li>
-  </ul></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-title">Machine Learning and Artificial Intelligence</span></h1>
+<h1 class="title">References</h1>
 </div>
 
 
@@ -184,325 +182,18 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="machine-learning" class="level2">
-<h2 class="anchored" data-anchor-id="machine-learning">Machine Learning</h2>
-<p>Supervised Learning: “Here’s the question and the right answer.”<br>
-Unsupervised Learning: “Here is some data, can you find patterns and/or organize it in a meaningful way?”<br>
-Reinforcement Learning: “You’re an agent playing a, figure out the best strategy through trial and error, using only points (rewards) as feedback.”</p>
-<p>“During training, a machine learning algorithm processes a dataset and chooses the function that best matches the patterns in the data.”</p>
-<p>supervised, unsupervised, and reinforcement.</p>
-</section>
-<section id="supervised-learning" class="level2">
-<h2 class="anchored" data-anchor-id="supervised-learning">Supervised Learning</h2>
-<p>Supervised learning is the most widely used type of machine learning and significantly overlaps with the methodologies of other quantitative fields, such as econometrics.</p>
-<p>Supervised learning gets its name from the fact that the input data set has examples of both inputs and outputs.</p>
-<p>The outputs are called labels, hence you will sometime hear the term “labeled dataset.”</p>
-<section id="regression" class="level3">
-<h3 class="anchored" data-anchor-id="regression">Regression</h3>
-</section>
-<section id="classification" class="level3">
-<h3 class="anchored" data-anchor-id="classification">Classification</h3>
-</section>
-<section id="supervised-learning-use-cases" class="level3">
-<h3 class="anchored" data-anchor-id="supervised-learning-use-cases">Supervised Learning Use Cases</h3>
-<p><strong>Supervised Learning (Regression) Use Cases</strong></p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 8%">
-<col style="width: 17%">
-<col style="width: 16%">
-<col style="width: 18%">
-<col style="width: 27%">
-<col style="width: 11%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Use Case</th>
-<th>Sample Inputs</th>
-<th>Model Output Description</th>
-<th>What ML Question is Being Answered?</th>
-<th>What Business Question is Being Answered?</th>
-<th>Example Algorithm(s)</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Price Prediction</td>
-<td>Property size, location, features</td>
-<td>Numeric price</td>
-<td>What is the expected price of this item?</td>
-<td>How should I price products to stay competitive and profitable?</td>
-<td>Linear Regression, CatBoost</td>
-</tr>
-<tr class="even">
-<td>Demand Forecasting</td>
-<td>Historical sales, promotions, holidays</td>
-<td>Predicted sales volume</td>
-<td>What will sales be next week/month?</td>
-<td>How can I manage inventory or staffing to meet demand?</td>
-<td>Linear Regression, LSTM</td>
-</tr>
-<tr class="odd">
-<td>Medical Risk Score</td>
-<td>Patient vitals, history</td>
-<td>Risk score (e.g., probability of event)</td>
-<td>How likely is a medical event to occur?</td>
-<td>How should I prioritize preventive care for patients?</td>
-<td>Random Forest, Ridge Reg.</td>
-</tr>
-<tr class="even">
-<td>Revenue Forecasting</td>
-<td>Past financials, seasonality</td>
-<td>Revenue over next time period</td>
-<td>How much revenue will we make?</td>
-<td>How can I allocate budgets or set growth targets?</td>
-<td>Time Series Models, XGBoost</td>
-</tr>
-<tr class="odd">
-<td>Energy Usage Estimation</td>
-<td>Time of day, weather, appliance use</td>
-<td>Predicted energy consumption</td>
-<td>How much energy will be used in this period?</td>
-<td>How should I manage power supply or optimize grid efficiency?</td>
-<td>Linear Regression, SVR</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Supervised Learning (Classification) Use Cases</strong></p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 8%">
-<col style="width: 17%">
-<col style="width: 16%">
-<col style="width: 17%">
-<col style="width: 27%">
-<col style="width: 11%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Use Case</th>
-<th>Sample Inputs</th>
-<th>Model Output Description</th>
-<th>What ML Question is Being Answered?</th>
-<th>What Business Question is Being Answered?</th>
-<th>Example Algorithm(s)</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Email Spam Detection</td>
-<td>Email content, sender info, subject line</td>
-<td>Binary label: spam or not spam</td>
-<td>Is this email spam?</td>
-<td>How can I prevent unwanted emails from reaching users’ inboxes?</td>
-<td>Logistic Regression, SVM</td>
-</tr>
-<tr class="even">
-<td>Credit Risk Scoring</td>
-<td>Income, credit history, employment data</td>
-<td>Risk category (e.g., low/medium/high)</td>
-<td>Will this applicant default?</td>
-<td>Should I approve this loan, and at what interest rate?</td>
-<td>Decision Tree, XGBoost</td>
-</tr>
-<tr class="odd">
-<td>Image Classification</td>
-<td>Pixel values from an image</td>
-<td>Object class label (e.g., “cat”, “dog”)</td>
-<td>What object is in this image?</td>
-<td>How can I organize photos or automate product tagging?</td>
-<td>CNNs, ResNet</td>
-</tr>
-<tr class="even">
-<td>Sentiment Analysis</td>
-<td>Review text, social media posts</td>
-<td>Sentiment label (positive/negative)</td>
-<td>What sentiment is being expressed?</td>
-<td>What is the public opinion about my product or brand?</td>
-<td>Naive Bayes, BERT</td>
-</tr>
-<tr class="odd">
-<td>Disease Diagnosis</td>
-<td>Symptoms, test results, demographics</td>
-<td>Disease class (e.g., flu, COVID, none)</td>
-<td>What condition does this patient likely have?</td>
-<td>How can I assist doctors in making accurate and timely diagnoses?</td>
-<td>Random Forest, Neural Nets</td>
-</tr>
-</tbody>
-</table>
-</section>
-</section>
-<section id="unsupervised-learning" class="level2">
-<h2 class="anchored" data-anchor-id="unsupervised-learning">Unsupervised Learning</h2>
-<section id="unsupervised-learning-use-cases" class="level3">
-<h3 class="anchored" data-anchor-id="unsupervised-learning-use-cases">Unsupervised Learning Use Cases</h3>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 8%">
-<col style="width: 16%">
-<col style="width: 21%">
-<col style="width: 20%">
-<col style="width: 23%">
-<col style="width: 9%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Use Case</th>
-<th>Sample Inputs</th>
-<th>Model Output Description</th>
-<th>What ML Question is Being Answered?</th>
-<th>What Business Question is Being Answered?</th>
-<th>Example Algorithm(s)</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Customer Segmentation</td>
-<td>Age, income, purchase history</td>
-<td>Cluster/group labels for each customer</td>
-<td>What types of customers exist in my data?</td>
-<td>How can I tailor marketing strategies to different customer types?</td>
-<td>K-means, DBSCAN</td>
-</tr>
-<tr class="even">
-<td>Topic Modeling</td>
-<td>Articles or documents</td>
-<td>Topics with keywords per document</td>
-<td>What topics are being discussed?</td>
-<td>What content themes resonate most with my audience or market?</td>
-<td>LDA, NMF</td>
-</tr>
-<tr class="odd">
-<td>Anomaly Detection</td>
-<td>Transaction logs, sensor data</td>
-<td>Anomaly score or binary flag</td>
-<td>Which data points are unusual?</td>
-<td>Are there fraudulent transactions or system failures I need to act on?</td>
-<td>Isolation Forest, Autoencoder</td>
-</tr>
-<tr class="even">
-<td>Dimensionality Reduction</td>
-<td>High-dimensional features (e.g., pixels)</td>
-<td>2D or 3D projections for analysis or visualization</td>
-<td>How can I reduce feature space while preserving info?</td>
-<td>How can I visualize or simplify complex data for human analysis or modeling?</td>
-<td>PCA, t-SNE, UMAP</td>
-</tr>
-<tr class="odd">
-<td>Market Basket Analysis</td>
-<td>Sets of purchased items</td>
-<td>Association rules (A &amp; B → C)</td>
-<td>What items co-occur frequently in purchases?</td>
-<td>Which product bundles or cross-sell offers should I promote?</td>
-<td>Apriori, FP-Growth</td>
-</tr>
-<tr class="even">
-<td>Word Embedding</td>
-<td>Text corpus</td>
-<td>Word vectors capturing semantic similarity</td>
-<td>What are the contextual relationships between words?</td>
-<td>How can I build a smarter search engine or chatbot that understands language context?</td>
-<td>Word2Vec, GloVe</td>
-</tr>
-<tr class="odd">
-<td>Image Compression</td>
-<td>Raw pixel arrays</td>
-<td>Compressed version of the image</td>
-<td>How can I represent this image with fewer features?</td>
-<td>How can I reduce storage or transmission costs for image data?</td>
-<td>Autoencoders</td>
-</tr>
-</tbody>
-</table>
-</section>
-</section>
-<section id="reinforcement-learning" class="level2">
-<h2 class="anchored" data-anchor-id="reinforcement-learning">Reinforcement Learning</h2>
-<section id="reinforcement-learning-use-cases" class="level3">
-<h3 class="anchored" data-anchor-id="reinforcement-learning-use-cases">Reinforcement Learning Use Cases</h3>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 8%">
-<col style="width: 16%">
-<col style="width: 19%">
-<col style="width: 20%">
-<col style="width: 24%">
-<col style="width: 9%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Use Case</th>
-<th>Sample Inputs</th>
-<th>Model Output Description</th>
-<th>What ML Question is Being Answered?</th>
-<th>What Business Question is Being Answered?</th>
-<th>Example Algorithm(s)</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Game Playing</td>
-<td>Game state (e.g., board, score)</td>
-<td>Action to take</td>
-<td>What should I do to win the game?</td>
-<td>How can I build an AI that outperforms humans or creates adaptive gameplay?</td>
-<td>Q-learning, DQN</td>
-</tr>
-<tr class="even">
-<td>Robotics &amp; Control</td>
-<td>Sensor data (angles, velocities, etc.)</td>
-<td>Movement or control signals</td>
-<td>How should the agent move next to reach a goal?</td>
-<td>How can I automate physical tasks like picking, sorting, or navigating?</td>
-<td>PPO, SAC, DDPG</td>
-</tr>
-<tr class="odd">
-<td>Autonomous Vehicles</td>
-<td>Sensor input (camera, LIDAR, speed, GPS)</td>
-<td>Driving action</td>
-<td>What’s the optimal next driving move?</td>
-<td>How can I develop a safe and efficient self-driving vehicle system?</td>
-<td>Deep RL + sensor fusion</td>
-</tr>
-<tr class="even">
-<td>Recommendation Systems</td>
-<td>User history, preferences, session behavior</td>
-<td>Recommended item</td>
-<td>What should I recommend next?</td>
-<td>How can I increase user retention, engagement, or sales?</td>
-<td>Contextual Bandits, RL</td>
-</tr>
-<tr class="odd">
-<td>Portfolio Management</td>
-<td>Financial indicators, stock prices</td>
-<td>Asset allocation decision</td>
-<td>How should I invest to maximize return?</td>
-<td>How can I build an automated trading or portfolio optimization system?</td>
-<td>Actor-Critic methods</td>
-</tr>
-<tr class="even">
-<td>Personalized Education</td>
-<td>Student progress and quiz results</td>
-<td>Next learning step</td>
-<td>What lesson or content should come next?</td>
-<td>How can I boost student outcomes by personalizing learning pathways?</td>
-<td>Multi-armed bandits</td>
-</tr>
-<tr class="odd">
-<td>Healthcare Treatment</td>
-<td>Patient history and vitals</td>
-<td>Treatment or intervention strategy</td>
-<td>What care plan maximizes long-term patient health?</td>
-<td>How can I optimize healthcare outcomes while reducing costs and readmissions?</td>
-<td>Off-policy RL, POMDPs</td>
-</tr>
-</tbody>
-</table>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-bednar2010things" class="csl-entry" role="listitem">
+Bednar DA (2010) <a href="https://www.churchofjesuschrist.org/study/ensign/2010/06/things-as-they-really-are?lang=eng">Things
+as they really are</a>. <em>Ensign</em> 40(6):16–25.
+</div>
+<div id="ref-bednar2024things" class="csl-entry" role="listitem">
+Bednar DA (2024) <a href="https://www.churchofjesuschrist.org/study/broadcasts/worldwide-devotional-for-young-adults/2024/11/full-session?lang=eng">Things
+as they really are 2.0</a>.
+</div>
+</div>
 
 
-</section>
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -934,14 +625,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./01-history.html" class="pagination-link" aria-label="A Brief History of AI">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">A Brief History of AI</span></span>
+      <a href="./03-deep-learning.html" class="pagination-link" aria-label="Deep Learning">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Deep Learning</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./03-deep-learning.html" class="pagination-link" aria-label="Deep Learning">
-        <span class="nav-page-text"><span class="chapter-title">Deep Learning</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->

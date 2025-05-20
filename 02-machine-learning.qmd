@@ -6,9 +6,9 @@ editor: visual
 
 ## Machine Learning
 
-Supervised Learning: "Here’s the question and the right answer."
-Unsupervised Learning: "Here is some data, can you find patterns and/or organize it in a meaningful way?"
-Reinforcement Learning: "You’re an agent playing a, figure out the best strategy through trial and error, using only points (rewards) as feedback."
+Supervised Learning: "Here’s the question and the right answer."  
+Unsupervised Learning: "Here is some data, can you find patterns and/or organize it in a meaningful way?"  
+Reinforcement Learning: "You’re an agent playing a, figure out the best strategy through trial and error, using only points (rewards) as feedback."  
 
 "During training, a machine learning algorithm processes a dataset and chooses the function that best matches the patterns in the data."
 
@@ -21,6 +21,10 @@ Supervised learning is the most widely used type of machine learning and signifi
 Supervised learning gets its name from the fact that the input data set has examples of both inputs and outputs. 
 
 The outputs are called labels, hence you will sometime hear the term "labeled dataset."
+
+### Regression
+
+### Classification
 
 ### Supervised Learning Use Cases
 

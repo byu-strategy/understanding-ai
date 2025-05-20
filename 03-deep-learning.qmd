@@ -7,3 +7,7 @@ editor: visual
 ## Quarto
 
 "Why Is Deep Learning So Successful?"
+
+:::{.nocite}
+@*
+:::
