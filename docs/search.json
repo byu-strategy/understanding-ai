@@ -1,0 +1,162 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "STRAT 490R - Understanding AI: From Foundations to Strategy",
+    "section": "",
+    "text": "Syllabus\nFALL 2025\nInstructor: Scott Murff\nTAs: Carter Adams, Eli Nelson\nClass Time: M/W, 3:30–4:45 PM\nClass Location: TNRB W308\nLMS: LearningSuite",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Syllabus</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#content-overview",
+    "href": "index.html#content-overview",
+    "title": "STRAT 490R - Understanding AI: From Foundations to Strategy",
+    "section": "Content Overview",
+    "text": "Content Overview\nWelcome to Understanding AI: From Foundations to Strategy. This course seeks to help students climb the vast and rugged mountain of artificial intelligence (AI) and machine learning (ML) at a technical but still beginner accessible level of depth. We will not attempt to explore the entire mountain as this would be impossible in a single course. Instead, we will chart a path from the base of the mountain all the way to the peak. During the climb we will learn many of the most important AI/ML building blocks as we ascend higher. On reaching the peak (the end of the class) students will be able to see AI and ML from a new perspective and understand how modern LLMs and AI systems work (e.g. ChatGPT). The course is recommended for students who are ready to roll up their sleeves and get their hands dirty with the necessary math and code to understand how AI works from first principles. To excel in the course students should have taken a calculus, probability/stats, linear algebra, and have at least beginner level coding experience. A list of specific topics covered is shown in the figure below. Students can complete this short assessment to evaluate if they are prepared to succeed in the course.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Syllabus</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#learning-outcomes",
+    "href": "index.html#learning-outcomes",
+    "title": "STRAT 490R - Understanding AI: From Foundations to Strategy",
+    "section": "Learning Outcomes",
+    "text": "Learning Outcomes\n\n\n\n\n\n\n\nLearning Outcome\nTarget BYU Aim(s)\n\n\n\n\n1. Students will be able to implement basic AI and machine learning algorithms from first principles, including linear regression and neural networks, and apply these to Generative AI and LLM use cases.\nIntellectually Enlarging\n\n\n2. Students will analyze and explain the ethical, spiritual, and social implications of AI technologies, including their alignment (or misalignment) with eternal truths and principles of discipleship.\nSpiritually Strengthening, Character Building\n\n\n3. Students will demonstrate Christlike attributes such as diligence, humility, and purposeful curiosity in collaborative learning and problem-solving related to AI topics.\nCharacter Building\n\n\n4. Students will articulate how their understanding of AI can be used to bless the lives of others and reflect their discipleship to Jesus Christ in the workplace and community.\nLifelong Learning and Service, Spiritually Strengthening",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Syllabus</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#instructor-bio",
+    "href": "index.html#instructor-bio",
+    "title": "STRAT 490R - Understanding AI: From Foundations to Strategy",
+    "section": "Instructor Bio",
+    "text": "Instructor Bio\nScott Murff is an Associate Teaching Professor of Strategy at the BYU Marriott School of Business, where he also serves as program director and teaches courses on business strategy, decision-making, and artificial intelligence. He brings over 15 years of experience at the intersection of business and technology, having worked as a consultant, product manager, and data scientist.\nPrior to joining BYU, Scott spent nearly seven years at McKinsey & Company in roles ranging from analytics specialist consultant to principal product manager, where he led product development and performance management initiatives for Fortune 500 clients. His earlier career includes building forecasting models as a VP at Zions Bancorporation and conducting regulatory research at the U.S. Office of the Comptroller of the Currency.\nScott holds a Master’s degree in Management Science & Engineering from Stanford University and a B.A. in Economics from BYU. He is passionate about helping students apply AI, analytics, and strategy to meaningful real-world problems with both rigor and purpose.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Syllabus</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#schedule",
+    "href": "index.html#schedule",
+    "title": "STRAT 490R - Understanding AI: From Foundations to Strategy",
+    "section": "Schedule",
+    "text": "Schedule\nComing Soon.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Syllabus</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#grading",
+    "href": "index.html#grading",
+    "title": "STRAT 490R - Understanding AI: From Foundations to Strategy",
+    "section": "Grading",
+    "text": "Grading\nThe course is not graded on a curve. It’s possible for every student to earn an A. However, achieving an A is challenging and demonstrates true excellence. The grading scale is show below:\n\n\n\nLetter Grade\nPercentage Range\nGPA\n\n\n\n\nA\n93–100%\n4.0\n\n\nA-\n90–92%\n3.7\n\n\nB+\n87–89%\n3.4\n\n\nB\n83–86%\n3.0\n\n\nB-\n80–82%\n2.7\n\n\nC+\n77–79%\n2.4\n\n\nC\n73–76%\n2.0\n\n\nC-\n70–72%\n1.7\n\n\nD+\n67–69%\n1.4\n\n\nD\n63–66%\n1.0\n\n\nD-\n60–62%\n0.7\n\n\nE (Fail)\nBelow 60%\n0.0\n\n\n\n\nLate work policy\nLate work will be accepted up to 9 days late for partial credit with a 10% penalty per day according to the following schedule\n\n\n\nDays Late\nLate Penalty\n\n\n\n\n1\n-10%\n\n\n2\n-20%\n\n\n3\n-30%\n\n\n4\n-40%\n\n\n5\n-50%\n\n\n6\n-60%\n\n\n7\n-70%\n\n\n8\n-80%\n\n\n9\n-90%\n\n\n10\nNo Credit",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Syllabus</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#classroom-culture",
+    "href": "index.html#classroom-culture",
+    "title": "STRAT 490R - Understanding AI: From Foundations to Strategy",
+    "section": "Classroom Culture",
+    "text": "Classroom Culture\n\nMission and Aims\nThe mission of Brigham Young University — founded, supported, and guided by The Church of Jesus Christ of Latter-day Saints — is to assist individuals in their quest for perfection and eternal life. That assistance should provide a period of intensive learning in a stimulating setting where a commitment to excellence is expected and the full realization of human potential is pursued.\nBYU seeks to develop students of faith, intellect, and character who have the skills and the desire to continue learning and to serve others throughout their lives.\nA BYU education should be (1) spiritually strengthening, (2) intellectually enlarging, and (3) character building, leading to (4) lifelong learning and service.\nBuilding on the foundational Mission and Aims, the Marriott School of Business aspires to transform the world through Christlike leadership by developing leaders of faith, intellect, and character guided by the following 4 values:\n\nFaith in Christ - We value deep and abiding faith in Jesus Christ. Our faith gives us the capacity to envision a better future, the confidence to make that future happen, and the courage to act in the face of challenges.\nIntegrity in Action - We value integrity and hold ourselves to the highest moral and ethical standards. Acting with integrity builds trust, strengthens character, and focuses our ambitions on things of eternal consequence.\nRespect for All - We value respect for all individuals as children of God and recognize the inherent worth, divine potential, and agency of each person. A climate of respect and belonging enhances our learning, facilitates collaboration, and encourages personal growth.\nExcellence - We value excellence in learning, teaching, research, management, and leadership. An expectation of excellence magnifies our influence and motivates us to continually improve.\n\nWe evaluate our decisions and actions by the impact they will have on the academic experience, professional preparation, character development, emotional well-being, and spiritual growth of our students.\n\nPrayer in class\nWe will begin each class with prayer. Each class member is invited to be voice for the prayer at least once throughout the semester. The TAs will reach out prior to class to invite you to pray on a particular day. If you’d rather not be voice for a prayer please let me know on the first day of class so I can instruct the TAs accordingly.\n\n\nLaptop Policy\nYou may use laptops in class for note taking or other class related purposes. Laptops should not be used for activities that would be a distraction to nearby students when your screen is in their line of sight (e.g. sports, instagram, etc.)\n\n\nCold Calling\nI teach in a fairly conversational style, which includes cold calling students to ask for your input or to pose questions. If you’d rather I not cold call on you please let me know on the first day of class so that I can avoid doing so. I have deep respect for individual learning styles and will make accommodations when needed.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Syllabus</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#required-materials",
+    "href": "index.html#required-materials",
+    "title": "STRAT 490R - Understanding AI: From Foundations to Strategy",
+    "section": "Required Materials",
+    "text": "Required Materials\nLMS: LearningSuite Class communication: Slack Required materials: The Lean Product Playbook: How to Innovate with Minimum Viable Products and Rapid Customer Feedback by Dan Olsen (physical copy recommended, $25 or less). Text and audio also available for free for BYU students digitally at O’Reilly books. Laptop or desktop (Mac or Windows) Install Mendix Studio Pro version 10.18.0 on Mac or Windows (free) Verify your student status with Figma and install desktop app for Mac or Windows (free)",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Syllabus</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#getting-help",
+    "href": "index.html#getting-help",
+    "title": "STRAT 490R - Understanding AI: From Foundations to Strategy",
+    "section": "Getting Help",
+    "text": "Getting Help\nThe following resources are available to get help: - Start with AI chat bots and the course website to see if they can assist - Use the course Slack channel to ask classmates for help - Attend TA or Professor office hours (coming soon) - Use Slack or email to contact one of the course TAs - Use Slack or email to contact Professor Murff",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Syllabus</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#pre-enrollment-assessment",
+    "href": "index.html#pre-enrollment-assessment",
+    "title": "STRAT 490R - Understanding AI: From Foundations to Strategy",
+    "section": "Pre-enrollment Assessment",
+    "text": "Pre-enrollment Assessment\nComing soon.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Syllabus</span>"
+    ]
+  },
+  {
+    "objectID": "01-history.html",
+    "href": "01-history.html",
+    "title": "A Brief History of AI",
+    "section": "",
+    "text": "Quarto\nAccording to John D. Kelleher “the field of artificial intelligence was born at a workshop at Dartmouth College in the summer of 1956.”",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>A Brief History of AI</span>"
+    ]
+  },
+  {
+    "objectID": "02-machine-learning.html",
+    "href": "02-machine-learning.html",
+    "title": "Machine Learning and Artificial Intelligence",
+    "section": "",
+    "text": "Machine Learning\nSupervised Learning: “Here’s the question and the right answer.” Unsupervised Learning: “Here is some data, can you find patterns and/or organize it in a meaningful way?” Reinforcement Learning: “You’re an agent playing a, figure out the best strategy through trial and error, using only points (rewards) as feedback.”\n“During training, a machine learning algorithm processes a dataset and chooses the function that best matches the patterns in the data.”\nsupervised, unsupervised, and reinforcement.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Machine Learning and Artificial Intelligence</span>"
+    ]
+  },
+  {
+    "objectID": "02-machine-learning.html#supervised-learning",
+    "href": "02-machine-learning.html#supervised-learning",
+    "title": "Machine Learning and Artificial Intelligence",
+    "section": "Supervised Learning",
+    "text": "Supervised Learning\nSupervised learning is the most widely used type of machine learning and significantly overlaps with the methodologies of other quantitative fields, such as econometrics.\nSupervised learning gets its name from the fact that the input data set has examples of both inputs and outputs.\nThe outputs are called labels, hence you will sometime hear the term “labeled dataset.”\n\nSupervised Learning Use Cases\nSupervised Learning (Regression) Use Cases\n\n\n\n\n\n\n\n\n\n\n\nUse Case\nSample Inputs\nModel Output Description\nWhat ML Question is Being Answered?\nWhat Business Question is Being Answered?\nExample Algorithm(s)\n\n\n\n\nPrice Prediction\nProperty size, location, features\nNumeric price\nWhat is the expected price of this item?\nHow should I price products to stay competitive and profitable?\nLinear Regression, CatBoost\n\n\nDemand Forecasting\nHistorical sales, promotions, holidays\nPredicted sales volume\nWhat will sales be next week/month?\nHow can I manage inventory or staffing to meet demand?\nLinear Regression, LSTM\n\n\nMedical Risk Score\nPatient vitals, history\nRisk score (e.g., probability of event)\nHow likely is a medical event to occur?\nHow should I prioritize preventive care for patients?\nRandom Forest, Ridge Reg.\n\n\nRevenue Forecasting\nPast financials, seasonality\nRevenue over next time period\nHow much revenue will we make?\nHow can I allocate budgets or set growth targets?\nTime Series Models, XGBoost\n\n\nEnergy Usage Estimation\nTime of day, weather, appliance use\nPredicted energy consumption\nHow much energy will be used in this period?\nHow should I manage power supply or optimize grid efficiency?\nLinear Regression, SVR\n\n\n\nSupervised Learning (Classification) Use Cases\n\n\n\n\n\n\n\n\n\n\n\nUse Case\nSample Inputs\nModel Output Description\nWhat ML Question is Being Answered?\nWhat Business Question is Being Answered?\nExample Algorithm(s)\n\n\n\n\nEmail Spam Detection\nEmail content, sender info, subject line\nBinary label: spam or not spam\nIs this email spam?\nHow can I prevent unwanted emails from reaching users’ inboxes?\nLogistic Regression, SVM\n\n\nCredit Risk Scoring\nIncome, credit history, employment data\nRisk category (e.g., low/medium/high)\nWill this applicant default?\nShould I approve this loan, and at what interest rate?\nDecision Tree, XGBoost\n\n\nImage Classification\nPixel values from an image\nObject class label (e.g., “cat”, “dog”)\nWhat object is in this image?\nHow can I organize photos or automate product tagging?\nCNNs, ResNet\n\n\nSentiment Analysis\nReview text, social media posts\nSentiment label (positive/negative)\nWhat sentiment is being expressed?\nWhat is the public opinion about my product or brand?\nNaive Bayes, BERT\n\n\nDisease Diagnosis\nSymptoms, test results, demographics\nDisease class (e.g., flu, COVID, none)\nWhat condition does this patient likely have?\nHow can I assist doctors in making accurate and timely diagnoses?\nRandom Forest, Neural Nets",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Machine Learning and Artificial Intelligence</span>"
+    ]
+  },
+  {
+    "objectID": "02-machine-learning.html#unsupervised-learning",
+    "href": "02-machine-learning.html#unsupervised-learning",
+    "title": "Machine Learning and Artificial Intelligence",
+    "section": "Unsupervised Learning",
+    "text": "Unsupervised Learning\n\nUnsupervised Learning Use Cases\n\n\n\n\n\n\n\n\n\n\n\nUse Case\nSample Inputs\nModel Output Description\nWhat ML Question is Being Answered?\nWhat Business Question is Being Answered?\nExample Algorithm(s)\n\n\n\n\nCustomer Segmentation\nAge, income, purchase history\nCluster/group labels for each customer\nWhat types of customers exist in my data?\nHow can I tailor marketing strategies to different customer types?\nK-means, DBSCAN\n\n\nTopic Modeling\nArticles or documents\nTopics with keywords per document\nWhat topics are being discussed?\nWhat content themes resonate most with my audience or market?\nLDA, NMF\n\n\nAnomaly Detection\nTransaction logs, sensor data\nAnomaly score or binary flag\nWhich data points are unusual?\nAre there fraudulent transactions or system failures I need to act on?\nIsolation Forest, Autoencoder\n\n\nDimensionality Reduction\nHigh-dimensional features (e.g., pixels)\n2D or 3D projections for analysis or visualization\nHow can I reduce feature space while preserving info?\nHow can I visualize or simplify complex data for human analysis or modeling?\nPCA, t-SNE, UMAP\n\n\nMarket Basket Analysis\nSets of purchased items\nAssociation rules (A & B → C)\nWhat items co-occur frequently in purchases?\nWhich product bundles or cross-sell offers should I promote?\nApriori, FP-Growth\n\n\nWord Embedding\nText corpus\nWord vectors capturing semantic similarity\nWhat are the contextual relationships between words?\nHow can I build a smarter search engine or chatbot that understands language context?\nWord2Vec, GloVe\n\n\nImage Compression\nRaw pixel arrays\nCompressed version of the image\nHow can I represent this image with fewer features?\nHow can I reduce storage or transmission costs for image data?\nAutoencoders",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Machine Learning and Artificial Intelligence</span>"
+    ]
+  },
+  {
+    "objectID": "02-machine-learning.html#reinforcement-learning",
+    "href": "02-machine-learning.html#reinforcement-learning",
+    "title": "Machine Learning and Artificial Intelligence",
+    "section": "Reinforcement Learning",
+    "text": "Reinforcement Learning\n\nReinforcement Learning Use Cases\n\n\n\n\n\n\n\n\n\n\n\nUse Case\nSample Inputs\nModel Output Description\nWhat ML Question is Being Answered?\nWhat Business Question is Being Answered?\nExample Algorithm(s)\n\n\n\n\nGame Playing\nGame state (e.g., board, score)\nAction to take\nWhat should I do to win the game?\nHow can I build an AI that outperforms humans or creates adaptive gameplay?\nQ-learning, DQN\n\n\nRobotics & Control\nSensor data (angles, velocities, etc.)\nMovement or control signals\nHow should the agent move next to reach a goal?\nHow can I automate physical tasks like picking, sorting, or navigating?\nPPO, SAC, DDPG\n\n\nAutonomous Vehicles\nSensor input (camera, LIDAR, speed, GPS)\nDriving action\nWhat’s the optimal next driving move?\nHow can I develop a safe and efficient self-driving vehicle system?\nDeep RL + sensor fusion\n\n\nRecommendation Systems\nUser history, preferences, session behavior\nRecommended item\nWhat should I recommend next?\nHow can I increase user retention, engagement, or sales?\nContextual Bandits, RL\n\n\nPortfolio Management\nFinancial indicators, stock prices\nAsset allocation decision\nHow should I invest to maximize return?\nHow can I build an automated trading or portfolio optimization system?\nActor-Critic methods\n\n\nPersonalized Education\nStudent progress and quiz results\nNext learning step\nWhat lesson or content should come next?\nHow can I boost student outcomes by personalizing learning pathways?\nMulti-armed bandits\n\n\nHealthcare Treatment\nPatient history and vitals\nTreatment or intervention strategy\nWhat care plan maximizes long-term patient health?\nHow can I optimize healthcare outcomes while reducing costs and readmissions?\nOff-policy RL, POMDPs",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Machine Learning and Artificial Intelligence</span>"
+    ]
+  },
+  {
+    "objectID": "03-deep-learning.html",
+    "href": "03-deep-learning.html",
+    "title": "Deep Learning",
+    "section": "",
+    "text": "Quarto\n“Why Is Deep Learning So Successful?”",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Deep Learning</span>"
+    ]
+  }
+]

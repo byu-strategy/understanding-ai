@@ -1,0 +1,10 @@
+---
+title: "A Brief History of AI"
+format: html
+editor: visual
+---
+
+## Quarto
+
+According to John D. Kelleher "the field of artificial intelligence was born at a workshop at Dartmouth College in the summer of 1956."
+
