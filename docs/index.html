@@ -32,7 +32,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./01-history.html" rel="next">
+<link href="./01-machine-learning.html" rel="next">
 <link href="./images/understanding-ai-favicon.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -116,17 +116,12 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01-history.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">A Brief History of AI</span></a>
+  <a href="./01-machine-learning.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Machine Learning and Artificial Intelligence</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02-machine-learning.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Machine Learning and Artificial Intelligence</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./03-deep-learning.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Deep Learning</span></a>
+  <a href="./02-llms.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Large Language Models</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -148,6 +143,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#syllabus" id="toc-syllabus" class="nav-link active" data-scroll-target="#syllabus">Syllabus</a>
   <ul class="collapse">
   <li><a href="#content-overview" id="toc-content-overview" class="nav-link" data-scroll-target="#content-overview">Content Overview</a></li>
+  <li><a href="#who-should-take-this-course" id="toc-who-should-take-this-course" class="nav-link" data-scroll-target="#who-should-take-this-course">Who Should Take This Course</a></li>
   <li><a href="#learning-outcomes" id="toc-learning-outcomes" class="nav-link" data-scroll-target="#learning-outcomes">Learning Outcomes</a></li>
   <li><a href="#instructor-bio" id="toc-instructor-bio" class="nav-link" data-scroll-target="#instructor-bio">Instructor Bio</a></li>
   <li><a href="#schedule" id="toc-schedule" class="nav-link" data-scroll-target="#schedule">Schedule</a></li>
@@ -204,18 +200,28 @@ ul.task-list li input[type="checkbox"] {
 <h1>Syllabus</h1>
 <p><em>FALL 2025</em></p>
 <p><strong>Instructor:</strong> Scott Murff<br>
-<strong>TAs:</strong> Carter Adams, Eli Nelson<br>
-<strong>Class Time:</strong> M/W, 3:30–4:45 PM<br>
+<strong>TAs:</strong> TBD <strong>Class Time:</strong> M/W, 3:30–4:45 PM<br>
 <strong>Class Location:</strong> TNRB W308<br>
 <strong>LMS:</strong> LearningSuite</p>
 <section id="content-overview" class="level2">
 <h2 class="anchored" data-anchor-id="content-overview">Content Overview</h2>
-<p>Welcome to <em>Understanding AI: From Foundations to Strategy</em>. This course seeks to help students climb the vast and rugged mountain of artificial intelligence (AI) and machine learning (ML) at a technical but still beginner accessible level of depth. We will not attempt to explore the entire mountain as this would be impossible in a single course. Instead, we will chart a path from the base of the mountain all the way to the peak. During the climb we will learn many of the most important AI/ML building blocks as we ascend higher. On reaching the peak (the end of the class) students will be able to see AI and ML from a new perspective and understand how modern LLMs and AI systems work (e.g.&nbsp;ChatGPT). The course is recommended for students who are ready to roll up their sleeves and get their hands dirty with the necessary math and code to understand how AI works from first principles. To excel in the course students should have taken a calculus, probability/stats, linear algebra, and have at least beginner level coding experience. A list of specific topics covered is shown in the figure below. Students can complete <strong>this short assessment</strong> to evaluate if they are prepared to succeed in the course.</p>
+<p>Welcome to Understanding AI: From Foundations to Strategy. In this course, students will learn where large language models (LLMs) like ChatGPT fit into the broader landscape of Artificial Intelligence (AI). Students will then build an LLM from the ground up using Python. The course concludes with a strategic exploration of how AI is transforming companies and society and how to harness it for good.</p>
+<p>The course will begin with an essential math review but to excel in the course students should have some prior experience with differential calculus (i.e.&nbsp;derivatives), matrix multiplication (i.e.&nbsp;multiplying two or more matrices together), conditional probability, and basic Python programming.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/ai-mountain.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%"></p>
 </figure>
 </div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/ai-ml-map.png" class="img-fluid figure-img" style="width:70.0%"></p>
+<figcaption>Image source: <em>Build a Large Language Model (From Scratch)</em> by Sebastian Raschka</figcaption>
+</figure>
+</div>
+</section>
+<section id="who-should-take-this-course" class="level2">
+<h2 class="anchored" data-anchor-id="who-should-take-this-course">Who Should Take This Course</h2>
+<p>This course is intended for advanced undergraduates and/or masters students who want a deep, technical introduction to LLMs alongside strategic insight into their real-world deployment.</p>
 </section>
 <section id="learning-outcomes" class="level2">
 <h2 class="anchored" data-anchor-id="learning-outcomes">Learning Outcomes</h2>
@@ -420,6 +426,9 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="required-materials" class="level2">
 <h2 class="anchored" data-anchor-id="required-materials">Required Materials</h2>
+<ul>
+<li><a href="https://www.amazon.com/gp/product/1633437167">Build a Large Language Model From Scratch</a> or <a href="https://www.manning.com/books/build-a-large-language-model-from-scratch">here</a></li>
+</ul>
 <p>LMS: LearningSuite Class communication: Slack Required materials: The Lean Product Playbook: How to Innovate with Minimum Viable Products and Rapid Customer Feedback by Dan Olsen (physical copy recommended, $25 or less). Text and audio also available for free for BYU students digitally at O’Reilly books. Laptop or desktop (Mac or Windows) Install Mendix Studio Pro version 10.18.0 on Mac or Windows (free) Verify your student status with Figma and install desktop app for Mac or Windows (free)</p>
 </section>
 <section id="getting-help" class="level2">
@@ -866,8 +875,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   <div class="nav-page nav-page-previous">
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./01-history.html" class="pagination-link" aria-label="A Brief History of AI">
-        <span class="nav-page-text"><span class="chapter-title">A Brief History of AI</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./01-machine-learning.html" class="pagination-link" aria-label="Machine Learning and Artificial Intelligence">
+        <span class="nav-page-text"><span class="chapter-title">Machine Learning and Artificial Intelligence</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

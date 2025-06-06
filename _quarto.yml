@@ -11,9 +11,10 @@ book:
   date: "5/10/2025"
   chapters:
    - index.qmd
-   - 01-history.qmd
-   - 02-machine-learning.qmd
-   - 03-deep-learning.qmd
+   - 01-machine-learning.qmd
+   - 02-llms.qmd
+
+ #  - 03-deep-learning.qmd
    - references.qmd
 
 bibliography: references.bib

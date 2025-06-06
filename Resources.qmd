@@ -1,0 +1,81 @@
+---
+title: "Resources"
+editor: visual
+---
+
+## Videos
+
+[Let's build GPT: from scratch, in code, spelled out](https://www.youtube.com/watch?v=kCc8FmEb1nY) by 
+Andrej Karpathy
+
+[Neural Networks Visually](https://www.youtube.com/playlist?list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi) by 3Blue1Brown
+
+[The 35 Year History of LLMs](https://www.youtube.com/watch?v=OFS90-FX6pg)
+
+
+https://x.com/karpathy/status/1917961248031080455
+
+## Tokenizers
+
+**Byte Pair Encoding (BPE)** “builds its vocabulary by iteratively merging frequent characters into subwords and frequent subwords into words. For example, BPE starts with adding all individual single characters to its vocabulary (“a,” “b,” etc.). In the next stage, it merges character combinations that frequently occur together into subwords. For example, “d” and “e” may be merged into the subword “de,” which is common in many English words like “define,” “depend,” “made,” and “hidden.” The merges are determined by a frequency cutoff.” (@build-llms-from-scratch-book)
+
+
+| Tokenizer Type     | Used In                         | Description                                                                                         |
+|--------------------|----------------------------------|-----------------------------------------------------------------------------------------------------|
+| **WordPiece**       | BERT, DistilBERT, ALBERT         | Splits words into frequent subword units using a greedy longest-match-first algorithm. Handles rare or unknown words by decomposing them into known parts. |
+| **Byte Pair Encoding (BPE)** | GPT-2, GPT-Neo, RoBERTa          | Uses a data-driven merge process to combine frequently occurring character pairs into subwords. Efficient and balances vocabulary size with coverage. |
+| **Byte-Level BPE**  | GPT-2, GPT-3, GPT-4              | A variant of BPE that operates at the byte level, enabling robust handling of any UTF-8 text (including emojis and accents). No need for pre-tokenization. |
+| **SentencePiece**   | T5, XLNet, some ALBERT versions  | Trains directly on raw text (with or without spaces). Supports BPE or Unigram language model algorithms. Useful for languages without whitespace delimiters. |
+| **Custom (Hugging Face Tokenizers)** | Many Hugging Face models         | A flexible library for building and using fast, production-ready tokenizers (WordPiece, BPE, Unigram, byte-level) with customizable pre- and post-processing. |
+
+
+[Tiktokenizer](https://tiktokenizer.vercel.app/) is a free, browser-based tool that helps you see how language models like GPT-3.5 and GPT-4 break text into tokens—the fundamental units they process. Built using OpenAI’s official tiktoken library, it allows you to input any text, choose a model, and instantly see how many tokens your input uses, along with how the text is split. This is essential for understanding how models interpret prompts, stay within context limits, and calculate usage costs. It’s a practical tool for debugging, optimizing prompts, and learning how AI systems “see” language.
+
+[Tokenizer](https://platform.openai.com/tokenizer). OpenAI's large language models process text using tokens, which are common sequences of characters found in a set of text. The models learn to understand the statistical relationships between these tokens, and excel at producing the next token in a sequence of tokens.
+
+## Thought Leaders
+
+
+[Jay Alammar](https://www.linkedin.com/in/jalammar/)
+
+https://jalammar.github.io/
+
+Enroll for free now: https://bit.ly/4aRnn7Z
+Github Repo: https://github.com/HandsOnLLM/Hands-On-Large-Language-Models
+
+Andrej Karpathy
+https://github.com/karpathy/LLM101n
+
+What I cannot create, I do not understand. -Richard Feynman
+
+In this course we will build a Storyteller AI Large Language Model (LLM). Hand in hand, you'll be able to create, refine and illustrate little stories with the AI. We are going to build everything end-to-end from basics to a functioning web app similar to ChatGPT, from scratch in Python, C and CUDA, and with minimal computer science prerequisites. By the end you should have a relatively deep understanding of AI, LLMs, and deep learning more generally.
+
+Syllabus
+
+Chapter 01 Bigram Language Model (language modeling)
+Chapter 02 Micrograd (machine learning, backpropagation)
+Chapter 03 N-gram model (multi-layer perceptron, matmul, gelu)
+Chapter 04 Attention (attention, softmax, positional encoder)
+Chapter 05 Transformer (transformer, residual, layernorm, GPT-2)
+Chapter 06 Tokenization (minBPE, byte pair encoding)
+Chapter 07 Optimization (initialization, optimization, AdamW)
+Chapter 08 Need for Speed I: Device (device, CPU, GPU, ...)
+Chapter 09 Need for Speed II: Precision (mixed precision training, fp16, bf16, fp8, ...)
+Chapter 10 Need for Speed III: Distributed (distributed optimization, DDP, ZeRO)
+Chapter 11 Datasets (datasets, data loading, synthetic data generation)
+Chapter 12 Inference I: kv-cache (kv-cache)
+Chapter 13 Inference II: Quantization (quantization)
+Chapter 14 Finetuning I: SFT (supervised finetuning SFT, PEFT, LoRA, chat)
+Chapter 15 Finetuning II: RL (reinforcement learning, RLHF, PPO, DPO)
+Chapter 16 Deployment (API, web app)
+Chapter 17 Multimodal (VQVAE, diffusion transformer)
+Appendix
+
+Further topics to work into the progression above:
+
+Programming languages: Assembly, C, Python
+Data types: Integer, Float, String (ASCII, Unicode, UTF-8)
+Tensor: shapes, views, strides, contiguous, ...
+Deep Learning frameworks: PyTorch, JAX
+Neural Net Architecture: GPT (1,2,3,4), Llama (RoPE, RMSNorm, GQA), MoE, ...
+Multimodal: Images, Audio, Video, VQVAE, VQGAN, diffusion

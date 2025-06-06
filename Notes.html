@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Deep Learning – STRAT 490R - Understanding AI: From Foundations to Strategy</title>
+<title>Notes</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,137 +23,29 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./references.html" rel="next">
-<link href="./02-machine-learning.html" rel="prev">
-<link href="./images/understanding-ai-favicon.png" rel="icon" type="image/png">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
-<script id="quarto-search-options" type="application/json">{
-  "location": "sidebar",
-  "copy-button": false,
-  "collapse-after": 3,
-  "panel-placement": "start",
-  "type": "textbox",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
-  "show-item-context": false,
-  "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
-    "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
-  }
-}</script>
+<script src="Notes_files/libs/clipboard/clipboard.min.js"></script>
+<script src="Notes_files/libs/quarto-html/quarto.js"></script>
+<script src="Notes_files/libs/quarto-html/popper.min.js"></script>
+<script src="Notes_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="Notes_files/libs/quarto-html/anchor.min.js"></script>
+<link href="Notes_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="Notes_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="Notes_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="Notes_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="Notes_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 
 
-<link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-sidebar floating">
+<body class="fullcontent">
 
-<div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-        <i class="bi bi-layout-text-sidebar-reverse"></i>
-      </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./03-deep-learning.html"><span class="chapter-title">Deep Learning</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-        </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
-        <i class="bi bi-search"></i>
-      </button>
-    </div>
-  </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
-<!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
-    <div class="sidebar-title mb-0 py-0">
-      <a href="./">STRAT 490R - Understanding AI: From Foundations to Strategy</a> 
-    </div>
-      </div>
-        <div class="mt-2 flex-shrink-0 align-items-center">
-        <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Search"></div>
-        </div>
-        </div>
-    <div class="sidebar-menu-container"> 
-    <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Syllabus</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./01-history.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">A Brief History of AI</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./02-machine-learning.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Machine Learning and Artificial Intelligence</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./03-deep-learning.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Deep Learning</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">References</span></a>
-  </div>
-</li>
-    </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
-<!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#quarto" id="toc-quarto" class="nav-link active" data-scroll-target="#quarto">Quarto</a></li>
-  </ul>
-</nav>
-    </div>
-<!-- main -->
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-title">Deep Learning</span></h1>
+<h1 class="title">Notes</h1>
 </div>
 
 
@@ -170,17 +62,17 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="quarto" class="level2">
-<h2 class="anchored" data-anchor-id="quarto">Quarto</h2>
-<p>“Why Is Deep Learning So Successful?”</p>
-<div class="nocite">
-<p><span class="citation" data-cites="*"></span></p>
-</div>
+<p>Week 1: Introduction to LLMs &amp; the Big Picture What is a language model? History: From n-grams to transformers Overview of transformer-based LLMs (GPT, BERT) Course objectives and deliverables Set up Python environment (Jupyter/Colab) 🧮 Week 2: Tokenization &amp; Language as Numbers Subword tokenization (Byte Pair Encoding or Unigram LM) Building a simple tokenizer Vocabulary, tokens, and numerical representations Padding, special tokens, masks Project: Implement a tokenizer + detokenizer</p>
+<p>🔣 Week 3: Building Blocks of Neural Nets Vectors, matrices, and basic operations Activation functions (ReLU, GELU, Softmax) Forward pass and backpropagation Loss functions (cross-entropy) Project: Train a 2-layer feedforward model on character-level prediction</p>
+<p>📐 Week 4: Attention is All You Need Sequence models: RNNs vs Attention Attention mechanism (Scaled Dot-Product Attention) Multi-head attention Positional encodings Project: Implement attention from scratch</p>
+<p>🧱 Week 5: Transformer Architecture Encoder vs Decoder stack (focus on Decoder-only for GPT-style) LayerNorm, residuals, feedforward layers Putting it together: a single transformer block Project: Build a transformer block from scratch</p>
+<p>📚 Week 6: Training a Mini GPT Create dataset (e.g.&nbsp;TinyShakespeare, small dialogues) Causal language modeling (next-token prediction) Training loop with mini-batches Overfitting a tiny model on a small dataset Project: Train your toy GPT on simple data</p>
+<p>🧪 Week 7: Sampling &amp; Text Generation Temperature, top-k, nucleus sampling Greedy vs stochastic decoding Generating completions and prompts Project: Generate coherent completions from your model</p>
+<p>🧠 Week 8: Scaling Up and Limitations Why scale matters: parameters vs performance Memory and compute tradeoffs Basics of optimization (Adam, gradient clipping, learning rate schedules) Optional Projects:</p>
+<p>Add dropout, masking Implement weight sharing or rotary positional embeddings 🧩 Week 9–10: Stretch Topics (Pick based on student interest) Fine-tuning vs Pretraining RLHF and human alignment Embeddings and prompt tuning Distillation and quantization 📈 Week 11: Evaluation and Interpretability Perplexity, BLEU, qualitative review Basic probing of neurons Visualization of attention heads</p>
 
-
-</section>
-
-</main> <!-- /main -->
+</main>
+<!-- /main column -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -287,13 +179,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         if (link.dataset.originalHref !== undefined) {
           link.href = link.dataset.originalHref;
         }
-          // target, if specified
-          link.setAttribute("target", "_blank");
-          if (link.getAttribute("rel") === null) {
-            link.setAttribute("rel", "noopener");
-          }
-          // default icon
-          link.classList.add("external");
       }
     }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
@@ -608,18 +493,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-      <a href="./02-machine-learning.html" class="pagination-link" aria-label="Machine Learning and Artificial Intelligence">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Machine Learning and Artificial Intelligence</span></span>
-      </a>          
-  </div>
-  <div class="nav-page nav-page-next">
-      <a href="./references.html" class="pagination-link" aria-label="References">
-        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
-  </div>
-</nav>
 </div> <!-- /content -->
 
 

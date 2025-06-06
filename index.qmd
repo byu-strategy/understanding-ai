@@ -10,18 +10,26 @@ format:
 # Syllabus
 
 *FALL 2025*
-
+  
 **Instructor:** Scott Murff  
-**TAs:** Carter Adams, Eli Nelson  
+**TAs:** TBD 
 **Class Time:** M/W, 3:30–4:45 PM  
 **Class Location:** TNRB W308  
 **LMS:** LearningSuite
 
 ## Content Overview
 
-Welcome to *Understanding AI: From Foundations to Strategy*. This course seeks to help students climb the vast and rugged mountain of artificial intelligence (AI) and machine learning (ML) at a technical but still beginner accessible level of depth. We will not attempt to explore the entire mountain as this would be impossible in a single course. Instead, we will chart a path from the base of the mountain all the way to the peak. During the climb we will learn many of the most important AI/ML building blocks as we ascend higher. On reaching the peak (the end of the class) students will be able to see AI and ML from a new perspective and understand how modern LLMs and AI systems work (e.g. ChatGPT). The course is recommended for students who are ready to roll up their sleeves and get their hands dirty with the necessary math and code to understand how AI works from first principles. To excel in the course students should have taken a calculus, probability/stats, linear algebra, and have at least beginner level coding experience. A list of specific topics covered is shown in the figure below. Students can complete **this short assessment** to evaluate if they are prepared to succeed in the course.
+Welcome to Understanding AI: From Foundations to Strategy. In this course, students will learn where large language models (LLMs) like ChatGPT fit into the broader landscape of Artificial Intelligence (AI). Students will then build an LLM from the ground up using Python. The course concludes with a strategic exploration of how AI is transforming companies and society and how to harness it for good.
+
+The course will begin with an essential math review but to excel in the course students should have some prior experience with differential calculus (i.e. derivatives), matrix multiplication (i.e. multiplying two or more matrices together), conditional probability, and basic Python programming.
 
 ![](images/ai-mountain.png){width="70%" fig-align="center"}
+
+![Image source: *Build a Large Language Model (From Scratch)* by Sebastian Raschka](images/ai-ml-map.png){width="70%" fig-align="center"}
+
+## Who Should Take This Course
+
+This course is intended for advanced undergraduates and/or masters students who want a deep, technical introduction to LLMs alongside strategic insight into their real-world deployment. 
 
 ## Learning Outcomes
 
@@ -115,6 +123,10 @@ You may use laptops in class for note taking or other class related purposes. La
 I teach in a fairly conversational style, which includes cold calling students to ask for your input or to pose questions. If you'd rather I not cold call on you please let me know on the first day of class so that I can avoid doing so. I have deep respect for individual learning styles and will make accommodations when needed.
 
 ## Required Materials
+
+- [Build a Large Language Model From Scratch](https://www.amazon.com/gp/product/1633437167) or [here](https://www.manning.com/books/build-a-large-language-model-from-scratch)
+
+
 
 LMS: LearningSuite Class communication: Slack Required materials: The Lean Product Playbook: How to Innovate with Minimum Viable Products and Rapid Customer Feedback by Dan Olsen (physical copy recommended, \$25 or less). Text and audio also available for free for BYU students digitally at O'Reilly books. Laptop or desktop (Mac or Windows) Install Mendix Studio Pro version 10.18.0 on Mac or Windows (free) Verify your student status with Figma and install desktop app for Mac or Windows (free)
 

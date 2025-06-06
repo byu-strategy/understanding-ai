@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "STRAT 490R - Understanding AI: From Foundations to Strategy",
     "section": "",
-    "text": "Syllabus\nFALL 2025\nInstructor: Scott Murff\nTAs: Carter Adams, Eli Nelson\nClass Time: M/W, 3:30–4:45 PM\nClass Location: TNRB W308\nLMS: LearningSuite",
+    "text": "Syllabus\nFALL 2025\nInstructor: Scott Murff\nTAs: TBD Class Time: M/W, 3:30–4:45 PM\nClass Location: TNRB W308\nLMS: LearningSuite",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Syllabus</span>"
     ]
@@ -14,7 +14,17 @@
     "href": "index.html#content-overview",
     "title": "STRAT 490R - Understanding AI: From Foundations to Strategy",
     "section": "Content Overview",
-    "text": "Content Overview\nWelcome to Understanding AI: From Foundations to Strategy. This course seeks to help students climb the vast and rugged mountain of artificial intelligence (AI) and machine learning (ML) at a technical but still beginner accessible level of depth. We will not attempt to explore the entire mountain as this would be impossible in a single course. Instead, we will chart a path from the base of the mountain all the way to the peak. During the climb we will learn many of the most important AI/ML building blocks as we ascend higher. On reaching the peak (the end of the class) students will be able to see AI and ML from a new perspective and understand how modern LLMs and AI systems work (e.g. ChatGPT). The course is recommended for students who are ready to roll up their sleeves and get their hands dirty with the necessary math and code to understand how AI works from first principles. To excel in the course students should have taken a calculus, probability/stats, linear algebra, and have at least beginner level coding experience. A list of specific topics covered is shown in the figure below. Students can complete this short assessment to evaluate if they are prepared to succeed in the course.",
+    "text": "Content Overview\nWelcome to Understanding AI: From Foundations to Strategy. In this course, students will learn where large language models (LLMs) like ChatGPT fit into the broader landscape of Artificial Intelligence (AI). Students will then build an LLM from the ground up using Python. The course concludes with a strategic exploration of how AI is transforming companies and society and how to harness it for good.\nThe course will begin with an essential math review but to excel in the course students should have some prior experience with differential calculus (i.e. derivatives), matrix multiplication (i.e. multiplying two or more matrices together), conditional probability, and basic Python programming.\n\n\n\n\n\n\n\n\nImage source: Build a Large Language Model (From Scratch) by Sebastian Raschka",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Syllabus</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#who-should-take-this-course",
+    "href": "index.html#who-should-take-this-course",
+    "title": "STRAT 490R - Understanding AI: From Foundations to Strategy",
+    "section": "Who Should Take This Course",
+    "text": "Who Should Take This Course\nThis course is intended for advanced undergraduates and/or masters students who want a deep, technical introduction to LLMs alongside strategic insight into their real-world deployment.",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Syllabus</span>"
     ]
@@ -74,7 +84,7 @@
     "href": "index.html#required-materials",
     "title": "STRAT 490R - Understanding AI: From Foundations to Strategy",
     "section": "Required Materials",
-    "text": "Required Materials\nLMS: LearningSuite Class communication: Slack Required materials: The Lean Product Playbook: How to Innovate with Minimum Viable Products and Rapid Customer Feedback by Dan Olsen (physical copy recommended, $25 or less). Text and audio also available for free for BYU students digitally at O’Reilly books. Laptop or desktop (Mac or Windows) Install Mendix Studio Pro version 10.18.0 on Mac or Windows (free) Verify your student status with Figma and install desktop app for Mac or Windows (free)",
+    "text": "Required Materials\n\nBuild a Large Language Model From Scratch or here\n\nLMS: LearningSuite Class communication: Slack Required materials: The Lean Product Playbook: How to Innovate with Minimum Viable Products and Rapid Customer Feedback by Dan Olsen (physical copy recommended, $25 or less). Text and audio also available for free for BYU students digitally at O’Reilly books. Laptop or desktop (Mac or Windows) Install Mendix Studio Pro version 10.18.0 on Mac or Windows (free) Verify your student status with Figma and install desktop app for Mac or Windows (free)",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Syllabus</span>"
     ]
@@ -100,63 +110,113 @@
     ]
   },
   {
-    "objectID": "01-history.html",
-    "href": "01-history.html",
-    "title": "A Brief History of AI",
-    "section": "",
-    "text": "Quarto\nAccording to John D. Kelleher “the field of artificial intelligence was born at a workshop at Dartmouth College in the summer of 1956.”",
-    "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>A Brief History of AI</span>"
-    ]
-  },
-  {
-    "objectID": "02-machine-learning.html",
-    "href": "02-machine-learning.html",
+    "objectID": "01-machine-learning.html",
+    "href": "01-machine-learning.html",
     "title": "Machine Learning and Artificial Intelligence",
     "section": "",
     "text": "Machine Learning\nSupervised Learning: “Here’s the question and the right answer.”\nUnsupervised Learning: “Here is some data, can you find patterns and/or organize it in a meaningful way?”\nReinforcement Learning: “You’re an agent playing a, figure out the best strategy through trial and error, using only points (rewards) as feedback.”\n“During training, a machine learning algorithm processes a dataset and chooses the function that best matches the patterns in the data.”\nsupervised, unsupervised, and reinforcement.",
     "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Machine Learning and Artificial Intelligence</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Machine Learning and Artificial Intelligence</span>"
     ]
   },
   {
-    "objectID": "02-machine-learning.html#supervised-learning",
-    "href": "02-machine-learning.html#supervised-learning",
+    "objectID": "01-machine-learning.html#supervised-learning",
+    "href": "01-machine-learning.html#supervised-learning",
     "title": "Machine Learning and Artificial Intelligence",
     "section": "Supervised Learning",
     "text": "Supervised Learning\nSupervised learning is the most widely used type of machine learning and significantly overlaps with the methodologies of other quantitative fields, such as econometrics.\nSupervised learning gets its name from the fact that the input data set has examples of both inputs and outputs.\nThe outputs are called labels, hence you will sometime hear the term “labeled dataset.”\n\nRegression\n\n\nClassification\n\n\nSupervised Learning Use Cases\nSupervised Learning (Regression) Use Cases\n\n\n\n\n\n\n\n\n\n\n\nUse Case\nSample Inputs\nModel Output Description\nWhat ML Question is Being Answered?\nWhat Business Question is Being Answered?\nExample Algorithm(s)\n\n\n\n\nPrice Prediction\nProperty size, location, features\nNumeric price\nWhat is the expected price of this item?\nHow should I price products to stay competitive and profitable?\nLinear Regression, CatBoost\n\n\nDemand Forecasting\nHistorical sales, promotions, holidays\nPredicted sales volume\nWhat will sales be next week/month?\nHow can I manage inventory or staffing to meet demand?\nLinear Regression, LSTM\n\n\nMedical Risk Score\nPatient vitals, history\nRisk score (e.g., probability of event)\nHow likely is a medical event to occur?\nHow should I prioritize preventive care for patients?\nRandom Forest, Ridge Reg.\n\n\nRevenue Forecasting\nPast financials, seasonality\nRevenue over next time period\nHow much revenue will we make?\nHow can I allocate budgets or set growth targets?\nTime Series Models, XGBoost\n\n\nEnergy Usage Estimation\nTime of day, weather, appliance use\nPredicted energy consumption\nHow much energy will be used in this period?\nHow should I manage power supply or optimize grid efficiency?\nLinear Regression, SVR\n\n\n\nSupervised Learning (Classification) Use Cases\n\n\n\n\n\n\n\n\n\n\n\nUse Case\nSample Inputs\nModel Output Description\nWhat ML Question is Being Answered?\nWhat Business Question is Being Answered?\nExample Algorithm(s)\n\n\n\n\nEmail Spam Detection\nEmail content, sender info, subject line\nBinary label: spam or not spam\nIs this email spam?\nHow can I prevent unwanted emails from reaching users’ inboxes?\nLogistic Regression, SVM\n\n\nCredit Risk Scoring\nIncome, credit history, employment data\nRisk category (e.g., low/medium/high)\nWill this applicant default?\nShould I approve this loan, and at what interest rate?\nDecision Tree, XGBoost\n\n\nImage Classification\nPixel values from an image\nObject class label (e.g., “cat”, “dog”)\nWhat object is in this image?\nHow can I organize photos or automate product tagging?\nCNNs, ResNet\n\n\nSentiment Analysis\nReview text, social media posts\nSentiment label (positive/negative)\nWhat sentiment is being expressed?\nWhat is the public opinion about my product or brand?\nNaive Bayes, BERT\n\n\nDisease Diagnosis\nSymptoms, test results, demographics\nDisease class (e.g., flu, COVID, none)\nWhat condition does this patient likely have?\nHow can I assist doctors in making accurate and timely diagnoses?\nRandom Forest, Neural Nets",
     "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Machine Learning and Artificial Intelligence</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Machine Learning and Artificial Intelligence</span>"
     ]
   },
   {
-    "objectID": "02-machine-learning.html#unsupervised-learning",
-    "href": "02-machine-learning.html#unsupervised-learning",
+    "objectID": "01-machine-learning.html#unsupervised-learning",
+    "href": "01-machine-learning.html#unsupervised-learning",
     "title": "Machine Learning and Artificial Intelligence",
     "section": "Unsupervised Learning",
     "text": "Unsupervised Learning\n\nUnsupervised Learning Use Cases\n\n\n\n\n\n\n\n\n\n\n\nUse Case\nSample Inputs\nModel Output Description\nWhat ML Question is Being Answered?\nWhat Business Question is Being Answered?\nExample Algorithm(s)\n\n\n\n\nCustomer Segmentation\nAge, income, purchase history\nCluster/group labels for each customer\nWhat types of customers exist in my data?\nHow can I tailor marketing strategies to different customer types?\nK-means, DBSCAN\n\n\nTopic Modeling\nArticles or documents\nTopics with keywords per document\nWhat topics are being discussed?\nWhat content themes resonate most with my audience or market?\nLDA, NMF\n\n\nAnomaly Detection\nTransaction logs, sensor data\nAnomaly score or binary flag\nWhich data points are unusual?\nAre there fraudulent transactions or system failures I need to act on?\nIsolation Forest, Autoencoder\n\n\nDimensionality Reduction\nHigh-dimensional features (e.g., pixels)\n2D or 3D projections for analysis or visualization\nHow can I reduce feature space while preserving info?\nHow can I visualize or simplify complex data for human analysis or modeling?\nPCA, t-SNE, UMAP\n\n\nMarket Basket Analysis\nSets of purchased items\nAssociation rules (A & B → C)\nWhat items co-occur frequently in purchases?\nWhich product bundles or cross-sell offers should I promote?\nApriori, FP-Growth\n\n\nWord Embedding\nText corpus\nWord vectors capturing semantic similarity\nWhat are the contextual relationships between words?\nHow can I build a smarter search engine or chatbot that understands language context?\nWord2Vec, GloVe\n\n\nImage Compression\nRaw pixel arrays\nCompressed version of the image\nHow can I represent this image with fewer features?\nHow can I reduce storage or transmission costs for image data?\nAutoencoders",
     "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Machine Learning and Artificial Intelligence</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Machine Learning and Artificial Intelligence</span>"
     ]
   },
   {
-    "objectID": "02-machine-learning.html#reinforcement-learning",
-    "href": "02-machine-learning.html#reinforcement-learning",
+    "objectID": "01-machine-learning.html#reinforcement-learning",
+    "href": "01-machine-learning.html#reinforcement-learning",
     "title": "Machine Learning and Artificial Intelligence",
     "section": "Reinforcement Learning",
     "text": "Reinforcement Learning\n\nReinforcement Learning Use Cases\n\n\n\n\n\n\n\n\n\n\n\nUse Case\nSample Inputs\nModel Output Description\nWhat ML Question is Being Answered?\nWhat Business Question is Being Answered?\nExample Algorithm(s)\n\n\n\n\nGame Playing\nGame state (e.g., board, score)\nAction to take\nWhat should I do to win the game?\nHow can I build an AI that outperforms humans or creates adaptive gameplay?\nQ-learning, DQN\n\n\nRobotics & Control\nSensor data (angles, velocities, etc.)\nMovement or control signals\nHow should the agent move next to reach a goal?\nHow can I automate physical tasks like picking, sorting, or navigating?\nPPO, SAC, DDPG\n\n\nAutonomous Vehicles\nSensor input (camera, LIDAR, speed, GPS)\nDriving action\nWhat’s the optimal next driving move?\nHow can I develop a safe and efficient self-driving vehicle system?\nDeep RL + sensor fusion\n\n\nRecommendation Systems\nUser history, preferences, session behavior\nRecommended item\nWhat should I recommend next?\nHow can I increase user retention, engagement, or sales?\nContextual Bandits, RL\n\n\nPortfolio Management\nFinancial indicators, stock prices\nAsset allocation decision\nHow should I invest to maximize return?\nHow can I build an automated trading or portfolio optimization system?\nActor-Critic methods\n\n\nPersonalized Education\nStudent progress and quiz results\nNext learning step\nWhat lesson or content should come next?\nHow can I boost student outcomes by personalizing learning pathways?\nMulti-armed bandits\n\n\nHealthcare Treatment\nPatient history and vitals\nTreatment or intervention strategy\nWhat care plan maximizes long-term patient health?\nHow can I optimize healthcare outcomes while reducing costs and readmissions?\nOff-policy RL, POMDPs",
     "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Machine Learning and Artificial Intelligence</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Machine Learning and Artificial Intelligence</span>"
     ]
   },
   {
-    "objectID": "03-deep-learning.html",
-    "href": "03-deep-learning.html",
-    "title": "Deep Learning",
+    "objectID": "02-llms.html",
+    "href": "02-llms.html",
+    "title": "Large Language Models",
     "section": "",
-    "text": "Quarto\n“Why Is Deep Learning So Successful?”",
+    "text": "Glossary\nAccording to John D. Kelleher “the field of artificial intelligence was born at a workshop at Dartmouth College in the summer of 1956.”\n“Before the advent of transformers, recurrent neural networks (RNNs) were the most popular encoder–decoder architecture for language translation.”\n“An RNN is a type of neural network where outputs from previous steps are fed as inputs to the current step, making them well-suited for sequential data like text.” (Raschka (2024))",
     "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Deep Learning</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Large Language Models</span>"
+    ]
+  },
+  {
+    "objectID": "02-llms.html#words-represented-as-numbers",
+    "href": "02-llms.html#words-represented-as-numbers",
+    "title": "Large Language Models",
+    "section": "Words represented as numbers",
+    "text": "Words represented as numbers\n2000 - Bag of Words 2013 - Word2Vec 2017 - Attention",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Large Language Models</span>"
+    ]
+  },
+  {
+    "objectID": "02-llms.html#key-terms",
+    "href": "02-llms.html#key-terms",
+    "title": "Large Language Models",
+    "section": "Key Terms",
+    "text": "Key Terms\n\nVector:\nMatrix:\nDimension:\nCharacter:\nText string: A sequence of characters forming natural language (e.g., “The quick brown fox”).\nCorpus:\nTokenizer: An algorithm that splits a text string into ‘tokens.’\nTokenization: The process of using a tokenizer to split a text string into smaller units (tokens), typically words or subword fragments.\nToken: A single unit resulting from tokenization, often a word or part of a word.\nVocabulary: A fixed list of all known tokens. Each token is mapped to a unique integer (token ID).\nToken ID: A unique integer assigned to a token by a tokenizer. In Word2Vec, token IDs are not used or exposed. Instead, the token is represented directly as a character string.\nEmbedding Model: An embedding model is a model that transforms each input token—either a character string or a token ID—into a vector of real numbers. The elements of this vector capture aspects of the token’s semantic meaning, syntactic role, and relationships to other tokens in the corpus. These vector representations can then be used as input to downstream machine learning models for tasks such as classification, clustering, translation, or text generation.\n\nWord2Vec – A neural model that creates static word embeddings based on word co-occurrence. Pre-trained versions (such as the Google News model) are available off the shelf using the gensim library.\n\nEmbedding: A vector that represents a token’s learned meaning and context. GPT-2 era models typically use embedding sizes of 768 dimensions, while GPT-3 models use much larger embeddings—up to 12,288 dimensions for the largest model variants (source: Build LLMs from Scratch). Embeddings can be derived from off-the-shelf models like Word2Vec, but modern large language models (LLMs) learn these embeddings during training as part of an integrated process, rather than relying on pre-trained static embeddings. Embeddings can also be created for larger units such as sentences, paragraphs, or entire documents.\nEmbedding Matrix: A matrix in which each row contains the embedding vector for a particular token. It functions as a lookup table to retrieve the embedding for a given token (Word2Vec) or in modern LLMs a token ID. The embedding matrix is a core component of what is commonly referred to as the embedding layer in neural network models.\nEmbedding layer: A layer in a neural network that maps discrete input tokens—typically represented by token IDs—into continuous vector representations by retrieving rows from an embedding matrix. During training, this matrix is randomly initialized and then updated via backpropagation to learn useful representations. After training, the embedding layer functions as a fixed lookup table that outputs meaningful vectors for each token.\nRotary Embedding (RoPE): Positial embedding information is added at the self embedding layer.\nMixture of Experts: variant of tranformation model.\n\nRouter\n\nGenerative vs Representation Models: “Representation models are LLMs that do not generate text but are commonly used for task-specific use cases, like classification, whereas generation models are LLMs that generate text, like GPT models. Although generative models are typically the first thing that comes to mind when thinking about LLMs, there is still much use for representation models.” (Alammar and Grootendorst (2024))\n\n“In other words, the embedding layer is essentially a lookup operation that retrieves rows from the embedding layer’s weight matrix via a token ID.”\n\nTensor:\nShape: The dimensions of a tensor — specifically, the number of elements along each axis.\n\n\n\n\n\n\n\n\n\n\nTensor Type\nRank\nExample Shape\nExample Description\n\n\n\n\nScalar\n0\n()\nA single number (e.g., 5)\n\n\nVector\n1\n(3,)\nA list of numbers (e.g., [5, 2, 7])\n\n\nMatrix\n2\n(3, 4)\nA 2D table (e.g., 3 rows × 4 columns)\n\n\n3D Tensor\n3\n(10, 3, 4)\nA stack of 10 matrices, each 3×4\n\n\nn-D Tensor\nn\n(d1, d2, ..., dn)\nAny n-dimensional array\n\n\n\n\nBackpropogation: The algorithm used to train neural networks by adjusting the model’s weights to reduce error.\nFeedforward: The process of passing input data through a neural network to produce an output. Data flows forward from the input layer through one or more hidden layers to the output layer. At each layer, neurons apply a weighted sum and an activation function (e.g., ReLU, GELU) to produce their outputs. No learning or weight updates happen during this step — it’s just computing the prediction. This is how the model computes predictions, whether during training or inference.\nDense Vector: A vector in which most or all elements are non-zero and explicitly stored. In NLP, dense vectors (such as embeddings) represent features in a compact, continuous space and are learned during model training.\n\nInput → Feedforward → Prediction ↓ Loss Computation ↓ Backpropagation (Gradients) ↓ Optimization (Weight Update) ↓ Next iteration\nStochastic Gradient Descent:\nBatched Matrix Multiplication:\n– Transformer: Does not use an RRN.\n\nBERT: Encoder only. Good at language translation but not other tasks.\nMasked Language Modeling: Mask some of the input words and predict them.\nGenerative Models: Decoder only models.\nGPT: Generative Pretrained Transformer.\nContext Length\nGPU:\nBatch:\nScaled dot-product attention:\nContext vectors:\nWeight Matrix: Generic term that can refer to any trainable matrix where each element is a weight that gets updated during training.\n\nDuring training, each batch of data goes through a feedforward pass to compute a prediction, then a backpropagation pass to update the model’s weights.\nExcerpt From Build a Large Language Model (From Scratch) Sebastian Raschka This material may be protected by copyright.\n\nInput embedding: The final vector input to the model for each token, typically formed by summing token embeddings with positional (and optional segment) embeddings.\nDetokenization - The process of reconstructing a human-readable string from tokens.\nEmbeddings can be combined\n\nWord, Sentence, Document\n\nVocabulary (Bag of Words): distint list of tokens\nEncoder - The goal of an encoder is to convert input data—such as text—into a numerical representation (embedding) that captures its meaning, structure, and context. In the context of language models, encoders are designed to understand and represent the input text in a way that can be used for downstream tasks like classification, translation, or generation. Mathematically an encoder is often a recurrent neural network.\nDecoder - Goals is to generate language. Takes as inputs, embeddings, and then maps those embeddings to new embeddings, i.e. lanauge translation.\nBag-of-Words\nWord2Vec - A pre-trained model that creates word embeddings. Available off the shelf.\n\nVector Embeddings - Captures the meaning of words. Each Vector (word) embedding represents an aspect of the relationship a given word has with many other words. Each entry in a vector embedding is a number that measures something about the relationship between a word and the word the vector represents. Each vector embedding can have 1024 entries or more. The values of each entry are derived from the perameters of a neural network.\n\n“The main idea behind Word2Vec is that words that appear in similar contexts tend to have similar meanings.” Excerpt From Build a Large Language Model (From Scratch) Sebastian Raschka This material may be protected by copyright.\n\nStatic embeddings. e.g. bank has the same embedding regardless if the sentence is “bank of a river” or “going to the bank”\n\nNeural network\n\nRecurrent Neural Networks - precludes parallelization. This is why the tranformer architecture was so powerful as it allows parallelization.\n\nParameter\nAutoregressive - decoders produce one new token at a time, taking the all previous tokens as input to predict the next best token.\nProjection Matrices\n\nQuery Projection\nKey Projection\nValue Projection\n\nMulti query attention\nGrouped query attention\n\nFeedforward Neural Network\nSelf-attention (encoder???). works by seeing how similar each word is to all of the words in the sentence, including it self. Calculates the simliarity between every every word in the sentence.\n\nTakes the longest and most computation. W\nAttention head\n\nAttention - First introduced in 2014. got big in 2017. Attention allows a model to focus on parts of the input that are relevant to on another. Attend to one another and amplify their signal. Attention selectively determines which words are most important in a given sentence.\nAttention: “weights”, “attends to”, “pays attention to” each input tokens embedding indepentently based on where it is in the input and output. “A way for the model to”pay attention” to different input tokens when processing each token, so it can focus more on the relevant words, even if they’re far away in the sequence.”",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Large Language Models</span>"
+    ]
+  },
+  {
+    "objectID": "02-llms.html#scaled-dot-product-attention",
+    "href": "02-llms.html#scaled-dot-product-attention",
+    "title": "Large Language Models",
+    "section": "Scaled Dot-Product Attention",
+    "text": "Scaled Dot-Product Attention\nThe core equation for attention used in Transformers is:\n\\[\n\\text{Attention}(Q, K, V) = \\text{softmax}\\left( \\frac{QK^\\top}{\\sqrt{d_k}} \\right)V\n\\]\n\nExplanation of Terms\n\n\\(Q\\): Query matrix (sequence length × \\(d_k\\))\n\\(K\\): Key matrix (sequence length × \\(d_k\\))\n\\(V\\): Value matrix (sequence length × \\(d_v\\))\n\\(d_k\\): Dimensionality of the key vectors (used for scaling)\n\n\n\nIntuition\n\nCompute the dot product between \\(Q\\) and \\(K\\): \\(QK^\\top\\)\nScale by \\(\\sqrt{d_k}\\) to control the magnitude\nApply softmax to get attention weights\nMultiply by \\(V\\) to get the final weighted output\n\nThe Terms Query, Key, Value come from database terminology (Starmer (2025))\n\nMasked self-attention (decoder) - removed upper diagonal. Also called Causal self-attention\nCausal self-attention:\nMulti-head attention:\nHidden states of a word can be passed to a decoder. Hidden states are a vector representation.\nBERT 2018 - Encoder only architecture. Forms the basis for most of the embedding models that are popular today for RAG.\nCLS token\nMasked lanaguage modeling. Predict the masked words. Pre-trainiing. Fine tune for downstream tasks.\nGenerative models use a different architecture. Decoders only. GPT-1. Generative pretrained transformer\nContext length, GPT\n\nEach word has a static embedding from Word2Vec. These embeddings are passed to the encoder as a set. The individual embeddings are then combined into a single “context” embedding. The “context” embedding is then passed to the decoder.\nOnce students understand static embeddings (Word2Vec), it becomes much more intuitive to explain: “Now imagine that the same word has a different vector depending on its sentence context — that’s what GPT does.”\nWord2Vec was a milestone in NLP (2013), and understanding it provides insight into how word embeddings evolved from: Bag of Words → TF-IDF → Word2Vec → GloVe → Contextual embeddings (BERT/GPT)\n\nBag of Words and TF-IDF (symbolic → numeric)\nWord2Vec (static embeddings, co-occurrence-based learning)\nGloVe (matrix factorization variant)\nfastText (subword embeddings and OOV handling)\nBERT/GPT embeddings (contextual, dynamic)\nEmbeddings as foundation for downstream tasks\n\n\nLM Head: Token probability calculation. Probability\nDecoding Strategy\n\nGreedy decoding: Temperature = 0\ntop_p: Temperature &gt; 0\n\nTemperature Parameter:\nReinforcement learning from human feedback (RLHF)\nRelevance scoring:\nProjection:",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Large Language Models</span>"
+    ]
+  },
+  {
+    "objectID": "02-llms.html#how-llms-work",
+    "href": "02-llms.html#how-llms-work",
+    "title": "Large Language Models",
+    "section": "How LLMs work",
+    "text": "How LLMs work\nTransformers are a typer of neural network.\nUnlike earlier neural networks (like RNNs or CNNs), Transformers rely entirely on attention mechanisms and avoid recurrence, allowing for better parallelization and performance on long sequences.\nTransformers have three components: 1. Word Embedding 2. Positional Encoding - keeps track of word order 3. Attention\nTransformer LLMs generate their output one token at a time.\nTransformer has three major components: 1. Tokenizer 2. Tranformer Block - Most of them computation happens here. This is where the main neural network models live. GPT-3.5 had about 96 transformer blocks. - self attention layer - Relevance scoring - Combining information - Feed forward neural network 3. LM Head - Also a neural network. - Only recieves the final token from the input sequence and then predicts the next word.\nTransformers process their input tokens in parallel. If an input prompt has 16,000 tokens, the model will process this many tokens in parallel.\nKV Caching.\nTime to first token. How",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Large Language Models</span>"
+    ]
+  },
+  {
+    "objectID": "02-llms.html#hyperparameters",
+    "href": "02-llms.html#hyperparameters",
+    "title": "Large Language Models",
+    "section": "Hyperparameters",
+    "text": "Hyperparameters\n\nModel Architecture\n\n\n\n\n\n\n\n\nHyperparameter\nDescription\nTypical Values / Notes\n\n\n\n\nvocab_size\nNumber of unique tokens in the vocabulary\n30,000 – 100,000+\n\n\nmax_position_embeddings\nMaximum input sequence length\n128 – 2048+\n\n\nd_model\nEmbedding & hidden size\n128 – 12,288 (GPT-3 uses 12,288)\n\n\nnum_layers / n_layers\nNumber of Transformer blocks\n2 – 96+\n\n\nnum_heads / n_heads\nNumber of attention heads per block\nMust divide evenly into d_model\n\n\nd_ff / ffn_dim\nFeedforward network hidden size\nTypically 4 × d_model\n\n\ndropout_rate\nDropout probability\n0.0 – 0.3\n\n\nactivation_function\nActivation used in FFN\n\"relu\", \"gelu\", \"silu\"\n\n\nlayer_norm_eps\nSmall constant for LayerNorm stability\n1e-12 – 1e-5\n\n\n\n\n\nAttention Mechanism\n\n\n\n\n\n\n\n\nHyperparameter\nDescription\nTypical Values / Notes\n\n\n\n\nattention_dropout\nDropout on attention weights\nHelps regularize training\n\n\nuse_bias\nWhether projection layers have bias\nTrue / False\n\n\nuse_scaled_dot_product\nUse scaled dot-product attention\nUsually True\n\n\nrelative_position_encoding\nUse relative instead of absolute positions\nUsed in Transformer-XL, T5, etc.\n\n\n\n\n\nTraining Configuration\n\n\n\n\n\n\n\n\nHyperparameter\nDescription\nTypical Values / Notes\n\n\n\n\nlearning_rate\nInitial learning rate\n1e-5 – 1e-3\n\n\nbatch_size\nExamples per batch\n8 – 2048\n\n\nnum_epochs\nNumber of passes through training data\n3 – 50+\n\n\nweight_decay\nL2 regularization coefficient\n0.0 – 0.1\n\n\ngradient_clip_norm\nClip gradients to this norm\n0.5 – 1.0\n\n\noptimizer\nOptimization algorithm\nAdam, AdamW, AdaFactor, etc.\n\n\nlearning_rate_scheduler\nAdjust learning rate over time\nlinear, cosine, constant, etc.\n\n\nwarmup_steps\nSteps before learning rate decay\n500 – 10,000+\n\n\n\n\n\nTokenizer & Embeddings\n\n\n\n\n\n\n\n\nHyperparameter\nDescription\nNotes\n\n\n\n\ntokenizer_type\nTokenization algorithm\nBPE, WordPiece, SentencePiece\n\n\nshare_embeddings\nShare encoder & decoder embeddings\nUsed in T5\n\n\n\n\n\nDecoder-Specific\n\n\n\n\n\n\n\n\nHyperparameter\nDescription\nNotes\n\n\n\n\nuse_encoder_decoder\nWhether model includes a decoder\nTrue for T5, translation, etc.\n\n\ndecoder_num_layers\nNumber of decoder layers\nCan differ from encoder\n\n\ncross_attention\nEnables decoder to attend to encoder output\nRequired in encoder-decoder models",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Large Language Models</span>"
+    ]
+  },
+  {
+    "objectID": "02-llms.html#understanding-attention",
+    "href": "02-llms.html#understanding-attention",
+    "title": "Large Language Models",
+    "section": "Understanding Attention",
+    "text": "Understanding Attention\nBy computing an attention weight, you are asking the question:\nHow similar is a given token to every other token in the input sequence as measured by the dot product between each pair of embeddings? We then normalized this set of weights using the softmax function which ensure that all the weights sum to 1. for a given token.\n\n\n\n\nAlammar J, Grootendorst M (2024) Hands-on large language models (O’Reilly).\n\n\nRaschka S (2024) Build a large language model (from scratch) (Manning).\n\n\nStarmer J (2025) Attention in transformers: Concepts and code in PyTorch.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Large Language Models</span>"
     ]
   },
   {
@@ -164,7 +224,7 @@
     "href": "references.html",
     "title": "References",
     "section": "",
-    "text": "Bednar DA (2010) Things\nas they really are. Ensign 40(6):16–25.\n\n\nBednar DA (2024) Things\nas they really are 2.0.",
+    "text": "Alammar J, Grootendorst M (2024) Hands-on\nlarge language models (O’Reilly).\n\n\nRaschka S (2024) Build\na large language model (from scratch) (Manning).\n\n\nStarmer J (2025) Attention in transformers: Concepts and code in\nPyTorch.",
     "crumbs": [
       "References"
     ]
