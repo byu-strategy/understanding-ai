@@ -1,0 +1,9 @@
+---
+title: "FAQ"
+editor: visual
+---
+
+
+1. What does the word projection mean?
+
+- What is the relationship between the size of the vocabulary and the number of dimensions in an embedding vector? When are these the same and when are they not?

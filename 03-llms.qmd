@@ -77,6 +77,8 @@ According to John D. Kelleher "the field of artificial intelligence was born at 
 
 - **Feedforward**: The process of passing input data through a neural network to produce an output. Data flows forward from the input layer through one or more hidden layers to the output layer. At each layer, neurons apply a weighted sum and an activation function (e.g., ReLU, GELU) to produce their outputs. No learning or weight updates happen during this step — it’s just computing the prediction. This is how the model computes predictions, whether during training or inference.
 
+- **Logits**: “The model outputs, which are commonly referred to as logits”
+
 - **Dense Vector**: A vector in which most or all elements are non-zero and explicitly stored. In NLP, dense vectors (such as embeddings) represent features in a compact, continuous space and are learned during model training.
 
 Input → Feedforward → Prediction
@@ -108,7 +110,7 @@ Next iteration
 
 - **GPU**:
 
-- **Batch**:
+
 
 - **Scaled dot-product attention**: 
 
@@ -155,7 +157,8 @@ This material may be protected by copyright.
   - Static embeddings. e.g. bank has the same embedding regardless if the sentence is "bank of a river" or "going to the bank"
 - Neural network
   - Recurrent Neural Networks - precludes parallelization. This is why the tranformer architecture was so powerful as it allows parallelization.
-- Parameter
+- **Parameters**: “In the context of deep learning and LLMs like GPT, the term “parameters” refers to the trainable weights of the model. ” “These weights are essentially the internal variables of the model that are adjusted and optimized during the training process to minimize a specific loss function. ”
+
 - Autoregressive - decoders produce one new token at a time, taking the all previous tokens as input to predict the next best token.
 
 
@@ -243,6 +246,36 @@ Bag of Words → TF-IDF → Word2Vec → GloVe → Contextual embeddings (BERT/G
 - **Relevance scoring**:
 
 - **Projection**: 
+
+- **Byte Pair Encoding (BPE)**: "Builds its vocabulary by iteratively merging frequent characters into subwords and frequent subwords into words. For example, BPE starts with adding all individual single characters to its vocabulary (“a,” “b,” etc.). In the next stage, it merges character combinations that frequently occur together into subwords. For example, “d” and “e” may be merged into the subword “de,” which is common in many English words like “define,” “depend,” “made,” and “hidden.” The merges are determined by a frequency cutoff.”
+
+- **Layer normalization**: “The main idea behind layer normalization is to adjust the activations (outputs) of a neural network layer to have a mean of 0 and a variance of 1, also known as unit variance. This adjustment speeds up the convergence to effective weights and ensures consistent, reliable training. In GPT-2 and modern transformer architectures, layer normalization is typically applied before and after the multi-head attention module”
+
+- **Batch normalization**: “normalizes across the batch dimension vs layer normalization which normalizes across the feature dimension”
+
+- **Shortcut connections, also known as skip or residual connections** - “a shortcut connection creates an alternative, shorter path for the gradient to flow through the network by skipping one or more layers, which is achieved by adding the output of one layer to the output of a later” “Shortcut connections are a core building block of very large models such as LLMs, and they will help facilitate more effective training by ensuring consistent gradient flow across layers”
+
+- **Vanishing gradient**: “problem refers to the issue where gradients (which guide weight updates during training) become progressively smaller as they propagate backward through the layers, making it difficult to effectively train earlier layers.”
+
+- **Loss Function**:
+
+- **Transformer Block** : "combines multi-head attention, layer normalization, dropout, feed forward layers, and GELU activations” “outputs of the transformer block are vectors of the same dimension as the input, which can then be fed into subsequent layers in an LLM." “a core structural component of GPT models, combining masked multi-head attention modules with fully connected feed forward networks that use the GELU activation function.”
+
+- **Weight Tying**:
+
+- **Softmax**: 
+
+
+
+- **Training example**: 
+
+- **Batch**:
+
+- **Outputs of the layer**: 
+
+- **Dropout**: “ there are three distinct places where we used dropout layers: the embedding layer, shortcut layer, and multi-head attention module.”
+
+
 
 
 

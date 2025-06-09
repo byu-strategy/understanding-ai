@@ -11,11 +11,14 @@ book:
   date: "5/10/2025"
   chapters:
    - index.qmd
+   - 00-math-review.qmd
    - 01-machine-learning.qmd
-   - 02-llms.qmd
-
- #  - 03-deep-learning.qmd
-   - references.qmd
+   - 02-deep-learning.qmd
+   - 03-llms.qmd
+   - 04-strategy.qmd
+   - 90-resources.qmd
+   - 98-faq.qmd
+   - 99-references.qmd
 
 bibliography: references.bib
 csl: informs.csl

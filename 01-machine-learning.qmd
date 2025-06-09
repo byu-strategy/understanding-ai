@@ -1,5 +1,5 @@
 ---
-title: "Machine Learning and Artificial Intelligence"
+title: "Machine Learning"
 format: html
 editor: visual
 ---

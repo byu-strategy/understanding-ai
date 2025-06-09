@@ -50,8 +50,8 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./references.html" rel="next">
-<link href="./01-machine-learning.html" rel="prev">
+<link href="./04-strategy.html" rel="next">
+<link href="./02-deep-learning.html" rel="prev">
 <link href="./images/understanding-ai-favicon.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -132,7 +132,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./02-llms.html"><span class="chapter-title">Large Language Models</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./03-llms.html"><span class="chapter-title">Large Language Models</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -164,17 +164,42 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01-machine-learning.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Machine Learning and Artificial Intelligence</span></a>
+  <a href="./00-math-review.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Math and Python Review</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02-llms.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Large Language Models</span></a>
+  <a href="./01-machine-learning.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Machine Learning</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link">
+  <a href="./02-deep-learning.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Deep Learning</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-llms.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Large Language Models</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-strategy.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">AI Strategy</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./90-resources.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Resources</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./98-faq.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">FAQ</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./99-references.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">References</span></a>
   </div>
 </li>
@@ -235,7 +260,7 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="glossary">Glossary</h2>
 <p>According to John D. Kelleher “the field of artificial intelligence was born at a workshop at Dartmouth College in the summer of 1956.”</p>
 <p>“Before the advent of transformers, recurrent neural networks (RNNs) were the most popular encoder–decoder architecture for language translation.”</p>
-<p>“An RNN is a type of neural network where outputs from previous steps are fed as inputs to the current step, making them well-suited for sequential data like text.” (<span class="citation" data-cites="build-llms-from-scratch-book">Raschka (<a href="references.html#ref-build-llms-from-scratch-book" role="doc-biblioref">2024</a>)</span>)</p>
+<p>“An RNN is a type of neural network where outputs from previous steps are fed as inputs to the current step, making them well-suited for sequential data like text.” (<span class="citation" data-cites="build-llms-from-scratch-book">Raschka (<a href="99-references.html#ref-build-llms-from-scratch-book" role="doc-biblioref">2024</a>)</span>)</p>
 </section>
 <section id="words-represented-as-numbers" class="level2">
 <h2 class="anchored" data-anchor-id="words-represented-as-numbers">Words represented as numbers</h2>
@@ -267,7 +292,7 @@ window.Quarto = {
 <ul>
 <li>Router</li>
 </ul></li>
-<li><p><strong>Generative vs Representation Models</strong>: “Representation models are LLMs that do not generate text but are commonly used for task-specific use cases, like classification, whereas generation models are LLMs that generate text, like GPT models. Although generative models are typically the first thing that comes to mind when thinking about LLMs, there is still much use for representation models.” (<span class="citation" data-cites="hands-on-llms-book">Alammar and Grootendorst (<a href="references.html#ref-hands-on-llms-book" role="doc-biblioref">2024</a>)</span>)</p></li>
+<li><p><strong>Generative vs Representation Models</strong>: “Representation models are LLMs that do not generate text but are commonly used for task-specific use cases, like classification, whereas generation models are LLMs that generate text, like GPT models. Although generative models are typically the first thing that comes to mind when thinking about LLMs, there is still much use for representation models.” (<span class="citation" data-cites="hands-on-llms-book">Alammar and Grootendorst (<a href="99-references.html#ref-hands-on-llms-book" role="doc-biblioref">2024</a>)</span>)</p></li>
 </ul>
 <p>“In other words, the embedding layer is essentially a lookup operation that retrieves rows from the embedding layer’s weight matrix via a token ID.”</p>
 <ul>
@@ -325,6 +350,7 @@ window.Quarto = {
 <ul>
 <li><p><strong>Backpropogation</strong>: The algorithm used to train neural networks by adjusting the model’s weights to reduce error.</p></li>
 <li><p><strong>Feedforward</strong>: The process of passing input data through a neural network to produce an output. Data flows forward from the input layer through one or more hidden layers to the output layer. At each layer, neurons apply a weighted sum and an activation function (e.g., ReLU, GELU) to produce their outputs. No learning or weight updates happen during this step — it’s just computing the prediction. This is how the model computes predictions, whether during training or inference.</p></li>
+<li><p><strong>Logits</strong>: “The model outputs, which are commonly referred to as logits”</p></li>
 <li><p><strong>Dense Vector</strong>: A vector in which most or all elements are non-zero and explicitly stored. In NLP, dense vectors (such as embeddings) represent features in a compact, continuous space and are learned during model training.</p></li>
 </ul>
 <p>Input → Feedforward → Prediction ↓ Loss Computation ↓ Backpropagation (Gradients) ↓ Optimization (Weight Update) ↓ Next iteration</p>
@@ -338,7 +364,6 @@ window.Quarto = {
 <li><p><strong>GPT</strong>: Generative Pretrained Transformer.</p></li>
 <li><p><strong>Context Length</strong></p></li>
 <li><p><strong>GPU</strong>:</p></li>
-<li><p><strong>Batch</strong>:</p></li>
 <li><p><strong>Scaled dot-product attention</strong>:</p></li>
 <li><p><strong>Context vectors</strong>:</p></li>
 <li><p><strong>Weight Matrix</strong>: Generic term that can refer to any trainable matrix where each element is a weight that gets updated during training.</p></li>
@@ -368,7 +393,7 @@ window.Quarto = {
 <ul>
 <li>Recurrent Neural Networks - precludes parallelization. This is why the tranformer architecture was so powerful as it allows parallelization.</li>
 </ul></li>
-<li><p>Parameter</p></li>
+<li><p><strong>Parameters</strong>: “In the context of deep learning and LLMs like GPT, the term “parameters” refers to the trainable weights of the model. ” “These weights are essentially the internal variables of the model that are adjusted and optimized during the training process to minimize a specific loss function.”</p></li>
 <li><p>Autoregressive - decoders produce one new token at a time, taking the all previous tokens as input to predict the next best token.</p></li>
 <li><p><strong>Projection Matrices</strong></p>
 <ul>
@@ -412,7 +437,7 @@ window.Quarto = {
 <li>Apply softmax to get attention weights</li>
 <li>Multiply by <span class="math inline">\(V\)</span> to get the final weighted output</li>
 </ol>
-<p>The Terms Query, Key, Value come from database terminology (<span class="citation" data-cites="starmer2025attention">Starmer (<a href="references.html#ref-starmer2025attention" role="doc-biblioref">2025</a>)</span>)</p>
+<p>The Terms Query, Key, Value come from database terminology (<span class="citation" data-cites="starmer2025attention">Starmer (<a href="99-references.html#ref-starmer2025attention" role="doc-biblioref">2025</a>)</span>)</p>
 <ul>
 <li><p><strong>Masked self-attention</strong> (decoder) - removed upper diagonal. Also called Causal self-attention</p></li>
 <li><p><strong>Causal self-attention</strong>:</p></li>
@@ -446,6 +471,19 @@ window.Quarto = {
 <li><p><strong>Reinforcement learning from human feedback (RLHF)</strong></p></li>
 <li><p><strong>Relevance scoring</strong>:</p></li>
 <li><p><strong>Projection</strong>:</p></li>
+<li><p><strong>Byte Pair Encoding (BPE)</strong>: “Builds its vocabulary by iteratively merging frequent characters into subwords and frequent subwords into words. For example, BPE starts with adding all individual single characters to its vocabulary (“a,” “b,” etc.). In the next stage, it merges character combinations that frequently occur together into subwords. For example, “d” and “e” may be merged into the subword “de,” which is common in many English words like “define,” “depend,” “made,” and “hidden.” The merges are determined by a frequency cutoff.”</p></li>
+<li><p><strong>Layer normalization</strong>: “The main idea behind layer normalization is to adjust the activations (outputs) of a neural network layer to have a mean of 0 and a variance of 1, also known as unit variance. This adjustment speeds up the convergence to effective weights and ensures consistent, reliable training. In GPT-2 and modern transformer architectures, layer normalization is typically applied before and after the multi-head attention module”</p></li>
+<li><p><strong>Batch normalization</strong>: “normalizes across the batch dimension vs layer normalization which normalizes across the feature dimension”</p></li>
+<li><p><strong>Shortcut connections, also known as skip or residual connections</strong> - “a shortcut connection creates an alternative, shorter path for the gradient to flow through the network by skipping one or more layers, which is achieved by adding the output of one layer to the output of a later” “Shortcut connections are a core building block of very large models such as LLMs, and they will help facilitate more effective training by ensuring consistent gradient flow across layers”</p></li>
+<li><p><strong>Vanishing gradient</strong>: “problem refers to the issue where gradients (which guide weight updates during training) become progressively smaller as they propagate backward through the layers, making it difficult to effectively train earlier layers.”</p></li>
+<li><p><strong>Loss Function</strong>:</p></li>
+<li><p><strong>Transformer Block</strong> : “combines multi-head attention, layer normalization, dropout, feed forward layers, and GELU activations” “outputs of the transformer block are vectors of the same dimension as the input, which can then be fed into subsequent layers in an LLM.” “a core structural component of GPT models, combining masked multi-head attention modules with fully connected feed forward networks that use the GELU activation function.”</p></li>
+<li><p><strong>Weight Tying</strong>:</p></li>
+<li><p><strong>Softmax</strong>:</p></li>
+<li><p><strong>Training example</strong>:</p></li>
+<li><p><strong>Batch</strong>:</p></li>
+<li><p><strong>Outputs of the layer</strong>:</p></li>
+<li><p><strong>Dropout</strong>: “ there are three distinct places where we used dropout layers: the embedding layer, shortcut layer, and multi-head attention module.”</p></li>
 </ul>
 </section>
 </section>
@@ -1137,13 +1175,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./01-machine-learning.html" class="pagination-link" aria-label="Machine Learning and Artificial Intelligence">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Machine Learning and Artificial Intelligence</span></span>
+      <a href="./02-deep-learning.html" class="pagination-link" aria-label="Deep Learning">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Deep Learning</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./references.html" class="pagination-link" aria-label="References">
-        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./04-strategy.html" class="pagination-link" aria-label="AI Strategy">
+        <span class="nav-page-text"><span class="chapter-title">AI Strategy</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

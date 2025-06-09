@@ -1,4 +1,8 @@
-# Pre-Course Review Guide: Math and Python Essentials for Understanding Neural Networks and LLMs
+---
+title: "Math and Python Review"
+format: html
+editor: visual
+---
 
 This guide introduces the key concepts in **calculus**, **linear algebra**, **probability and statistics**, and **Python programming** that you’ll need to understand how neural networks and large language models (LLMs) work.
 

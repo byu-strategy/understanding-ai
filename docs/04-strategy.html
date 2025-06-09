@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>References – STRAT 490R - Understanding AI: From Foundations to Strategy</title>
+<title>AI Strategy – STRAT 490R - Understanding AI: From Foundations to Strategy</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,26 +20,7 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-}
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -49,7 +30,8 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./02-llms.html" rel="prev">
+<link href="./90-resources.html" rel="next">
+<link href="./03-llms.html" rel="prev">
 <link href="./images/understanding-ai-favicon.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -101,7 +83,7 @@ div.csl-indent {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./references.html">References</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./04-strategy.html"><span class="chapter-title">AI Strategy</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -133,17 +115,42 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01-machine-learning.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Machine Learning and Artificial Intelligence</span></a>
+  <a href="./00-math-review.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Math and Python Review</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02-llms.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Large Language Models</span></a>
+  <a href="./01-machine-learning.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Machine Learning</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link active">
+  <a href="./02-deep-learning.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Deep Learning</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-llms.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Large Language Models</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-strategy.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">AI Strategy</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./90-resources.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Resources</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./98-faq.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">FAQ</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./99-references.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">References</span></a>
   </div>
 </li>
@@ -152,15 +159,23 @@ div.csl-indent {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#the-impacts-of-ai" id="toc-the-impacts-of-ai" class="nav-link active" data-scroll-target="#the-impacts-of-ai">The Impacts of AI</a></li>
+  <li><a href="#things-as-they-really-are" id="toc-things-as-they-really-are" class="nav-link" data-scroll-target="#things-as-they-really-are">Things as They Really Are</a></li>
+  <li><a href="#using-ai-for-good" id="toc-using-ai-for-good" class="nav-link" data-scroll-target="#using-ai-for-good">Using AI for Good</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">References</h1>
+<h1 class="title"><span class="chapter-title">AI Strategy</span></h1>
 </div>
 
 
@@ -177,22 +192,17 @@ div.csl-indent {
 </header>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
-<div id="ref-hands-on-llms-book" class="csl-entry" role="listitem">
-Alammar J, Grootendorst M (2024) <em><a href="https://www.oreilly.com/library/view/hands-on-large-language/9781098150952/">Hands-on
-large language models</a></em> (O’Reilly).
-</div>
-<div id="ref-build-llms-from-scratch-book" class="csl-entry" role="listitem">
-Raschka S (2024) <em><a href="https://www.manning.com/books/build-a-large-language-model-from-scratch">Build
-a large language model (from scratch)</a></em> (Manning).
-</div>
-<div id="ref-starmer2025attention" class="csl-entry" role="listitem">
-Starmer J (2025) Attention in transformers: Concepts and code in
-PyTorch.
-</div>
-</div>
+<section id="the-impacts-of-ai" class="level2">
+<h2 class="anchored" data-anchor-id="the-impacts-of-ai">The Impacts of AI</h2>
+</section>
+<section id="things-as-they-really-are" class="level2">
+<h2 class="anchored" data-anchor-id="things-as-they-really-are">Things as They Really Are</h2>
+</section>
+<section id="using-ai-for-good" class="level2">
+<h2 class="anchored" data-anchor-id="using-ai-for-good">Using AI for Good</h2>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -624,11 +634,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./02-llms.html" class="pagination-link" aria-label="Large Language Models">
+      <a href="./03-llms.html" class="pagination-link" aria-label="Large Language Models">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Large Language Models</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="./90-resources.html" class="pagination-link" aria-label="Resources">
+        <span class="nav-page-text"><span class="chapter-title">Resources</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->
