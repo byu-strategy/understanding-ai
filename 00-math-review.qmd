@@ -4,9 +4,30 @@ format: html
 editor: visual
 ---
 
+:::{.under-construction-banner}
+<img src="images/under-construction.png" alt="Course Under Construction" class="under-construction-image">
+:::
+
+<style>
+.under-construction-banner {
+  background-color: #e0e0e0;  /* Light grey background */
+  padding: 1rem 1rem;         /* Makes the banner tall */
+  text-align: center;
+}
+
+.under-construction-image {
+  max-width: 250px;           /* Shrinks the image */
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 8px;
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.15);
+}
+</style>
+
 This guide introduces the key concepts in **calculus**, **linear algebra**, **probability and statistics**, and **Python programming** that you’ll need to understand how neural networks and large language models (LLMs) work.
 
----
+------------------------------------------------------------------------
 
 ## Calculus Essentials
 
@@ -18,19 +39,22 @@ Neural networks are functions trained to minimize prediction errors. To train th
 
 A measure of how a function changes as its input changes.
 
-**Notation**:  
-- $ \frac{dy}{dx} $: derivative of output $y$ with respect to input $x$  
-- $ f'(x) $: shorthand for “the derivative of function $f$ at $x$”
+**Notation**:
 
-**Example**:  
+-   $\frac{dy}{dx}$: derivative of output $y$ with respect to input $x$\
+-   $f'(x)$: shorthand for “the derivative of function $f$ at $x$”
+
+**Example**:
+
 If $f(x) = x^2$, then $f'(x) = 2x$
 
 ### Partial Derivatives
 
 A derivative with respect to one variable while keeping others constant.
 
-**Notation**:  
-$ \frac{\partial L}{\partial w} $
+**Notation**:
+
+\$ \frac{\partial L}{\partial w} \$
 
 Used in computing how the loss changes with respect to each model parameter.
 
@@ -38,7 +62,8 @@ Used in computing how the loss changes with respect to each model parameter.
 
 Used to compute derivatives of composed functions (e.g., layer-by-layer in a neural network).
 
-**Formula**:  
+**Formula**:
+
 $$
 \frac{dz}{dx} = \frac{dz}{dy} \cdot \frac{dy}{dx}
 $$
@@ -47,15 +72,16 @@ $$
 
 A vector of all partial derivatives of a function with respect to each input.
 
-**Notation**:  
-$ \nabla L = \left[ \frac{\partial L}{\partial w_1}, \frac{\partial L}{\partial w_2}, \ldots \right] $
+**Notation**:
+
+$\nabla L = \left[ \frac{\partial L}{\partial w_1}, \frac{\partial L}{\partial w_2}, \ldots \right]$
 
 ### Loss Function
 
 Measures how wrong the model’s prediction is.
 
-**Examples**:  
-- Mean Squared Error (MSE)  
+**Examples**:\
+- Mean Squared Error (MSE)\
 - Cross-Entropy Loss
 
 ### Backpropagation
@@ -66,14 +92,15 @@ An algorithm that uses the chain rule to compute gradients efficiently in neural
 
 Method used to update weights based on gradients.
 
-**Update Rule**:  
+**Update Rule**:
+
 $$
 w := w - \eta \cdot \frac{\partial L}{\partial w}
 $$
 
-Where $ \eta $ is the learning rate.
+Where \$ \eta \$ is the learning rate.
 
----
+------------------------------------------------------------------------
 
 ## Linear Algebra Essentials
 
@@ -83,13 +110,23 @@ Neural networks use vectors and matrices to represent data, weights, and transfo
 
 ### Vectors
 
-A 1D array of numbers.  
-$ \vec{v} = \begin{bmatrix} v_1 \\ v_2 \\ \vdots \\ v_n \end{bmatrix} $
+A 1D array of numbers.
+
+\$ \vec{v} =
+
+\begin{bmatrix} v_1 \\ v_2 \\ \vdots \\ v_n \end{bmatrix}
+
+\$
 
 ### Matrices
 
-A 2D array of numbers.  
-$ A = \begin{bmatrix} a_{11} & a_{12} \\ a_{21} & a_{22} \end{bmatrix} $
+A 2D array of numbers.
+
+\$ A =
+
+\begin{bmatrix} a_{11} & a_{12} \\ a_{21} & a_{22} \end{bmatrix}
+
+\$
 
 ### Matrix-Vector Multiplication
 
@@ -97,41 +134,38 @@ If $A$ is $m \times n$ and $\vec{x}$ is $n \times 1$, then $A \vec{x}$ is $m \ti
 
 ### Dot Product
 
-$ \vec{a} \cdot \vec{b} = \sum_{i=1}^{n} a_i b_i $
+$\vec{a} \cdot \vec{b} = \sum_{i=1}^{n} a_i b_i$
 
 Used in similarity measures and basic model computations.
 
 ### Transpose
 
-Switches rows and columns in a matrix.  
-$ A^T $
+Switches rows and columns in a matrix.
+
+$A^T$
 
 ### Identity Matrix
 
-Square matrix with 1s on the diagonal.  
-Acts like “1” for matrix multiplication.  
-$ AI = A $
+Square matrix with 1s on the diagonal.\
+Acts like “1” for matrix multiplication.
+
+$AI = A$
 
 ### Matrix Multiplication
 
-Combines transformations.  
+Combines transformations.
+
 If $A$ is $m \times n$ and $B$ is $n \times p$, then $C = AB$ is $m \times p$.
 
 ### Norms
 
 Measure the size or length of a vector.
 
-**L2 norm**:  
-$ \| \vec{v} \|_2 = \sqrt{v_1^2 + v_2^2 + \dots + v_n^2} $
+**L2 norm**:
 
-### Eigenvectors and Eigenvalues (Optional)
+\$\| \vec{v} \|\_2 = \sqrt{v_1^2 + v_2^2 + \dots + v_n^2} \$
 
-Satisfy:  
-$ A \vec{v} = \lambda \vec{v} $
-
-Used in theoretical understanding and dimensionality reduction.
-
----
+------------------------------------------------------------------------
 
 ## Probability and Statistics Essentials
 
@@ -143,56 +177,61 @@ Models make predictions under uncertainty. Probability describes this uncertaint
 
 Represent outcomes of random processes.
 
-Discrete: number of heads  
+Discrete: number of heads\
 Continuous: model confidence score
 
 ### Probability Distributions
 
-Discrete: $P(X = x)$  
+Discrete: $P(X = x)$
+
 Continuous: $p(x)$
 
-**Examples**:  
-- Bernoulli (binary outcomes)  
-- Categorical (multi-class)  
+**Examples**:\
+- Bernoulli (binary outcomes)\
+- Categorical (multi-class)\
 - Gaussian/Normal (real-valued data)
 
 ### Expectation (Mean)
 
-**Discrete**:  
-$ \mathbb{E}[X] = \sum_x x \cdot P(X = x) $
+**Discrete**:
 
-**Continuous**:  
-$ \mathbb{E}[X] = \int x \cdot p(x) dx $
+$\mathbb{E}[X] = \sum_x x \cdot P(X = x)$
+
+**Continuous**:
+
+$\mathbb{E}[X] = \int x \cdot p(x) dx$
 
 ### Variance and Standard Deviation
 
-$ \mathrm{Var}(X) = \mathbb{E}[(X - \mathbb{E}[X])^2] $  
-$ \sigma = \sqrt{\mathrm{Var}(X)} $
+$\mathrm{Var}(X) = \mathbb{E}[(X - \mathbb{E}[X])^2]$
+
+$\sigma = \sqrt{\mathrm{Var}(X)}$
 
 ### Conditional Probability
 
-$ P(A \mid B) = \frac{P(A \cap B)}{P(B)} $
+\$ P(A \mid B) = \frac{P(A \cap B)}{P(B)} \$
 
-Used in next-token prediction:  
+Used in next-token prediction:
+
 $P(\text{next token} \mid \text{context})$
 
 ### Bayes’ Theorem
 
-$ P(A \mid B) = \frac{P(B \mid A) \cdot P(A)}{P(B)} $
+\$ P(A \mid B) = \frac{P(B \mid A) \cdot P(A)}{P(B)} \$
 
 ### Entropy
 
-$ H(X) = -\sum_x P(x) \log P(x) $
+\$ H(X) = -\sum\_x P(x) \log P(x) \$
 
 Measures uncertainty in a distribution.
 
 ### Cross-Entropy Loss
 
-$ \text{Loss} = -\sum_i y_i \log(\hat{y}_i) $
+$\text{Loss} = -\sum_i y_i \log(\hat{y}_i)$
 
 Used in classification and language modeling.
 
----
+------------------------------------------------------------------------
 
 ## Python Essentials for Building a Language Model
 
@@ -202,7 +241,3 @@ Python is widely used in AI due to its readability and powerful libraries like N
 
 ### Variables and Types
 
-```python
-x = 5        # integer
-y = 3.14     # float
-word = "GPT" # string

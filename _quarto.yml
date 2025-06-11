@@ -10,15 +10,15 @@ book:
   author: "Scott Murff"
   date: "5/10/2025"
   chapters:
-   - index.qmd
-   - 00-math-review.qmd
-   - 01-machine-learning.qmd
-   - 02-deep-learning.qmd
-   - 03-llms.qmd
-   - 04-strategy.qmd
-   - 90-resources.qmd
-   - 98-faq.qmd
-   - 99-references.qmd
+    - index.qmd
+    - 00-math-review.qmd
+    - 01-machine-learning.qmd
+    - 02-deep-learning.qmd
+    - 03-llms.qmd
+    - 04-strategy.qmd
+    - 90-resources.qmd
+    - 98-faq.qmd
+    - 99-references.qmd
 
 bibliography: references.bib
 csl: informs.csl
@@ -30,10 +30,6 @@ format:
     link-external-newwindow: true
     css: styles.css
     markdown: default
-    
-toc-title: On this page
-      
+    toc-title: On this page
+
 number-sections: false
-
-
-

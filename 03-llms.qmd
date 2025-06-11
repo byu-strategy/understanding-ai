@@ -4,13 +4,30 @@ format: html
 editor: visual
 ---
 
+:::{.under-construction-banner}
+<img src="images/under-construction.png" alt="Course Under Construction" class="under-construction-image">
+:::
+
+<style>
+.under-construction-banner {
+  background-color: #e0e0e0;  /* Light grey background */
+  padding: 1rem 1rem;         /* Makes the banner tall */
+  text-align: center;
+}
+
+.under-construction-image {
+  max-width: 250px;           /* Shrinks the image */
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 8px;
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.15);
+}
+</style>
+
+![Image source: *Build a Large Language Model (From Scratch)* by Sebastian Raschka](images/ai-ml-map.png){width="70%" fig-align="center"}
+
 ## Glossary
-
-According to John D. Kelleher "the field of artificial intelligence was born at a workshop at Dartmouth College in the summer of 1956."
-
-“Before the advent of transformers, recurrent neural networks (RNNs) were the most popular encoder–decoder architecture for language translation. ”
-
-“An RNN is a type of neural network where outputs from previous steps are fed as inputs to the current step, making them well-suited for sequential data like text.” (@build-llms-from-scratch-book)
 
 ## Words represented as numbers
 

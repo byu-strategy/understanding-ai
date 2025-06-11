@@ -256,11 +256,33 @@ window.Quarto = {
 </header>
 
 
+<div class="under-construction-banner">
+<p><img src="images/under-construction.png" alt="Course Under Construction" class="under-construction-image"></p>
+</div>
+<style>
+.under-construction-banner {
+  background-color: #e0e0e0;  /* Light grey background */
+  padding: 1rem 1rem;         /* Makes the banner tall */
+  text-align: center;
+}
+
+.under-construction-image {
+  max-width: 250px;           /* Shrinks the image */
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 8px;
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.15);
+}
+</style>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/ai-ml-map.png" class="img-fluid figure-img" style="width:70.0%"></p>
+<figcaption>Image source: <em>Build a Large Language Model (From Scratch)</em> by Sebastian Raschka</figcaption>
+</figure>
+</div>
 <section id="glossary" class="level2">
 <h2 class="anchored" data-anchor-id="glossary">Glossary</h2>
-<p>According to John D. Kelleher “the field of artificial intelligence was born at a workshop at Dartmouth College in the summer of 1956.”</p>
-<p>“Before the advent of transformers, recurrent neural networks (RNNs) were the most popular encoder–decoder architecture for language translation.”</p>
-<p>“An RNN is a type of neural network where outputs from previous steps are fed as inputs to the current step, making them well-suited for sequential data like text.” (<span class="citation" data-cites="build-llms-from-scratch-book">Raschka (<a href="99-references.html#ref-build-llms-from-scratch-book" role="doc-biblioref">2024</a>)</span>)</p>
 </section>
 <section id="words-represented-as-numbers" class="level2">
 <h2 class="anchored" data-anchor-id="words-represented-as-numbers">Words represented as numbers</h2>
@@ -735,9 +757,6 @@ window.Quarto = {
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
 <div id="ref-hands-on-llms-book" class="csl-entry" role="listitem">
 Alammar J, Grootendorst M (2024) <em><a href="https://www.oreilly.com/library/view/hands-on-large-language/9781098150952/">Hands-on large language models</a></em> (O’Reilly).
-</div>
-<div id="ref-build-llms-from-scratch-book" class="csl-entry" role="listitem">
-Raschka S (2024) <em><a href="https://www.manning.com/books/build-a-large-language-model-from-scratch">Build a large language model (from scratch)</a></em> (Manning).
 </div>
 <div id="ref-starmer2025attention" class="csl-entry" role="listitem">
 Starmer J (2025) Attention in transformers: Concepts and code in PyTorch.

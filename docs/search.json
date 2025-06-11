@@ -124,7 +124,7 @@
     "href": "00-math-review.html#calculus-essentials",
     "title": "Math and Python Review",
     "section": "",
-    "text": "Why You Need Calculus in ML/AI\nNeural networks are functions trained to minimize prediction errors. To train them, we need to compute how changes in weights affect the output — and for that, we use differentiation and the chain rule.\n\n\nDerivatives\nA measure of how a function changes as its input changes.\nNotation:\n- $ $: derivative of output \\(y\\) with respect to input \\(x\\)\n- $ f’(x) $: shorthand for “the derivative of function \\(f\\) at \\(x\\)”\nExample:\nIf \\(f(x) = x^2\\), then \\(f'(x) = 2x\\)\n\n\nPartial Derivatives\nA derivative with respect to one variable while keeping others constant.\nNotation:\n$ $\nUsed in computing how the loss changes with respect to each model parameter.\n\n\nChain Rule\nUsed to compute derivatives of composed functions (e.g., layer-by-layer in a neural network).\nFormula:\n\\[\n\\frac{dz}{dx} = \\frac{dz}{dy} \\cdot \\frac{dy}{dx}\n\\]\n\n\nGradient\nA vector of all partial derivatives of a function with respect to each input.\nNotation:\n$ L = $\n\n\nLoss Function\nMeasures how wrong the model’s prediction is.\nExamples:\n- Mean Squared Error (MSE)\n- Cross-Entropy Loss\n\n\nBackpropagation\nAn algorithm that uses the chain rule to compute gradients efficiently in neural networks.\n\n\nGradient Descent\nMethod used to update weights based on gradients.\nUpdate Rule:\n\\[\nw := w - \\eta \\cdot \\frac{\\partial L}{\\partial w}\n\\]\nWhere $ $ is the learning rate.",
+    "text": "Why You Need Calculus in ML/AI\nNeural networks are functions trained to minimize prediction errors. To train them, we need to compute how changes in weights affect the output — and for that, we use differentiation and the chain rule.\n\n\nDerivatives\nA measure of how a function changes as its input changes.\nNotation:\n\n\\(\\frac{dy}{dx}\\): derivative of output \\(y\\) with respect to input \\(x\\)\n\n\\(f'(x)\\): shorthand for “the derivative of function \\(f\\) at \\(x\\)”\n\nExample:\nIf \\(f(x) = x^2\\), then \\(f'(x) = 2x\\)\n\n\nPartial Derivatives\nA derivative with respect to one variable while keeping others constant.\nNotation:\n$ $\nUsed in computing how the loss changes with respect to each model parameter.\n\n\nChain Rule\nUsed to compute derivatives of composed functions (e.g., layer-by-layer in a neural network).\nFormula:\n\\[\n\\frac{dz}{dx} = \\frac{dz}{dy} \\cdot \\frac{dy}{dx}\n\\]\n\n\nGradient\nA vector of all partial derivatives of a function with respect to each input.\nNotation:\n\\(\\nabla L = \\left[ \\frac{\\partial L}{\\partial w_1}, \\frac{\\partial L}{\\partial w_2}, \\ldots \\right]\\)\n\n\nLoss Function\nMeasures how wrong the model’s prediction is.\nExamples:\n- Mean Squared Error (MSE)\n- Cross-Entropy Loss\n\n\nBackpropagation\nAn algorithm that uses the chain rule to compute gradients efficiently in neural networks.\n\n\nGradient Descent\nMethod used to update weights based on gradients.\nUpdate Rule:\n\\[\nw := w - \\eta \\cdot \\frac{\\partial L}{\\partial w}\n\\]\nWhere $ $ is the learning rate.",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Math and Python Review</span>"
     ]
@@ -134,7 +134,7 @@
     "href": "00-math-review.html#linear-algebra-essentials",
     "title": "Math and Python Review",
     "section": "Linear Algebra Essentials",
-    "text": "Linear Algebra Essentials\n\nWhy You Need Linear Algebra in ML/AI\nNeural networks use vectors and matrices to represent data, weights, and transformations.\n\n\nVectors\nA 1D array of numbers.\n$ =\n\\[\\begin{bmatrix} v_1 \\\\ v_2 \\\\ \\vdots \\\\ v_n \\end{bmatrix}\\]\n$\n\n\nMatrices\nA 2D array of numbers.\n$ A =\n\\[\\begin{bmatrix} a_{11} & a_{12} \\\\ a_{21} & a_{22} \\end{bmatrix}\\]\n$\n\n\nMatrix-Vector Multiplication\nIf \\(A\\) is \\(m \\times n\\) and \\(\\vec{x}\\) is \\(n \\times 1\\), then \\(A \\vec{x}\\) is \\(m \\times 1\\).\n\n\nDot Product\n$ = _{i=1}^{n} a_i b_i $\nUsed in similarity measures and basic model computations.\n\n\nTranspose\nSwitches rows and columns in a matrix.\n$ A^T $\n\n\nIdentity Matrix\nSquare matrix with 1s on the diagonal.\nActs like “1” for matrix multiplication.\n$ AI = A $\n\n\nMatrix Multiplication\nCombines transformations.\nIf \\(A\\) is \\(m \\times n\\) and \\(B\\) is \\(n \\times p\\), then \\(C = AB\\) is \\(m \\times p\\).\n\n\nNorms\nMeasure the size or length of a vector.\nL2 norm:\n$ | |_2 = $\n\n\nEigenvectors and Eigenvalues (Optional)\nSatisfy:\n$ A = $\nUsed in theoretical understanding and dimensionality reduction.",
+    "text": "Linear Algebra Essentials\n\nWhy You Need Linear Algebra in ML/AI\nNeural networks use vectors and matrices to represent data, weights, and transformations.\n\n\nVectors\nA 1D array of numbers.\n$ =\n\\[\\begin{bmatrix} v_1 \\\\ v_2 \\\\ \\vdots \\\\ v_n \\end{bmatrix}\\]\n$\n\n\nMatrices\nA 2D array of numbers.\n$ A =\n\\[\\begin{bmatrix} a_{11} & a_{12} \\\\ a_{21} & a_{22} \\end{bmatrix}\\]\n$\n\n\nMatrix-Vector Multiplication\nIf \\(A\\) is \\(m \\times n\\) and \\(\\vec{x}\\) is \\(n \\times 1\\), then \\(A \\vec{x}\\) is \\(m \\times 1\\).\n\n\nDot Product\n\\(\\vec{a} \\cdot \\vec{b} = \\sum_{i=1}^{n} a_i b_i\\)\nUsed in similarity measures and basic model computations.\n\n\nTranspose\nSwitches rows and columns in a matrix.\n\\(A^T\\)\n\n\nIdentity Matrix\nSquare matrix with 1s on the diagonal.\nActs like “1” for matrix multiplication.\n\\(AI = A\\)\n\n\nMatrix Multiplication\nCombines transformations.\nIf \\(A\\) is \\(m \\times n\\) and \\(B\\) is \\(n \\times p\\), then \\(C = AB\\) is \\(m \\times p\\).\n\n\nNorms\nMeasure the size or length of a vector.\nL2 norm:\n$| |_2 = $",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Math and Python Review</span>"
     ]
@@ -144,7 +144,7 @@
     "href": "00-math-review.html#probability-and-statistics-essentials",
     "title": "Math and Python Review",
     "section": "Probability and Statistics Essentials",
-    "text": "Probability and Statistics Essentials\n\nWhy You Need Probability in ML/AI\nModels make predictions under uncertainty. Probability describes this uncertainty and informs how we evaluate and train models.\n\n\nRandom Variables\nRepresent outcomes of random processes.\nDiscrete: number of heads\nContinuous: model confidence score\n\n\nProbability Distributions\nDiscrete: \\(P(X = x)\\)\nContinuous: \\(p(x)\\)\nExamples:\n- Bernoulli (binary outcomes)\n- Categorical (multi-class)\n- Gaussian/Normal (real-valued data)\n\n\nExpectation (Mean)\nDiscrete:\n$ [X] = _x x P(X = x) $\nContinuous:\n$ [X] = x p(x) dx $\n\n\nVariance and Standard Deviation\n$ (X) = [(X - [X])^2] $\n$ = $\n\n\nConditional Probability\n$ P(A B) = $\nUsed in next-token prediction:\n\\(P(\\text{next token} \\mid \\text{context})\\)\n\n\nBayes’ Theorem\n$ P(A B) = $\n\n\nEntropy\n$ H(X) = -_x P(x) P(x) $\nMeasures uncertainty in a distribution.\n\n\nCross-Entropy Loss\n$ = -_i y_i (_i) $\nUsed in classification and language modeling.",
+    "text": "Probability and Statistics Essentials\n\nWhy You Need Probability in ML/AI\nModels make predictions under uncertainty. Probability describes this uncertainty and informs how we evaluate and train models.\n\n\nRandom Variables\nRepresent outcomes of random processes.\nDiscrete: number of heads\nContinuous: model confidence score\n\n\nProbability Distributions\nDiscrete: \\(P(X = x)\\)\nContinuous: \\(p(x)\\)\nExamples:\n- Bernoulli (binary outcomes)\n- Categorical (multi-class)\n- Gaussian/Normal (real-valued data)\n\n\nExpectation (Mean)\nDiscrete:\n\\(\\mathbb{E}[X] = \\sum_x x \\cdot P(X = x)\\)\nContinuous:\n\\(\\mathbb{E}[X] = \\int x \\cdot p(x) dx\\)\n\n\nVariance and Standard Deviation\n\\(\\mathrm{Var}(X) = \\mathbb{E}[(X - \\mathbb{E}[X])^2]\\)\n\\(\\sigma = \\sqrt{\\mathrm{Var}(X)}\\)\n\n\nConditional Probability\n$ P(A B) = $\nUsed in next-token prediction:\n\\(P(\\text{next token} \\mid \\text{context})\\)\n\n\nBayes’ Theorem\n$ P(A B) = $\n\n\nEntropy\n$ H(X) = -_x P(x) P(x) $\nMeasures uncertainty in a distribution.\n\n\nCross-Entropy Loss\n\\(\\text{Loss} = -\\sum_i y_i \\log(\\hat{y}_i)\\)\nUsed in classification and language modeling.",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Math and Python Review</span>"
     ]
@@ -154,7 +154,7 @@
     "href": "00-math-review.html#python-essentials-for-building-a-language-model",
     "title": "Math and Python Review",
     "section": "Python Essentials for Building a Language Model",
-    "text": "Python Essentials for Building a Language Model\n\nWhy Python?\nPython is widely used in AI due to its readability and powerful libraries like NumPy and PyTorch.\n\n\nVariables and Types\n```python x = 5 # integer y = 3.14 # float word = “GPT” # string",
+    "text": "Python Essentials for Building a Language Model\n\nWhy Python?\nPython is widely used in AI due to its readability and powerful libraries like NumPy and PyTorch.\n\n\nVariables and Types",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Math and Python Review</span>"
     ]
@@ -174,7 +174,37 @@
     "href": "01-machine-learning.html#supervised-learning",
     "title": "Machine Learning",
     "section": "Supervised Learning",
-    "text": "Supervised Learning\nSupervised learning is the most widely used type of machine learning and significantly overlaps with the methodologies of other quantitative fields, such as econometrics.\nSupervised learning gets its name from the fact that the input data set has examples of both inputs and outputs.\nThe outputs are called labels, hence you will sometime hear the term “labeled dataset.”\n\nRegression\n\n\nClassification\n\n\nSupervised Learning Use Cases\nSupervised Learning (Regression) Use Cases\n\n\n\n\n\n\n\n\n\n\n\nUse Case\nSample Inputs\nModel Output Description\nWhat ML Question is Being Answered?\nWhat Business Question is Being Answered?\nExample Algorithm(s)\n\n\n\n\nPrice Prediction\nProperty size, location, features\nNumeric price\nWhat is the expected price of this item?\nHow should I price products to stay competitive and profitable?\nLinear Regression, CatBoost\n\n\nDemand Forecasting\nHistorical sales, promotions, holidays\nPredicted sales volume\nWhat will sales be next week/month?\nHow can I manage inventory or staffing to meet demand?\nLinear Regression, LSTM\n\n\nMedical Risk Score\nPatient vitals, history\nRisk score (e.g., probability of event)\nHow likely is a medical event to occur?\nHow should I prioritize preventive care for patients?\nRandom Forest, Ridge Reg.\n\n\nRevenue Forecasting\nPast financials, seasonality\nRevenue over next time period\nHow much revenue will we make?\nHow can I allocate budgets or set growth targets?\nTime Series Models, XGBoost\n\n\nEnergy Usage Estimation\nTime of day, weather, appliance use\nPredicted energy consumption\nHow much energy will be used in this period?\nHow should I manage power supply or optimize grid efficiency?\nLinear Regression, SVR\n\n\n\nSupervised Learning (Classification) Use Cases\n\n\n\n\n\n\n\n\n\n\n\nUse Case\nSample Inputs\nModel Output Description\nWhat ML Question is Being Answered?\nWhat Business Question is Being Answered?\nExample Algorithm(s)\n\n\n\n\nEmail Spam Detection\nEmail content, sender info, subject line\nBinary label: spam or not spam\nIs this email spam?\nHow can I prevent unwanted emails from reaching users’ inboxes?\nLogistic Regression, SVM\n\n\nCredit Risk Scoring\nIncome, credit history, employment data\nRisk category (e.g., low/medium/high)\nWill this applicant default?\nShould I approve this loan, and at what interest rate?\nDecision Tree, XGBoost\n\n\nImage Classification\nPixel values from an image\nObject class label (e.g., “cat”, “dog”)\nWhat object is in this image?\nHow can I organize photos or automate product tagging?\nCNNs, ResNet\n\n\nSentiment Analysis\nReview text, social media posts\nSentiment label (positive/negative)\nWhat sentiment is being expressed?\nWhat is the public opinion about my product or brand?\nNaive Bayes, BERT\n\n\nDisease Diagnosis\nSymptoms, test results, demographics\nDisease class (e.g., flu, COVID, none)\nWhat condition does this patient likely have?\nHow can I assist doctors in making accurate and timely diagnoses?\nRandom Forest, Neural Nets",
+    "text": "Supervised Learning\nSupervised learning is the most widely used type of machine learning and significantly overlaps with the methodologies of other quantitative fields, such as econometrics.\nSupervised learning gets its name from the fact that the input data set has examples of both inputs and outputs.\nThe outputs are called labels, hence you will sometime hear the term “labeled dataset.”\n\nlogistic (sigmoid) function:\nSoftmax:\n\n\nRegression\n\n\nClassification",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Machine Learning</span>"
+    ]
+  },
+  {
+    "objectID": "01-machine-learning.html#loss-functions",
+    "href": "01-machine-learning.html#loss-functions",
+    "title": "Machine Learning",
+    "section": "Loss Functions",
+    "text": "Loss Functions\nA loss function is a mathematical function that measures the difference between a model’s predicted output and the true target value from a training dataset. It produces a scalar value representing the error for a single data point or the average error over a batch.\n\nCross entropy loss: “cross entropy” and “negative average log probability” related and often used interchangeably in practice.”\nPerplexity: “Perplexity is a measure often used alongside cross entropy loss to evaluate the performance of models in tasks like language modeling.”",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Machine Learning</span>"
+    ]
+  },
+  {
+    "objectID": "01-machine-learning.html#gradient-descent",
+    "href": "01-machine-learning.html#gradient-descent",
+    "title": "Machine Learning",
+    "section": "Gradient Descent",
+    "text": "Gradient Descent",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Machine Learning</span>"
+    ]
+  },
+  {
+    "objectID": "01-machine-learning.html#linear-regression",
+    "href": "01-machine-learning.html#linear-regression",
+    "title": "Machine Learning",
+    "section": "Linear Regression",
+    "text": "Linear Regression\n\nimport pandas as pd\nfrom sklearn.linear_model import LinearRegression\nimport numpy as np\nimport matplotlib.pyplot as plt\n\n# Step 1: Input text\ntext = \"I love to eat pizza\"\ntokens = text.split()\n\n# Step 2: Create vocabulary and mappings\nvocab = {word: i for i, word in enumerate(set(tokens))}\nreverse_vocab = {i: word for word, i in vocab.items()}\n\n# Step 3: Build a DataFrame\ndata = pd.DataFrame({\n    \"Current Word\": tokens[:-1],\n    \"Next Word\": tokens[1:]\n})\ndata[\"Current Index\"] = data[\"Current Word\"].map(vocab)\ndata[\"Next Index\"] = data[\"Next Word\"].map(vocab)\n\n# Step 4: Train the model\nX = data[\"Current Index\"].values.reshape(-1, 1)\ny = data[\"Next Index\"].values\nmodel = LinearRegression()\nmodel.fit(X, y)\n\n# Step 5: Make prediction\ninput_word = \"eat\"\ninput_index = vocab[input_word]\npredicted_index = round(model.predict([[input_index]])[0])\npredicted_word = reverse_vocab.get(predicted_index, \"UNKNOWN\")\n\n# Step 6: Plot\nplt.figure(figsize=(6, 4))\nplt.scatter(X, y, color='blue', label=\"Training data\")\nplt.plot(X, model.predict(X), color='red', linestyle='--', label=\"Regression line\")\nplt.scatter([input_index], [predicted_index], color='green', s=100, label=f\"Prediction for '{input_word}'\")\nplt.title(\"Linear Regression on Word Indices\")\nplt.xlabel(\"Current Word Index\")\nplt.ylabel(\"Next Word Index\")\nplt.legend()\nplt.grid(True)\nplt.tight_layout()\nplt.show()\n\n# Display table and prediction\nprint(\"Token Table:\\n\")\nprint(data)\nprint(\"\\nPrediction:\")\nprint(f\"Input word: '{input_word}' (index {input_index})\")\nprint(f\"Predicted next word index: {predicted_index}\")\nprint(f\"Predicted next word: '{predicted_word}'\")\n\n\n\n\n\n\n\n\nToken Table:\n\n  Current Word Next Word  Current Index  Next Index\n0            I      love              3           0\n1         love        to              0           1\n2           to       eat              1           2\n3          eat     pizza              2           4\n\nPrediction:\nInput word: 'eat' (index 2)\nPredicted next word index: 2\nPredicted next word: 'eat'\n\n\n\nSupervised Learning Use Cases\nSupervised Learning (Regression) Use Cases\n\n\n\n\n\n\n\n\n\n\n\nUse Case\nSample Inputs\nModel Output Description\nWhat ML Question is Being Answered?\nWhat Business Question is Being Answered?\nExample Algorithm(s)\n\n\n\n\nPrice Prediction\nProperty size, location, features\nNumeric price\nWhat is the expected price of this item?\nHow should I price products to stay competitive and profitable?\nLinear Regression, CatBoost\n\n\nDemand Forecasting\nHistorical sales, promotions, holidays\nPredicted sales volume\nWhat will sales be next week/month?\nHow can I manage inventory or staffing to meet demand?\nLinear Regression, LSTM\n\n\nMedical Risk Score\nPatient vitals, history\nRisk score (e.g., probability of event)\nHow likely is a medical event to occur?\nHow should I prioritize preventive care for patients?\nRandom Forest, Ridge Reg.\n\n\nRevenue Forecasting\nPast financials, seasonality\nRevenue over next time period\nHow much revenue will we make?\nHow can I allocate budgets or set growth targets?\nTime Series Models, XGBoost\n\n\nEnergy Usage Estimation\nTime of day, weather, appliance use\nPredicted energy consumption\nHow much energy will be used in this period?\nHow should I manage power supply or optimize grid efficiency?\nLinear Regression, SVR\n\n\n\nSupervised Learning (Classification) Use Cases\n\n\n\n\n\n\n\n\n\n\n\nUse Case\nSample Inputs\nModel Output Description\nWhat ML Question is Being Answered?\nWhat Business Question is Being Answered?\nExample Algorithm(s)\n\n\n\n\nEmail Spam Detection\nEmail content, sender info, subject line\nBinary label: spam or not spam\nIs this email spam?\nHow can I prevent unwanted emails from reaching users’ inboxes?\nLogistic Regression, SVM\n\n\nCredit Risk Scoring\nIncome, credit history, employment data\nRisk category (e.g., low/medium/high)\nWill this applicant default?\nShould I approve this loan, and at what interest rate?\nDecision Tree, XGBoost\n\n\nImage Classification\nPixel values from an image\nObject class label (e.g., “cat”, “dog”)\nWhat object is in this image?\nHow can I organize photos or automate product tagging?\nCNNs, ResNet\n\n\nSentiment Analysis\nReview text, social media posts\nSentiment label (positive/negative)\nWhat sentiment is being expressed?\nWhat is the public opinion about my product or brand?\nNaive Bayes, BERT\n\n\nDisease Diagnosis\nSymptoms, test results, demographics\nDisease class (e.g., flu, COVID, none)\nWhat condition does this patient likely have?\nHow can I assist doctors in making accurate and timely diagnoses?\nRandom Forest, Neural Nets",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Machine Learning</span>"
     ]
@@ -204,7 +234,67 @@
     "href": "02-deep-learning.html",
     "title": "Deep Learning",
     "section": "",
-    "text": "Neural Networks",
+    "text": "Neural Networks\n“Before the advent of transformers, recurrent neural networks (RNNs) were the most popular encoder–decoder architecture for language translation.”\n“An RNN is a type of neural network where outputs from previous steps are fed as inputs to the current step, making them well-suited for sequential data like text.” (Raschka (2024))",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Deep Learning</span>"
+    ]
+  },
+  {
+    "objectID": "02-deep-learning.html#glossary",
+    "href": "02-deep-learning.html#glossary",
+    "title": "Deep Learning",
+    "section": "Glossary",
+    "text": "Glossary\n\nInput Layer: Layer 0. This layer holds the input features. It doesn’t perform any computation — it just passes the input values into the network.\nHidden Layer(s): Layers 1 to n. These are the intermediate layers between input and output. They apply learned weights, biases, and activation functions to transform the data. There may be one or many hidden layers depending on the depth of the network.\nOutput Layer: Layer n+1. This is the final layer that produces the network’s prediction. Its activation function is often task-specific (e.g., softmax for classification, linear for regression).\nNeuron:\nPerceptron:\nMulti-layer Perceptron:\nActivation:\nForward propagation:\nBackpropagation:\nEpoch: One epoch = the model has seen every example in the training dataset once. Training a model involves multiple epochs so it can gradually learn patterns. With each epoch, the model updates its weights using backpropagation, ideally reducing the loss function. If your dataset has 10,000 examples and your batch size is 100, then you’ll have 100 batches per epoch. LLM pretraining will often have just 1–3 epochs over a huge corpora (due to dataset size and overfitting risk)\nTraining example: A sequence of tokens, often 512–8192 in a modern LLM.\nBatch: A set of examples processed together",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Deep Learning</span>"
+    ]
+  },
+  {
+    "objectID": "02-deep-learning.html#traditional-presentation-of-logistic-regression",
+    "href": "02-deep-learning.html#traditional-presentation-of-logistic-regression",
+    "title": "Deep Learning",
+    "section": "Traditional Presentation of Logistic Regression",
+    "text": "Traditional Presentation of Logistic Regression\nLogistic regression is commonly introduced as a linear model used for binary classification. Given an input vector \\(x \\in \\mathbb{R}^n\\), the model computes a linear combination of the inputs and passes it through the sigmoid activation function to produce a probability between 0 and 1.\n\nModel Equation\n\\[\n\\hat{y} = \\sigma(w^\\top x + b)\n= \\frac{1}{1 + e^{-(w_1 x_1 + w_2 x_2 + \\cdots + w_n x_n + b)}}\n\\]\nWhere:\n\n\\(x = [x_1, x_2, \\dots, x_n]^\\top\\) is the input feature vector\n\\(w = [w_1, w_2, \\dots, w_n]^\\top\\) is the weight vector\n\\(b\\) is the bias (intercept) term\n\\(\\sigma(z)\\) is the sigmoid function: \\(\\sigma(z) = \\frac{1}{1 + e^{-z}}\\)",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Deep Learning</span>"
+    ]
+  },
+  {
+    "objectID": "02-deep-learning.html#matrix-form",
+    "href": "02-deep-learning.html#matrix-form",
+    "title": "Deep Learning",
+    "section": "Matrix Form",
+    "text": "Matrix Form\nWe can express the same model in matrix notation:\n\\[\nz = w^\\top x + b\n\\quad \\text{and} \\quad\n\\hat{y} = \\sigma(z)\n\\]",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Deep Learning</span>"
+    ]
+  },
+  {
+    "objectID": "02-deep-learning.html#interpretation",
+    "href": "02-deep-learning.html#interpretation",
+    "title": "Deep Learning",
+    "section": "Interpretation",
+    "text": "Interpretation\nThis model predicts the probability that the output class is 1, given input \\(x\\). It is typically trained using binary cross-entropy loss (also known as log loss):\n\\[\n\\mathcal{L}(y, \\hat{y}) = -y \\log(\\hat{y}) - (1 - y) \\log(1 - \\hat{y})\n\\]",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Deep Learning</span>"
+    ]
+  },
+  {
+    "objectID": "02-deep-learning.html#rewriting-logistic-regression-as-a-neural-network",
+    "href": "02-deep-learning.html#rewriting-logistic-regression-as-a-neural-network",
+    "title": "Deep Learning",
+    "section": "Rewriting Logistic Regression as a Neural Network",
+    "text": "Rewriting Logistic Regression as a Neural Network\nNow we observe that this model is mathematically equivalent to a one-layer neural network:\n\nInputs: \\(x_1, x_2, x_3, \\dots\\)\nOne output neuron\nSigmoid activation\nA bias term modeled as a fixed input node with value 1 and a learnable weight\n\nSee the previous section for a diagram and matrix breakdown of this equivalent neural network.\nModels can be in different modes, evaluation mode.\n\n\n\n\n\nflowchart LR\n    %% Input nodes\n    X1((x1))\n    X2((x2))\n    X3((x3))\n    B((1)):::bias\n\n    %% Output node\n    Y((ŷ))\n\n    %% Weighted connections\n    X1 --&gt;|w1| Y\n    X2 --&gt;|w2| Y\n    X3 --&gt;|w3| Y\n    B --&gt;|b| Y\n\n    classDef bias fill:#eee,stroke:#333,stroke-width:2px;\n\n\n\n\n\n\n\nMathematical Representation\nLogistic regression with a bias term can be interpreted as a neural network with:\n\nInput vector \\(\\, \\tilde{x} \\in \\mathbb{R}^4 \\,\\), including a constant 1 for bias\nWeight vector \\(\\, \\tilde{w} \\in \\mathbb{R}^4 \\,\\)\nSigmoid activation at the output\n\n\nInput vector (with bias):\n\\[\n\\tilde{x} =\n\\begin{bmatrix}\n1 \\\\\nx_1 \\\\\nx_2 \\\\\nx_3\n\\end{bmatrix}\n\\]\n\n\nWeight vector (including bias):\n\\[\n\\tilde{w} =\n\\begin{bmatrix}\nb \\\\\nw_1 \\\\\nw_2 \\\\\nw_3\n\\end{bmatrix}\n\\]\n\n\nLinear combination:\n\\[\nz = \\tilde{w}^\\top \\tilde{x}\n= b + w_1 x_1 + w_2 x_2 + w_3 x_3\n\\]\n\n\nSigmoid output:\n\\[\n\\hat{y} = \\sigma(z) = \\frac{1}{1 + e^{-z}}\n\\]\n\n\n\n\nSummary Table\n\n\n\n\n\n\n\n\n\nElement\nSymbol\nShape\nNotes\n\n\n\n\nInput (with bias)\n\\(\\, \\tilde{x} \\,\\)\n\\(\\, \\mathbb{R}^{4 \\times 1} \\,\\)\n3 features + 1 bias\n\n\nWeights (with bias)\n\\(\\, \\tilde{w} \\,\\)\n\\(\\, \\mathbb{R}^{4 \\times 1} \\,\\)\nlearnable params\n\n\nOutput\n\\(\\, \\hat{y} \\,\\)\n\\(\\, \\mathbb{R} \\,\\)\nscalar probability\n\n\n\nThis is a Shinylive application embedded in a Quarto doc.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Deep Learning</span>"
+    ]
+  },
+  {
+    "objectID": "02-deep-learning.html#neural-network-architectures",
+    "href": "02-deep-learning.html#neural-network-architectures",
+    "title": "Deep Learning",
+    "section": "Neural Network Architectures",
+    "text": "Neural Network Architectures\nToday, nearly all state-of-the-art AI systems, including ChatGPT, are built around transformer architectures — which themselves rely heavily on feedforward networks as core subcomponents. However, other architectures like CNNs and RNNs continue to play crucial roles in specific areas such as computer vision and on-device speech processing.\n\n\n\n\n\n\n\n\nArchitecture\nDescription\nCommon Use Cases\n\n\n\n\nFeedforward Neural Network (FNN)\nThe simplest type of neural network where data flows in one direction—from input to output—through one or more hidden layers. No memory or recurrence. Often called a Multilayer Perceptron (MLP).\nImage classification (with vector inputs), tabular data prediction, building blocks in LLMs (e.g., transformer feedforward layers)\n\n\nConvolutional Neural Network (CNN)\nUses convolutional layers with local filters and shared weights to process spatial or grid-like data. Often followed by pooling layers to reduce dimensionality.\nImage and video recognition, object detection, facial recognition, medical imaging\n\n\nRecurrent Neural Network (RNN)\nDesigned for sequential data. Uses internal memory (hidden state) to capture dependencies across time steps. Each output depends on previous inputs.\nLanguage modeling, time-series forecasting, speech recognition\n\n\nLong Short-Term Memory (LSTM) / GRU\nVariants of RNNs that solve the vanishing gradient problem. Maintain long-range dependencies using gated mechanisms.\nMachine translation, stock price prediction, chatbot state tracking\n\n\nTransformer\nUses self-attention to weigh relationships between tokens in a sequence. Does not rely on recurrence. Stacked layers often include self-attention + feedforward sub-layers.\nLarge Language Models (GPT, BERT), translation, code generation, question answering\n\n\nAutoencoder\nLearns a compressed (latent) representation of input data and reconstructs it. Composed of an encoder and decoder. Often unsupervised.\nDimensionality reduction, denoising images, anomaly detection\n\n\nGenerative Adversarial Network (GAN)\nConsists of a generator and a discriminator in a game-theoretic setup. The generator creates synthetic data; the discriminator judges real vs. fake.\nImage synthesis, data augmentation, deepfake generation, art creation\n\n\n\n\n\n\n\nRaschka S (2024) Build a large language model (from scratch) (Manning).",
     "crumbs": [
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Deep Learning</span>"
     ]
@@ -214,7 +304,7 @@
     "href": "03-llms.html",
     "title": "Large Language Models",
     "section": "",
-    "text": "Glossary\nAccording to John D. Kelleher “the field of artificial intelligence was born at a workshop at Dartmouth College in the summer of 1956.”\n“Before the advent of transformers, recurrent neural networks (RNNs) were the most popular encoder–decoder architecture for language translation.”\n“An RNN is a type of neural network where outputs from previous steps are fed as inputs to the current step, making them well-suited for sequential data like text.” (Raschka (2024))",
+    "text": "Glossary",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Large Language Models</span>"
     ]
@@ -274,7 +364,7 @@
     "href": "03-llms.html#understanding-attention",
     "title": "Large Language Models",
     "section": "Understanding Attention",
-    "text": "Understanding Attention\nBy computing an attention weight, you are asking the question:\nHow similar is a given token to every other token in the input sequence as measured by the dot product between each pair of embeddings? We then normalized this set of weights using the softmax function which ensure that all the weights sum to 1. for a given token.\n\n\n\n\nAlammar J, Grootendorst M (2024) Hands-on large language models (O’Reilly).\n\n\nRaschka S (2024) Build a large language model (from scratch) (Manning).\n\n\nStarmer J (2025) Attention in transformers: Concepts and code in PyTorch.",
+    "text": "Understanding Attention\nBy computing an attention weight, you are asking the question:\nHow similar is a given token to every other token in the input sequence as measured by the dot product between each pair of embeddings? We then normalized this set of weights using the softmax function which ensure that all the weights sum to 1. for a given token.\n\n\n\n\nAlammar J, Grootendorst M (2024) Hands-on large language models (O’Reilly).\n\n\nStarmer J (2025) Attention in transformers: Concepts and code in PyTorch.",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Large Language Models</span>"
     ]
@@ -354,7 +444,7 @@
     "href": "99-references.html",
     "title": "References",
     "section": "",
-    "text": "Alammar J, Grootendorst M (2024a) Hands-on\nlarge language models (O’Reilly).\n\n\nAlammar J, Grootendorst M (2024b) How transformer LLMs work.\n\n\nBahdanau D, Cho K, Bengio Y (2014) Neural machine translation by jointly\nlearning to align and translate. arXiv preprint\narXiv:1409.0473.\n\n\nBednar DA (2010) Things\nas they really are. Ensign 40(6):16–25.\n\n\nBednar DA (2024) Things\nas they really are 2.0.\n\n\nGrootendorst M (2024) A visual guide to mixture of experts (MoE).\n\n\nHaefeli K, Guo SZ, Li B (2024) Ring attention explained.\n\n\nLuong MT, Pham H, Manning CD (2015) Effective approaches to\nattention-based neural machine translation. CoRR\nabs/1508.04025.\n\n\nRaschka S (2024) Build\na large language model (from scratch) (Manning).\n\n\nStarmer J (2025) Attention in transformers: Concepts and code in\nPyTorch.\n\n\nVaswani A, Shazeer N, Parmar N, Uszkoreit J, Jones L, Gomez AN, Kaiser\nŁ, Polosukhin I (2017) Attention\nis all you need. Guyon I, Luxburg UV, Bengio S, Wallach H, Fergus R,\nVishwanathan S, Garnett R, eds. Advances in neural information\nprocessing systems (Curran Associates, Inc.).",
+    "text": "Alammar J, Grootendorst M (2024) Hands-on\nlarge language models (O’Reilly).\n\n\nRaschka S (2024) Build\na large language model (from scratch) (Manning).\n\n\nStarmer J (2025) Attention in transformers: Concepts and code in\nPyTorch.",
     "crumbs": [
       "References"
     ]

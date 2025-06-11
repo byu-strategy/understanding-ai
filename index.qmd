@@ -10,11 +10,10 @@ format:
 # Syllabus
 
 *FALL 2025*
-  
-**Instructor:** Scott Murff  
-**TAs:** TBD 
-**Class Time:** M/W, 3:30–4:45 PM  
-**Class Location:** TNRB W308  
+
+**Instructor:** Scott Murff\
+**TAs:** TBD **Class Time:** M/W, 3:30–4:45 PM\
+**Class Location:** TNRB W308\
 **LMS:** LearningSuite
 
 ## Content Overview
@@ -29,16 +28,16 @@ The course will begin with an essential math review but to excel in the course s
 
 ## Who Should Take This Course
 
-This course is intended for advanced undergraduates and/or masters students who want a deep, technical introduction to LLMs alongside strategic insight into their real-world deployment. 
+This course is intended for advanced undergraduates and/or masters students who want a deep, technical introduction to LLMs alongside strategic insight into their real-world deployment.
 
 ## Learning Outcomes
 
 | **Learning Outcome** | **Target BYU Aim(s)** |
-|----------------------------------|-------------------------------------|
-| 1. Students will be able to implement basic AI and machine learning algorithms from first principles, including linear regression and neural networks, and apply these to Generative AI and LLM use cases. | Intellectually Enlarging |
-| 2. Students will analyze and explain the ethical, spiritual, and social implications of AI technologies, including their alignment (or misalignment) with eternal truths and principles of discipleship. | Spiritually Strengthening, Character Building |
-| 3. Students will demonstrate Christlike attributes such as diligence, humility, and purposeful curiosity in collaborative learning and problem-solving related to AI topics. | Character Building |
-| 4. Students will articulate how their understanding of AI can be used to bless the lives of others and reflect their discipleship to Jesus Christ in the workplace and community. | Lifelong Learning and Service, Spiritually Strengthening |
+|----|----|
+| 1\. Students will be able to implement basic AI and machine learning algorithms from first principles, including linear regression and neural networks, and apply these to Generative AI and LLM use cases. | Intellectually Enlarging |
+| 2\. Students will analyze and explain the ethical, spiritual, and social implications of AI technologies, including their alignment (or misalignment) with eternal truths and principles of discipleship. | Spiritually Strengthening, Character Building |
+| 3\. Students will demonstrate Christlike attributes such as diligence, humility, and purposeful curiosity in collaborative learning and problem-solving related to AI topics. | Character Building |
+| 4\. Students will articulate how their understanding of AI can be used to bless the lives of others and reflect their discipleship to Jesus Christ in the workplace and community. | Lifelong Learning and Service, Spiritually Strengthening |
 
 ## Instructor Bio
 
@@ -112,7 +111,7 @@ We evaluate our decisions and actions by the impact they will have on the academ
 
 #### Prayer in class
 
-We will begin each class with prayer. Each class member is invited to be voice for the prayer at least once throughout the semester. The TAs will reach out prior to class to invite you to pray on a particular day. If you'd rather not be voice for a prayer please let me know on the first day of class so I can instruct the TAs accordingly. 
+We will begin each class with prayer. Each class member is invited to be voice for the prayer at least once throughout the semester. The TAs will reach out prior to class to invite you to pray on a particular day. If you'd rather not be voice for a prayer please let me know on the first day of class so I can instruct the TAs accordingly.
 
 #### Laptop Policy
 
@@ -124,20 +123,13 @@ I teach in a fairly conversational style, which includes cold calling students t
 
 ## Required Materials
 
-- [Build a Large Language Model From Scratch](https://www.amazon.com/gp/product/1633437167) or [here](https://www.manning.com/books/build-a-large-language-model-from-scratch)
-
-
+-   [Build a Large Language Model From Scratch](https://www.amazon.com/gp/product/1633437167) or [here](https://www.manning.com/books/build-a-large-language-model-from-scratch)
 
 LMS: LearningSuite Class communication: Slack Required materials: The Lean Product Playbook: How to Innovate with Minimum Viable Products and Rapid Customer Feedback by Dan Olsen (physical copy recommended, \$25 or less). Text and audio also available for free for BYU students digitally at O'Reilly books. Laptop or desktop (Mac or Windows) Install Mendix Studio Pro version 10.18.0 on Mac or Windows (free) Verify your student status with Figma and install desktop app for Mac or Windows (free)
 
 ## Getting Help
 
-The following resources are available to get help:
-- Start with AI chat bots and the course website to see if they can assist
-- Use the course Slack channel to ask classmates for help
-- Attend TA or Professor office hours (coming soon)
-- Use **Slack** or email to contact one of the course TAs
-- Use **Slack** or email to contact Professor Murff
+The following resources are available to get help: - Start with AI chat bots and the course website to see if they can assist - Use the course Slack channel to ask classmates for help - Attend TA or Professor office hours (coming soon) - Use **Slack** or email to contact one of the course TAs - Use **Slack** or email to contact Professor Murff
 
 ## Pre-enrollment Assessment
 

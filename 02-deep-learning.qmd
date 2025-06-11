@@ -4,5 +4,422 @@ format: html
 editor: visual
 ---
 
+:::{.under-construction-banner}
+<img src="images/under-construction.png" alt="Course Under Construction" class="under-construction-image">
+:::
+
+<style>
+.under-construction-banner {
+  background-color: #e0e0e0;  /* Light grey background */
+  padding: 1rem 1rem;         /* Makes the banner tall */
+  text-align: center;
+}
+
+.under-construction-image {
+  max-width: 250px;           /* Shrinks the image */
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 8px;
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.15);
+}
+</style>
+
+![Image source: *Build a Large Language Model (From Scratch)* by Sebastian Raschka](images/ai-ml-map.png){width="70%" fig-align="center"}
+
 ## Neural Networks
 
+“Before the advent of transformers, recurrent neural networks (RNNs) were the most popular encoder–decoder architecture for language translation. ”
+
+“An RNN is a type of neural network where outputs from previous steps are fed as inputs to the current step, making them well-suited for sequential data like text.” (@build-llms-from-scratch-book)
+
+## Glossary
+
+- **Input Layer**: Layer 0. This layer holds the input features. It doesn't perform any computation — it just passes the input values into the network.
+
+- **Hidden Layer(s)**: Layers 1 to n. These are the intermediate layers between input and output. They apply learned weights, biases, and activation functions to transform the data. There may be one or many hidden layers depending on the depth of the network.
+
+- **Output Layer**: Layer n+1. This is the final layer that produces the network’s prediction. Its activation function is often task-specific (e.g., softmax for classification, linear for regression).
+
+- **Neuron**:
+
+- **Perceptron**:
+
+- **Multi-layer Perceptron**:
+
+- **Activation**:
+
+- **Forward propagation**:
+
+- **Backpropagation**:
+
+- **Epoch**: One epoch = the model has seen every example in the training dataset once. Training a model involves multiple epochs so it can gradually learn patterns. With each epoch, the model updates its weights using backpropagation, ideally reducing the loss function. If your dataset has 10,000 examples and your batch size is 100, then you’ll have 100 batches per epoch. LLM pretraining will often have just 1–3 epochs over a huge corpora (due to dataset size and overfitting risk)
+
+- **Training example**: A sequence of tokens, often 512–8192 in a modern LLM.
+
+- **Batch**: A set of examples processed together
+
+## Traditional Presentation of Logistic Regression
+
+Logistic regression is commonly introduced as a linear model used for binary classification. Given an input vector $x \in \mathbb{R}^n$, the model computes a **linear combination** of the inputs and passes it through the **sigmoid** activation function to produce a probability between 0 and 1.
+
+### Model Equation
+
+$$
+\hat{y} = \sigma(w^\top x + b)
+= \frac{1}{1 + e^{-(w_1 x_1 + w_2 x_2 + \cdots + w_n x_n + b)}}
+$$
+
+Where:
+
+- $x = [x_1, x_2, \dots, x_n]^\top$ is the input feature vector
+- $w = [w_1, w_2, \dots, w_n]^\top$ is the weight vector
+- $b$ is the bias (intercept) term
+- $\sigma(z)$ is the sigmoid function: $\sigma(z) = \frac{1}{1 + e^{-z}}$
+
+---
+
+## Matrix Form
+
+We can express the same model in matrix notation:
+
+$$
+z = w^\top x + b
+\quad \text{and} \quad
+\hat{y} = \sigma(z)
+$$
+
+---
+
+## Interpretation
+
+This model predicts the **probability** that the output class is 1, given input $x$. It is typically trained using **binary cross-entropy loss** (also known as log loss):
+
+$$
+\mathcal{L}(y, \hat{y}) = -y \log(\hat{y}) - (1 - y) \log(1 - \hat{y})
+$$
+
+---
+
+## Rewriting Logistic Regression as a Neural Network
+
+Now we observe that this model is **mathematically equivalent** to a one-layer neural network:
+
+- Inputs: $x_1, x_2, x_3, \dots$
+- One output neuron
+- Sigmoid activation
+- A bias term modeled as a fixed input node with value 1 and a learnable weight
+
+See the previous section for a diagram and matrix breakdown of this equivalent neural network.
+
+
+Models can be in different modes, evaluation mode. 
+
+```{mermaid}
+flowchart LR
+    %% Input nodes
+    X1((x1))
+    X2((x2))
+    X3((x3))
+    B((1)):::bias
+
+    %% Output node
+    Y((ŷ))
+
+    %% Weighted connections
+    X1 -->|w1| Y
+    X2 -->|w2| Y
+    X3 -->|w3| Y
+    B -->|b| Y
+
+    classDef bias fill:#eee,stroke:#333,stroke-width:2px;
+```
+
+### Mathematical Representation
+
+Logistic regression with a bias term can be interpreted as a neural network with:
+
+- Input vector $\, \tilde{x} \in \mathbb{R}^4 \,$, including a constant 1 for bias
+- Weight vector $\, \tilde{w} \in \mathbb{R}^4 \,$
+- Sigmoid activation at the output
+
+#### Input vector (with bias):
+
+$$
+\tilde{x} =
+\begin{bmatrix}
+1 \\
+x_1 \\
+x_2 \\
+x_3
+\end{bmatrix}
+$$
+
+#### Weight vector (including bias):
+
+$$
+\tilde{w} =
+\begin{bmatrix}
+b \\
+w_1 \\
+w_2 \\
+w_3
+\end{bmatrix}
+$$
+
+#### Linear combination:
+
+$$
+z = \tilde{w}^\top \tilde{x}
+= b + w_1 x_1 + w_2 x_2 + w_3 x_3
+$$
+
+#### Sigmoid output:
+
+$$
+\hat{y} = \sigma(z) = \frac{1}{1 + e^{-z}}
+$$
+
+---
+
+### Summary Table
+
+| Element              | Symbol          | Shape                  | Notes              |
+|----------------------|------------------|--------------------------|---------------------|
+| Input (with bias)    | $\, \tilde{x} \,$| $\, \mathbb{R}^{4 \times 1} \,$ | 3 features + 1 bias |
+| Weights (with bias)  | $\, \tilde{w} \,$| $\, \mathbb{R}^{4 \times 1} \,$ | learnable params   |
+| Output               | $\, \hat{y} \,$  | $\, \mathbb{R} \,$         | scalar probability |
+
+
+This is a Shinylive application embedded in a Quarto doc.
+
+<div id="nn-widget" style="position: relative; width: 960px; height: 500px;"></div>
+
+<!-- D3.js and MathJax -->
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<!-- Styles -->
+<style>
+  #nn-widget { background: #fdfdfd; border: 1px solid #ddd; border-radius: 6px; }
+  .node { stroke-width: 1.5px; }
+  .node.input  { fill: #A6CEE3; stroke: #1F78B4; }
+  .node.hidden { fill: #B2DF8A; stroke: #33A02C; }
+  .node.output { fill: #FB9A99; stroke: #E31A1C; }
+
+  .edge { stroke-width: 1.5px; marker-end: url(#arrow); }
+  .edge.layer0 { stroke: #1F78B4; }
+  .edge.layer1 { stroke: #33A02C; }
+  .edge.layer2 { stroke: #E31A1C; }
+
+  .weight-label { font-size: 10px; cursor: pointer; }
+  .weight-label.layer0 { fill: #1F78B4; }
+  .weight-label.layer1 { fill: #33A02C; }
+  .weight-label.layer2 { fill: #E31A1C; }
+
+  #controls button { margin-right: 8px; }
+
+  .panel {
+    position: absolute;
+    width: 220px;
+    background: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 8px;
+    font-family: monospace;
+    font-size: 13px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  }
+  #formula-panel { top: 10px; left: 10px; border-left: 4px solid #1F78B4; }
+  #matrix-panel  { top: 10px; right: 10px; border-left: 4px solid #33A02C; }
+  #code-panel    { bottom: 10px; right: 10px; border-left: 4px solid #E31A1C; }
+  #code-panel pre { margin: 0; font-size: 12px; background: #f5f5f5; padding: 4px; border-radius: 3px; }
+</style>
+
+<script>
+// ----------------------
+// CONFIG & DATA
+// ----------------------
+const W = 960, H = 500;
+const svg = d3.select("#nn-widget")
+  .append("svg")
+    .attr("width", W)
+    .attr("height", H);
+
+let network = {
+  layers: [{ nodes:[{id:0}] }, { nodes:[{id:0}] }],
+  weights: [[[0]]],
+  biases: [[0]]
+};
+
+// ----------------------
+// PANELS SETUP
+// ----------------------
+const formulaPanel = d3.select("#nn-widget")
+  .append("div").attr("id","formula-panel").attr("class","panel");
+const matrixPanel = d3.select("#nn-widget")
+  .append("div").attr("id","matrix-panel").attr("class","panel");
+const codePanel = d3.select("#nn-widget")
+  .append("div").attr("id","code-panel").attr("class","panel");
+
+// ----------------------
+// LAYOUT & RENDER
+// ----------------------
+function getPositions() {
+  return network.layers.map((layer,i) => {
+    const x = (i+1)*(W/(network.layers.length+1));
+    const yStep = H/(layer.nodes.length+1);
+    return layer.nodes.map((n,j)=>({id:n.id, x, y:(j+1)*yStep}));
+  });
+}
+
+function render() {
+  svg.selectAll("*").remove();
+  const pos = getPositions();
+
+  // arrow marker
+  svg.append("defs").append("marker")
+      .attr("id","arrow")
+      .attr("viewBox","0 -5 10 10")
+      .attr("refX",8).attr("refY",0)
+      .attr("markerWidth",6).attr("markerHeight",6)
+      .attr("orient","auto")
+    .append("path")
+      .attr("d","M0,-5L10,0L0,5")
+      .attr("fill","#888");
+
+  // edges & weights
+  pos.slice(0,-1).forEach((layerPos, li) => {
+    layerPos.forEach((p,i) => {
+      pos[li+1].forEach((q,j) => {
+        const w = network.weights[li][i][j];
+        svg.append("line")
+          .attr("class",`edge layer${li}`)
+          .attr("x1",p.x).attr("y1",p.y)
+          .attr("x2",q.x).attr("y2",q.y);
+        svg.append("text")
+          .attr("class",`weight-label layer${li}`)
+          .attr("x",(p.x+q.x)/2).attr("y",(p.y+q.y)/2 - 4)
+          .attr("text-anchor","middle")
+          .text(w.toFixed(2))
+          .on("click",()=>editWeight(li,i,j));
+      });
+    });
+  });
+
+  // nodes
+  pos.forEach((layerPos, li) => {
+    layerPos.forEach((p) => {
+      const cls = li===0 ? "input" : (li===network.layers.length-1 ? "output" : "hidden");
+      svg.append("circle")
+        .attr("class",`node ${cls}`)
+        .attr("cx",p.x).attr("cy",p.y).attr("r",14);
+    });
+  });
+
+  updateFormulaPanel();
+  updateMatrixPanel();
+  updateCodePanel();
+}
+
+// ----------------------
+// PANEL UPDATES
+// ----------------------
+function updateFormulaPanel() {
+  formulaPanel.html("");
+  network.weights.forEach((_, li) => {
+    const L = li+1;
+    formulaPanel.append("div")
+      .html(`$$z^{(${L})} = W^{(${L})}\\,a^{(${L-1})} + b^{(${L})}$$`);
+    formulaPanel.append("div")
+      .html(`$$a^{(${L})} = \\sigma\\bigl(z^{(${L})}\\bigr)$$`);
+    formulaPanel.append("hr");
+  });
+  MathJax.typesetPromise();
+}
+
+function updateMatrixPanel() {
+  matrixPanel.html("");
+  network.weights.forEach((W,li) => {
+    matrixPanel.append("div")
+      .html(`<b style="color:#33A02C;">W<sub>${li+1}</sub> (${W.length}×${W[0].length})</b><br>[${W.map(r=>r.map(v=>v.toFixed(2)).join(", ")).join(";<br>")}]`);
+    matrixPanel.append("div")
+      .html(`<b style="color:#33A02C;">b<sub>${li+1}</sub> (${network.biases[li].length})</b><br>[${network.biases[li].map(v=>v.toFixed(2)).join(", ")}]`);
+    matrixPanel.append("hr");
+  });
+}
+
+function updateCodePanel() {
+  codePanel.html("<b style=\"color:#E31A1C;\">PyTorch equivalent:</b>");
+  network.weights.forEach((_, li) => {
+    const L = li+1;
+    codePanel.append("pre").text(
+`# layer ${L}
+z_${L} = torch.matmul(W[${li}], a_${L-1}) + b[${li}]
+a_${L} = activation(z_${L})`
+    );
+  });
+}
+
+// ----------------------
+// INTERACTIONS
+// ----------------------
+function editWeight(li,i,j) {
+  const val = prompt(`W[${li}][${i}][${j}] =`, network.weights[li][i][j]);
+  if (val!==null) network.weights[li][i][j] = +val, render();
+}
+
+function addLayer() {
+  network.layers.splice(network.layers.length-1, 0, { nodes:[{id:0},{id:1}] });
+  rebuildWeights();
+  render();
+}
+
+function rebuildWeights() {
+  network.weights = [];
+  network.biases = [];
+  for (let i=0; i<network.layers.length-1; i++){
+    const ins = network.layers[i].nodes.length;
+    const outs = network.layers[i+1].nodes.length;
+    network.weights.push(Array.from({length:ins}, ()=>Array(outs).fill(0)));
+    network.biases.push(Array(outs).fill(0));
+  }
+}
+
+function reset() {
+  network = { layers:[{nodes:[{id:0}]},{nodes:[{id:0}]}], weights:[[[0]]], biases:[[0]] };
+  render();
+}
+
+// ----------------------
+// CONTROLS & INIT
+// ----------------------
+const ctrl = d3.select("#nn-widget").append("div").attr("id","controls");
+ctrl.append("button").text("Add Hidden Layer").on("click", addLayer);
+ctrl.append("button").text("Reset").on("click", reset);
+
+reset();
+</script>
+
+
+
+
+
+
+
+
+
+
+## Neural Network Architectures
+
+Today, nearly all state-of-the-art AI systems, including ChatGPT, are built around transformer architectures — which themselves rely heavily on feedforward networks as core subcomponents. However, other architectures like CNNs and RNNs continue to play crucial roles in specific areas such as computer vision and on-device speech processing. 
+
+| Architecture | Description | Common Use Cases |
+|--------------|-------------|------------------|
+| **Feedforward Neural Network (FNN)** | The simplest type of neural network where data flows in one direction—from input to output—through one or more hidden layers. No memory or recurrence. Often called a Multilayer Perceptron (MLP). | Image classification (with vector inputs), tabular data prediction, building blocks in LLMs (e.g., transformer feedforward layers) |
+| **Convolutional Neural Network (CNN)** | Uses convolutional layers with local filters and shared weights to process spatial or grid-like data. Often followed by pooling layers to reduce dimensionality. | Image and video recognition, object detection, facial recognition, medical imaging |
+| **Recurrent Neural Network (RNN)** | Designed for sequential data. Uses internal memory (hidden state) to capture dependencies across time steps. Each output depends on previous inputs. | Language modeling, time-series forecasting, speech recognition |
+| **Long Short-Term Memory (LSTM)** / **GRU** | Variants of RNNs that solve the vanishing gradient problem. Maintain long-range dependencies using gated mechanisms. | Machine translation, stock price prediction, chatbot state tracking |
+| **Transformer** | Uses self-attention to weigh relationships between tokens in a sequence. Does not rely on recurrence. Stacked layers often include self-attention + feedforward sub-layers. | Large Language Models (GPT, BERT), translation, code generation, question answering |
+| **Autoencoder** | Learns a compressed (latent) representation of input data and reconstructs it. Composed of an encoder and decoder. Often unsupervised. | Dimensionality reduction, denoising images, anomaly detection |
+| **Generative Adversarial Network (GAN)** | Consists of a generator and a discriminator in a game-theoretic setup. The generator creates synthetic data; the discriminator judges real vs. fake. | Image synthesis, data augmentation, deepfake generation, art creation |

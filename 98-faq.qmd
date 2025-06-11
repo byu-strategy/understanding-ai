@@ -3,6 +3,27 @@ title: "FAQ"
 editor: visual
 ---
 
+:::{.under-construction-banner}
+<img src="images/under-construction.png" alt="Course Under Construction" class="under-construction-image">
+:::
+
+<style>
+.under-construction-banner {
+  background-color: #e0e0e0;  /* Light grey background */
+  padding: 1rem 1rem;         /* Makes the banner tall */
+  text-align: center;
+}
+
+.under-construction-image {
+  max-width: 250px;           /* Shrinks the image */
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 8px;
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.15);
+}
+</style>
+
 
 1. What does the word projection mean?
 

@@ -215,7 +215,6 @@ window.Quarto = {
   <li><a href="#identity-matrix" id="toc-identity-matrix" class="nav-link" data-scroll-target="#identity-matrix">Identity Matrix</a></li>
   <li><a href="#matrix-multiplication" id="toc-matrix-multiplication" class="nav-link" data-scroll-target="#matrix-multiplication">Matrix Multiplication</a></li>
   <li><a href="#norms" id="toc-norms" class="nav-link" data-scroll-target="#norms">Norms</a></li>
-  <li><a href="#eigenvectors-and-eigenvalues-optional" id="toc-eigenvectors-and-eigenvalues-optional" class="nav-link" data-scroll-target="#eigenvectors-and-eigenvalues-optional">Eigenvectors and Eigenvalues (Optional)</a></li>
   </ul></li>
   <li><a href="#probability-and-statistics-essentials" id="toc-probability-and-statistics-essentials" class="nav-link" data-scroll-target="#probability-and-statistics-essentials">Probability and Statistics Essentials</a>
   <ul class="collapse">
@@ -259,6 +258,25 @@ window.Quarto = {
 </header>
 
 
+<div class="under-construction-banner">
+<p><img src="images/under-construction.png" alt="Course Under Construction" class="under-construction-image"></p>
+</div>
+<style>
+.under-construction-banner {
+  background-color: #e0e0e0;  /* Light grey background */
+  padding: 1rem 1rem;         /* Makes the banner tall */
+  text-align: center;
+}
+
+.under-construction-image {
+  max-width: 250px;           /* Shrinks the image */
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 8px;
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.15);
+}
+</style>
 <p>This guide introduces the key concepts in <strong>calculus</strong>, <strong>linear algebra</strong>, <strong>probability and statistics</strong>, and <strong>Python programming</strong> that you’ll need to understand how neural networks and large language models (LLMs) work.</p>
 <hr>
 <section id="calculus-essentials" class="level2">
@@ -270,32 +288,35 @@ window.Quarto = {
 <section id="derivatives" class="level3">
 <h3 class="anchored" data-anchor-id="derivatives">Derivatives</h3>
 <p>A measure of how a function changes as its input changes.</p>
-<p><strong>Notation</strong>:<br>
-- $ $: derivative of output <span class="math inline">\(y\)</span> with respect to input <span class="math inline">\(x\)</span><br>
-- $ f’(x) $: shorthand for “the derivative of function <span class="math inline">\(f\)</span> at <span class="math inline">\(x\)</span>”</p>
-<p><strong>Example</strong>:<br>
-If <span class="math inline">\(f(x) = x^2\)</span>, then <span class="math inline">\(f'(x) = 2x\)</span></p>
+<p><strong>Notation</strong>:</p>
+<ul>
+<li><span class="math inline">\(\frac{dy}{dx}\)</span>: derivative of output <span class="math inline">\(y\)</span> with respect to input <span class="math inline">\(x\)</span><br>
+</li>
+<li><span class="math inline">\(f'(x)\)</span>: shorthand for “the derivative of function <span class="math inline">\(f\)</span> at <span class="math inline">\(x\)</span>”</li>
+</ul>
+<p><strong>Example</strong>:</p>
+<p>If <span class="math inline">\(f(x) = x^2\)</span>, then <span class="math inline">\(f'(x) = 2x\)</span></p>
 </section>
 <section id="partial-derivatives" class="level3">
 <h3 class="anchored" data-anchor-id="partial-derivatives">Partial Derivatives</h3>
 <p>A derivative with respect to one variable while keeping others constant.</p>
-<p><strong>Notation</strong>:<br>
-$ $</p>
+<p><strong>Notation</strong>:</p>
+<p>$ $</p>
 <p>Used in computing how the loss changes with respect to each model parameter.</p>
 </section>
 <section id="chain-rule" class="level3">
 <h3 class="anchored" data-anchor-id="chain-rule">Chain Rule</h3>
 <p>Used to compute derivatives of composed functions (e.g., layer-by-layer in a neural network).</p>
-<p><strong>Formula</strong>:<br>
-<span class="math display">\[
+<p><strong>Formula</strong>:</p>
+<p><span class="math display">\[
 \frac{dz}{dx} = \frac{dz}{dy} \cdot \frac{dy}{dx}
 \]</span></p>
 </section>
 <section id="gradient" class="level3">
 <h3 class="anchored" data-anchor-id="gradient">Gradient</h3>
 <p>A vector of all partial derivatives of a function with respect to each input.</p>
-<p><strong>Notation</strong>:<br>
-$ L = $</p>
+<p><strong>Notation</strong>:</p>
+<p><span class="math inline">\(\nabla L = \left[ \frac{\partial L}{\partial w_1}, \frac{\partial L}{\partial w_2}, \ldots \right]\)</span></p>
 </section>
 <section id="loss-function" class="level3">
 <h3 class="anchored" data-anchor-id="loss-function">Loss Function</h3>
@@ -311,8 +332,8 @@ $ L = $</p>
 <section id="gradient-descent" class="level3">
 <h3 class="anchored" data-anchor-id="gradient-descent">Gradient Descent</h3>
 <p>Method used to update weights based on gradients.</p>
-<p><strong>Update Rule</strong>:<br>
-<span class="math display">\[
+<p><strong>Update Rule</strong>:</p>
+<p><span class="math display">\[
 w := w - \eta \cdot \frac{\partial L}{\partial w}
 \]</span></p>
 <p>Where $ $ is the learning rate.</p>
@@ -327,15 +348,15 @@ w := w - \eta \cdot \frac{\partial L}{\partial w}
 </section>
 <section id="vectors" class="level3">
 <h3 class="anchored" data-anchor-id="vectors">Vectors</h3>
-A 1D array of numbers.<br>
-$ =
+<p>A 1D array of numbers.</p>
+<p>$ =</p>
 <span class="math display">\[\begin{bmatrix} v_1 \\ v_2 \\ \vdots \\ v_n \end{bmatrix}\]</span>
 <p>$</p>
 </section>
 <section id="matrices" class="level3">
 <h3 class="anchored" data-anchor-id="matrices">Matrices</h3>
-A 2D array of numbers.<br>
-$ A =
+<p>A 2D array of numbers.</p>
+<p>$ A =</p>
 <span class="math display">\[\begin{bmatrix} a_{11} &amp; a_{12} \\ a_{21} &amp; a_{22} \end{bmatrix}\]</span>
 <p>$</p>
 </section>
@@ -345,36 +366,30 @@ $ A =
 </section>
 <section id="dot-product" class="level3">
 <h3 class="anchored" data-anchor-id="dot-product">Dot Product</h3>
-<p>$ = _{i=1}^{n} a_i b_i $</p>
+<p><span class="math inline">\(\vec{a} \cdot \vec{b} = \sum_{i=1}^{n} a_i b_i\)</span></p>
 <p>Used in similarity measures and basic model computations.</p>
 </section>
 <section id="transpose" class="level3">
 <h3 class="anchored" data-anchor-id="transpose">Transpose</h3>
-<p>Switches rows and columns in a matrix.<br>
-$ A^T $</p>
+<p>Switches rows and columns in a matrix.</p>
+<p><span class="math inline">\(A^T\)</span></p>
 </section>
 <section id="identity-matrix" class="level3">
 <h3 class="anchored" data-anchor-id="identity-matrix">Identity Matrix</h3>
 <p>Square matrix with 1s on the diagonal.<br>
-Acts like “1” for matrix multiplication.<br>
-$ AI = A $</p>
+Acts like “1” for matrix multiplication.</p>
+<p><span class="math inline">\(AI = A\)</span></p>
 </section>
 <section id="matrix-multiplication" class="level3">
 <h3 class="anchored" data-anchor-id="matrix-multiplication">Matrix Multiplication</h3>
-<p>Combines transformations.<br>
-If <span class="math inline">\(A\)</span> is <span class="math inline">\(m \times n\)</span> and <span class="math inline">\(B\)</span> is <span class="math inline">\(n \times p\)</span>, then <span class="math inline">\(C = AB\)</span> is <span class="math inline">\(m \times p\)</span>.</p>
+<p>Combines transformations.</p>
+<p>If <span class="math inline">\(A\)</span> is <span class="math inline">\(m \times n\)</span> and <span class="math inline">\(B\)</span> is <span class="math inline">\(n \times p\)</span>, then <span class="math inline">\(C = AB\)</span> is <span class="math inline">\(m \times p\)</span>.</p>
 </section>
 <section id="norms" class="level3">
 <h3 class="anchored" data-anchor-id="norms">Norms</h3>
 <p>Measure the size or length of a vector.</p>
-<p><strong>L2 norm</strong>:<br>
-$ | |_2 = $</p>
-</section>
-<section id="eigenvectors-and-eigenvalues-optional" class="level3">
-<h3 class="anchored" data-anchor-id="eigenvectors-and-eigenvalues-optional">Eigenvectors and Eigenvalues (Optional)</h3>
-<p>Satisfy:<br>
-$ A = $</p>
-<p>Used in theoretical understanding and dimensionality reduction.</p>
+<p><strong>L2 norm</strong>:</p>
+<p>$| |_2 = $</p>
 <hr>
 </section>
 </section>
@@ -392,8 +407,8 @@ Continuous: model confidence score</p>
 </section>
 <section id="probability-distributions" class="level3">
 <h3 class="anchored" data-anchor-id="probability-distributions">Probability Distributions</h3>
-<p>Discrete: <span class="math inline">\(P(X = x)\)</span><br>
-Continuous: <span class="math inline">\(p(x)\)</span></p>
+<p>Discrete: <span class="math inline">\(P(X = x)\)</span></p>
+<p>Continuous: <span class="math inline">\(p(x)\)</span></p>
 <p><strong>Examples</strong>:<br>
 - Bernoulli (binary outcomes)<br>
 - Categorical (multi-class)<br>
@@ -401,21 +416,21 @@ Continuous: <span class="math inline">\(p(x)\)</span></p>
 </section>
 <section id="expectation-mean" class="level3">
 <h3 class="anchored" data-anchor-id="expectation-mean">Expectation (Mean)</h3>
-<p><strong>Discrete</strong>:<br>
-$ [X] = _x x P(X = x) $</p>
-<p><strong>Continuous</strong>:<br>
-$ [X] = x p(x) dx $</p>
+<p><strong>Discrete</strong>:</p>
+<p><span class="math inline">\(\mathbb{E}[X] = \sum_x x \cdot P(X = x)\)</span></p>
+<p><strong>Continuous</strong>:</p>
+<p><span class="math inline">\(\mathbb{E}[X] = \int x \cdot p(x) dx\)</span></p>
 </section>
 <section id="variance-and-standard-deviation" class="level3">
 <h3 class="anchored" data-anchor-id="variance-and-standard-deviation">Variance and Standard Deviation</h3>
-<p>$ (X) = [(X - [X])^2] $<br>
-$ = $</p>
+<p><span class="math inline">\(\mathrm{Var}(X) = \mathbb{E}[(X - \mathbb{E}[X])^2]\)</span></p>
+<p><span class="math inline">\(\sigma = \sqrt{\mathrm{Var}(X)}\)</span></p>
 </section>
 <section id="conditional-probability" class="level3">
 <h3 class="anchored" data-anchor-id="conditional-probability">Conditional Probability</h3>
 <p>$ P(A B) = $</p>
-<p>Used in next-token prediction:<br>
-<span class="math inline">\(P(\text{next token} \mid \text{context})\)</span></p>
+<p>Used in next-token prediction:</p>
+<p><span class="math inline">\(P(\text{next token} \mid \text{context})\)</span></p>
 </section>
 <section id="bayes-theorem" class="level3">
 <h3 class="anchored" data-anchor-id="bayes-theorem">Bayes’ Theorem</h3>
@@ -428,7 +443,7 @@ $ = $</p>
 </section>
 <section id="cross-entropy-loss" class="level3">
 <h3 class="anchored" data-anchor-id="cross-entropy-loss">Cross-Entropy Loss</h3>
-<p>$ = -_i y_i (_i) $</p>
+<p><span class="math inline">\(\text{Loss} = -\sum_i y_i \log(\hat{y}_i)\)</span></p>
 <p>Used in classification and language modeling.</p>
 <hr>
 </section>
@@ -441,7 +456,6 @@ $ = $</p>
 </section>
 <section id="variables-and-types" class="level3">
 <h3 class="anchored" data-anchor-id="variables-and-types">Variables and Types</h3>
-<p>```python x = 5 # integer y = 3.14 # float word = “GPT” # string</p>
 
 
 </section>
