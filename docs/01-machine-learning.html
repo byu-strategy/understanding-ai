@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Machine Learning – STRAT 490R - Understanding AI: From Foundations to Strategy</title>
+<title>3&nbsp; Machine Learning – STRAT 490R - Understanding AI: From Foundations to Strategy</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,40 +19,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -104,6 +70,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -117,7 +112,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01-machine-learning.html"><span class="chapter-title">Machine Learning</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01-machine-learning.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Machine Learning</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -144,42 +139,50 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Syllabus</span></a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Syllabus</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./00-math-review.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Math and Python Review</span></a>
+  <a href="./00-math-review.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Math and Python Review</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01-machine-learning.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Machine Learning</span></a>
+  <a href="./01-machine-learning.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Machine Learning</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02-deep-learning.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Deep Learning</span></a>
+  <a href="./02-deep-learning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Deep Learning</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03-llms.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Large Language Models</span></a>
+  <a href="./03-llms.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Large Language Models</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04-strategy.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">AI Strategy</span></a>
+  <a href="./04-strategy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">AI Strategy</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./90-resources.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Resources</span></a>
+  <a href="./90-resources.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Resources</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./98-faq.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">FAQ</span></a>
+  <a href="./98-faq.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">FAQ</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -198,25 +201,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#machine-learning" id="toc-machine-learning" class="nav-link active" data-scroll-target="#machine-learning">Machine Learning</a></li>
-  <li><a href="#supervised-learning" id="toc-supervised-learning" class="nav-link" data-scroll-target="#supervised-learning">Supervised Learning</a>
+  <li><a href="#machine-learning" id="toc-machine-learning" class="nav-link active" data-scroll-target="#machine-learning"><span class="header-section-number">3.1</span> Machine Learning</a></li>
+  <li><a href="#supervised-learning" id="toc-supervised-learning" class="nav-link" data-scroll-target="#supervised-learning"><span class="header-section-number">3.2</span> Supervised Learning</a></li>
+  <li><a href="#simple-linear-regression" id="toc-simple-linear-regression" class="nav-link" data-scroll-target="#simple-linear-regression"><span class="header-section-number">3.3</span> Simple Linear Regression</a></li>
+  <li><a href="#glossary" id="toc-glossary" class="nav-link" data-scroll-target="#glossary"><span class="header-section-number">3.4</span> Glossary</a>
   <ul class="collapse">
-  <li><a href="#regression" id="toc-regression" class="nav-link" data-scroll-target="#regression">Regression</a></li>
-  <li><a href="#classification" id="toc-classification" class="nav-link" data-scroll-target="#classification">Classification</a></li>
+  <li><a href="#example" id="toc-example" class="nav-link" data-scroll-target="#example"><span class="header-section-number">3.4.1</span> Example</a></li>
+  <li><a href="#multiple-linear-regression" id="toc-multiple-linear-regression" class="nav-link" data-scroll-target="#multiple-linear-regression"><span class="header-section-number">3.4.2</span> Multiple Linear Regression</a></li>
+  <li><a href="#logistic-regression" id="toc-logistic-regression" class="nav-link" data-scroll-target="#logistic-regression"><span class="header-section-number">3.4.3</span> Logistic Regression</a></li>
+  <li><a href="#classification" id="toc-classification" class="nav-link" data-scroll-target="#classification"><span class="header-section-number">3.4.4</span> Classification</a></li>
   </ul></li>
-  <li><a href="#loss-functions" id="toc-loss-functions" class="nav-link" data-scroll-target="#loss-functions">Loss Functions</a></li>
-  <li><a href="#gradient-descent" id="toc-gradient-descent" class="nav-link" data-scroll-target="#gradient-descent">Gradient Descent</a></li>
-  <li><a href="#linear-regression" id="toc-linear-regression" class="nav-link" data-scroll-target="#linear-regression">Linear Regression</a>
+  <li><a href="#loss-functions" id="toc-loss-functions" class="nav-link" data-scroll-target="#loss-functions"><span class="header-section-number">3.5</span> Loss Functions</a></li>
+  <li><a href="#gradient-descent-1" id="toc-gradient-descent-1" class="nav-link" data-scroll-target="#gradient-descent-1"><span class="header-section-number">3.6</span> Gradient Descent</a>
   <ul class="collapse">
-  <li><a href="#supervised-learning-use-cases" id="toc-supervised-learning-use-cases" class="nav-link" data-scroll-target="#supervised-learning-use-cases">Supervised Learning Use Cases</a></li>
+  <li><a href="#supervised-learning-use-cases" id="toc-supervised-learning-use-cases" class="nav-link" data-scroll-target="#supervised-learning-use-cases"><span class="header-section-number">3.6.1</span> Supervised Learning Use Cases</a></li>
   </ul></li>
-  <li><a href="#unsupervised-learning" id="toc-unsupervised-learning" class="nav-link" data-scroll-target="#unsupervised-learning">Unsupervised Learning</a>
+  <li><a href="#unsupervised-learning" id="toc-unsupervised-learning" class="nav-link" data-scroll-target="#unsupervised-learning"><span class="header-section-number">3.7</span> Unsupervised Learning</a>
   <ul class="collapse">
-  <li><a href="#unsupervised-learning-use-cases" id="toc-unsupervised-learning-use-cases" class="nav-link" data-scroll-target="#unsupervised-learning-use-cases">Unsupervised Learning Use Cases</a></li>
+  <li><a href="#unsupervised-learning-use-cases" id="toc-unsupervised-learning-use-cases" class="nav-link" data-scroll-target="#unsupervised-learning-use-cases"><span class="header-section-number">3.7.1</span> Unsupervised Learning Use Cases</a></li>
   </ul></li>
-  <li><a href="#reinforcement-learning" id="toc-reinforcement-learning" class="nav-link" data-scroll-target="#reinforcement-learning">Reinforcement Learning</a>
+  <li><a href="#reinforcement-learning" id="toc-reinforcement-learning" class="nav-link" data-scroll-target="#reinforcement-learning"><span class="header-section-number">3.8</span> Reinforcement Learning</a>
   <ul class="collapse">
-  <li><a href="#reinforcement-learning-use-cases" id="toc-reinforcement-learning-use-cases" class="nav-link" data-scroll-target="#reinforcement-learning-use-cases">Reinforcement Learning Use Cases</a></li>
+  <li><a href="#reinforcement-learning-use-cases" id="toc-reinforcement-learning-use-cases" class="nav-link" data-scroll-target="#reinforcement-learning-use-cases"><span class="header-section-number">3.8.1</span> Reinforcement Learning Use Cases</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -226,7 +232,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-title">Machine Learning</span></h1>
+<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Machine Learning</span></h1>
 </div>
 
 
@@ -269,121 +275,514 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </figure>
 </div>
 <p>According to John D. Kelleher “the field of artificial intelligence was born at a workshop at Dartmouth College in the summer of 1956.”</p>
-<section id="machine-learning" class="level2">
-<h2 class="anchored" data-anchor-id="machine-learning">Machine Learning</h2>
+<section id="machine-learning" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="machine-learning"><span class="header-section-number">3.1</span> Machine Learning</h2>
 <p>Supervised Learning: “Here’s the question and the right answer.”<br>
 Unsupervised Learning: “Here is some data, can you find patterns and/or organize it in a meaningful way?”<br>
 Reinforcement Learning: “You’re an agent playing a, figure out the best strategy through trial and error, using only points (rewards) as feedback.”</p>
 <p>“During training, a machine learning algorithm processes a dataset and chooses the function that best matches the patterns in the data.”</p>
 <p>supervised, unsupervised, and reinforcement.</p>
 </section>
-<section id="supervised-learning" class="level2">
-<h2 class="anchored" data-anchor-id="supervised-learning">Supervised Learning</h2>
-<p>Supervised learning is the most widely used type of machine learning and significantly overlaps with the methodologies of other quantitative fields, such as econometrics.</p>
+<section id="supervised-learning" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="supervised-learning"><span class="header-section-number">3.2</span> Supervised Learning</h2>
+<p>Supervised learning is the most widely used type of machine learning and significantly overlaps with the methodologies of other quantitative fields, such as statistics and econometrics.</p>
 <p>Supervised learning gets its name from the fact that the input data set has examples of both inputs and outputs.</p>
 <p>The outputs are called labels, hence you will sometime hear the term “labeled dataset.”</p>
 <ul>
 <li><p><strong>logistic (sigmoid) function</strong>:</p></li>
 <li><p><strong>Softmax</strong>:</p></li>
 </ul>
-<section id="regression" class="level3">
-<h3 class="anchored" data-anchor-id="regression">Regression</h3>
 </section>
-<section id="classification" class="level3">
-<h3 class="anchored" data-anchor-id="classification">Classification</h3>
+<section id="simple-linear-regression" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="simple-linear-regression"><span class="header-section-number">3.3</span> Simple Linear Regression</h2>
+<p>A <strong>simple linear regression</strong> model is the simplest possible supervised machine learning model. It provides a clean and interpretable framework that allows us to explore many of the fundamental building blocks underlying cutting edge Large Language Models (LLMs) such as ChatGPT which we will get to later in the course. For this reason, we will take the time to study it in depth and build a deep understanding.</p>
+<p>A simple linear regression model takes a single <strong>input variable</strong> <span class="math inline">\(x\)</span> and predicts the value of a corresponding <strong>output variable</strong> <span class="math inline">\(y\)</span>. For example, the input variable might represent a house’s <em>square footage</em>, and the output variable could represent the <em>value</em> of the home.</p>
+<p>We can write down the relationship between <em>square footage</em> and <em>value</em> in the form of a mathematical equation (also called a mathematical <em>function</em> or a <em>model</em>):</p>
+<p><span class="math display">\[
+y = w_0 + w_1 x
+\]</span></p>
+<p>Where <span class="math inline">\(y\)</span> represents the home <em>value</em> and <span class="math inline">\(x\)</span> represents the <em>square footage</em>.</p>
+<p>Geometrically this equation is a line with intercept <span class="math inline">\(w_0\)</span> and slope <span class="math inline">\(w_1\)</span>.</p>
+<div id="fig-slr-line" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-slr-line-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/slr-line.png" class="img-fluid figure-img" style="width:70.0%"></p>
+<figcaption><strong>Simple Linear Regression Line</strong></figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-slr-line-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.1
+</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" data-collapsed="true">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Differences in mathematical notation
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>In machine learning jargon <span class="math inline">\(w_0\)</span> and <span class="math inline">\(w_1\)</span> are called the <strong>parameters</strong> or <strong>weights</strong> of the model (hence the use of <span class="math inline">\(w\)</span> in the notation) and describe the nature of the relationship between <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>. In other fields such as econometrics these might be introduced using the greek alphabet notation of <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span>.</p>
+<p>Furthermore, you might recognize this equation as the equation for a line in <em>slope-intercept</em> from which is often presented as:</p>
+<p><span class="math display">\[
+y = mx + b
+\]</span> where <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> are numbers in the coordinate plane with <span class="math inline">\(m\)</span> representing the slope of the line and <span class="math inline">\(b\)</span> representing the y-intercept (the point where the line crosses the y-axis) as shown in the image below:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/line-graph.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%"></p>
+</figure>
+</div>
+<p>Simple linear regression and the equation of a line are in fact the same mathematical equation. In the context of linear regression, we simply use different notation: <span class="math inline">\(w_1 = m\)</span> (the slope), and <span class="math inline">\(w_0 = b\)</span> (the y-intercept which in machine learning is referred to as the <em>bias</em> term).</p>
+<p>It’s common for different fields of study to use different notation and words for the same mathematical concepts. Unfortunately this can be one of the biggest sources of confusion for students so we will make an effort to call out these differences throughout the course.</p>
+</div>
+</div>
+</div>
+<p><span class="math inline">\(w_0\)</span> and <span class="math inline">\(w_1\)</span> represent numbers that the computer will <em>learn</em> (i.e.&nbsp;derive) based on what is observed in real life. To get the computer to <em>learn</em> these weights for us we have to communicate in a language that computers understand. That language is data. By data we simple mean numerical values in rows and columns in a spreadsheet or matrix. For our home value example this would mean two columns of data, one containing observed home values and the second containing the associated square footage of each home. A row would contain the <em>value</em> and the <em>square footage</em> for the same home. A small sample of data is illustrated below in both spreadsheet and matrix form. Spreadsheets are often helpful for illustration purposes but matrices are the data type we’ll use model fitting and evaluation.</p>
+<div>
+
+</div>
+<div class="quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<section id="spreadsheet-style-for-illustration" class="level4 unnumbered quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<h4 class="unnumbered anchored" data-anchor-id="spreadsheet-style-for-illustration">Spreadsheet-style for illustration</h4>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Home ID</th>
+<th style="text-align: left;">Square Footage (<span class="math inline">\(x\)</span>)</th>
+<th style="text-align: left;">Home Value (<span class="math inline">\(y\)</span>)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">H001</td>
+<td style="text-align: left;">1,200</td>
+<td style="text-align: left;">290,000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">H002</td>
+<td style="text-align: left;">1,400</td>
+<td style="text-align: left;">310,000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">H003</td>
+<td style="text-align: left;">1,600</td>
+<td style="text-align: left;">340,000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">H004</td>
+<td style="text-align: left;">1,800</td>
+<td style="text-align: left;">370,000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">H005</td>
+<td style="text-align: left;">2,000</td>
+<td style="text-align: left;">400,000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">H006</td>
+<td style="text-align: left;">2,200</td>
+<td style="text-align: left;">430,000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">H007</td>
+<td style="text-align: left;">2,400</td>
+<td style="text-align: left;">455,000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">H008</td>
+<td style="text-align: left;">2,600</td>
+<td style="text-align: left;">480,000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">H009</td>
+<td style="text-align: left;">2,800</td>
+<td style="text-align: left;">510,000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">H010</td>
+<td style="text-align: left;">3,000</td>
+<td style="text-align: left;">540,000</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="matrix-style-the-computer-will-use" class="level4 unnumbered quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<h4 class="unnumbered anchored" data-anchor-id="matrix-style-the-computer-will-use">Matrix-style the computer will use</h4>
+<p><span class="math display">\[
+\begin{bmatrix}
+1200 &amp; 290000 \\
+1400 &amp; 310000 \\
+1600 &amp; 340000 \\
+1800 &amp; 370000 \\
+2000 &amp; 400000 \\
+2200 &amp; 430000 \\
+2400 &amp; 455000 \\
+2600 &amp; 480000 \\
+2800 &amp; 510000 \\
+3000 &amp; 540000 \\
+\end{bmatrix}
+\]</span></p>
+</section>
+</div>
+</div>
+<p>Now that we’ve shown that simple linear regression is actually just the equation of a line we can have a visual picture in mind for how an input variable <span class="math inline">\(x\)</span> and the output variable <span class="math inline">\(y\)</span> are related.</p>
+<div class="callout callout-style-default callout-tip callout-titled" data-collapsed="true">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Intuition check
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>What does your intuition tell you about the values <span class="math inline">\(w_0\)</span> and <span class="math inline">\(w_1\)</span> are likely to take on once they are estimated?</p>
+<p>Do you expect them to be positive or negative numbers?</p>
+<p>Assume <span class="math inline">\(x\)</span> was <span class="math inline">\(0\)</span>, what would the equation be telling you?</p>
+</div>
+</div>
+</div>
+<p>As soon as we choose numbers for <span class="math inline">\(w_0\)</span> and <span class="math inline">\(w_1\)</span> have a way predic</p>
+<p>The goal of machine learning is to <em>learn</em> the best possible values <span class="math inline">\(w_0\)</span> and <span class="math inline">\(w_1\)</span> allowing us to make good predictions of a homes <em>value</em> based on it’s <em>square footage</em>. We will soon explore how the computer “learns” and what we mean by “best.”</p>
+<p>Once numerical values for <span class="math inline">\(w_0\)</span> and <span class="math inline">\(w_1\)</span> have been learned (i.e., derived), we obtain an equation that can be used to make predictions of home value based on square footage. For example, assume the learned weights are:</p>
+<p><span class="math display">\[
+w_0 = 50,\!000 \quad \text{and} \quad w_1 = 200
+\]</span></p>
+<p>Then the prediction function becomes:</p>
+<p><span class="math display">\[
+\hat{y} = 50,\!000 + 200x
+\]</span></p>
+<p>We use the notation <span class="math inline">\(\hat{y}\)</span> (read as “y-hat”) to emphasize that this is a predicted value based on the model, not an observed or actual value.</p>
+<p>This act of using the trained model to compute a prediction based on an input <span class="math inline">\(x\)</span> is referred to as <strong>inference</strong>—we are <em>inferring</em> an estimated output <span class="math inline">\(\hat{y}\)</span>.</p>
+<p>For instance, a home with 3,000 square feet would be predicted to have a value of:</p>
+<p><span class="math display">\[
+\hat{y} = 50,\!000 + 200 \cdot 3,\!000 = 650,\!000
+\]</span></p>
+<p>Now, consider what the model predicts for a home with 0 square feet:</p>
+<p><span class="math display">\[
+\hat{y} = 50,\!000 + 200 \cdot 0 = 50,\!000
+\]</span></p>
+<p>This implies that the base value of the property—the land alone, with no house—might be interpreted as $50,000. This is exactly why both <span class="math inline">\(w_0\)</span> and <span class="math inline">\(w_1\)</span> are necessary. If we had included only <span class="math inline">\(w_1 x\)</span> and omitted <span class="math inline">\(w_0\)</span>, the model would always predict 0 for an input of <span class="math inline">\(x = 0\)</span>, which might not reflect the reality (e.g., land still has value).</p>
+<p>In machine learning, the term <strong>bias</strong> is used to refer to this <span class="math inline">\(w_0\)</span> value. The name comes from the fact that it shifts (or “biases”) the entire output of the model up or down, independent of the input. Geometrically, it determines the <span class="math inline">\(y\)</span>-intercept of the prediction line. It allows the model to better fit data that does not pass through the origin.</p>
+<p>Choosing a different set of weight values would result in a different equation, resulting in a different prediction. For example, assume instead that <span class="math inline">\(w_0 = 25,000\)</span> and <span class="math inline">\(w_1 = 300\)</span> resulting in the following equation:</p>
+<p><span class="math display">\[
+\hat{y} = 25,000 + 300 x
+\]</span></p>
+<p>This model would predict that the same 3,000 square-foot home has a value of <span class="math inline">\(925,000 = 25,000+300*3,000\)</span>.</p>
+<p>### Learning weight values</p>
+<p>In the example above, we assumed <span class="math inline">\(w_0 = 50,000\)</span> and <span class="math inline">\(w_1 = 200\)</span> for illustation. We will now discuss how a machine (i.e., a computer) is capable of learning these weight values, enabling the mathematical model to make the most accurate predictions possible, which explains why the field is called machine learning.</p>
+<p>There are three main ingredients necessary to learn the best possible model weights:</p>
+<ol type="1">
+<li><strong>A mathematical structure (i.e., a model)</strong> — This defines the form of the relationship between inputs and outputs. We’ve been discussing the simple linear regression structure given by:</li>
+</ol>
+<p><span class="math display">\[
+\hat{y} = w_0 + w_1 x
+\]</span></p>
+<p>This structure assumes a linear relationship between the input <span class="math inline">\(x\)</span> and the predicted output <span class="math inline">\(\hat{y}\)</span>. Later in the course, we will explore the more complex models used in large language models.</p>
+<div class="callout callout-style-default callout-tip callout-titled" data-collapsed="true">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+What do we mean by “linear”?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>“Linear” in this context means that the effect of <span class="math inline">\(x\)</span> on <span class="math inline">\(\hat{y}\)</span> is <strong>proportional and constant</strong>: no matter what value of <span class="math inline">\(x\)</span> we choose, an increase of 1 unit in <span class="math inline">\(x\)</span> always increases <span class="math inline">\(\hat{y}\)</span> by exactly <span class="math inline">\(w_1\)</span> units. This property makes the model highly interpretable.</p>
+</div>
+</div>
+</div>
+<ol start="2" type="1">
+<li><strong>Training data</strong> — A set of example input-output pairs <span class="math inline">\(\{(x^{(i)}, y^{(i)})\}_{i=1}^n\)</span> that the model uses to learn. For simple linear regression, you can think of this as two columns in a spreadsheet: one column for the input variable <span class="math inline">\(x\)</span> (e.g., square footage) and one column for the corresponding output <span class="math inline">\(y\)</span> (e.g., home price). Each row represents a single training example <span class="math inline">\((x^{(i)}, y^{(i)})\)</span>.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled" data-collapsed="true">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Notation: Superscripts vs.&nbsp;Subscripts
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>If you’re coming from econometrics, you’re probably used to indexing observations using <strong>subscripts</strong>, like <span class="math inline">\(x_i\)</span> and <span class="math inline">\(y_i\)</span>. In machine learning, we typically use <strong>superscripts</strong>, like <span class="math inline">\(x^{(i)}\)</span> and <span class="math inline">\(y^{(i)}\)</span>, to denote the <span class="math inline">\(i\)</span>-th training example.</p>
+<p>Why the change?</p>
+<p>Machine learning models often work with <strong>vectors</strong> of features: <span class="math display">\[
+x^{(i)} = \begin{bmatrix} x_1^{(i)} \\ x_2^{(i)} \\ \vdots \\ x_d^{(i)} \end{bmatrix}
+\]</span></p>
+<p>Here:</p>
+<ul>
+<li>The <strong>superscript <span class="math inline">\((i)\)</span></strong> indicates the <strong><span class="math inline">\(i\)</span>-th training example</strong>.</li>
+<li>The <strong>subscript <span class="math inline">\(j\)</span></strong> (e.g., <span class="math inline">\(x_j^{(i)}\)</span>) refers to the <strong><span class="math inline">\(j\)</span>-th feature</strong> of that example.</li>
+</ul>
+<p>Using subscripts for both observations and features (e.g., <span class="math inline">\(x_i\)</span> and <span class="math inline">\(x_j\)</span>) would lead to confusion.</p>
+<p>So while this might feel unfamiliar at first, <strong>superscript indexing</strong> is standard in ML to keep feature and example indexing clearly separated.</p>
+</div>
+</div>
+</div>
+<ol start="3" type="1">
+<li><strong>A loss function</strong> — A mathematical expression that quantifies the error between the model’s predictions <span class="math inline">\(\hat{y}^{(i)}\)</span> and the true outputs <span class="math inline">\(y^{(i)}\)</span>. For regression, a common choice is <strong>mean squared error</strong> (MSE):</li>
+</ol>
+<p><span class="math display">\[
+\mathcal{L}(w_0, w_1) = \frac{1}{n} \sum_{i=1}^n (\hat{y}^{(i)} - y^{(i)})^2
+\]</span></p>
+<p>The loss function defines the learning objective.</p>
+<ol start="4" type="1">
+<li><strong>Algorithms</strong> — An algorithm is a step-by-step, well-defined procedure for performing a task. For example, long division is an algorithm wherein you follow a well defined procedure to computer mathematical operation that would be difficult to do mentally.In this course, the task we are performing is learning the optimal values for model weights. Hence, for our purposes, we will look at algorithms</li>
+</ol>
+<p>Algorithms like <strong>gradient descent</strong> iteratively adjust weights to reduce this loss. These algorithms are the engine of learning.</p>
+<p>Understanding these mappings will help you bridge the language used in machine learning and econometrics and navigate both literatures more fluently. :::</p>
+<div class="callout callout-style-default callout-tip callout-titled" data-collapsed="true">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Why are we calling this “supervised” machine learning and what other types are there?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+
+</div>
+</div>
+</div>
+<p>In our example, <strong>training data</strong>,</p>
+<p><strong>machine learning algorithm</strong></p>
+<p><strong>parameters or “weights”</strong></p>
+<p>(read as y-hat, the “hat” signifies that a prediction is being made. Writing <span class="math inline">\(y\)</span> without the “hat” would mean no prediction has yet been attempted).</p>
+<p>uch as a zestimate from Zillow</p>
+</section>
+<section id="glossary" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="glossary"><span class="header-section-number">3.4</span> Glossary</h2>
+<p><strong>Simple Linear Regression</strong></p>
+<p><strong>parameters or “weights”</strong></p>
+<p><strong>training data</strong>,</p>
+<p><strong>machine learning algorithm</strong></p>
+<p><strong>inference</strong></p>
+<p><strong>supervised machine learning</strong></p>
+<ul>
+<li><span class="math inline">\(w_0\)</span> is the intercept (bias term),</li>
+<li><span class="math inline">\(w_1\)</span> is the slope (weight).</li>
+</ul>
+<p>To bring this to life, let’s consider a concrete where we’d like to predict the price of a home.</p>
+<p>Let:</p>
+<ul>
+<li><span class="math inline">\(\hat{y}\)</span> be the predicted price of a house (in thousands of dollars),</li>
+<li><span class="math inline">\(x\)</span> be the size of the house in square feet.</li>
+</ul>
+<p>Suppose we have fit a linear model to a dataset and obtained:</p>
+<p><span class="math display">\[
+\hat{y} = 50 + 0.2 x
+\]</span></p>
+<p>This means: - The base price of any house (intercept) is $50,000. - For each additional square foot, the price increases by $200.</p>
+<section id="example" class="level3" data-number="3.4.1">
+<h3 data-number="3.4.1" class="anchored" data-anchor-id="example"><span class="header-section-number">3.4.1</span> Example</h3>
+<p>For a house that is 1,000 square feet:</p>
+<p><span class="math display">\[
+\hat{y} = 50 + 0.2 \cdot 1000 = 250
+\]</span></p>
+<p>So, the model predicts a price of $250,000 for a 1,000 square foot house.</p>
+<hr>
+<section id="target-variable-and-input-variable" class="level4" data-number="3.4.1.1">
+<h4 data-number="3.4.1.1" class="anchored" data-anchor-id="target-variable-and-input-variable"><span class="header-section-number">3.4.1.1</span> Target Variable and Input Variable</h4>
+<ul>
+<li><strong>Target Variable</strong> (<span class="math inline">\(y\)</span>): the outcome we are trying to predict.</li>
+<li><strong>Input Variable</strong> (<span class="math inline">\(x\)</span>): the feature used to make the prediction.</li>
+</ul>
+<hr>
+</section>
+<section id="training-and-validation-sets" class="level4" data-number="3.4.1.2">
+<h4 data-number="3.4.1.2" class="anchored" data-anchor-id="training-and-validation-sets"><span class="header-section-number">3.4.1.2</span> Training and Validation Sets</h4>
+<ul>
+<li><strong>Training set</strong>: used to learn the model parameters.</li>
+<li><strong>Validation set</strong>: used to evaluate how well the model generalizes to unseen data.</li>
+</ul>
+<hr>
+</section>
+<section id="model-approximation-and-noise" class="level4" data-number="3.4.1.3">
+<h4 data-number="3.4.1.3" class="anchored" data-anchor-id="model-approximation-and-noise"><span class="header-section-number">3.4.1.3</span> Model Approximation and Noise</h4>
+<p>The model approximates an unknown true function: <span class="math display">\[
+y = f^*(x) + \varepsilon
+\]</span> where <span class="math inline">\(\varepsilon\)</span> is the irreducible error.</p>
+<hr>
+</section>
+<section id="residuals" class="level4" data-number="3.4.1.4">
+<h4 data-number="3.4.1.4" class="anchored" data-anchor-id="residuals"><span class="header-section-number">3.4.1.4</span> Residuals</h4>
+<p>The residuals measure the difference between actual and predicted values: <span class="math display">\[
+e_i = y_i - \hat{y}_i
+\]</span></p>
+<hr>
+</section>
+<section id="loss-function-mean-squared-error" class="level4" data-number="3.4.1.5">
+<h4 data-number="3.4.1.5" class="anchored" data-anchor-id="loss-function-mean-squared-error"><span class="header-section-number">3.4.1.5</span> Loss Function (Mean Squared Error)</h4>
+<p>To measure model performance: <span class="math display">\[
+\mathcal{L}(w_0, w_1) = \frac{1}{n} \sum_{i=1}^n (y_i - \hat{y}_i)^2
+\]</span></p>
+<hr>
+</section>
+<section id="design-matrix" class="level4" data-number="3.4.1.6">
+<h4 data-number="3.4.1.6" class="anchored" data-anchor-id="design-matrix"><span class="header-section-number">3.4.1.6</span> Design Matrix</h4>
+<p>With <span class="math inline">\(n\)</span> observations, the design matrix includes a bias term: <span class="math display">\[
+\mathbf{X} = \begin{bmatrix}
+1 &amp; x_1 \\
+1 &amp; x_2 \\
+\vdots &amp; \vdots \\
+1 &amp; x_n
+\end{bmatrix}
+\]</span></p>
+<hr>
+</section>
+<section id="closed-form-solution-normal-equation" class="level4" data-number="3.4.1.7">
+<h4 data-number="3.4.1.7" class="anchored" data-anchor-id="closed-form-solution-normal-equation"><span class="header-section-number">3.4.1.7</span> Closed-form Solution (Normal Equation)</h4>
+<p>We can directly compute the optimal weights: <span class="math display">\[
+\mathbf{w} = (\mathbf{X}^\top \mathbf{X})^{-1} \mathbf{X}^\top \mathbf{y}
+\]</span></p>
+<hr>
+</section>
+<section id="parameters-and-estimation" class="level4" data-number="3.4.1.8">
+<h4 data-number="3.4.1.8" class="anchored" data-anchor-id="parameters-and-estimation"><span class="header-section-number">3.4.1.8</span> Parameters and Estimation</h4>
+<ul>
+<li><strong>Parameters</strong>: <span class="math inline">\(w_0\)</span>, <span class="math inline">\(w_1\)</span></li>
+<li><strong>Goal</strong>: estimate parameters that minimize the loss function</li>
+</ul>
+<hr>
+</section>
+<section id="gradient-descent" class="level4" data-number="3.4.1.9">
+<h4 data-number="3.4.1.9" class="anchored" data-anchor-id="gradient-descent"><span class="header-section-number">3.4.1.9</span> Gradient Descent</h4>
+<p>When a closed-form is not used, we apply an iterative optimization: <span class="math display">\[
+w_j \leftarrow w_j - \eta \frac{\partial \mathcal{L}}{\partial w_j}
+\]</span></p>
+<p>With gradients: <span class="math display">\[
+\frac{\partial \mathcal{L}}{\partial w_j} = -\frac{2}{n} \sum_{i=1}^n x_{ij}(y_i - \hat{y}_i)
+\]</span></p>
+<hr>
+</section>
+<section id="overfitting-and-underfitting" class="level4" data-number="3.4.1.10">
+<h4 data-number="3.4.1.10" class="anchored" data-anchor-id="overfitting-and-underfitting"><span class="header-section-number">3.4.1.10</span> Overfitting and Underfitting</h4>
+<ul>
+<li><strong>Underfitting</strong>: model too simple to capture data patterns</li>
+<li><strong>Overfitting</strong>: model too complex, captures noise instead of signal</li>
+<li><strong>Validation</strong> helps detect these behaviors.</li>
+</ul>
 </section>
 </section>
-<section id="loss-functions" class="level2">
-<h2 class="anchored" data-anchor-id="loss-functions">Loss Functions</h2>
+<section id="multiple-linear-regression" class="level3" data-number="3.4.2">
+<h3 data-number="3.4.2" class="anchored" data-anchor-id="multiple-linear-regression"><span class="header-section-number">3.4.2</span> Multiple Linear Regression</h3>
+</section>
+<section id="logistic-regression" class="level3" data-number="3.4.3">
+<h3 data-number="3.4.3" class="anchored" data-anchor-id="logistic-regression"><span class="header-section-number">3.4.3</span> Logistic Regression</h3>
+</section>
+<section id="classification" class="level3" data-number="3.4.4">
+<h3 data-number="3.4.4" class="anchored" data-anchor-id="classification"><span class="header-section-number">3.4.4</span> Classification</h3>
+</section>
+</section>
+<section id="loss-functions" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="loss-functions"><span class="header-section-number">3.5</span> Loss Functions</h2>
 <p>A loss function is a mathematical function that measures the difference between a model’s predicted output and the true target value from a training dataset. It produces a scalar value representing the error for a single data point or the average error over a batch.</p>
 <ul>
 <li><p><strong>Cross entropy loss</strong>: “cross entropy” and “negative average log probability” related and often used interchangeably in practice.”</p></li>
 <li><p><strong>Perplexity</strong>: “Perplexity is a measure often used alongside cross entropy loss to evaluate the performance of models in tasks like language modeling.”</p></li>
 </ul>
 </section>
-<section id="gradient-descent" class="level2">
-<h2 class="anchored" data-anchor-id="gradient-descent">Gradient Descent</h2>
-</section>
-<section id="linear-regression" class="level2">
-<h2 class="anchored" data-anchor-id="linear-regression">Linear Regression</h2>
-<div id="022615de" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.linear_model <span class="im">import</span> LinearRegression</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 1: Input text</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>text <span class="op">=</span> <span class="st">"I love to eat pizza"</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>tokens <span class="op">=</span> text.split()</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 2: Create vocabulary and mappings</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>vocab <span class="op">=</span> {word: i <span class="cf">for</span> i, word <span class="kw">in</span> <span class="bu">enumerate</span>(<span class="bu">set</span>(tokens))}</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>reverse_vocab <span class="op">=</span> {i: word <span class="cf">for</span> word, i <span class="kw">in</span> vocab.items()}</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 3: Build a DataFrame</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> pd.DataFrame({</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Current Word"</span>: tokens[:<span class="op">-</span><span class="dv">1</span>],</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Next Word"</span>: tokens[<span class="dv">1</span>:]</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>})</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>data[<span class="st">"Current Index"</span>] <span class="op">=</span> data[<span class="st">"Current Word"</span>].<span class="bu">map</span>(vocab)</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>data[<span class="st">"Next Index"</span>] <span class="op">=</span> data[<span class="st">"Next Word"</span>].<span class="bu">map</span>(vocab)</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 4: Train the model</span></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> data[<span class="st">"Current Index"</span>].values.reshape(<span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span>)</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> data[<span class="st">"Next Index"</span>].values</span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> LinearRegression()</span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>model.fit(X, y)</span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 5: Make prediction</span></span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>input_word <span class="op">=</span> <span class="st">"eat"</span></span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>input_index <span class="op">=</span> vocab[input_word]</span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>predicted_index <span class="op">=</span> <span class="bu">round</span>(model.predict([[input_index]])[<span class="dv">0</span>])</span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>predicted_word <span class="op">=</span> reverse_vocab.get(predicted_index, <span class="st">"UNKNOWN"</span>)</span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 6: Plot</span></span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">6</span>, <span class="dv">4</span>))</span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>plt.scatter(X, y, color<span class="op">=</span><span class="st">'blue'</span>, label<span class="op">=</span><span class="st">"Training data"</span>)</span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>plt.plot(X, model.predict(X), color<span class="op">=</span><span class="st">'red'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, label<span class="op">=</span><span class="st">"Regression line"</span>)</span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>plt.scatter([input_index], [predicted_index], color<span class="op">=</span><span class="st">'green'</span>, s<span class="op">=</span><span class="dv">100</span>, label<span class="op">=</span><span class="ss">f"Prediction for '</span><span class="sc">{</span>input_word<span class="sc">}</span><span class="ss">'"</span>)</span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Linear Regression on Word Indices"</span>)</span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Current Word Index"</span>)</span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Next Word Index"</span>)</span>
-<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
-<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>)</span>
-<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
-<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a><span class="co"># Display table and prediction</span></span>
-<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Token Table:</span><span class="ch">\n</span><span class="st">"</span>)</span>
-<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(data)</span>
-<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Prediction:"</span>)</span>
-<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Input word: '</span><span class="sc">{</span>input_word<span class="sc">}</span><span class="ss">' (index </span><span class="sc">{</span>input_index<span class="sc">}</span><span class="ss">)"</span>)</span>
-<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Predicted next word index: </span><span class="sc">{</span>predicted_index<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Predicted next word: '</span><span class="sc">{</span>predicted_word<span class="sc">}</span><span class="ss">'"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="01-machine-learning_files/figure-html/cell-2-output-1.png" width="565" height="372" class="figure-img"></p>
-</figure>
+<section id="gradient-descent-1" class="level2" data-number="3.6">
+<h2 data-number="3.6" class="anchored" data-anchor-id="gradient-descent-1"><span class="header-section-number">3.6</span> Gradient Descent</h2>
+<div class="callout callout-style-default callout-tip callout-titled" data-collapsed="true">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Synonyms Across Fields
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Different disciplines often use different terms for the same concepts. Here’s a helpful guide:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 30%">
+<col style="width: 36%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Concept</th>
+<th>Machine Learning</th>
+<th>Statistics / Econometrics</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Single data point (e.g., a row in a spreadsheet)</td>
+<td><strong>Training example</strong></td>
+<td><strong>Observation</strong>, <strong>Case</strong></td>
+</tr>
+<tr class="even">
+<td>Input features</td>
+<td><strong>Features</strong>, <strong>Inputs</strong></td>
+<td><strong>Independent variables</strong>, <strong>Regressors</strong>, <strong>Covariates</strong>, <strong>Predictors</strong></td>
+</tr>
+<tr class="odd">
+<td>Target output</td>
+<td><strong>Label</strong>, <strong>Target</strong>, <strong>Output</strong></td>
+<td><strong>Dependent variable</strong>, <strong>Response</strong></td>
+</tr>
+<tr class="even">
+<td>Collection of data points</td>
+<td><strong>Training set</strong>, <strong>Training data</strong></td>
+<td><strong>Sample</strong>, <strong>Dataset</strong></td>
+</tr>
+<tr class="odd">
+<td>Parameter</td>
+<td><strong>Weight</strong> (e.g., <span class="math inline">\(w_1\)</span>)</td>
+<td><strong>Coefficient</strong> (e.g., <span class="math inline">\(\beta_1\)</span>)</td>
+</tr>
+<tr class="even">
+<td>Model prediction</td>
+<td><strong><span class="math inline">\(\hat{y}\)</span></strong></td>
+<td><strong>Fitted value</strong>, <strong>Predicted value</strong></td>
+</tr>
+<tr class="odd">
+<td>Loss function</td>
+<td><strong>Loss</strong></td>
+<td><strong>Objective function</strong>, <strong>Criterion function</strong></td>
+</tr>
+<tr class="even">
+<td>Learn model parameters</td>
+<td><strong>Training</strong>, <strong>Fitting</strong></td>
+<td><strong>Estimation</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Understanding these parallels can make it much easier to bridge terminology between fields as you move through the course.</p>
 </div>
 </div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Token Table:
-
-  Current Word Next Word  Current Index  Next Index
-0            I      love              3           0
-1         love        to              0           1
-2           to       eat              1           2
-3          eat     pizza              2           4
-
-Prediction:
-Input word: 'eat' (index 2)
-Predicted next word index: 2
-Predicted next word: 'eat'</code></pre>
 </div>
-</div>
-<section id="supervised-learning-use-cases" class="level3">
-<h3 class="anchored" data-anchor-id="supervised-learning-use-cases">Supervised Learning Use Cases</h3>
+<section id="supervised-learning-use-cases" class="level3" data-number="3.6.1">
+<h3 data-number="3.6.1" class="anchored" data-anchor-id="supervised-learning-use-cases"><span class="header-section-number">3.6.1</span> Supervised Learning Use Cases</h3>
 <p><strong>Supervised Learning (Regression) Use Cases</strong></p>
 <table class="caption-top table">
 <colgroup>
@@ -512,10 +911,10 @@ Predicted next word: 'eat'</code></pre>
 </table>
 </section>
 </section>
-<section id="unsupervised-learning" class="level2">
-<h2 class="anchored" data-anchor-id="unsupervised-learning">Unsupervised Learning</h2>
-<section id="unsupervised-learning-use-cases" class="level3">
-<h3 class="anchored" data-anchor-id="unsupervised-learning-use-cases">Unsupervised Learning Use Cases</h3>
+<section id="unsupervised-learning" class="level2" data-number="3.7">
+<h2 data-number="3.7" class="anchored" data-anchor-id="unsupervised-learning"><span class="header-section-number">3.7</span> Unsupervised Learning</h2>
+<section id="unsupervised-learning-use-cases" class="level3" data-number="3.7.1">
+<h3 data-number="3.7.1" class="anchored" data-anchor-id="unsupervised-learning-use-cases"><span class="header-section-number">3.7.1</span> Unsupervised Learning Use Cases</h3>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 16%">
@@ -596,10 +995,10 @@ Predicted next word: 'eat'</code></pre>
 </table>
 </section>
 </section>
-<section id="reinforcement-learning" class="level2">
-<h2 class="anchored" data-anchor-id="reinforcement-learning">Reinforcement Learning</h2>
-<section id="reinforcement-learning-use-cases" class="level3">
-<h3 class="anchored" data-anchor-id="reinforcement-learning-use-cases">Reinforcement Learning Use Cases</h3>
+<section id="reinforcement-learning" class="level2" data-number="3.8">
+<h2 data-number="3.8" class="anchored" data-anchor-id="reinforcement-learning"><span class="header-section-number">3.8</span> Reinforcement Learning</h2>
+<section id="reinforcement-learning-use-cases" class="level3" data-number="3.8.1">
+<h3 data-number="3.8.1" class="anchored" data-anchor-id="reinforcement-learning-use-cases"><span class="header-section-number">3.8.1</span> Reinforcement Learning Use Cases</h3>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 16%">
@@ -1114,12 +1513,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./00-math-review.html" class="pagination-link" aria-label="Math and Python Review">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Math and Python Review</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Math and Python Review</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./02-deep-learning.html" class="pagination-link" aria-label="Deep Learning">
-        <span class="nav-page-text"><span class="chapter-title">Deep Learning</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Deep Learning</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

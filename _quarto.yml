@@ -32,4 +32,4 @@ format:
     markdown: default
     toc-title: On this page
 
-number-sections: false
+number-sections: true

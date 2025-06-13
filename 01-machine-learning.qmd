@@ -26,8 +26,6 @@ editor: visual
 }
 </style>
 
-
-
 ![Image source: *Build a Large Language Model (From Scratch)* by Sebastian Raschka](images/ai-ml-map.png){width="70%" fig-align="center"}
 
 According to John D. Kelleher "the field of artificial intelligence was born at a workshop at Dartmouth College in the summer of 1956."
@@ -44,7 +42,7 @@ supervised, unsupervised, and reinforcement.
 
 ## Supervised Learning
 
-Supervised learning is the most widely used type of machine learning and significantly overlaps with the methodologies of other quantitative fields, such as econometrics.
+Supervised learning is the most widely used type of machine learning and significantly overlaps with the methodologies of other quantitative fields, such as statistics and econometrics.
 
 Supervised learning gets its name from the fact that the input data set has examples of both inputs and outputs.
 
@@ -54,7 +52,383 @@ The outputs are called labels, hence you will sometime hear the term "labeled da
 
 -   **Softmax**:
 
-### Regression
+## Simple Linear Regression
+
+A **simple linear regression** model is the simplest possible supervised machine learning model. It provides a clean and interpretable framework that allows us to explore many of the fundamental building blocks underlying cutting edge Large Language Models (LLMs) such as ChatGPT which we will get to later in the course. For this reason, we will take the time to study it in depth and build a deep understanding.
+
+A simple linear regression model takes a single **input variable** $x$ and predicts the value of a corresponding **output variable** $y$. For example, the input variable might represent a house's *square footage*, and the output variable could represent the *value* of the home.
+
+We can write down the relationship between *square footage* and *value* in the form of a mathematical equation (also called a mathematical *function* or a *model*):
+
+$$
+y = w_0 + w_1 x
+$$
+
+Where $y$ represents the home *value* and $x$ represents the *square footage*.
+
+Geometrically this equation is a line with intercept $w_0$ and slope $w_1$. 
+
+
+::: {#fig-slr-line layout-ncol=1}
+![**Simple Linear Regression Line**](images/slr-line.png){width="70%"}
+:::
+
+
+::: {.callout-tip collapse=true collapsed=true}
+## Differences in mathematical notation
+
+In machine learning jargon $w_0$ and $w_1$ are called the **parameters** or **weights** of the model (hence the use of $w$ in the notation) and describe the nature of the relationship between $x$ and $y$. In other fields such as econometrics these might be introduced using the greek alphabet notation of $\alpha$ and $\beta$. 
+
+Furthermore, you might recognize this equation as the equation for a line in *slope-intercept* from which is often presented as:
+
+$$
+y = mx + b
+$$
+where $x$ and $y$ are numbers in the coordinate plane with $m$ representing the slope of the line and $b$ representing the y-intercept (the point where the line crosses the y-axis) as shown in the image below:
+
+![](images/line-graph.png){width="70%" fig-align="center"}
+
+Simple linear regression and the equation of a line are in fact the same mathematical equation. In the context of linear regression, we simply use different notation: $w_1 = m$ (the slope), and $w_0 = b$ (the y-intercept which in machine learning is referred to as the *bias* term). 
+
+It's common for different fields of study to use different notation and words for the same mathematical concepts. Unfortunately this can be one of the biggest sources of confusion for students so we will make an effort to call out these differences throughout the course.
+
+:::
+
+$w_0$ and $w_1$ represent numbers that the computer will *learn* (i.e. derive) based on what is observed in real life. To get the computer to *learn* these weights for us we have to communicate in a language that computers understand. That language is data. By data we simple mean numerical values in rows and columns in a spreadsheet or matrix. For our home value example this would mean two columns of data, one containing observed home values and the second containing the associated square footage of each home. A row would contain the *value* and the *square footage* for the same home. A small sample of data is illustrated below in both spreadsheet and matrix form. Spreadsheets are often helpful for illustration purposes but matrices are the data type we'll use model fitting and evaluation.
+
+::: {layout-ncol=2}
+
+#### Spreadsheet-style for illustration {.unnumbered}
+
+| Home ID | Square Footage ($x$) | Home Value ($y$) |
+|---------|----------------------|------------------|
+| H001    | 1,200                | 290,000          |
+| H002    | 1,400                | 310,000          |
+| H003    | 1,600                | 340,000          |
+| H004    | 1,800                | 370,000          |
+| H005    | 2,000                | 400,000          |
+| H006    | 2,200                | 430,000          |
+| H007    | 2,400                | 455,000          |
+| H008    | 2,600                | 480,000          |
+| H009    | 2,800                | 510,000          |
+| H010    | 3,000                | 540,000          |
+
+#### Matrix-style the computer will use {.unnumbered}
+
+
+$$
+\begin{bmatrix}
+1200 & 290000 \\
+1400 & 310000 \\
+1600 & 340000 \\
+1800 & 370000 \\
+2000 & 400000 \\
+2200 & 430000 \\
+2400 & 455000 \\
+2600 & 480000 \\
+2800 & 510000 \\
+3000 & 540000 \\
+\end{bmatrix}
+$$
+
+
+:::
+
+
+
+
+
+
+Now that we've shown that simple linear regression is actually just the equation of a line we can have a visual picture in mind for how an input variable $x$ and the output variable $y$ are related. 
+
+::: {.callout-tip collapse=true collapsed=true}
+## Intuition check
+What does your intuition tell you about the values $w_0$ and $w_1$ are likely to take on once they are estimated? 
+
+Do you expect them to be positive or negative numbers? 
+
+Assume $x$ was $0$, what would the equation be telling you?
+:::
+
+As soon as we choose numbers for $w_0$ and $w_1$ have a way predic
+
+The goal of machine learning is to *learn* the best possible values $w_0$ and $w_1$ allowing us to make good predictions of a homes *value* based on it's *square footage*. We will soon explore how the computer "learns" and what we mean by "best."
+
+
+Once numerical values for $w_0$ and $w_1$ have been learned (i.e., derived), we obtain an equation that can be used to make predictions of home value based on square footage. For example, assume the learned weights are:
+
+$$
+w_0 = 50,\!000 \quad \text{and} \quad w_1 = 200
+$$
+
+Then the prediction function becomes:
+
+$$
+\hat{y} = 50,\!000 + 200x
+$$
+
+We use the notation $\hat{y}$ (read as “y-hat”) to emphasize that this is a predicted value based on the model, not an observed or actual value.
+
+This act of using the trained model to compute a prediction based on an input $x$ is referred to as **inference**—we are *inferring* an estimated output $\hat{y}$.
+
+For instance, a home with 3,000 square feet would be predicted to have a value of:
+
+$$
+\hat{y} = 50,\!000 + 200 \cdot 3,\!000 = 650,\!000
+$$
+
+Now, consider what the model predicts for a home with 0 square feet:
+
+$$
+\hat{y} = 50,\!000 + 200 \cdot 0 = 50,\!000
+$$
+
+This implies that the base value of the property—the land alone, with no house—might be interpreted as \$50,000. This is exactly why both $w_0$ and $w_1$ are necessary. If we had included only $w_1 x$ and omitted $w_0$, the model would always predict 0 for an input of $x = 0$, which might not reflect the reality (e.g., land still has value).
+
+In machine learning, the term **bias** is used to refer to this $w_0$ value. The name comes from the fact that it shifts (or “biases”) the entire output of the model up or down, independent of the input. Geometrically, it determines the $y$-intercept of the prediction line. It allows the model to better fit data that does not pass through the origin.
+
+
+Choosing a different set of weight values would result in a different equation, resulting in a different prediction. For example, assume instead that $w_0 = 25,000$ and $w_1 = 300$ resulting in the following equation:
+
+$$
+\hat{y} = 25,000 + 300 x
+$$
+
+This model would predict that the same 3,000 square-foot home has a value of $925,000 = 25,000+300*3,000$.
+
+ ### Learning weight values
+ 
+In the example above, we assumed $w_0 = 50,000$ and $w_1 = 200$ for illustation. We will now discuss how a machine (i.e., a computer) is capable of learning these weight values, enabling the mathematical model to make the most accurate predictions possible, which explains why the field is called machine learning.
+
+There are three main ingredients necessary to learn the best possible model weights:
+
+1. **A mathematical structure (i.e., a model)** — This defines the form of the relationship between inputs and outputs. We've been discussing the simple linear regression structure given by:
+
+$$
+\hat{y} = w_0 + w_1 x
+$$
+
+This structure assumes a linear relationship between the input $x$ and the predicted output $\hat{y}$. Later in the course, we will explore the more complex models used in large language models.
+
+::: {.callout-tip collapse=true collapsed=true}
+## What do we mean by "linear"?
+
+"Linear" in this context means that the effect of $x$ on $\hat{y}$ is **proportional and constant**: no matter what value of $x$ we choose, an increase of 1 unit in $x$ always increases $\hat{y}$ by exactly $w_1$ units. This property makes the model highly interpretable.
+:::
+
+2. **Training data** — A set of example input-output pairs $\{(x^{(i)}, y^{(i)})\}_{i=1}^n$ that the model uses to learn. For simple linear regression, you can think of this as two columns in a spreadsheet: one column for the input variable $x$ (e.g., square footage) and one column for the corresponding output $y$ (e.g., home price). Each row represents a single training example $(x^{(i)}, y^{(i)})$.
+
+::: {.callout-tip collapse=true collapsed=true}
+## Notation: Superscripts vs. Subscripts
+
+If you're coming from econometrics, you're probably used to indexing observations using **subscripts**, like $x_i$ and $y_i$. In machine learning, we typically use **superscripts**, like $x^{(i)}$ and $y^{(i)}$, to denote the $i$-th training example.
+
+Why the change?
+
+Machine learning models often work with **vectors** of features:
+$$
+x^{(i)} = \begin{bmatrix} x_1^{(i)} \\ x_2^{(i)} \\ \vdots \\ x_d^{(i)} \end{bmatrix}
+$$
+
+Here:
+
+- The **superscript $(i)$** indicates the **$i$-th training example**.
+- The **subscript $j$** (e.g., $x_j^{(i)}$) refers to the **$j$-th feature** of that example.
+
+Using subscripts for both observations and features (e.g., $x_i$ and $x_j$) would lead to confusion.
+
+So while this might feel unfamiliar at first, **superscript indexing** is standard in ML to keep feature and example indexing clearly separated.
+:::
+
+
+3. **A loss function** — A mathematical expression that quantifies the error between the model’s predictions $\hat{y}^{(i)}$ and the true outputs $y^{(i)}$. For regression, a common choice is **mean squared error** (MSE):
+
+$$
+\mathcal{L}(w_0, w_1) = \frac{1}{n} \sum_{i=1}^n (\hat{y}^{(i)} - y^{(i)})^2
+$$
+
+The loss function defines the learning objective.
+
+
+4. **Algorithms** — An algorithm is a step-by-step, well-defined procedure for performing a task. For example, long division is an algorithm wherein you follow a well defined procedure to computer mathematical operation that would be difficult to do mentally.In this course, the task we are performing is learning the optimal values for model weights. Hence, for our purposes, we will look at algorithms
+
+Algorithms like **gradient descent** iteratively adjust weights to reduce this loss. These algorithms are the engine of learning.
+
+
+
+Understanding these mappings will help you bridge the language used in machine learning and econometrics and navigate both literatures more fluently.
+:::
+
+
+
+
+
+::: {.callout-tip collapse=true collapsed=true}
+## Why are we calling this "supervised" machine learning and what other types are there?
+:::
+
+
+
+In our example, **training data**, 
+
+**machine learning algorithm**
+
+**parameters or "weights"**
+
+(read as y-hat, the "hat" signifies that a prediction is being made. Writing $y$ without the "hat" would mean no prediction has yet been attempted). 
+
+uch as a zestimate from Zillow
+
+## Glossary
+
+**Simple Linear Regression**
+
+**parameters or "weights"**
+
+ **training data**, 
+
+**machine learning algorithm**
+
+**inference**
+
+**supervised machine learning**
+
+
+
+
+
+
+
+
+
+- $w_0$ is the intercept (bias term),
+- $w_1$ is the slope (weight).
+
+To bring this to life, let's consider a concrete where we'd like to predict the price of a home.
+
+Let:
+
+- $\hat{y}$ be the predicted price of a house (in thousands of dollars),
+- $x$ be the size of the house in square feet.
+
+Suppose we have fit a linear model to a dataset and obtained:
+
+$$
+\hat{y} = 50 + 0.2 x
+$$
+
+This means:
+- The base price of any house (intercept) is $50,000.
+- For each additional square foot, the price increases by $200.
+
+### Example
+
+For a house that is 1,000 square feet:
+
+$$
+\hat{y} = 50 + 0.2 \cdot 1000 = 250
+$$
+
+So, the model predicts a price of $250,000 for a 1,000 square foot house.
+
+---
+
+#### Target Variable and Input Variable
+
+- **Target Variable** ($y$): the outcome we are trying to predict.
+- **Input Variable** ($x$): the feature used to make the prediction.
+
+---
+
+#### Training and Validation Sets
+
+- **Training set**: used to learn the model parameters.
+- **Validation set**: used to evaluate how well the model generalizes to unseen data.
+
+---
+
+#### Model Approximation and Noise
+
+The model approximates an unknown true function:
+$$
+y = f^*(x) + \varepsilon
+$$
+where $\varepsilon$ is the irreducible error.
+
+---
+
+#### Residuals
+
+The residuals measure the difference between actual and predicted values:
+$$
+e_i = y_i - \hat{y}_i
+$$
+
+---
+
+#### Loss Function (Mean Squared Error)
+
+To measure model performance:
+$$
+\mathcal{L}(w_0, w_1) = \frac{1}{n} \sum_{i=1}^n (y_i - \hat{y}_i)^2
+$$
+
+---
+
+#### Design Matrix
+
+With $n$ observations, the design matrix includes a bias term:
+$$
+\mathbf{X} = \begin{bmatrix}
+1 & x_1 \\
+1 & x_2 \\
+\vdots & \vdots \\
+1 & x_n
+\end{bmatrix}
+$$
+
+---
+
+#### Closed-form Solution (Normal Equation)
+
+We can directly compute the optimal weights:
+$$
+\mathbf{w} = (\mathbf{X}^\top \mathbf{X})^{-1} \mathbf{X}^\top \mathbf{y}
+$$
+
+---
+
+#### Parameters and Estimation
+
+- **Parameters**: $w_0$, $w_1$
+- **Goal**: estimate parameters that minimize the loss function
+
+---
+
+#### Gradient Descent
+
+When a closed-form is not used, we apply an iterative optimization:
+$$
+w_j \leftarrow w_j - \eta \frac{\partial \mathcal{L}}{\partial w_j}
+$$
+
+With gradients:
+$$
+\frac{\partial \mathcal{L}}{\partial w_j} = -\frac{2}{n} \sum_{i=1}^n x_{ij}(y_i - \hat{y}_i)
+$$
+
+---
+
+#### Overfitting and Underfitting
+
+- **Underfitting**: model too simple to capture data patterns
+- **Overfitting**: model too complex, captures noise instead of signal
+- **Validation** helps detect these behaviors.
+
+
+### Multiple Linear Regression
+
+### Logistic Regression
 
 ### Classification
 
@@ -68,65 +442,25 @@ A loss function is a mathematical function that measures the difference between 
 
 ## Gradient Descent
 
-## Linear Regression
+::: {.callout-tip collapse=true collapsed=true}
+## Synonyms Across Fields
 
-```{python}
-import pandas as pd
-from sklearn.linear_model import LinearRegression
-import numpy as np
-import matplotlib.pyplot as plt
+Different disciplines often use different terms for the same concepts. Here's a helpful guide:
 
-# Step 1: Input text
-text = "I love to eat pizza"
-tokens = text.split()
+| Concept                             | Machine Learning                | Statistics / Econometrics               |
+|-------------------------------------|----------------------------------|-----------------------------------------|
+| Single data point (e.g., a row in a spreadsheet) | **Training example**            | **Observation**, **Case**               |
+| Input features                      | **Features**, **Inputs**         | **Independent variables**, **Regressors**, **Covariates**, **Predictors** |
+| Target output                       | **Label**, **Target**, **Output**| **Dependent variable**, **Response**    |
+| Collection of data points           | **Training set**, **Training data** | **Sample**, **Dataset**               |
+| Parameter                           | **Weight** (e.g., $w_1$)         | **Coefficient** (e.g., $\beta_1$)       |
+| Model prediction                    | **$\hat{y}$**                    | **Fitted value**, **Predicted value**   |
+| Loss function                       | **Loss**                         | **Objective function**, **Criterion function** |
+| Learn model parameters              | **Training**, **Fitting**        | **Estimation**                          |
 
-# Step 2: Create vocabulary and mappings
-vocab = {word: i for i, word in enumerate(set(tokens))}
-reverse_vocab = {i: word for word, i in vocab.items()}
+Understanding these parallels can make it much easier to bridge terminology between fields as you move through the course.
+:::
 
-# Step 3: Build a DataFrame
-data = pd.DataFrame({
-    "Current Word": tokens[:-1],
-    "Next Word": tokens[1:]
-})
-data["Current Index"] = data["Current Word"].map(vocab)
-data["Next Index"] = data["Next Word"].map(vocab)
-
-# Step 4: Train the model
-X = data["Current Index"].values.reshape(-1, 1)
-y = data["Next Index"].values
-model = LinearRegression()
-model.fit(X, y)
-
-# Step 5: Make prediction
-input_word = "eat"
-input_index = vocab[input_word]
-predicted_index = round(model.predict([[input_index]])[0])
-predicted_word = reverse_vocab.get(predicted_index, "UNKNOWN")
-
-# Step 6: Plot
-plt.figure(figsize=(6, 4))
-plt.scatter(X, y, color='blue', label="Training data")
-plt.plot(X, model.predict(X), color='red', linestyle='--', label="Regression line")
-plt.scatter([input_index], [predicted_index], color='green', s=100, label=f"Prediction for '{input_word}'")
-plt.title("Linear Regression on Word Indices")
-plt.xlabel("Current Word Index")
-plt.ylabel("Next Word Index")
-plt.legend()
-plt.grid(True)
-plt.tight_layout()
-plt.show()
-
-# Display table and prediction
-print("Token Table:\n")
-print(data)
-print("\nPrediction:")
-print(f"Input word: '{input_word}' (index {input_index})")
-print(f"Predicted next word index: {predicted_index}")
-print(f"Predicted next word: '{predicted_word}'")
-
-
-```
 
 ### Supervised Learning Use Cases
 
