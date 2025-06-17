@@ -30,31 +30,28 @@ editor: visual
 
 According to John D. Kelleher "the field of artificial intelligence was born at a workshop at Dartmouth College in the summer of 1956."
 
-## Machine Learning
+## Machine Learning in a Nutshell
 
-Supervised Learning: "Here’s the question and the right answer."\
-Unsupervised Learning: "Here is some data, can you find patterns and/or organize it in a meaningful way?"\
-Reinforcement Learning: "You’re an agent playing a, figure out the best strategy through trial and error, using only points (rewards) as feedback."
+Machine learning is about enabling computers to recognize patterns in data so they can make accurate predictions or decisions without being explicitly programmed for every scenario. At its core, it involves feeding a model real-world examples encoded in a dataset and allowing the computer to learn the relationship between inputs and outputs. Once trained, the model can apply that learned relationship to make predictions on new, unseen data.
 
-"During training, a machine learning algorithm processes a dataset and chooses the function that best matches the patterns in the data."
+To build a machine learning model, we need four key ingredients:
 
-supervised, unsupervised, and reinforcement.
+1. **A mathematical model:** This defines the form of the mathematical function we’ll use to relate inputs to outputs, for example, a straight line (linear) or a more flexible structure like a neural network (non-linear).
 
-## Supervised Learning
+::: {.callout-tip collapse=true collapsed=true}
+## What do we mean by "linear"?
 
-Supervised learning is the most widely used type of machine learning and significantly overlaps with the methodologies of other quantitative fields, such as statistics and econometrics.
+"Linear" in this context means that the effect of $x$ on $\hat{y}$ is **proportional and constant**: no matter what value of $x$ we choose, an increase of 1 unit in $x$ always increases $\hat{y}$ by exactly $w_1$ units. This property makes the model highly interpretable.
+:::
+2. **Training data:** A collection of real-world examples that pair inputs with their corresponding outputs. The quality and relevance of this data are crucial to how well the model can learn and make accurate predictions.
+3. **A loss function:** A mathematical expression that measures how far off the model’s predictions are from the correct answers. It provides feedback to help the model improve over time.
+4. **A training algorithm:** A step-by-step procedure that combines the first three ingredients in a way that minimizes the prediction errors produced by the model. This is where the so-called *learning* takes place.
 
-Supervised learning gets its name from the fact that the input data set has examples of both inputs and outputs.
-
-The outputs are called labels, hence you will sometime hear the term "labeled dataset."
-
--   **logistic (sigmoid) function**:
-
--   **Softmax**:
+So what exactly is being *learned*? The computer is *learning* the *weights* (parameters) of the chosen model. This is best understood through an example. We’ll start with the simplest possible machine learning model: simple linear regression. It’s a powerful tool that helps us understand the core ideas behind more complex models, including the ones that power today’s cutting-edge AI systems like ChatGPT.
 
 ## Simple Linear Regression
 
-A **simple linear regression** model is the simplest possible supervised machine learning model. It provides a clean and interpretable framework that allows us to explore many of the fundamental building blocks underlying cutting edge Large Language Models (LLMs) such as ChatGPT which we will get to later in the course. For this reason, we will take the time to study it in depth and build a deep understanding.
+### Mathematical model
 
 A simple linear regression model takes a single **input variable** $x$ and predicts the value of a corresponding **output variable** $y$. For example, the input variable might represent a house's *square footage*, and the output variable could represent the *value* of the home.
 
@@ -66,24 +63,18 @@ $$
 
 Where $y$ represents the home *value* and $x$ represents the *square footage*.
 
-Geometrically this equation is a line with intercept $w_0$ and slope $w_1$. 
 
 
-::: {#fig-slr-line layout-ncol=1}
-![**Simple Linear Regression Line**](images/slr-line.png){width="70%"}
-:::
+In machine learning jargon $w_0$ and $w_1$ are called the **parameters** or **weights** of the model (hence the use of $w$ in the notation) and describe the nature of the relationship between $x$ and $y$. $w_0$ and $w_1$ are the numbers that the computer will *learn* (i.e. derive) based on what is observed in real life which will be encoded into *training data* discussed in the next section.
 
+In other fields such as econometrics these might be introduced using the greek alphabet notation of $\alpha$ and $\beta$. 
 
-::: {.callout-tip collapse=true collapsed=true}
-## Differences in mathematical notation
-
-In machine learning jargon $w_0$ and $w_1$ are called the **parameters** or **weights** of the model (hence the use of $w$ in the notation) and describe the nature of the relationship between $x$ and $y$. In other fields such as econometrics these might be introduced using the greek alphabet notation of $\alpha$ and $\beta$. 
-
-Furthermore, you might recognize this equation as the equation for a line in *slope-intercept* from which is often presented as:
+You might recognize this equation as the equation for a line in *slope-intercept* from which is often presented as:
 
 $$
 y = mx + b
 $$
+
 where $x$ and $y$ are numbers in the coordinate plane with $m$ representing the slope of the line and $b$ representing the y-intercept (the point where the line crosses the y-axis) as shown in the image below:
 
 ![](images/line-graph.png){width="70%" fig-align="center"}
@@ -92,100 +83,54 @@ Simple linear regression and the equation of a line are in fact the same mathema
 
 It's common for different fields of study to use different notation and words for the same mathematical concepts. Unfortunately this can be one of the biggest sources of confusion for students so we will make an effort to call out these differences throughout the course.
 
+Now that we've shown that simple linear regression is actually just the equation of a line where $w_0$ is the y-intercept and $w_1$ is the slope we can have a visual picture in mind for how an input variable $x$ and the output variable $y$ are related. 
+
+::: {#fig-slr-line layout-ncol=1}
+![**Simple Linear Regression Line**](images/slr-line.png){width="70%"}
 :::
-
-$w_0$ and $w_1$ represent numbers that the computer will *learn* (i.e. derive) based on what is observed in real life. To get the computer to *learn* these weights for us we have to communicate in a language that computers understand. That language is data. By data we simple mean numerical values in rows and columns in a spreadsheet or matrix. For our home value example this would mean two columns of data, one containing observed home values and the second containing the associated square footage of each home. A row would contain the *value* and the *square footage* for the same home. A small sample of data is illustrated below in both spreadsheet and matrix form. Spreadsheets are often helpful for illustration purposes but matrices are the data type we'll use model fitting and evaluation.
-
-::: {layout-ncol=2}
-
-#### Spreadsheet-style for illustration {.unnumbered}
-
-| Home ID | Square Footage ($x$) | Home Value ($y$) |
-|---------|----------------------|------------------|
-| H001    | 1,200                | 290,000          |
-| H002    | 1,400                | 310,000          |
-| H003    | 1,600                | 340,000          |
-| H004    | 1,800                | 370,000          |
-| H005    | 2,000                | 400,000          |
-| H006    | 2,200                | 430,000          |
-| H007    | 2,400                | 455,000          |
-| H008    | 2,600                | 480,000          |
-| H009    | 2,800                | 510,000          |
-| H010    | 3,000                | 540,000          |
-
-#### Matrix-style the computer will use {.unnumbered}
-
-
-$$
-\begin{bmatrix}
-1200 & 290000 \\
-1400 & 310000 \\
-1600 & 340000 \\
-1800 & 370000 \\
-2000 & 400000 \\
-2200 & 430000 \\
-2400 & 455000 \\
-2600 & 480000 \\
-2800 & 510000 \\
-3000 & 540000 \\
-\end{bmatrix}
-$$
-
-
-:::
-
-
-
-
-
-
-Now that we've shown that simple linear regression is actually just the equation of a line we can have a visual picture in mind for how an input variable $x$ and the output variable $y$ are related. 
 
 ::: {.callout-tip collapse=true collapsed=true}
 ## Intuition check
-What does your intuition tell you about the values $w_0$ and $w_1$ are likely to take on once they are estimated? 
+What does your intuition tell you about the values $w_0$ and $w_1$ are likely to take on once they are estimated in our home value example? 
 
 Do you expect them to be positive or negative numbers? 
 
 Assume $x$ was $0$, what would the equation be telling you?
 :::
 
-As soon as we choose numbers for $w_0$ and $w_1$ have a way predic
+As soon as we come up with values for $w_0$ and $w_1$ have a way predicting values of $y$ when plugging in any value of $x$ to the fitted equation.
 
-The goal of machine learning is to *learn* the best possible values $w_0$ and $w_1$ allowing us to make good predictions of a homes *value* based on it's *square footage*. We will soon explore how the computer "learns" and what we mean by "best."
-
-
-Once numerical values for $w_0$ and $w_1$ have been learned (i.e., derived), we obtain an equation that can be used to make predictions of home value based on square footage. For example, assume the learned weights are:
+The goal of machine learning is to *learn* the best possible values $w_0$ and $w_1$ allowing us to make good predictions of a homes *value* based on it's *square footage*. We will soon explore how the computer learns these weight values but to build our intution on what the model does we can start by simply guessing values for the weights. For example, let's assume:
 
 $$
 w_0 = 50,\!000 \quad \text{and} \quad w_1 = 200
 $$
 
-Then the prediction function becomes:
+Then our function becomes:
 
 $$
 \hat{y} = 50,\!000 + 200x
 $$
 
-We use the notation $\hat{y}$ (read as “y-hat”) to emphasize that this is a predicted value based on the model, not an observed or actual value.
+We use the notation $\hat{y}$ (read as “y-hat”) here to emphasize that this is a now predicted value based on the model, not an observed or actual value.
 
-This act of using the trained model to compute a prediction based on an input $x$ is referred to as **inference**—we are *inferring* an estimated output $\hat{y}$.
+This act of using the trained model to compute a prediction based on an input $x$ is also called **inference** since we are *inferring* an estimated output $\hat{y}$.
 
-For instance, a home with 3,000 square feet would be predicted to have a value of:
+Using this model we can predict that a home with 3,000 square feet will have a value of:
 
 $$
-\hat{y} = 50,\!000 + 200 \cdot 3,\!000 = 650,\!000
+\hat{y} = 50,\!000 + 200 \cdot 3,\!000 = \$650,\!000
 $$
 
 Now, consider what the model predicts for a home with 0 square feet:
 
 $$
-\hat{y} = 50,\!000 + 200 \cdot 0 = 50,\!000
+\hat{y} = 50,\!000 + 200 \cdot 0 = \$50,\!000
 $$
 
 This implies that the base value of the property—the land alone, with no house—might be interpreted as \$50,000. This is exactly why both $w_0$ and $w_1$ are necessary. If we had included only $w_1 x$ and omitted $w_0$, the model would always predict 0 for an input of $x = 0$, which might not reflect the reality (e.g., land still has value).
 
-In machine learning, the term **bias** is used to refer to this $w_0$ value. The name comes from the fact that it shifts (or “biases”) the entire output of the model up or down, independent of the input. Geometrically, it determines the $y$-intercept of the prediction line. It allows the model to better fit data that does not pass through the origin.
+In machine learning, the term **bias** is used to refer to this $w_0$ value. The name comes from the fact that it shifts (or “biases”) the entire output of the model up or down, independent of the input. Geometrically, it determines the $y$-intercept of the prediction line. It allows the model to better fit real-world data.
 
 
 Choosing a different set of weight values would result in a different equation, resulting in a different prediction. For example, assume instead that $w_0 = 25,000$ and $w_1 = 300$ resulting in the following equation:
@@ -194,29 +139,362 @@ $$
 \hat{y} = 25,000 + 300 x
 $$
 
-This model would predict that the same 3,000 square-foot home has a value of $925,000 = 25,000+300*3,000$.
+This model would predict that the same 3,000 square-foot home has a much higher value of $\$925,000 = 25,000+300*3,000$.
 
- ### Learning weight values
- 
-In the example above, we assumed $w_0 = 50,000$ and $w_1 = 200$ for illustation. We will now discuss how a machine (i.e., a computer) is capable of learning these weight values, enabling the mathematical model to make the most accurate predictions possible, which explains why the field is called machine learning.
+Let's assume the \$3,000 square foot home we have in mind recently sold for \$800,000 reflecting it's true value (a single instance of $y$). We could then compute the error associated with each set of model weights as the asbolute value of the prediction error as follows:
 
-There are three main ingredients necessary to learn the best possible model weights:
+1. Prediction error when $w_0 = 50,\!000$ and $w_1 = 200$: $\left| 650,000 - 8000000 \right| = 150,000$
+2. Prediction error when $w_0 = 25,\!000$ and $w_1 = 300$: $\left| 925,000 - 8000000 \right| = 125,000$
 
-1. **A mathematical structure (i.e., a model)** — This defines the form of the relationship between inputs and outputs. We've been discussing the simple linear regression structure given by:
+Given these results we might reasonably conclude that the second set of model weights produced the better prediction, since it was less wrong by \$25,000. 
+
+In machine learning this prediction error is commonly called the model's *loss,* that is, how far off the prediction is from the observed truth. The mathematical function by which we compute prediction error is called the *loss function*. In our case, we could represent our choice of loss function as $\left| \hat{y} - y \right|$.
+
+There are many possible choices of loss function. For example, we didn't have to use absolute value, we could have simply taken the difference as our measurement of loss. We will discuss loss functions and introduce the most commonly used loss functions in later sections.
+
+### Training Data
+
+In order for a computer to *learn* the best weight values for a model, we need to communicate with it in the language it understands: **data**. In this context, “data” refers to numerical values organized in rows and columns, like a spreadsheet or matrix. Each row is a single **example**, and each column holds a particular **feature** or **label**.
+
+For our home value prediction example, imagine a simple dataset with two columns:
+
+- One column for the **square footage** of a home (the *input*), and  
+- One column for the **value** of the home (the *output*).
+
+Each row contains both the square footage and the corresponding value for a particular house. Together, each pair of values forms what we call an **input-output pair**. A complete set of these pairs is called a **dataset**.
+
+We can write this dataset using the following compact mathematical notation:
 
 $$
-\hat{y} = w_0 + w_1 x
+\{(x^{(i)}, y^{(i)})\}_{i=1}^n
 $$
 
-This structure assumes a linear relationship between the input $x$ and the predicted output $\hat{y}$. Later in the course, we will explore the more complex models used in large language models.
+This might look intimidating at first, but it’s just a convenient way of saying:
+
+> “We have $n$ examples. For each example $i$, we observe an input $x^{(i)}$ and a corresponding output $y^{(i)}$.”
+
+Let’s break down the notation a bit further:
+
+- The curly braces $\{ \}$ mean we’re describing a set, a collection of items.
+- The superscript $(i)$ just means “for example number $i$”
+- Each item in the set is a pair: $(x^{(i)}, y^{(i)})$ where:
+  - $x^{(i)}$ is the input (e.g., square footage) for the $i$th example
+  - $y^{(i)}$ is the output (e.g., home value) for that same example
+- The subscript $_{i=1}^n$ tells us there are $n$ examples and we are referring to all $1$ to $n$ of them.
+
+If you wrote this out as a table, it might look like this:
+
+| Example ($i$) | $x^{(i)}$ = Square Footage | $y^{(i)}$ = Home Value |
+|---------------|----------------------------|------------------------|
+| 1             | 1200                       | 250,000                |
+| 2             | 1400                       | 275,000                |
+| 3             | 1600                       | 300,000                |
+| ...           | ...                        | ...                    |
+| $n$           | (last example)             |                        |
+
+This is the kind of data we use to “train” a machine learning model, by showing it many examples, we give it a chance to learn the relationship between inputs and outputs.
 
 ::: {.callout-tip collapse=true collapsed=true}
-## What do we mean by "linear"?
+### Terminology: Inputs and Outputs
 
-"Linear" in this context means that the effect of $x$ on $\hat{y}$ is **proportional and constant**: no matter what value of $x$ we choose, an increase of 1 unit in $x$ always increases $\hat{y}$ by exactly $w_1$ units. This property makes the model highly interpretable.
+In different fields and contexts, we often use different terms for the same underlying ideas. Here's a helpful reference for the various names used for **inputs** and **outputs** in machine learning and related areas:
+
+| Concept         | Common Synonyms                                   | Notes                                                                 |
+|----------------|----------------------------------------------------|-----------------------------------------------------------------------|
+| **Input**       | Feature, Independent Variable, Predictor, Covariate, Regressor, $x$ | The value(s) we feed into the model to make a prediction. Can be one variable or many. |
+| **Output**      | Label, Target, Dependent Variable, Response, $y$  | The value the model is trying to predict or learn from.               |
+| **Input-Output Pair** | Example, Observation, Data Point, $(x^{(i)}, y^{(i)})$ | A single row of data showing both the input and the correct output.   |
+| **Collection of Examples** | Dataset, Training Data, Sample           | All the input-output pairs we give to the model to learn from.        |
+| **Predicted Output** | Prediction, Estimate, $\hat{y}$              | The output the model thinks is correct, based on what it learned.     |
 :::
 
-2. **Training data** — A set of example input-output pairs $\{(x^{(i)}, y^{(i)})\}_{i=1}^n$ that the model uses to learn. For simple linear regression, you can think of this as two columns in a spreadsheet: one column for the input variable $x$ (e.g., square footage) and one column for the corresponding output $y$ (e.g., home price). Each row represents a single training example $(x^{(i)}, y^{(i)})$.
+There are actually four equivalent ways of representing a dataset, each useful in different contexts. You will be greatly aided in your study of machine learning if you can recognize and switch between all four forms with ease. Different textbooks, courses, tutorials and code libraries will use different representations so developing fluency in all of them will help you understand ideas more deeply and communicate more clearly.
+
+1. **Mathematical Set Notation:**  
+   This is the notation we just introduced:  
+   $$
+   \{(x^{(i)}, y^{(i)})\}_{i=1}^n
+   $$
+
+It represents the dataset as a collection of $n$ input-output pairs, where each $x^{(i)}$ is an input and each $y^{(i)}$ is the corresponding output. This form is widely used in textbooks and research papers because of its compactness and precision. It’s the language of mathematics, and it's especially helpful when trying to understand what’s happening *under the hood* as computer code executes. By using this notation, we can reason more clearly about how models learn and make predictions.
+
+2. **Spreadsheet or Table Format:**  
+   This is the most familiar form for most people and is often used in business and statistics. Each row represents an example; each column represents a variable or feature.
+   
+   | Example ($i$) | $x^{(i)}$ = Input (e.g., SqFt) | $y^{(i)}$ = Output (e.g., Price) |
+   |---------------|-------------------------------|----------------------------------|
+   | 1             | 1200                          | 250,000                          |
+   | 2             | 1400                          | 275,000                          |
+   | 3             | 1600                          | 300,000                          |
+   | ...           | ...                           | ...                              |
+   | $n$           | —                             | —                                |
+
+   This is also the format used in tools like Excel, Google Sheets, or data frames in Python and R.
+
+3. **Mathematical Matrix Notation:**  
+Matrix notation is a compact and powerful mathematical way to represent an entire dataset, especially when trying to understand what calculations the computer is making while executing machine learning algorithms (discussed in the next section). In matrix form:
+
+- The **inputs** are stored in a matrix called $X$, with $n$ rows (one for each example) and $d$ columns (one for each feature or input variable).
+- The **outputs** are stored in a column vector called $y$, with $n$ rows (one for each label or true value).
+
+If each input has just one feature (like square footage), then $X$ is simply a single column of numbers (a vector). But if we have **more than one input feature**, for example, both square footage and number of bedrooms, then $X$ becomes a matrix with multiple columns, like this:
+
+$$
+X =
+\begin{bmatrix}
+x_1^{(1)} & x_2^{(1)} \\
+x_1^{(2)} & x_2^{(2)} \\
+\vdots & \vdots \\
+x_1^{(n)} & x_2^{(n)}
+\end{bmatrix}
+$$
+
+Here:
+
+- Each **row** represents one house (one example from the dataset).
+- Each **column** represents a feature:
+  - $x_1^{(i)}$ might be the square footage of house $i$
+  - $x_2^{(i)}$ might be the number of bedrooms in house $i$
+
+This structure easily extends to more features. For example, if we also include number of bathrooms, year built, and lot size, then $X$ would have 5 columns total (one for each feature).
+
+The output vector $y$ stays the same regardless of the number of inputs with one value per row, like the price of the home:
+
+$$
+y =
+\begin{bmatrix}
+y^{(1)} \\
+y^{(2)} \\
+\vdots \\
+y^{(n)}
+\end{bmatrix}
+$$
+
+> Matrix notation lets us express model computations in a **compact, efficient** form that computers can execute quickly.  
+>  
+> It will be essential when we **scale up** to more than input feature. It illustrates how a machine *thinks.* It’s ideal for:
+> - Handling **many examples and features**
+> - Performing **vectorized calculations** like dot products and gradients
+> - Writing models in **clean, code-friendly format**
+>  
+> Matrix notation makes your reasoning and implementation **faster, clearer, and more powerful**. We'll use it throughout the course.
+
+
+
+
+4. **Code Representation (Arrays or Tensors):**  
+   When implementing models in code, we typically use arrays (Python's NumPy package) or tensors (Python's PyTorch package) which are data structures that store values in memory for numerical computation.
+
+   Below is an example with NumPy
+   
+```{python}
+# NumPy
+import numpy as np
+X = np.array([[1200], [1400], [1600]])
+y = np.array([[250000], [275000], [300000]])
+print("X =", X)
+print("y = ", y)
+```
+So what does this mean?
+
+- `X` is a **matrix of inputs** (in this case, just one feature: square footage).  
+  Each **row** represents one example:
+  - 1200 square feet  
+  - 1400 square feet  
+  - 1600 square feet
+
+- `y` is a **vector of outputs** (the target values, like home prices).  
+  Each row in `y` matches the corresponding row in `X`.
+
+Let's now connect this code back to the set and matrix representations of a dataset.
+
+**Equivalence with Set Notation**
+
+In set notation this tiny dataset could be represented as three input-output pairs:
+
+$$
+\{(x^{(i)}, y^{(i)})\}_{i=1}^3
+$$
+More specifically:
+
+- $x^{(1)} = 1200$, $y^{(1)} = 250{,}000$  
+- $x^{(2)} = 1400$, $y^{(2)} = 275{,}000$  
+- $x^{(3)} = 1600$, $y^{(3)} = 300{,}000$
+
+Each pair $(x^{(i)}, y^{(i)})$ is represented by a row in `X` and the corresponding row in `y`.
+
+**Equivalence with Matrix Notation**
+
+We can also see how this toy dataset would be written in matrix notation as a pair of matrices, one for the inputs and one for the outputs:
+
+$$
+X =
+\begin{bmatrix}
+x_1^{(1)} \\
+x_1^{(2)} \\
+x_1^{(3)}
+\end{bmatrix}
+=
+\begin{bmatrix}
+1200 \\
+1400 \\
+1600
+\end{bmatrix},
+\quad
+y =
+\begin{bmatrix}
+y^{(1)} \\
+y^{(2)} \\
+y^{(3)}
+\end{bmatrix}
+=
+\begin{bmatrix}
+250{,}000 \\
+275{,}000 \\
+300{,}000
+\end{bmatrix}
+$$
+
+- $X$ is an $n \times 1$ input matrix (with one feature per example),
+- $y$ is an $n \times 1$ output vector (with one label per example).
+
+PyTorch Example
+
+Lastly, below we represent the same toy dataset using **PyTorch**, currently the most popular deep learning library, and the one used to develop many modern large language models (LLMs).
+
+PyTorch uses a data structure called a **tensor**.
+
+A **tensor** is a generalization of familiar objects like scalars, vectors, and matrices:
+
+- A **scalar** is a 0-dimensional tensor (e.g., `5`)
+- A **vector** is a 1-dimensional tensor (e.g., `[1200, 1400, 1600]`)
+- A **matrix** is a 2-dimensional tensor (e.g., a table of numbers)
+- A **3D tensor** is a collection or stack of matrices. You can think of it as a book of matrices, where each page is a 2D grid (matrix), and the whole book has depth (i.e., the number of pages)
+- A **4D tensor** is a collection of 3D tensors. You can think of it as a **library of books**, where:
+  - Each **book** is a 3D tensor (a stack of matrices),
+  - Each **page** in a book is a matrix,
+  - And each matrix contains rows and columns of numbers.
+
+Increasing the tensor dimension allows us to compactly describe multiple sets of structured data and for a computer to perform parallel computations efficiently which is essential when training modern LLMs. 
+
+In theory, there is no limit on the number of dimensions a tensor can have.
+
+In practice, we won't need more than 4D tensors to build modern large language models (LLMs).
+
+For simple models like linear regression, a 2D tensor (i.e., a matrix) is sufficient to represent the data.
+
+
+```{python}
+import torch
+
+# Input data: square footage (in one column)
+X = torch.tensor([[1200.], [1400.], [1600.]])
+
+# Output data: home prices
+y = torch.tensor([[250000.], [275000.], [300000.]])
+
+print("X (inputs):")
+print(X)
+
+print("\ny (outputs):")
+print(y)
+```
+
+The dot (.) at the end of the numbers (like 1200. or 250000.) indicates that the numbers are being treated as floating point numbers (i.e., float type) rather than integers. A floating point number is a number that can represent decimal values on a computer, in contrast to an integer, which can only represent whole numbers. PyTorch models expect inputs and outputs to be floating point numbers because most model operations involve decimals. 
+
+```{python eval=false echo=true}
+import numpy as np
+import matplotlib.pyplot as plt
+import torch
+import torch.nn as nn
+import torch.optim as optim
+from sklearn.linear_model import LinearRegression
+from sklearn.preprocessing import StandardScaler
+
+# --- Set Seed for Reproducibility ---
+np.random.seed(42)
+torch.manual_seed(42)
+
+# --- Randomly Generate Data ---
+n_samples = 30
+X_data = np.random.uniform(1200, 3000, size=(n_samples, 1)).astype(np.float32)
+true_slope = 200
+true_intercept = 50000
+noise = np.random.normal(0, 30000, size=(n_samples, 1)).astype(np.float32)
+y_data = true_intercept + true_slope * X_data + noise
+
+# --- scikit-learn Model ---
+scaler = StandardScaler()
+X_scaled = scaler.fit_transform(X_data)
+
+lr_model = LinearRegression()
+lr_model.fit(X_scaled, y_data)
+
+# Convert scikit-learn model back to original units
+slope_sk = lr_model.coef_[0][0] / scaler.scale_[0]
+intercept_sk = lr_model.intercept_[0] - slope_sk * scaler.mean_[0]
+
+# --- PyTorch Model ---
+X_torch = torch.tensor(X_data)
+y_torch = torch.tensor(y_data)
+
+X_mean = X_torch.mean()
+X_std = X_torch.std(unbiased=False)
+X_scaled_torch = (X_torch - X_mean) / X_std
+
+model = nn.Linear(1, 1)
+optimizer = optim.SGD(model.parameters(), lr=0.01)
+loss_fn = nn.MSELoss()
+
+for _ in range(3000):
+    y_pred = model(X_scaled_torch)
+    loss = loss_fn(y_pred, y_torch)
+    optimizer.zero_grad()
+    loss.backward()
+    optimizer.step()
+
+# Convert PyTorch model back to original units
+slope_torch = model.weight.item() / X_std.item()
+intercept_torch = model.bias.item() - slope_torch * X_mean.item()
+
+# --- Plot ---
+X_plot = np.linspace(1100, 3100, 100).reshape(-1, 1)
+y_sk = intercept_sk + slope_sk * X_plot
+y_pt = intercept_torch + slope_torch * X_plot
+
+fig, axes = plt.subplots(1, 2, figsize=(14, 5), sharey=True)
+
+# Plot scikit-learn
+axes[0].scatter(X_data, y_data, label="Actual Data", color="blue")
+axes[0].plot(X_plot, y_sk, label="scikit-learn Fit", color="green")
+axes[0].set_title("scikit-learn Regression")
+axes[0].set_xlabel("Square Footage")
+axes[0].set_ylabel("Home Value")
+axes[0].legend()
+axes[0].grid(True)
+
+# Plot PyTorch
+axes[1].scatter(X_data, y_data, label="Actual Data", color="blue")
+axes[1].plot(X_plot, y_pt, label="PyTorch Fit", color="black")
+axes[1].set_title("PyTorch Regression")
+axes[1].set_xlabel("Square Footage")
+axes[1].legend()
+axes[1].grid(True)
+
+plt.tight_layout()
+plt.show()
+
+```
+
+### Learning weight values
+ 
+In the example above, we assumed $w_0 = 50,000$ and $w_1 = 200$ for illustation. We now turn attention to how a machine (i.e., a computer) is capable of *learning* the optimal weight values, enabling the mathematical model to make the most accurate predictions possible which explains which strikes at the heart of why the field is called called *machine learning*.
+
+There are four main ingredients necessary for the computer to *learn* the best possible model weights:
+
+1. **A proposed mathematical structure**:  For simple linear regression the mathematical structure (i.e., equation) is $y = w_0 + w_1 x$. This equation defines the form of the relationship between inputs(s) and output(s). This structure assumes a linear relationship between the input $x$ and output $y$. Later in the course, we will explore the more complex non-linear models called neural networks which are used in large language models.
+
+2. **Training Data** — 
 
 ::: {.callout-tip collapse=true collapsed=true}
 ## Notation: Superscripts vs. Subscripts
@@ -225,13 +503,15 @@ If you're coming from econometrics, you're probably used to indexing observation
 
 Why the change?
 
-Machine learning models often work with **vectors** of features:
+Machine learning models often work with **vectors** of features where $x$ is understood not as single input variable but as a vector of input variables:
+
 $$
 x^{(i)} = \begin{bmatrix} x_1^{(i)} \\ x_2^{(i)} \\ \vdots \\ x_d^{(i)} \end{bmatrix}
 $$
 
 Here:
 
+- For simple linear regression there is only a single input variable so $x=x_1$. However, say we added *year built* as a second input variable we could represent this as $x_2$. 
 - The **superscript $(i)$** indicates the **$i$-th training example**.
 - The **subscript $j$** (e.g., $x_j^{(i)}$) refers to the **$j$-th feature** of that example.
 
@@ -240,19 +520,33 @@ Using subscripts for both observations and features (e.g., $x_i$ and $x_j$) woul
 So while this might feel unfamiliar at first, **superscript indexing** is standard in ML to keep feature and example indexing clearly separated.
 :::
 
-
-3. **A loss function** — A mathematical expression that quantifies the error between the model’s predictions $\hat{y}^{(i)}$ and the true outputs $y^{(i)}$. For regression, a common choice is **mean squared error** (MSE):
+3. **A loss function** — A *loss function* is another mathematical equation whose purpose it to quantify the error between the model’s predictions $\hat{y}^{(i)}$ and the true output values observed in the training data $y^{(i)}$. For regression, the typical choice of loss function is **mean squared error** (MSE) defined as:
 
 $$
-\mathcal{L}(w_0, w_1) = \frac{1}{n} \sum_{i=1}^n (\hat{y}^{(i)} - y^{(i)})^2
+\mathcal{L}(w_0, w_1) = \frac{1}{n} \sum_{i=1}^n (w_0 + w_1 x^{(i)} - y^{(i)})^2 = \frac{1}{n} \sum_{i=1}^n (\hat{y}^{(i)} - y^{(i)})^2
 $$
 
-The loss function defines the learning objective.
+::: {.callout-tip collapse=true collapsed=true}
+## Unpacking the notation of the MSE Loss Function
+
+This is called the Mean Squared Error (MSE) loss function, and it helps us measure how good or bad our model’s predictions are.
+
+The big curly $\mathcal{L}$ is a stylized version of the capital Latin letter L. In this context, $\mathcal{L}$ stands for “Loss” or sometimes “Loss function."
+
+- $w_0$ and $w_1$ are the parameters (or weights) of our simple linear regression model. Notice that they are playing the roles of unknown variables in this notation: $\mathcal{L}(w_0, w_1)$. This is because we don't know what these values are or should be yet, that's what we want the computer *learn* for us.
+- $x^{(i)}$ is the input (e.g., square footage of a house)
+- $\hat{y}^{(i)} = w_0 + w_1 x^{(i)}$ is the model’s predicted output (e.g., the predicted house price).
+- $y^{(i)}$ is the true value (the actual house price for data point $i$).
+- $(\hat{y}^{(i)} - y^{(i)})^2$ is the squared error: how far off the prediction is, squared to make sure it’s always positive and to penalize big mistakes more than small ones.
+- $\sum_{i=1}^n$ adds up the squared errors for all $n$ data points in our dataset (the Greek letter $\sum$ is called "capital sigma" and means we should "add up a bunch of terms")
+- $\frac{1}{n}$ takes the average of all those squared error terms.
+
+This function tells us how well our model is performing overall. A smaller value means our predictions on average are close to the true values, and a larger value means on average we’re making bigger mistakes.
+
+Our goal is to find the values of $w_0$ and $w_1$ that make this loss function as small as possible, with for simpple linear regression equates to finding the line of best-fit through our data.
 
 
-4. **Algorithms** — An algorithm is a step-by-step, well-defined procedure for performing a task. For example, long division is an algorithm wherein you follow a well defined procedure to computer mathematical operation that would be difficult to do mentally.In this course, the task we are performing is learning the optimal values for model weights. Hence, for our purposes, we will look at algorithms
-
-Algorithms like **gradient descent** iteratively adjust weights to reduce this loss. These algorithms are the engine of learning.
+4. **Algorithm(s)** — The final ingredient(s) we need are algorithms. An algorithm is a step-by-step, well-defined procedure for performing a task. For example, long division is an algorithm wherein you follow a well defined procedure to compute a mathematical operation that would be difficult to do mentally. In this course, the task we are performing is *learning* the optimal values for model weights. Hence, for our purposes, we will study the **gradient descent** algorithm which iteratively adjust weights to minimize the loss function.
 
 
 
@@ -292,6 +586,8 @@ uch as a zestimate from Zillow
 **inference**
 
 **supervised machine learning**
+
+**Epoch**
 
 
 
@@ -511,3 +807,26 @@ Understanding these parallels can make it much easier to bridge terminology betw
 | Portfolio Management | Financial indicators, stock prices | Asset allocation decision | How should I invest to maximize return? | How can I build an automated trading or portfolio optimization system? | Actor-Critic methods |
 | Personalized Education | Student progress and quiz results | Next learning step | What lesson or content should come next? | How can I boost student outcomes by personalizing learning pathways? | Multi-armed bandits |
 | Healthcare Treatment | Patient history and vitals | Treatment or intervention strategy | What care plan maximizes long-term patient health? | How can I optimize healthcare outcomes while reducing costs and readmissions? | Off-policy RL, POMDPs |
+
+
+## Machine Learning
+
+Supervised Learning: "Here’s the question and the right answer."\
+Unsupervised Learning: "Here is some data, can you find patterns and/or organize it in a meaningful way?"\
+Reinforcement Learning: "You’re an agent playing a, figure out the best strategy through trial and error, using only points (rewards) as feedback."
+
+"During training, a machine learning algorithm processes a dataset and chooses the function that best matches the patterns in the data."
+
+supervised, unsupervised, and reinforcement.
+
+## Supervised Learning
+
+Supervised learning is the most widely used type of machine learning and significantly overlaps with the methodologies of other quantitative fields, such as statistics and econometrics.
+
+Supervised learning gets its name from the fact that the input data set has examples of both inputs and outputs.
+
+The outputs are called labels, hence you will sometime hear the term "labeled dataset."
+
+-   **logistic (sigmoid) function**:
+
+-   **Softmax**:
