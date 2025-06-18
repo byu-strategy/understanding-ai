@@ -92,16 +92,18 @@ Now that we've shown that simple linear regression is actually just the equation
 ::: {.callout-tip collapse="true" collapsed="true"}
 ## Intuition check
 
-What does your intuition tell you about the values $w_0$ and $w_1$ are likely to take on once they are estimated in our home value example?
+Think about our home value example, where we're predicting a house's price based on its square footage.
 
-Do you expect them to be positive or negative numbers?
+-   What does your intuition tell you about the values $w_0$ and $w_1$ are likely to take on once they are estimated?
 
-Assume $x$ was $0$, what would the equation be telling you?
+-   Do you expect them to be positive or negative numbers?
+
+-   Assume $x$ was $0$, what would the equation be telling you?
 :::
 
 As soon as we come up with values for $w_0$ and $w_1$ have a way predicting values of $y$ when plugging in any value of $x$ to the fitted equation.
 
-The goal of machine learning is to *learn* the best possible values $w_0$ and $w_1$ allowing us to make good predictions of a homes *value* based on it's *square footage*. We will soon explore how the computer learns these weight values but to build our intution on what the model does we can start by simply guessing values for the weights. For example, let's assume:
+The goal of machine learning is to *learn* the best possible values $w_0$ and $w_1$ allowing us to make good predictions of a homes *value* based on it's *square footage*. We will soon explore how the computer learns these weight values but to build our intuiton on what the model does we can start by simply guessing values for the weights. For example, let's assume:
 
 $$
 w_0 = 50,\!000 \quad \text{and} \quad w_1 = 200
@@ -141,7 +143,7 @@ $$
 
 This model would predict that the same 3,000 square-foot home has a much higher value of $\$925,000 = 25,000+300*3,000$.
 
-Let's assume the \$3,000 square foot home we have in mind recently sold for \$800,000 reflecting it's true value (a single instance of $y$). We could then compute the error associated with each set of model weights as the asbolute value of the prediction error as follows:
+Let's assume the \$3,000 square foot home we have in mind recently sold for \$800,000 reflecting it's true value (a single instance of $y$). We could then compute the error associated with each set of model weights as the absolute value of the prediction error as follows:
 
 1.  Prediction error when $w_0 = 50,\!000$ and $w_1 = 200$: $\left| 650,000 - 8000000 \right| = 150,000$
 2.  Prediction error when $w_0 = 25,\!000$ and $w_1 = 300$: $\left| 925,000 - 8000000 \right| = 125,000$
@@ -200,7 +202,7 @@ This is the kind of data we use to “train” a machine learning model, by show
 In different fields and contexts, we often use different terms for the same underlying ideas. Here's a helpful reference for the various names used for **inputs** and **outputs** in machine learning and related areas:
 
 | Concept | Common Synonyms | Notes |
-|---------------|------------------------|---------------------------------|
+|----|----|----|
 | **Input** | Feature, Independent Variable, Predictor, Covariate, Regressor, $x$ | The value(s) we feed into the model to make a prediction. Can be one variable or many. |
 | **Output** | Label, Target, Dependent Variable, Response, $y$ | The value the model is trying to predict or learn from. |
 | **Input-Output Pair** | Example, Observation, Data Point, $(x^{(i)}, y^{(i)})$ | A single row of data showing both the input and the correct output. |
@@ -222,7 +224,7 @@ It represents the dataset as a collection of $n$ input-output pairs, where each 
     This is the most familiar form for most people and is often used in business and statistics. Each row represents an example; each column represents a variable or feature.
 
     | Example ($i$) | $x^{(i)}$ = Input (e.g., SqFt) | $y^{(i)}$ = Output (e.g., Price) |
-    |-----------------|--------------------------|-----------------------------|
+    |----|----|----|
     | 1 | 1200 | 250,000 |
     | 2 | 1400 | 275,000 |
     | 3 | 1600 | 300,000 |
@@ -272,7 +274,7 @@ $$
 
 > Matrix notation lets us express model computations in a **compact, efficient** form that computers can execute quickly.
 >
-> It will be essential when we **scale up** to more than input feature. It illustrates how a machine *thinks.* It’s ideal for: - Handling **many examples and features** - Performing **vectorized calculations** like dot products and gradients - Writing models in **clean, code-friendly format**
+> It will be essential when we **scale up** to more than one input feature. It illustrates how a machine *thinks.* It’s ideal for: - Handling **many examples and features** - Performing **vectorized calculations** like dot products and gradients - Writing models in **clean, code-friendly format**
 >
 > Matrix notation makes your reasoning and implementation **faster, clearer, and more powerful**. We'll use it throughout the course.
 
@@ -714,7 +716,7 @@ A loss function is a mathematical function that measures the difference between 
 Different disciplines often use different terms for the same concepts. Here's a helpful guide:
 
 | Concept | Machine Learning | Statistics / Econometrics |
-|------------------------|----------------------|--------------------------|
+|----|----|----|
 | Single data point (e.g., a row in a spreadsheet) | **Training example** | **Observation**, **Case** |
 | Input features | **Features**, **Inputs** | **Independent variables**, **Regressors**, **Covariates**, **Predictors** |
 | Target output | **Label**, **Target**, **Output** | **Dependent variable**, **Response** |
@@ -732,7 +734,7 @@ Understanding these parallels can make it much easier to bridge terminology betw
 **Supervised Learning (Regression) Use Cases**
 
 | Use Case | Sample Inputs | Model Output Description | What ML Question is Being Answered? | What Business Question is Being Answered? | Example Algorithm(s) |
-|------------|------------|------------|------------|------------|------------|
+|----|----|----|----|----|----|
 | Price Prediction | Property size, location, features | Numeric price | What is the expected price of this item? | How should I price products to stay competitive and profitable? | Linear Regression, CatBoost |
 | Demand Forecasting | Historical sales, promotions, holidays | Predicted sales volume | What will sales be next week/month? | How can I manage inventory or staffing to meet demand? | Linear Regression, LSTM |
 | Medical Risk Score | Patient vitals, history | Risk score (e.g., probability of event) | How likely is a medical event to occur? | How should I prioritize preventive care for patients? | Random Forest, Ridge Reg. |
@@ -742,7 +744,7 @@ Understanding these parallels can make it much easier to bridge terminology betw
 **Supervised Learning (Classification) Use Cases**
 
 | Use Case | Sample Inputs | Model Output Description | What ML Question is Being Answered? | What Business Question is Being Answered? | Example Algorithm(s) |
-|------------|------------|------------|------------|------------|------------|
+|----|----|----|----|----|----|
 | Email Spam Detection | Email content, sender info, subject line | Binary label: spam or not spam | Is this email spam? | How can I prevent unwanted emails from reaching users’ inboxes? | Logistic Regression, SVM |
 | Credit Risk Scoring | Income, credit history, employment data | Risk category (e.g., low/medium/high) | Will this applicant default? | Should I approve this loan, and at what interest rate? | Decision Tree, XGBoost |
 | Image Classification | Pixel values from an image | Object class label (e.g., “cat”, “dog”) | What object is in this image? | How can I organize photos or automate product tagging? | CNNs, ResNet |
@@ -754,7 +756,7 @@ Understanding these parallels can make it much easier to bridge terminology betw
 ### Unsupervised Learning Use Cases
 
 | Use Case | Sample Inputs | Model Output Description | What ML Question is Being Answered? | What Business Question is Being Answered? | Example Algorithm(s) |
-|------------|------------|------------|------------|------------|------------|
+|----|----|----|----|----|----|
 | Customer Segmentation | Age, income, purchase history | Cluster/group labels for each customer | What types of customers exist in my data? | How can I tailor marketing strategies to different customer types? | K-means, DBSCAN |
 | Topic Modeling | Articles or documents | Topics with keywords per document | What topics are being discussed? | What content themes resonate most with my audience or market? | LDA, NMF |
 | Anomaly Detection | Transaction logs, sensor data | Anomaly score or binary flag | Which data points are unusual? | Are there fraudulent transactions or system failures I need to act on? | Isolation Forest, Autoencoder |
@@ -768,7 +770,7 @@ Understanding these parallels can make it much easier to bridge terminology betw
 ### Reinforcement Learning Use Cases
 
 | Use Case | Sample Inputs | Model Output Description | What ML Question is Being Answered? | What Business Question is Being Answered? | Example Algorithm(s) |
-|------------|------------|------------|------------|------------|------------|
+|----|----|----|----|----|----|
 | Game Playing | Game state (e.g., board, score) | Action to take | What should I do to win the game? | How can I build an AI that outperforms humans or creates adaptive gameplay? | Q-learning, DQN |
 | Robotics & Control | Sensor data (angles, velocities, etc.) | Movement or control signals | How should the agent move next to reach a goal? | How can I automate physical tasks like picking, sorting, or navigating? | PPO, SAC, DDPG |
 | Autonomous Vehicles | Sensor input (camera, LIDAR, speed, GPS) | Driving action | What’s the optimal next driving move? | How can I develop a safe and efficient self-driving vehicle system? | Deep RL + sensor fusion |
