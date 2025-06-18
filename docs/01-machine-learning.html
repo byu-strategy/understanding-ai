@@ -240,7 +240,8 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#mathematical-model" id="toc-mathematical-model" class="nav-link" data-scroll-target="#mathematical-model"><span class="header-section-number">3.2.1</span> Mathematical model</a></li>
   <li><a href="#training-data" id="toc-training-data" class="nav-link" data-scroll-target="#training-data"><span class="header-section-number">3.2.2</span> Training Data</a></li>
-  <li><a href="#learning-weight-values" id="toc-learning-weight-values" class="nav-link" data-scroll-target="#learning-weight-values"><span class="header-section-number">3.2.3</span> Learning weight values</a></li>
+  <li><a href="#loss-function" id="toc-loss-function" class="nav-link" data-scroll-target="#loss-function"><span class="header-section-number">3.2.3</span> Loss Function</a></li>
+  <li><a href="#learning-weight-values" id="toc-learning-weight-values" class="nav-link" data-scroll-target="#learning-weight-values"><span class="header-section-number">3.2.4</span> Learning weight values</a></li>
   </ul></li>
   <li><a href="#glossary" id="toc-glossary" class="nav-link" data-scroll-target="#glossary"><span class="header-section-number">3.3</span> Glossary</a>
   <ul class="collapse">
@@ -524,9 +525,9 @@ Terminology: Inputs and Outputs
 <p>In different fields and contexts, we often use different terms for the same underlying ideas. Here’s a helpful reference for the various names used for <strong>inputs</strong> and <strong>outputs</strong> in machine learning and related areas:</p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 11%">
-<col style="width: 37%">
-<col style="width: 51%">
+<col style="width: 20%">
+<col style="width: 33%">
+<col style="width: 45%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -580,9 +581,9 @@ This is the notation we just introduced:<br>
 This is the most familiar form for most people and is often used in business and statistics. Each row represents an example; each column represents a variable or feature.</p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 18%">
-<col style="width: 38%">
-<col style="width: 42%">
+<col style="width: 23%">
+<col style="width: 36%">
+<col style="width: 40%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -667,7 +668,7 @@ y^{(n)}
 When implementing models in code, we typically use arrays (Python’s NumPy package) or tensors (Python’s PyTorch package) which are data structures that store values in memory for numerical computation.</p>
 <p>Below is an example with NumPy</p></li>
 </ol>
-<div id="a435bca3" class="cell" data-execution_count="1">
+<div id="117a7731" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># NumPy</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> np.array([[<span class="dv">1200</span>], [<span class="dv">1400</span>], [<span class="dv">1600</span>]])</span>
@@ -764,7 +765,8 @@ y^{(3)}
 <p>In theory, there is no limit on the number of dimensions a tensor can have.</p>
 <p>In practice, we won’t need more than 4D tensors to build modern large language models (LLMs).</p>
 <p>For simple models like linear regression, a 2D tensor (i.e., a matrix) is sufficient to represent the data.</p>
-<div id="01beabee" class="cell" data-execution_count="2">
+<p>Below we illustrate the same toy data set using a PyTorch tensor.</p>
+<div id="855a9ba1" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Input data: square footage (in one column)</span></span>
@@ -791,7 +793,11 @@ tensor([[250000.],
 </div>
 </div>
 <p>The dot (.) at the end of the numbers (like 1200. or 250000.) indicates that the numbers are being treated as floating point numbers (i.e., float type) rather than integers. A floating point number is a number that can represent decimal values on a computer, in contrast to an integer, which can only represent whole numbers. PyTorch models expect inputs and outputs to be floating point numbers because most model operations involve decimals.</p>
-<div id="fefec403" class="cell" data-execution_count="3">
+</section>
+<section id="loss-function" class="level3" data-number="3.2.3">
+<h3 data-number="3.2.3" class="anchored" data-anchor-id="loss-function"><span class="header-section-number">3.2.3</span> Loss Function</h3>
+<p>Let’s now plot a larger dataset and visualize the line of best fit</p>
+<div id="bab9ef05" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch</span>
@@ -881,8 +887,8 @@ tensor([[250000.],
 </div>
 </div>
 </section>
-<section id="learning-weight-values" class="level3" data-number="3.2.3">
-<h3 data-number="3.2.3" class="anchored" data-anchor-id="learning-weight-values"><span class="header-section-number">3.2.3</span> Learning weight values</h3>
+<section id="learning-weight-values" class="level3" data-number="3.2.4">
+<h3 data-number="3.2.4" class="anchored" data-anchor-id="learning-weight-values"><span class="header-section-number">3.2.4</span> Learning weight values</h3>
 <p>In the example above, we assumed <span class="math inline">\(w_0 = 50,000\)</span> and <span class="math inline">\(w_1 = 200\)</span> for illustation. We now turn attention to how a machine (i.e., a computer) is capable of <em>learning</em> the optimal weight values, enabling the mathematical model to make the most accurate predictions possible which explains which strikes at the heart of why the field is called called <em>machine learning</em>.</p>
 <p>There are four main ingredients necessary for the computer to <em>learn</em> the best possible model weights:</p>
 <ol type="1">
@@ -910,8 +916,8 @@ x^{(i)} = \begin{bmatrix} x_1^{(i)} \\ x_2^{(i)} \\ \vdots \\ x_d^{(i)} \end{bma
 <p>Here:</p>
 <ul>
 <li>For simple linear regression there is only a single input variable so <span class="math inline">\(x=x_1\)</span>. However, say we added <em>year built</em> as a second input variable we could represent this as <span class="math inline">\(x_2\)</span>.</li>
-<li>The <strong>superscript <span class="math inline">\((i)\)</span></strong> indicates the <strong><span class="math inline">\(i\)</span>-th training example</strong>.</li>
-<li>The <strong>subscript <span class="math inline">\(j\)</span></strong> (e.g., <span class="math inline">\(x_j^{(i)}\)</span>) refers to the <strong><span class="math inline">\(j\)</span>-th feature</strong> of that example.</li>
+<li>The <strong>superscript</strong> <span class="math inline">\((i)\)</span> indicates the <span class="math inline">\(i\)</span>-th training example.</li>
+<li>The <strong>subscript</strong> <span class="math inline">\(j\)</span> (e.g., <span class="math inline">\(x_j^{(i)}\)</span>) refers to the <span class="math inline">\(j\)</span>-th feature of that example.</li>
 </ul>
 <p>Using subscripts for both observations and features (e.g., <span class="math inline">\(x_i\)</span> and <span class="math inline">\(x_j\)</span>) would lead to confusion.</p>
 <p>So while this might feel unfamiliar at first, <strong>superscript indexing</strong> is standard in ML to keep feature and example indexing clearly separated.</p>
@@ -1168,7 +1174,7 @@ Synonyms Across Fields
 </tr>
 <tr class="even">
 <td>Model prediction</td>
-<td><strong><span class="math inline">\(\hat{y}\)</span></strong></td>
+<td><span class="math inline">\(\hat{y}\)</span></td>
 <td><strong>Fitted value</strong>, <strong>Predicted value</strong></td>
 </tr>
 <tr class="odd">
@@ -1196,7 +1202,7 @@ Synonyms Across Fields
 <col style="width: 16%">
 <col style="width: 16%">
 <col style="width: 16%">
-<col style="width: 18%">
+<col style="width: 16%">
 <col style="width: 16%">
 </colgroup>
 <thead>
@@ -1259,7 +1265,7 @@ Synonyms Across Fields
 <col style="width: 16%">
 <col style="width: 16%">
 <col style="width: 16%">
-<col style="width: 18%">
+<col style="width: 16%">
 <col style="width: 16%">
 </colgroup>
 <thead>
