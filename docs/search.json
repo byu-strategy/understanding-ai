@@ -114,7 +114,7 @@
     "href": "00-math-review.html",
     "title": "2  Math and Python Review",
     "section": "",
-    "text": "2.1 Calculus Essentials",
+    "text": "2.1 Calculus Essentials\nThis guide introduces the key concepts in calculus, linear algebra, probability and statistics, and Python programming that you’ll need to understand how neural networks and large language models (LLMs) work.",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Math and Python Review</span>"
     ]
@@ -164,7 +164,7 @@
     "href": "01-machine-learning.html",
     "title": "3  Machine Learning",
     "section": "",
-    "text": "3.1 Machine Learning in a Nutshell\nMachine learning is about enabling computers to recognize patterns in data so they can make accurate predictions or decisions without being explicitly programmed for every scenario. At its core, it involves feeding a model real-world examples encoded in a dataset and allowing the computer to learn the relationship between inputs and outputs. Once trained, the model can apply that learned relationship to make predictions on new, unseen data.\nTo build a machine learning model, we need four key ingredients:\nSo what exactly is being learned? The computer is learning the weights (parameters) of the chosen model. This is best understood through an example. We’ll start with the simplest possible machine learning model: simple linear regression. It’s a powerful tool that helps us understand the core ideas behind more complex models, including the ones that power today’s cutting-edge AI systems like ChatGPT.",
+    "text": "3.1 Machine Learning in a Nutshell\nAccording to John D. Kelleher “the field of artificial intelligence was born at a workshop at Dartmouth College in the summer of 1956.”\nMachine learning is about enabling computers to recognize patterns in data so they can make accurate predictions or decisions without being explicitly programmed for every scenario. At its core, it involves feeding a model real-world examples encoded in a dataset and allowing the computer to learn the relationship between inputs and outputs. Once trained, the model can apply that learned relationship to make predictions on new, unseen data.\nTo build a machine learning model, we need four key ingredients:\nSo what exactly is being learned? The computer is learning the weights (parameters) of the chosen model. This is best understood through an example. We’ll start with the simplest possible machine learning model: simple linear regression. It’s a powerful tool that helps us understand the core ideas behind more complex models, including the ones that power today’s cutting-edge AI systems like ChatGPT.",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Machine Learning</span>"
     ]
