@@ -29,8 +29,6 @@ editor: visual
 
 ![Image source: *Build a Large Language Model (From Scratch)* by Sebastian Raschka](images/ai-ml-map.png){width="70%" fig-align="center"}
 
-According to John D. Kelleher "the field of artificial intelligence was born at a workshop at Dartmouth College in the summer of 1956."
-
 ## Machine Learning in a Nutshell
 
 Machine learning is about enabling computers to recognize patterns in data so they can make accurate predictions or decisions without being explicitly programmed for every scenario. At its core, it involves feeding a model real-world examples encoded in a dataset and allowing the computer to learn the relationship between inputs and outputs. Once trained, the model can apply that learned relationship to make predictions on new, unseen data.
@@ -398,9 +396,145 @@ print(y)
 
 The dot (.) at the end of the numbers (like 1200. or 250000.) indicates that the numbers are being treated as floating point numbers (i.e., float type) rather than integers. A floating point number is a number that can represent decimal values on a computer, in contrast to an integer, which can only represent whole numbers. PyTorch models expect inputs and outputs to be floating point numbers because most model operations involve decimals.
 
+We will soon use a set of training Data to help learn model parameters but before doing so we need to introduce the remaining two ingredients for machine learning: loss functions and training algorithms.
+
 ### Loss Function
 
-Let's now plot a larger dataset and visualize the line of best fit
+A *loss function* is separate mathematical equation whose purpose it to quantify the error between a model’s predictions $\hat{y}^{(i)}$ and the true output values observed in the training data $y^{(i)}$. When discussing mathematical model structure (i.e. simple linear regression), we briefly introduced the notion of a loss function and used the absolute value of the difference between $\hat{y}^{(i)}$ and between and $y^{(i)}$ to measure prediction error (i.e. loss): $\left| \hat{y} - y \right|$. Note that this *loss* is calculated for each individual training example. That is, if we had 100 training examples (i.e. rows of data) containing the square footage and home value for 100 homes, we could compute the *loss* for each of these examples. The dotted lines in the plot below help you visualize the loss for each example in a set of training data. 
+
+![](images/slr-loss.png){width="70%" fig-align="center"}
+
+We could then find the average loss by summing up the observation level loss and dividing by the number of observations to get what is commonly called **Mean Absolute Error (MAE)**, written as:
+
+$$
+\frac{1}{n} \sum_{i=1}^{n} \left| \hat{y}^{(i)} - y^{(i)} \right|
+$$
+
+MAE is an intuitive choice for a loss function, but not the only choice. There are other equations that will measure prediction error in slightly different ways. One such equation and the most commonly used loss function when learning parameters for a simple linear regression is called **Mean Squared Error (MSE)**, written as:
+
+$$
+\frac{1}{n} \sum_{i=1}^{n} \left( \hat{y}^{(i)} - y^{(i)} \right)^2
+$$
+Recall that $\hat{y} = w_0 + w_1 x$ hence we can plug $w_0 + w_1 x$ into the equation for $\hat{y}$ to make clear that the loss function, which we denote as $\mathcal{L}$ (a stylized version of the capital Latin letter L), is a function of two variables: $w_0$ and $w_1$. This means that different values of $w_0$ or $w_1$ or both will yield different loss values. The goal of machine learning is to find (i.e. *learn*) the values of $w_0$ and $w_1$ that will make this loss function (i.e., total prediction error) as small as possible.
+
+$$
+\mathcal{L}(w_0, w_1) = \frac{1}{n} \sum_{i=1}^n (\hat{y}^{(i)} - y^{(i)})^2 = \frac{1}{n} \sum_{i=1}^n (w_0 + w_1 x^{(i)} - y^{(i)})^2 
+$$
+
+In the next section, we will introduce a training algorithm called **gradient descent**, which is designed to iterate over many possible combinations of values for $w_0$ and $w_1$ in order to find (i.e. *learn*) the values that minimize the loss. In order to have a solid understanding of how gradient descent will do it's job we need to first spend a bit more time with the loss function to understand it's properties. A picture often is worth 1000 words so we will start there. 
+
+Recall that we can plot a single variable function on a two dimensional $x$-$y$ coordinate system as we did earlier when drawing the regression equation as a line. The loss function, however, is a function of two variables ($\mathcal{L}(w_0, w_1)$) which means we need three dimensions to visualize it. We can plot $\mathcal{L}$ on the vertical axis (often notated as the $z$ axis in other contexts), $w_0$ on what is typically called the x-axis, and $w_1$ for the $y$ axis. This is illustrated in the plot below:
+
+```{python}
+#| echo: false
+#| warning: false
+#| fig-width: 8
+#| fig-height: 6
+#| interactive: true
+
+import numpy as np
+import plotly.graph_objects as go
+
+# Create a grid for the bowl
+w0_range = np.linspace(-6, 6, 100)
+w1_range = np.linspace(-6, 6, 100)
+W0, W1 = np.meshgrid(w0_range, w1_range)
+Z = W0**2 + W1**2
+
+# Define Points A and B
+w0_A, w1_A = 2, 2
+loss_A = w0_A**2 + w1_A**2
+
+w0_B, w1_B = -4, -4
+loss_B = w0_B**2 + w1_B**2
+
+fig = go.Figure()
+
+# Surface
+fig.add_trace(go.Surface(
+    z=Z,
+    x=W0,
+    y=W1,
+    colorscale='Rainbow',
+    showscale=False,
+    name='Loss Surface'
+))
+
+# Point A
+fig.add_trace(go.Scatter3d(
+    x=[w0_A], y=[w1_A], z=[loss_A],
+    mode='markers+text',
+    marker=dict(color='black', size=8, symbol='diamond'),
+    text=["A"],
+    textposition="top center",
+    name=f"Point A: w₀={w0_A}, w₁={w1_A}, Loss={loss_A}",
+    showlegend=True
+))
+
+# Point B
+fig.add_trace(go.Scatter3d(
+    x=[w0_B], y=[w1_B], z=[loss_B],
+    mode='markers+text',
+    marker=dict(color='red', size=8, symbol='square'),
+    text=["B"],
+    textposition="top center",
+    name=f"Point B: w₀={w0_B}, w₁={w1_B}, Loss={loss_B}",
+    showlegend=True
+))
+
+# Layout with legend floating over plot
+fig.update_layout(
+    title="Bowl-Shape of a Convex Loss Function",
+    scene=dict(
+        xaxis_title='w₀ (Intercept)',
+        yaxis_title='w₁ (Slope)',
+        zaxis_title='Loss'
+    ),
+    legend=dict(
+        x=0.02,
+        y=0.98,
+        xanchor='left',
+        yanchor='top',
+        bgcolor='rgba(255,255,255,0.6)',
+        bordercolor='black',
+        borderwidth=1
+    ),
+    width=800,
+    height=600
+)
+
+fig.show()
+
+
+
+
+```
+
+::: {.callout-tip collapse="true" collapsed="true"}
+## Intuition Check
+
+Which choice of weight values is better: point A or point B? Why?
+
+:::
+
+Our goal is to find the values of $w_0$ and $w_1$ that make this loss function as small as possible, with for simpple linear regression equates to finding the line of best-fit through our data.
+
+::: {.callout-tip collapse="true" collapsed="true"}
+## Why use MSE for the loss function?
+
+MSE is the most commonly used loss function for regression problems because it has several useful properties:
+
+- **Smooth and differentiable**: The squaring operation makes the MSE function smooth and continuous, which is important for optimization methods like gradient descent that rely on computing derivatives. (discussed in the next section)
+- **Penalizes large errors**: By squaring the difference between prediction and truth, MSE emphasizes larger errors more than smaller ones. This is often desirable when big mistakes are especially costly.
+- **Unique minimum**: For linear models, the MSE loss function is convex (it's bowl shaped), meaning it has a single global minimum. This makes optimization straightforward and ensures reliable convergence during training.
+
+These properties make MSE both practical and theoretically sound for training models to make accurate predictions.
+:::
+
+
+
+
+
 
 ```{python eval=false echo=true}
 import numpy as np
