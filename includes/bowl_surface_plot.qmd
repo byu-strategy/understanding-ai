@@ -1,0 +1,81 @@
+```{python}
+#| echo: false
+#| warning: false
+#| fig-width: 8
+#| fig-height: 6
+#| interactive: true
+
+import numpy as np
+import plotly.graph_objects as go
+
+# Create a grid for the bowl
+w0_range = np.linspace(-6, 6, 100)
+w1_range = np.linspace(-6, 6, 100)
+W0, W1 = np.meshgrid(w0_range, w1_range)
+Z = W0**2 + W1**2
+
+# Define Points A and B
+w0_A, w1_A = 2, 2
+loss_A = w0_A**2 + w1_A**2
+
+w0_B, w1_B = -4, -4
+loss_B = w0_B**2 + w1_B**2
+
+fig = go.Figure()
+
+# Surface
+fig.add_trace(go.Surface(
+    z=Z,
+    x=W0,
+    y=W1,
+    colorscale='Rainbow',
+    showscale=False,
+    name='Loss Surface'
+))
+
+# Point A
+fig.add_trace(go.Scatter3d(
+    x=[w0_A], y=[w1_A], z=[loss_A],
+    mode='markers+text',
+    marker=dict(color='black', size=8, symbol='diamond'),
+    text=["A"],
+    textposition="top center",
+    name=f"Point A: w₀={w0_A}, w₁={w1_A}, Loss={loss_A}",
+    showlegend=True
+))
+
+# Point B
+fig.add_trace(go.Scatter3d(
+    x=[w0_B], y=[w1_B], z=[loss_B],
+    mode='markers+text',
+    marker=dict(color='red', size=8, symbol='square'),
+    text=["B"],
+    textposition="top center",
+    name=f"Point B: w₀={w0_B}, w₁={w1_B}, Loss={loss_B}",
+    showlegend=True
+))
+
+# Layout with legend floating over plot
+fig.update_layout(
+    title="Bowl-Shape of a Convex Loss Function",
+    scene=dict(
+        xaxis_title='w₀ (Intercept)',
+        yaxis_title='w₁ (Slope)',
+        zaxis_title='Loss'
+    ),
+    legend=dict(
+        x=0.02,
+        y=0.98,
+        xanchor='left',
+        yanchor='top',
+        bgcolor='rgba(255,255,255,0.6)',
+        bordercolor='black',
+        borderwidth=1
+    ),
+    width=800,
+    height=600
+)
+
+fig.show()
+
+```

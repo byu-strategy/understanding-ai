@@ -412,7 +412,9 @@ MAE is an intuitive choice for a loss function, but not the only choice. There a
 
 $$
 \frac{1}{n} \sum_{i=1}^{n} \left( \hat{y}^{(i)} - y^{(i)} \right)^2
-$$ Recall that $\hat{y} = w_0 + w_1 x$ hence we can plug $w_0 + w_1 x$ into the equation for $\hat{y}$ to make clear that the loss function, which we denote as $\mathcal{L}$ (a stylized version of the capital Latin letter L), is a function of two variables: $w_0$ and $w_1$. This means that different values of $w_0$ or $w_1$ or both will yield different loss values. The goal of machine learning is to find (i.e. *learn*) the values of $w_0$ and $w_1$ that will make this loss function (i.e., total prediction error) as small as possible.
+$$
+
+Recall that $\hat{y} = w_0 + w_1 x$ hence we can plug $w_0 + w_1 x$ into the equation for $\hat{y}$ to make clear that the loss function, which we denote as $\mathcal{L}$ (a stylized version of the capital Latin letter L), is a function of two variables: $w_0$ and $w_1$. This means that different values of $w_0$ or $w_1$ or both will yield different loss values. The goal of machine learning is to find (i.e. *learn*) the values of $w_0$ and $w_1$ that will make this loss function (i.e., total prediction error) as small as possible.
 
 $$
 \mathcal{L}(w_0, w_1) = \frac{1}{n} \sum_{i=1}^n (\hat{y}^{(i)} - y^{(i)})^2 = \frac{1}{n} \sum_{i=1}^n (w_0 + w_1 x^{(i)} - y^{(i)})^2 
@@ -474,90 +476,7 @@ As the saying goes, *a picture is worth a thousand words*, so let’s visualize 
 
 In the plot below, we graph the loss function $\mathcal{L}(w_0, w_1)$ to see it as a 3D surface, with $w_0$ on the x-axis, $w_1$ on the y-axis, and the height of the surface representing the mean squared error loss $\mathcal{L}$. This gives us a *landscape* of possible values of $w_0$ and $w_1$ to choose from.
 
-```{python}
-#| echo: false
-#| warning: false
-#| fig-width: 8
-#| fig-height: 6
-#| interactive: true
-
-import numpy as np
-import plotly.graph_objects as go
-
-# Create a grid for the bowl
-w0_range = np.linspace(-6, 6, 100)
-w1_range = np.linspace(-6, 6, 100)
-W0, W1 = np.meshgrid(w0_range, w1_range)
-Z = W0**2 + W1**2
-
-# Define Points A and B
-w0_A, w1_A = 2, 2
-loss_A = w0_A**2 + w1_A**2
-
-w0_B, w1_B = -4, -4
-loss_B = w0_B**2 + w1_B**2
-
-fig = go.Figure()
-
-# Surface
-fig.add_trace(go.Surface(
-    z=Z,
-    x=W0,
-    y=W1,
-    colorscale='Rainbow',
-    showscale=False,
-    name='Loss Surface'
-))
-
-# Point A
-fig.add_trace(go.Scatter3d(
-    x=[w0_A], y=[w1_A], z=[loss_A],
-    mode='markers+text',
-    marker=dict(color='black', size=8, symbol='diamond'),
-    text=["A"],
-    textposition="top center",
-    name=f"Point A: w₀={w0_A}, w₁={w1_A}, Loss={loss_A}",
-    showlegend=True
-))
-
-# Point B
-fig.add_trace(go.Scatter3d(
-    x=[w0_B], y=[w1_B], z=[loss_B],
-    mode='markers+text',
-    marker=dict(color='red', size=8, symbol='square'),
-    text=["B"],
-    textposition="top center",
-    name=f"Point B: w₀={w0_B}, w₁={w1_B}, Loss={loss_B}",
-    showlegend=True
-))
-
-# Layout with legend floating over plot
-fig.update_layout(
-    title="Bowl-Shape of a Convex Loss Function",
-    scene=dict(
-        xaxis_title='w₀ (Intercept)',
-        yaxis_title='w₁ (Slope)',
-        zaxis_title='Loss'
-    ),
-    legend=dict(
-        x=0.02,
-        y=0.98,
-        xanchor='left',
-        yanchor='top',
-        bgcolor='rgba(255,255,255,0.6)',
-        bordercolor='black',
-        borderwidth=1
-    ),
-    width=800,
-    height=600
-)
-
-fig.show()
-
-
-
-
-```
+{{< include includes/bowl_surface_plot.qmd >}}
 
 As can be seen from the plot, there are many possible choices of $w_0$ and $w_1$, each resulting in a different loss value. In the next section, we will study a foundational algorithm called gradient descent which is designed to intelligently and iteratively explore different combinations of $w_0$ and $w_1$, calculating the loss that results from each combination. The process continues until **convergence** occurs, that is, until the algorithm believes it has found the best choice of weights that minimize the loss. We’ll explore the details of how gradient descent works in the next section.
 
