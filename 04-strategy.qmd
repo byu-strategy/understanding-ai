@@ -1,12 +1,12 @@
 ---
 title: "AI Strategy"
-editor: visual
 ---
 
-:::{.under-construction-banner}
-<img src="images/under-construction.png" alt="Course Under Construction" class="under-construction-image">
+::: under-construction-banner
+<img src="images/under-construction.png" alt="Course Under Construction" class="under-construction-image"/>
 :::
 
+```{=html}
 <style>
 .under-construction-banner {
   background-color: #e0e0e0;  /* Light grey background */
@@ -23,6 +23,7 @@ editor: visual
   box-shadow: 2px 2px 8px rgba(0,0,0,0.15);
 }
 </style>
+```
 
 ## The Impacts of AI
 

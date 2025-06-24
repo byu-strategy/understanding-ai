@@ -1,12 +1,12 @@
 ---
 title: "FAQ"
-editor: visual
 ---
 
-:::{.under-construction-banner}
-<img src="images/under-construction.png" alt="Course Under Construction" class="under-construction-image">
+::: under-construction-banner
+<img src="images/under-construction.png" alt="Course Under Construction" class="under-construction-image"/>
 :::
 
+```{=html}
 <style>
 .under-construction-banner {
   background-color: #e0e0e0;  /* Light grey background */
@@ -23,8 +23,8 @@ editor: visual
   box-shadow: 2px 2px 8px rgba(0,0,0,0.15);
 }
 </style>
+```
 
+1.  What does the word projection mean?
 
-1. What does the word projection mean?
-
-- What is the relationship between the size of the vocabulary and the number of dimensions in an embedding vector? When are these the same and when are they not?
+-   What is the relationship between the size of the vocabulary and the number of dimensions in an embedding vector? When are these the same and when are they not?

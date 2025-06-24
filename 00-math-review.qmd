@@ -1,13 +1,12 @@
 ---
 title: "Math and Python Review"
-format: html
-editor: visual
 ---
 
-:::{.under-construction-banner}
-<img src="images/under-construction.png" alt="Course Under Construction" class="under-construction-image">
+::: under-construction-banner
+<img src="images/under-construction.png" alt="Course Under Construction" class="under-construction-image"/>
 :::
 
+```{=html}
 <style>
 .under-construction-banner {
   background-color: #e0e0e0;  /* Light grey background */
@@ -24,6 +23,7 @@ editor: visual
   box-shadow: 2px 2px 8px rgba(0,0,0,0.15);
 }
 </style>
+```
 
 This guide introduces the key concepts in **calculus**, **linear algebra**, **probability and statistics**, and **Python programming** that you’ll need to understand how neural networks and large language models (LLMs) work.
 
@@ -240,4 +240,3 @@ Used in classification and language modeling.
 Python is widely used in AI due to its readability and powerful libraries like NumPy and PyTorch.
 
 ### Variables and Types
-

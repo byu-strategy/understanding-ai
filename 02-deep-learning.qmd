@@ -1,13 +1,12 @@
 ---
 title: "Deep Learning"
-format: html
-editor: visual
 ---
 
-:::{.under-construction-banner}
-<img src="images/under-construction.png" alt="Course Under Construction" class="under-construction-image">
+::: under-construction-banner
+<img src="images/under-construction.png" alt="Course Under Construction" class="under-construction-image"/>
 :::
 
+```{=html}
 <style>
 .under-construction-banner {
   background-color: #e0e0e0;  /* Light grey background */
@@ -24,6 +23,7 @@ editor: visual
   box-shadow: 2px 2px 8px rgba(0,0,0,0.15);
 }
 </style>
+```
 
 ![Image source: *Build a Large Language Model (From Scratch)* by Sebastian Raschka](images/ai-ml-map.png){width="70%" fig-align="center"}
 
@@ -35,29 +35,29 @@ editor: visual
 
 ## Glossary
 
-- **Input Layer**: Layer 0. This layer holds the input features. It doesn't perform any computation — it just passes the input values into the network.
+-   **Input Layer**: Layer 0. This layer holds the input features. It doesn't perform any computation — it just passes the input values into the network.
 
-- **Hidden Layer(s)**: Layers 1 to n. These are the intermediate layers between input and output. They apply learned weights, biases, and activation functions to transform the data. There may be one or many hidden layers depending on the depth of the network.
+-   **Hidden Layer(s)**: Layers 1 to n. These are the intermediate layers between input and output. They apply learned weights, biases, and activation functions to transform the data. There may be one or many hidden layers depending on the depth of the network.
 
-- **Output Layer**: Layer n+1. This is the final layer that produces the network’s prediction. Its activation function is often task-specific (e.g., softmax for classification, linear for regression).
+-   **Output Layer**: Layer n+1. This is the final layer that produces the network’s prediction. Its activation function is often task-specific (e.g., softmax for classification, linear for regression).
 
-- **Neuron**:
+-   **Neuron**:
 
-- **Perceptron**:
+-   **Perceptron**:
 
-- **Multi-layer Perceptron**:
+-   **Multi-layer Perceptron**:
 
-- **Activation**:
+-   **Activation**:
 
-- **Forward propagation**:
+-   **Forward propagation**:
 
-- **Backpropagation**:
+-   **Backpropagation**:
 
-- **Epoch**: One epoch = the model has seen every example in the training dataset once. Training a model involves multiple epochs so it can gradually learn patterns. With each epoch, the model updates its weights using backpropagation, ideally reducing the loss function. If your dataset has 10,000 examples and your batch size is 100, then you’ll have 100 batches per epoch. LLM pretraining will often have just 1–3 epochs over a huge corpora (due to dataset size and overfitting risk)
+-   **Epoch**: One epoch = the model has seen every example in the training dataset once. Training a model involves multiple epochs so it can gradually learn patterns. With each epoch, the model updates its weights using backpropagation, ideally reducing the loss function. If your dataset has 10,000 examples and your batch size is 100, then you’ll have 100 batches per epoch. LLM pretraining will often have just 1–3 epochs over a huge corpora (due to dataset size and overfitting risk)
 
-- **Training example**: A sequence of tokens, often 512–8192 in a modern LLM.
+-   **Training example**: A sequence of tokens, often 512–8192 in a modern LLM.
 
-- **Batch**: A set of examples processed together
+-   **Batch**: A set of examples processed together
 
 ## Traditional Presentation of Logistic Regression
 
@@ -72,12 +72,12 @@ $$
 
 Where:
 
-- $x = [x_1, x_2, \dots, x_n]^\top$ is the input feature vector
-- $w = [w_1, w_2, \dots, w_n]^\top$ is the weight vector
-- $b$ is the bias (intercept) term
-- $\sigma(z)$ is the sigmoid function: $\sigma(z) = \frac{1}{1 + e^{-z}}$
+-   $x = [x_1, x_2, \dots, x_n]^\top$ is the input feature vector
+-   $w = [w_1, w_2, \dots, w_n]^\top$ is the weight vector
+-   $b$ is the bias (intercept) term
+-   $\sigma(z)$ is the sigmoid function: $\sigma(z) = \frac{1}{1 + e^{-z}}$
 
----
+------------------------------------------------------------------------
 
 ## Matrix Form
 
@@ -89,7 +89,7 @@ z = w^\top x + b
 \hat{y} = \sigma(z)
 $$
 
----
+------------------------------------------------------------------------
 
 ## Interpretation
 
@@ -99,21 +99,20 @@ $$
 \mathcal{L}(y, \hat{y}) = -y \log(\hat{y}) - (1 - y) \log(1 - \hat{y})
 $$
 
----
+------------------------------------------------------------------------
 
 ## Rewriting Logistic Regression as a Neural Network
 
 Now we observe that this model is **mathematically equivalent** to a one-layer neural network:
 
-- Inputs: $x_1, x_2, x_3, \dots$
-- One output neuron
-- Sigmoid activation
-- A bias term modeled as a fixed input node with value 1 and a learnable weight
+-   Inputs: $x_1, x_2, x_3, \dots$
+-   One output neuron
+-   Sigmoid activation
+-   A bias term modeled as a fixed input node with value 1 and a learnable weight
 
 See the previous section for a diagram and matrix breakdown of this equivalent neural network.
 
-
-Models can be in different modes, evaluation mode. 
+Models can be in different modes, evaluation mode.
 
 ```{mermaid}
 flowchart LR
@@ -139,9 +138,9 @@ flowchart LR
 
 Logistic regression with a bias term can be interpreted as a neural network with:
 
-- Input vector $\, \tilde{x} \in \mathbb{R}^4 \,$, including a constant 1 for bias
-- Weight vector $\, \tilde{w} \in \mathbb{R}^4 \,$
-- Sigmoid activation at the output
+-   Input vector $\, \tilde{x} \in \mathbb{R}^4 \,$, including a constant 1 for bias
+-   Weight vector $\, \tilde{w} \in \mathbb{R}^4 \,$
+-   Sigmoid activation at the output
 
 #### Input vector (with bias):
 
@@ -180,26 +179,34 @@ $$
 \hat{y} = \sigma(z) = \frac{1}{1 + e^{-z}}
 $$
 
----
+------------------------------------------------------------------------
 
 ### Summary Table
 
-| Element              | Symbol          | Shape                  | Notes              |
-|----------------------|------------------|--------------------------|---------------------|
-| Input (with bias)    | $\, \tilde{x} \,$| $\, \mathbb{R}^{4 \times 1} \,$ | 3 features + 1 bias |
-| Weights (with bias)  | $\, \tilde{w} \,$| $\, \mathbb{R}^{4 \times 1} \,$ | learnable params   |
-| Output               | $\, \hat{y} \,$  | $\, \mathbb{R} \,$         | scalar probability |
-
+| Element | Symbol | Shape | Notes |
+|-----------------|-----------------|---------------------|-----------------|
+| Input (with bias) | $\, \tilde{x} \,$ | $\, \mathbb{R}^{4 \times 1} \,$ | 3 features + 1 bias |
+| Weights (with bias) | $\, \tilde{w} \,$ | $\, \mathbb{R}^{4 \times 1} \,$ | learnable params |
+| Output | $\, \hat{y} \,$ | $\, \mathbb{R} \,$ | scalar probability |
 
 This is a Shinylive application embedded in a Quarto doc.
 
-<div id="nn-widget" style="position: relative; width: 960px; height: 500px;"></div>
+::: {#nn-widget style="position: relative; width: 960px; height: 500px;"}
+:::
 
 <!-- D3.js and MathJax -->
+
+```{=html}
 <script src="https://d3js.org/d3.v7.min.js"></script>
+```
+
+```{=html}
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+```
 
 <!-- Styles -->
+
+```{=html}
 <style>
   #nn-widget { background: #fdfdfd; border: 1px solid #ddd; border-radius: 6px; }
   .node { stroke-width: 1.5px; }
@@ -235,7 +242,9 @@ This is a Shinylive application embedded in a Quarto doc.
   #code-panel    { bottom: 10px; right: 10px; border-left: 4px solid #E31A1C; }
   #code-panel pre { margin: 0; font-size: 12px; background: #f5f5f5; padding: 4px; border-radius: 3px; }
 </style>
+```
 
+```{=html}
 <script>
 // ----------------------
 // CONFIG & DATA
@@ -400,22 +409,14 @@ ctrl.append("button").text("Reset").on("click", reset);
 
 reset();
 </script>
-
-
-
-
-
-
-
-
-
+```
 
 ## Neural Network Architectures
 
-Today, nearly all state-of-the-art AI systems, including ChatGPT, are built around transformer architectures — which themselves rely heavily on feedforward networks as core subcomponents. However, other architectures like CNNs and RNNs continue to play crucial roles in specific areas such as computer vision and on-device speech processing. 
+Today, nearly all state-of-the-art AI systems, including ChatGPT, are built around transformer architectures — which themselves rely heavily on feedforward networks as core subcomponents. However, other architectures like CNNs and RNNs continue to play crucial roles in specific areas such as computer vision and on-device speech processing.
 
 | Architecture | Description | Common Use Cases |
-|--------------|-------------|------------------|
+|----|----|----|
 | **Feedforward Neural Network (FNN)** | The simplest type of neural network where data flows in one direction—from input to output—through one or more hidden layers. No memory or recurrence. Often called a Multilayer Perceptron (MLP). | Image classification (with vector inputs), tabular data prediction, building blocks in LLMs (e.g., transformer feedforward layers) |
 | **Convolutional Neural Network (CNN)** | Uses convolutional layers with local filters and shared weights to process spatial or grid-like data. Often followed by pooling layers to reduce dimensionality. | Image and video recognition, object detection, facial recognition, medical imaging |
 | **Recurrent Neural Network (RNN)** | Designed for sequential data. Uses internal memory (hidden state) to capture dependencies across time steps. Each output depends on previous inputs. | Language modeling, time-series forecasting, speech recognition |
