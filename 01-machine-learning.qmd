@@ -51,7 +51,7 @@ So what exactly is being *learned*? The computer is *learning* the *weights* (pa
 
 ## Simple Linear Regression
 
-### Mathematical model
+### 1st Ingredient: Mathematical model
 
 A simple linear regression model takes a single **input variable** $x$ and predicts the value of a corresponding **output variable** $y$. For example, the input variable might represent a house's *square footage*, and the output variable could represent the *value* of the home.
 
@@ -152,7 +152,7 @@ In machine learning this prediction error is commonly called the model's *loss,*
 
 There are many possible choices of loss function. For example, we didn't have to use absolute value, we could have simply taken the difference as our measurement of loss. We will discuss loss functions and introduce the most commonly used loss functions in later sections.
 
-### Training Data
+### 2nd Ingredient: Training Data
 
 In order for a computer to *learn* the best weight values for a model, we need to communicate with it in the language it understands: **data**. In this context, “data” refers to numerical values organized in rows and columns, like a spreadsheet or matrix. Each row is a single **example**, and each column holds a particular **feature** or **label**.
 
@@ -398,7 +398,7 @@ The dot (.) at the end of the numbers (like 1200. or 250000.) indicates that the
 
 We will soon use a set of training Data to help learn model parameters but before doing so we need to introduce the remaining two ingredients for machine learning: loss functions and training algorithms.
 
-### Loss Function
+### 3rd Ingredient: Loss Function
 
 A *loss function* is separate mathematical equation whose purpose it to quantify the error between a model’s predictions $\hat{y}^{(i)}$ and the true output values observed in the training data $y^{(i)}$. When discussing mathematical model structure (i.e. simple linear regression), we briefly introduced the notion of a loss function and used the absolute value of the difference between $\hat{y}^{(i)}$ and between and $y^{(i)}$ to measure prediction error (i.e. loss): $\left| \hat{y} - y \right|$. Note that this *loss* is calculated for each individual training example. That is, if we had 100 training examples (i.e. rows of data) containing the square footage and home value for 100 homes, we could compute the *loss* for each of these examples. The dotted lines in the plot below help you visualize the loss for each example in a set of training data. 
 
@@ -421,9 +421,62 @@ $$
 \mathcal{L}(w_0, w_1) = \frac{1}{n} \sum_{i=1}^n (\hat{y}^{(i)} - y^{(i)})^2 = \frac{1}{n} \sum_{i=1}^n (w_0 + w_1 x^{(i)} - y^{(i)})^2 
 $$
 
-In the next section, we will introduce a training algorithm called **gradient descent**, which is designed to iterate over many possible combinations of values for $w_0$ and $w_1$ in order to find (i.e. *learn*) the values that minimize the loss. In order to have a solid understanding of how gradient descent will do it's job we need to first spend a bit more time with the loss function to understand it's properties. A picture often is worth 1000 words so we will start there. 
+In the next section, we will introduce a training algorithm called **gradient descent**. This algorithm systematically searches through different combinations of values for $w_0$ and $w_1$ to find those that *minimize the loss* or in other words, to *learn* the best-fitting line.  
 
-Recall that we can plot a single variable function on a two dimensional $x$-$y$ coordinate system as we did earlier when drawing the regression equation as a line. The loss function, however, is a function of two variables ($\mathcal{L}(w_0, w_1)$) which means we need three dimensions to visualize it. We can plot $\mathcal{L}$ on the vertical axis (often notated as the $z$ axis in other contexts), $w_0$ on what is typically called the x-axis, and $w_1$ for the $y$ axis. This is illustrated in the plot below:
+To really understand how gradient descent works, we first need to deepen our understanding of the **loss function**, specifically how it behaves with respect to the parameters $w_0$ and $w_1$.
+
+Recall that in simple linear regression, we model predictions as:
+
+$$
+\hat{y} = w_0 + w_1 x
+$$
+
+When we think of this as a function of the input variable $x$, we can plot it as a straight line on a 2D coordinate system (with $x$ on the horizontal axis and $\hat{y}$ on the vertical axis) as we did earlier.
+
+But now, let’s flip our perspective. In the previous section, we learned that **training data** consists of actual examples, pairs of $x$ and $y$, from the real world. So once we have a training dataset, $x$ and $y$ are *known*. That means we no longer need to treat $x$ as a variable in our model equation.
+
+In this case, the prediction formula:
+
+$$
+\hat{y} = w_0 + w_1 x
+$$
+
+becomes a function where **$w_0$ and $w_1$ are the unknown variables**. Our goal is to adjust these weights to reduce the difference between our predicted values $\hat{y}$ and the actual outcomes $y$. So during model training, we treat $w_0$ and $w_1$ as the variables to solve for, which turns our **loss function** into a function of two variables, $w_0$ and $w_1$:
+
+$$
+\mathcal{L}(w_0, w_1) = \frac{1}{n} \sum_{i=1}^n (\hat{y}^{(i)} - y^{(i)})^2 = \frac{1}{n} \sum_{i=1}^n (w_0 + w_1 x^{(i)} - y^{(i)})^2 
+$$
+Don’t be intimidated by the notation. Once we have a training dataset, all the $x^{(i)}$ and $y^{(i)}$ values are known values. The only unknowns we are solving for are $w_0$ and $w_1$.
+
+::: {.callout-tip collapse="true" collapsed="true"}
+## Unpacking the notation of the MSE Loss Function
+
+This is called the Mean Squared Error (MSE) loss function, and it helps us measure how good or bad our model’s predictions are.
+
+The big curly $\mathcal{L}$ is a stylized version of the capital Latin letter L. In this context, $\mathcal{L}$ stands for “Loss” or sometimes “Loss function."
+
+-   $w_0$ and $w_1$ are the parameters (or weights) of our simple linear regression model. Notice that they are playing the roles of unknown variables in this notation: $\mathcal{L}(w_0, w_1)$. This is because we don't know what these values are or should be yet, that's what we want the computer *learn* for us.
+-   $x^{(i)}$ is the input (e.g., square footage of a house)
+-   $\hat{y}^{(i)} = w_0 + w_1 x^{(i)}$ is the model’s predicted output (e.g., the predicted house price).
+-   $y^{(i)}$ is the true value (the actual house price for data point $i$).
+-   $(\hat{y}^{(i)} - y^{(i)})^2$ is the squared error: how far off the prediction is, squared to make sure it’s always positive and to penalize big mistakes more than small ones.
+-   $\sum_{i=1}^n$ adds up the squared errors for all $n$ data points in our dataset (the Greek letter $\sum$ is called "capital sigma" and means we should "add up a bunch of terms")
+-   $\frac{1}{n}$ takes the average of all those squared error terms.
+
+This function tells us how well our model is performing overall. A smaller value means our predictions on average are close to the true values, and a larger value means on average we’re making bigger mistakes.
+
+Our goal is to find the values of $w_0$ and $w_1$ that make this loss function as small as possible.
+:::
+
+Because the loss depends on *both* $w_0$ and $w_1$, we need **three dimensions** to visualize and plot this function:
+
+- One axis for $w_0$  
+- One axis for $w_1$  
+- A vertical axis for the loss value $\mathcal{L}$ (often labeled the $z$-axis in other contexts)
+
+As the saying goes, *a picture is worth a thousand words*, so let’s visualize what this looks like.
+
+In the plot below, we graph the loss function $\mathcal{L}(w_0, w_1)$ to see it as a 3D surface, with $w_0$ on the x-axis, $w_1$ on the y-axis, and the height of the surface representing the mean squared error loss $\mathcal{L}$. This gives us a *landscape* of possible values of $w_0$ and $w_1$ to choose from.
 
 ```{python}
 #| echo: false
@@ -510,14 +563,14 @@ fig.show()
 
 ```
 
+As can be seen from the plot, there are many possible choices of $w_0$ and $w_1$, each resulting in a different loss value. In the next section, we will study a foundational algorithm called gradient descent which is designed to intelligently and iteratively explore different combinations of $w_0$ and $w_1$, calculating the loss that results from each combination. The process continues until **convergence** occurs, that is, until the algorithm believes it has found the best choice of weights that minimize the loss. We’ll explore the details of how gradient descent works in the next section.
+
 ::: {.callout-tip collapse="true" collapsed="true"}
 ## Intuition Check
 
 Which choice of weight values is better: point A or point B? Why?
 
 :::
-
-Our goal is to find the values of $w_0$ and $w_1$ that make this loss function as small as possible, with for simpple linear regression equates to finding the line of best-fit through our data.
 
 ::: {.callout-tip collapse="true" collapsed="true"}
 ## Why use MSE for the loss function?
@@ -532,157 +585,149 @@ These properties make MSE both practical and theoretically sound for training mo
 :::
 
 
+### 4th Ingredient: Training Algorithm
 
+Once we have selected a loss function, our next task is to find the values of $w_0$ and $w_1$ that minimize it. But how do we actually do that?
 
+Imagine you’re hiking on the inside of bowl-shaped surface of the loss function plot we explored in the previous section. Where you are standing corresponds to a specific combination of $w_0$ and $w_1$. Your goal is to get to the lowest possible point on the surface, the bottom of the bowl, where the loss is minimized and the model makes the best possible predictions.
 
+The training algorithm called **gradient descent** helps you do exactly that in a very clever and efficient way.
 
-```{python eval=false echo=true}
-import numpy as np
-import matplotlib.pyplot as plt
-import torch
-import torch.nn as nn
-import torch.optim as optim
-from sklearn.linear_model import LinearRegression
-from sklearn.preprocessing import StandardScaler
+Before taking the next step down the hill, it asks:
 
-# --- Set Seed for Reproducibility ---
-np.random.seed(42)
-torch.manual_seed(42)
+> “Which direction should I go to decrease the loss most quickly? Or equivalently, which direction is the steepest and will get me to the bottom of this bowl as fast as possible.”
 
-# --- Randomly Generate Data ---
-n_samples = 30
-X_data = np.random.uniform(1200, 3000, size=(n_samples, 1)).astype(np.float32)
-true_slope = 200
-true_intercept = 50000
-noise = np.random.normal(0, 30000, size=(n_samples, 1)).astype(np.float32)
-y_data = true_intercept + true_slope * X_data + noise
+To answer that question, gradient descent uses a mathematical tool called the **gradient**, just a fancy word for the direction of *steepest ascent* (what we’d call the **slope** in calculus). Since we want to go downhill, toward lower loss, we will actually move in the opposite (i.e. negative) direction of the gradient.
 
-# --- scikit-learn Model ---
-scaler = StandardScaler()
-X_scaled = scaler.fit_transform(X_data)
+Since we are working with a loss function of two variables, $\mathcal{L}(w_0, w_1)$, there are two different directions in play for each step we take down the hill. Hence, in this case, the **gradient** will be a vector with two components, one representing each direction (you can think of each component as the the "slope" in a certain direction):
 
-lr_model = LinearRegression()
-lr_model.fit(X_scaled, y_data)
+- $\frac{\partial \mathcal{L}}{\partial w_0}$: how the loss changes when we adjust $w_0$
+- $\frac{\partial \mathcal{L}}{\partial w_1}$: how the loss changes when we adjust $w_1$
 
-# Convert scikit-learn model back to original units
-slope_sk = lr_model.coef_[0][0] / scaler.scale_[0]
-intercept_sk = lr_model.intercept_[0] - slope_sk * scaler.mean_[0]
+These are called the **partial derivatives** of the function. They measure how sensitive the loss is to each parameter. They tell us the function's rate of change as we vary **one parameter at a time**, holding the others constant.
 
-# --- PyTorch Model ---
-X_torch = torch.tensor(X_data)
-y_torch = torch.tensor(y_data)
-
-X_mean = X_torch.mean()
-X_std = X_torch.std(unbiased=False)
-X_scaled_torch = (X_torch - X_mean) / X_std
-
-model = nn.Linear(1, 1)
-optimizer = optim.SGD(model.parameters(), lr=0.01)
-loss_fn = nn.MSELoss()
-
-for _ in range(3000):
-    y_pred = model(X_scaled_torch)
-    loss = loss_fn(y_pred, y_torch)
-    optimizer.zero_grad()
-    loss.backward()
-    optimizer.step()
-
-# Convert PyTorch model back to original units
-slope_torch = model.weight.item() / X_std.item()
-intercept_torch = model.bias.item() - slope_torch * X_mean.item()
-
-# --- Plot ---
-X_plot = np.linspace(1100, 3100, 100).reshape(-1, 1)
-y_sk = intercept_sk + slope_sk * X_plot
-y_pt = intercept_torch + slope_torch * X_plot
-
-fig, axes = plt.subplots(1, 2, figsize=(14, 5), sharey=True)
-
-# Plot scikit-learn
-axes[0].scatter(X_data, y_data, label="Actual Data", color="blue")
-axes[0].plot(X_plot, y_sk, label="scikit-learn Fit", color="green")
-axes[0].set_title("scikit-learn Regression")
-axes[0].set_xlabel("Square Footage")
-axes[0].set_ylabel("Home Value")
-axes[0].legend()
-axes[0].grid(True)
-
-# Plot PyTorch
-axes[1].scatter(X_data, y_data, label="Actual Data", color="blue")
-axes[1].plot(X_plot, y_pt, label="PyTorch Fit", color="black")
-axes[1].set_title("PyTorch Regression")
-axes[1].set_xlabel("Square Footage")
-axes[1].legend()
-axes[1].grid(True)
-
-plt.tight_layout()
-plt.show()
-
-```
-
-### Learning weight values
-
-In the example above, we assumed $w_0 = 50,000$ and $w_1 = 200$ for illustation. We now turn attention to how a machine (i.e., a computer) is capable of *learning* the optimal weight values, enabling the mathematical model to make the most accurate predictions possible which explains which strikes at the heart of why the field is called called *machine learning*.
-
-There are four main ingredients necessary for the computer to *learn* the best possible model weights:
-
-1.  **A proposed mathematical structure**: For simple linear regression the mathematical structure (i.e., equation) is $y = w_0 + w_1 x$. This equation defines the form of the relationship between inputs(s) and output(s). This structure assumes a linear relationship between the input $x$ and output $y$. Later in the course, we will explore the more complex non-linear models called neural networks which are used in large language models.
-
-2.  **Training Data** —
-
-::: {.callout-tip collapse="true" collapsed="true"}
-## Notation: Superscripts vs. Subscripts
-
-If you're coming from econometrics, you're probably used to indexing observations using **subscripts**, like $x_i$ and $y_i$. In machine learning, we typically use **superscripts**, like $x^{(i)}$ and $y^{(i)}$, to denote the $i$-th training example.
-
-Why the change?
-
-Machine learning models often work with **vectors** of features where $x$ is understood not as single input variable but as a vector of input variables:
+We represent the gradient vector in the following mathematical notation:
 
 $$
-x^{(i)} = \begin{bmatrix} x_1^{(i)} \\ x_2^{(i)} \\ \vdots \\ x_d^{(i)} \end{bmatrix}
+\nabla \mathcal{L}(w_0, w_1) =
+\begin{bmatrix}
+\frac{\partial \mathcal{L}}{\partial w_0} \\
+\frac{\partial \mathcal{L}}{\partial w_1}
+\end{bmatrix}
 $$
 
-Here:
 
--   For simple linear regression there is only a single input variable so $x=x_1$. However, say we added *year built* as a second input variable we could represent this as $x_2$.
--   The **superscript** $(i)$ indicates the $i$-th training example.
--   The **subscript** $j$ (e.g., $x_j^{(i)}$) refers to the $j$-th feature of that example.
 
-Using subscripts for both observations and features (e.g., $x_i$ and $x_j$) would lead to confusion.
+::: {.callout-tip collapse="true" collapsed="true" title="Understanding the Gradient Notation"}
 
-So while this might feel unfamiliar at first, **superscript indexing** is standard in ML to keep feature and example indexing clearly separated.
+The expressions
+
+$$
+\frac{\partial \mathcal{L}}{\partial w_0} \quad \text{and} \quad \frac{\partial \mathcal{L}}{\partial w_1}
+$$
+
+are called **partial derivatives**. They measure how sensitive the loss is to each parameter, essentially, how steep the slope is along each direction of the surface plot.
+
+Here's what the notation means:
+
+- The **partial derivative symbol $\partial$** (pronounced *“partial”*) means we’re measuring the rate of change with respect to just **one** variable, keeping the others constant.
+- $\mathcal{L}$ (script L) represents the **loss function**, which tells us how far off our model’s predictions are from the actual outcomes.
+- $w_0$ and $w_1$ are the **parameters** of our model.
+
+So:
+
+- $\frac{\partial \mathcal{L}}{\partial w_0}$ tells us how the loss changes if we slightly increase $w_0$, holding $w_1$ fixed.
+- $\frac{\partial \mathcal{L}}{\partial w_1}$ tells us how the loss changes with respect to $w_1$, keeping $w_0$ fixed.
+
+Together, these two values form the **gradient vector** of the loss function.
+
+This is written compactly using the **nabla symbol** $\nabla$ (pronounced *“nabla”*, named after an ancient harp), which represents the gradient operator:
+
+$$
+\nabla \mathcal{L}(w_0, w_1) =
+\begin{bmatrix}
+\frac{\partial \mathcal{L}}{\partial w_0} \\
+\frac{\partial \mathcal{L}}{\partial w_1}
+\end{bmatrix}
+$$
+
+This vector points in the direction of steepest increase in loss. In **gradient descent**, we take the negative of the gradient to move in the opposite direction (steepest decent), toward the minimum.
+
+| Symbol         | Name       | Meaning                                                    |
+|----------------|------------|------------------------------------------------------------|
+| $\mathcal{L}$  | Script L   | The loss function                                          |
+| $\partial$     | Partial    | Derivative with respect to one variable (holds others constant) |
+| $\nabla$       | Nabla      | The gradient operator—produces a vector of partial derivatives |
+
 :::
 
-3.  **A loss function** — A *loss function* is another mathematical equation whose purpose it to quantify the error between the model’s predictions $\hat{y}^{(i)}$ and the true output values observed in the training data $y^{(i)}$. For regression, the typical choice of loss function is **mean squared error** (MSE) defined as:
+The gradient of a function always points in the direction of steepest *ascent.* We actually want to know the direction of the steepest **descent** (to get to the bottom of the bowl-shaped surface) hence will be most interested in the negative gradient (i.e. the exact opposite direction).
+
+If you move in a direction other than the gradient, the loss value will either stay the same or change at a slower rate.
+
+The illustration below demonstrates taking steps down the side of the bowl.
+
+## The Gradient of the MSE Loss Function
+
+In the context of the **Mean Squared Error (MSE)** loss function for simple linear regression, the **gradient** tells us how to adjust our model parameters to reduce the prediction error.
+
+### Linear Model
+
+We model the prediction $\hat{y}^{(i)}$ as:
 
 $$
-\mathcal{L}(w_0, w_1) = \frac{1}{n} \sum_{i=1}^n (w_0 + w_1 x^{(i)} - y^{(i)})^2 = \frac{1}{n} \sum_{i=1}^n (\hat{y}^{(i)} - y^{(i)})^2
+\hat{y}^{(i)} = w_0 + w_1 x^{(i)}
 $$
 
-::: {.callout-tip collapse="true" collapsed="true"}
-## Unpacking the notation of the MSE Loss Function
+### MSE Loss Function
 
-This is called the Mean Squared Error (MSE) loss function, and it helps us measure how good or bad our model’s predictions are.
+The loss function over $n$ training examples is:
 
-The big curly $\mathcal{L}$ is a stylized version of the capital Latin letter L. In this context, $\mathcal{L}$ stands for “Loss” or sometimes “Loss function."
+$$
+\mathcal{L}(w_0, w_1) = \frac{1}{n} \sum_{i=1}^n \left( \hat{y}^{(i)} - y^{(i)} \right)^2 = \frac{1}{n} \sum_{i=1}^n \left( w_0 + w_1 x^{(i)} - y^{(i)} \right)^2
+$$
 
--   $w_0$ and $w_1$ are the parameters (or weights) of our simple linear regression model. Notice that they are playing the roles of unknown variables in this notation: $\mathcal{L}(w_0, w_1)$. This is because we don't know what these values are or should be yet, that's what we want the computer *learn* for us.
--   $x^{(i)}$ is the input (e.g., square footage of a house)
--   $\hat{y}^{(i)} = w_0 + w_1 x^{(i)}$ is the model’s predicted output (e.g., the predicted house price).
--   $y^{(i)}$ is the true value (the actual house price for data point $i$).
--   $(\hat{y}^{(i)} - y^{(i)})^2$ is the squared error: how far off the prediction is, squared to make sure it’s always positive and to penalize big mistakes more than small ones.
--   $\sum_{i=1}^n$ adds up the squared errors for all $n$ data points in our dataset (the Greek letter $\sum$ is called "capital sigma" and means we should "add up a bunch of terms")
--   $\frac{1}{n}$ takes the average of all those squared error terms.
+### Gradient of the Loss
 
-This function tells us how well our model is performing overall. A smaller value means our predictions on average are close to the true values, and a larger value means on average we’re making bigger mistakes.
+The **gradient** is a vector of partial derivatives with respect to each parameter:
 
-Our goal is to find the values of $w_0$ and $w_1$ that make this loss function as small as possible, with for simpple linear regression equates to finding the line of best-fit through our data.
+$$
+\nabla \mathcal{L}(w_0, w_1) =
+\begin{bmatrix}
+\frac{\partial \mathcal{L}}{\partial w_0} \\
+\frac{\partial \mathcal{L}}{\partial w_1}
+\end{bmatrix}
+=
+\frac{2}{n}
+\begin{bmatrix}
+\sum_{i=1}^n \left( w_0 + w_1 x^{(i)} - y^{(i)} \right) \\
+\sum_{i=1}^n \left( w_0 + w_1 x^{(i)} - y^{(i)} \right) x^{(i)}
+\end{bmatrix}
+$$
 
-4.  **Algorithm(s)** — The final ingredient(s) we need are algorithms. An algorithm is a step-by-step, well-defined procedure for performing a task. For example, long division is an algorithm wherein you follow a well defined procedure to compute a mathematical operation that would be difficult to do mentally. In this course, the task we are performing is *learning* the optimal values for model weights. Hence, for our purposes, we will study the **gradient descent** algorithm which iteratively adjust weights to minimize the loss function.
+### Interpretation
 
-Understanding these mappings will help you bridge the language used in machine learning and econometrics and navigate both literatures more fluently.
-:::
+- The first component, $\frac{\partial \mathcal{L}}{\partial w_0}$, measures how the loss changes if we nudge the **intercept** $w_0$.
+- The second component, $\frac{\partial \mathcal{L}}{\partial w_1}$, measures how the loss changes if we adjust the **slope** $w_1$.
+
+We use this gradient in **gradient descent** to update each weight:
+
+$$
+w_j \leftarrow w_j - \alpha \cdot \frac{\partial \mathcal{L}}{\partial w_j}
+$$
+
+where $\alpha$ is the learning rate.
+
+This iterative update rule allows us to **minimize the loss** by moving in the direction of steepest descent.
+
+
+
+
+
+
+
+
+
 
 ::: {.callout-tip collapse="true" collapsed="true"}
 ## Why are we calling this "supervised" machine learning and what other types are there?
