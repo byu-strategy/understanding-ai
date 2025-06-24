@@ -1,3 +1,19 @@
+# ------------------------------------------------------------------------------
+# Linear Model Geometry Visualization
+#
+# This script uses ggplot2 to visualize the geometry of a simple linear model:
+#     y = w₀ + w₁·x
+# It shows:
+#   - The regression line defined by the slope (w₁) and intercept (w₀)
+#   - The intercept point on the y-axis
+#   - A visual "rise over run" triangle to illustrate the slope concept
+#   - Annotated math expressions to reinforce the linear equation structure
+#
+# The resulting plot helps build intuition for how slope and intercept define
+# a linear model — useful in teaching machine learning or linear regression.
+# ------------------------------------------------------------------------------
+
+
 # Load ggplot2
 library(ggplot2)
 
@@ -19,6 +35,8 @@ x2 <- x1
 y2 <- y1 + w1      # rise = w1
 
 # Plot
+png("images/linear_regression_diagram.png", width = 2400, height = 1800, res = 300)
+
 ggplot(df, aes(x = x, y = y)) +
   geom_line(color = "black", size = 1.2) +
   geom_hline(yintercept = 0, color = "gray50") +
@@ -43,3 +61,5 @@ ggplot(df, aes(x = x, y = y)) +
   
   theme_minimal(base_size = 14) +
   theme(panel.grid.minor = element_blank())
+
+dev.off()

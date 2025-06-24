@@ -476,7 +476,7 @@ As the saying goes, *a picture is worth a thousand words*, so let’s visualize 
 
 In the plot below, we graph the loss function $\mathcal{L}(w_0, w_1)$ to see it as a 3D surface, with $w_0$ on the x-axis, $w_1$ on the y-axis, and the height of the surface representing the mean squared error loss $\mathcal{L}$. This gives us a *landscape* of possible values of $w_0$ and $w_1$ to choose from.
 
-{{< include includes/bowl_surface_plot.qmd >}}
+{{< include assets/01-machine-learning/bowl_surface_plot.qmd >}}
 
 As can be seen from the plot, there are many possible choices of $w_0$ and $w_1$, each resulting in a different loss value. In the next section, we will study a foundational algorithm called gradient descent which is designed to intelligently and iteratively explore different combinations of $w_0$ and $w_1$, calculating the loss that results from each combination. The process continues until **convergence** occurs, that is, until the algorithm believes it has found the best choice of weights that minimize the loss. We’ll explore the details of how gradient descent works in the next section.
 

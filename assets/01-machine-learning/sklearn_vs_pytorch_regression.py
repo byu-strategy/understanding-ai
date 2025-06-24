@@ -1,3 +1,16 @@
+"""
+This script compares linear regression models trained using two different frameworks:
+1. scikit-learn (with standardized inputs using StandardScaler)
+2. PyTorch (with manual standardization and gradient descent)
+
+It generates synthetic housing data (square footage vs. home value), fits both models, 
+rescales their learned parameters back to the original feature scale, and visualizes 
+the fitted lines alongside the original data.
+
+The output is a side-by-side plot saved as an image file showing the regression lines 
+from both models for visual comparison.
+"""
+
 import numpy as np
 import matplotlib.pyplot as plt
 import torch
@@ -77,93 +90,5 @@ axes[1].legend()
 axes[1].grid(True)
 
 plt.tight_layout()
+plt.savefig("sklearn_vs_pytorch_regression.png", dpi=300)  # Save to file
 plt.show()
-
-
-
-##### MSE
-
-import numpy as np
-import matplotlib.pyplot as plt
-from sklearn.linear_model import LinearRegression
-
-# Generate synthetic data
-np.random.seed(42)
-X = np.random.uniform(1200, 3000, size=(30, 1))
-y = 50000 + 200 * X + np.random.normal(0, 30000, size=(30, 1))
-
-# Fit a linear model
-model = LinearRegression()
-model.fit(X, y)
-y_pred = model.predict(X)
-
-# Plot data and regression line
-plt.figure(figsize=(10, 6))
-plt.scatter(X, y, label="Observed Data")
-plt.plot(X, y_pred, color="red", label="Predicted Line (Model Output)")
-
-# Plot error lines
-for i in range(len(X)):
-    plt.plot([X[i], X[i]], [y[i], y_pred[i]], color="gray", linestyle="--", linewidth=0.8)
-
-# Add dummy line for legend entry
-plt.plot([], [], 'k--', label="Loss (Prediction error for each example)")
-
-plt.title("Visualizing Loss: What the Loss Function Measures")
-plt.xlabel("Input Feature (e.g., Square Footage)")
-plt.ylabel("Output (e.g., Home Price)")
-plt.legend()
-plt.grid(True)
-plt.show()
-
-
-## Loss function plot
-
-import numpy as np
-import matplotlib.pyplot as plt
-from mpl_toolkits.mplot3d import Axes3D
-
-# Sample training data
-X = np.array([1200, 1400, 1600])
-y = np.array([250000, 275000, 300000])
-
-# Create design matrix for solving optimal weights
-X_design = np.column_stack((np.ones_like(X), X))
-w_opt = np.linalg.inv(X_design.T @ X_design) @ X_design.T @ y
-w0_opt, w1_opt = w_opt
-loss_opt = np.mean((w0_opt + w1_opt * X - y) ** 2)
-
-# Wider grid to see full bowl
-w0_range = np.linspace(-300000, 300000, 100)
-w1_range = np.linspace(0, 500, 100)
-W0, W1 = np.meshgrid(w0_range, w1_range)
-
-# Compute loss surface
-Z = np.zeros_like(W0)
-for i in range(W0.shape[0]):
-    for j in range(W0.shape[1]):
-        w0 = W0[i, j]
-        w1 = W1[i, j]
-        y_pred = w0 + w1 * X
-        Z[i, j] = np.mean((y_pred - y) ** 2)
-
-# Plot
-fig = plt.figure(figsize=(12, 8))
-ax = fig.add_subplot(111, projection='3d')
-ax.plot_surface(W0, W1, Z, cmap='viridis', alpha=0.9)
-
-# Add optimal point in red
-ax.scatter(w0_opt, w1_opt, loss_opt, color='red', s=60, label='Optimal (w₀, w₁)')
-ax.legend()
-
-# Labels and title
-ax.set_xlabel(r'$w_0$ (Intercept)')
-ax.set_ylabel(r'$w_1$ (Slope)')
-ax.set_zlabel(r'$\mathcal{L}(w_0, w_1)$ (MSE Loss)')
-ax.set_title("Full Bowl-Shaped Loss Surface for Linear Regression")
-
-plt.tight_layout()
-plt.show()
-
-
-
