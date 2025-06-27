@@ -1,5 +1,5 @@
 ---
-title: "Math and Python Review"
+title: "Math and Python Primer"
 ---
 
 ::: under-construction-banner
@@ -25,9 +25,7 @@ title: "Math and Python Review"
 </style>
 ```
 
-This guide introduces the key concepts in **calculus**, **linear algebra**, **probability and statistics**, and **Python programming** that you’ll need to understand how neural networks and large language models (LLMs) work.
-
-------------------------------------------------------------------------
+This chapter introduces the key concepts in **calculus**, **linear algebra**, **probability and statistics**, and **Python programming** that you’ll need in order to understand how machine learning, neural networks, and GenerativeAI work. Previous familiarity with these concepts is helpful but not expected. The material is presented assuming you are learning these concepts for the first time. The reader is strongly encouraged to copy/paste unfamiliar terms and concepts into ChatGPT or similar AI tools for additional personalized tutoring.
 
 ## Calculus Essentials
 
@@ -54,7 +52,7 @@ A derivative with respect to one variable while keeping others constant.
 
 **Notation**:
 
-\$ \frac{\partial L}{\partial w} \$
+$ \frac{\partial L}{\partial w} $
 
 Used in computing how the loss changes with respect to each model parameter.
 
@@ -98,7 +96,7 @@ $$
 w := w - \eta \cdot \frac{\partial L}{\partial w}
 $$
 
-Where \$ \eta \$ is the learning rate.
+Where $\eta$ is the learning rate.
 
 ------------------------------------------------------------------------
 
@@ -112,21 +110,24 @@ Neural networks use vectors and matrices to represent data, weights, and transfo
 
 A 1D array of numbers.
 
-\$ \vec{v} =
+$$
+\vec{v} =
 
 \begin{bmatrix} v_1 \\ v_2 \\ \vdots \\ v_n \end{bmatrix}
 
-\$
+$$
 
 ### Matrices
 
 A 2D array of numbers.
 
-\$ A =
+$$ 
+
+A =
 
 \begin{bmatrix} a_{11} & a_{12} \\ a_{21} & a_{22} \end{bmatrix}
 
-\$
+$$
 
 ### Matrix-Vector Multiplication
 
@@ -163,7 +164,7 @@ Measure the size or length of a vector.
 
 **L2 norm**:
 
-\$\| \vec{v} \|\_2 = \sqrt{v_1^2 + v_2^2 + \dots + v_n^2} \$
+$\| \vec{v} \|\_2 = \sqrt{v_1^2 + v_2^2 + \dots + v_n^2} $
 
 ------------------------------------------------------------------------
 
@@ -209,7 +210,7 @@ $\sigma = \sqrt{\mathrm{Var}(X)}$
 
 ### Conditional Probability
 
-\$ P(A \mid B) = \frac{P(A \cap B)}{P(B)} \$
+$ P(A \mid B) = \frac{P(A \cap B)}{P(B)} $
 
 Used in next-token prediction:
 
@@ -217,11 +218,11 @@ $P(\text{next token} \mid \text{context})$
 
 ### Bayes’ Theorem
 
-\$ P(A \mid B) = \frac{P(B \mid A) \cdot P(A)}{P(B)} \$
+$ P(A \mid B) = \frac{P(B \mid A) \cdot P(A)}{P(B)} $
 
 ### Entropy
 
-\$ H(X) = -\sum\_x P(x) \log P(x) \$
+$ H(X) = -\sum\_x P(x) \log P(x) $
 
 Measures uncertainty in a distribution.
 

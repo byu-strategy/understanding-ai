@@ -1,6 +1,6 @@
 I would like to build a sophisticated web application for teaching the corporate principles of machine learning. I will use a simple regression to explore all of the key ideas. I am breaking it down into four ingredients as described below.
 
-Must use Python streamlit for the code base
+Must use Python streamlit for the code base 
 
 ## Machine Learning in a Nutshell
 
@@ -13,7 +13,7 @@ To build a machine learning model, we need four key ingredients:
 3.  **A loss function:** A mathematical expression that measures how far off the model’s predictions are from the correct answers. It provides feedback to help the model improve over time.
 4.  **A training algorithm:** A step-by-step procedure that combines the first three ingredients in a way that minimizes the prediction errors produced by the model. This is where the so-called *learning* takes place.
 
-The app will consist of five interconnected panes as described below:
+The app will consist of four interconnected panes plus a user input panel on the left, as described below:
   -  0. User input pane where users can use sliders or hardcode in specific values for the weights the learning rate and other dials you think makes sense.
   -  1. show everthing related to ingredient one: mathematical function in this case, a simple linear regression 
     - show both the symbolic mathematical equation in latex, as well as an updated fitted model as the weights are adjusted

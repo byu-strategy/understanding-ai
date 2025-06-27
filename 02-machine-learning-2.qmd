@@ -1,0 +1,48 @@
+---
+title: "Machine Learning II"
+---
+
+## Multiple Linear Regression
+
+## Logistic Regression
+
+### Classification
+
+
+## Overfitting and Underfitting
+
+-   **Underfitting**: model too simple to capture data patterns
+-   **Overfitting**: model too complex, captures noise instead of signal
+-   **Validation** helps detect these behaviors.
+
+### Unsupervised Learning Use Cases
+
+| Use Case | Sample Inputs | Model Output Description | What ML Question is Being Answered? | What Business Question is Being Answered? | Example Algorithm(s) |
+|----|----|----|----|----|----|
+| Customer Segmentation | Age, income, purchase history | Cluster/group labels for each customer | What types of customers exist in my data? | How can I tailor marketing strategies to different customer types? | K-means, DBSCAN |
+| Topic Modeling | Articles or documents | Topics with keywords per document | What topics are being discussed? | What content themes resonate most with my audience or market? | LDA, NMF |
+| Anomaly Detection | Transaction logs, sensor data | Anomaly score or binary flag | Which data points are unusual? | Are there fraudulent transactions or system failures I need to act on? | Isolation Forest, Autoencoder |
+| Dimensionality Reduction | High-dimensional features (e.g., pixels) | 2D or 3D projections for analysis or visualization | How can I reduce feature space while preserving info? | How can I visualize or simplify complex data for human analysis or modeling? | PCA, t-SNE, UMAP |
+| Market Basket Analysis | Sets of purchased items | Association rules (A & B → C) | What items co-occur frequently in purchases? | Which product bundles or cross-sell offers should I promote? | Apriori, FP-Growth |
+| Word Embedding | Text corpus | Word vectors capturing semantic similarity | What are the contextual relationships between words? | How can I build a smarter search engine or chatbot that understands language context? | Word2Vec, GloVe |
+| Image Compression | Raw pixel arrays | Compressed version of the image | How can I represent this image with fewer features? | How can I reduce storage or transmission costs for image data? | Autoencoders |
+
+## Reinforcement Learning
+
+### Reinforcement Learning Use Cases
+
+| Use Case | Sample Inputs | Model Output Description | What ML Question is Being Answered? | What Business Question is Being Answered? | Example Algorithm(s) |
+|----|----|----|----|----|----|
+| Game Playing | Game state (e.g., board, score) | Action to take | What should I do to win the game? | How can I build an AI that outperforms humans or creates adaptive gameplay? | Q-learning, DQN |
+| Robotics & Control | Sensor data (angles, velocities, etc.) | Movement or control signals | How should the agent move next to reach a goal? | How can I automate physical tasks like picking, sorting, or navigating? | PPO, SAC, DDPG |
+| Autonomous Vehicles | Sensor input (camera, LIDAR, speed, GPS) | Driving action | What’s the optimal next driving move? | How can I develop a safe and efficient self-driving vehicle system? | Deep RL + sensor fusion |
+| Recommendation Systems | User history, preferences, session behavior | Recommended item | What should I recommend next? | How can I increase user retention, engagement, or sales? | Contextual Bandits, RL |
+| Portfolio Management | Financial indicators, stock prices | Asset allocation decision | How should I invest to maximize return? | How can I build an automated trading or portfolio optimization system? | Actor-Critic methods |
+| Personalized Education | Student progress and quiz results | Next learning step | What lesson or content should come next? | How can I boost student outcomes by personalizing learning pathways? | Multi-armed bandits |
+| Healthcare Treatment | Patient history and vitals | Treatment or intervention strategy | What care plan maximizes long-term patient health? | How can I optimize healthcare outcomes while reducing costs and readmissions? | Off-policy RL, POMDPs |
+
+## Glossary
+
+-   **logistic (sigmoid) function**:
+
+-   **Softmax**:

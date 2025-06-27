@@ -1,0 +1,164 @@
+```{python}
+#| echo: false
+#| warning: false
+#| fig-width: 12
+#| fig-height: 6
+#| interactive: true
+
+import numpy as np
+import plotly.graph_objects as go
+from plotly.subplots import make_subplots
+
+# Toy training data (from y = 2x + 1)
+x_vals = np.array([0, 1, 2, 3])
+y_vals = np.array([1, 3, 5, 7])
+
+# Weight and gradient
+w = np.array([1, 1])
+grad = np.array([-3, -7])          
+neg_grad = -grad                  
+
+# Learning rates
+eta_left = 1
+eta_right = 0.05
+
+# Updates
+w_new_left = w + eta_left * neg_grad
+w_new_right = w + eta_right * neg_grad
+
+# True minimum
+w_opt = np.array([1, 2])
+
+# Weight space grid
+w0 = np.linspace(-2, 9, 100)
+w1 = np.linspace(-2, 9, 100)
+W0, W1 = np.meshgrid(w0, w1)
+
+# Compute MSE loss
+Loss = np.zeros_like(W0)
+for i in range(len(x_vals)):
+    y_pred = W0 + W1 * x_vals[i]
+    Loss += (y_pred - y_vals[i])**2
+Loss /= len(x_vals)
+
+# Create two subplots
+fig = make_subplots(rows=1, cols=2, subplot_titles=(
+    f"Learning Rate η = {eta_left}",
+    f"Learning Rate η = {eta_right}"
+))
+
+# Helper function to add all traces
+def add_all_traces(fig, col, w_new, eta):
+    # Contour
+    fig.add_trace(go.Contour(
+        x=w0, y=w1, z=Loss,
+        colorscale='Viridis',
+        showscale=False,
+        contours=dict(
+            coloring='lines',
+            showlabels=True,
+            start=0,
+            end=np.max(Loss),
+            size=2
+        ),
+        line_smoothing=0.85
+    ), row=1, col=col)
+
+    # Original weight vector
+    fig.add_trace(go.Scatter(
+        x=[0, w[0]], y=[0, w[1]],
+        mode='lines+markers+text',
+        name='Initial Weight Vector (w)',
+        line=dict(color='blue', width=3),
+        marker=dict(size=4),
+        showlegend=(col==1)
+    ), row=1, col=col)
+
+    # Negative gradient vector
+    fig.add_trace(go.Scatter(
+        x=[w[0], w[0] + neg_grad[0]], y=[w[1], w[1] + neg_grad[1]],
+        mode='lines+markers+text',
+        name='Gradient Descent Vector (-∇L)',
+        line=dict(color='green', width=3),
+        marker=dict(size=4),
+        showlegend=(col==1)
+    ), row=1, col=col)
+
+    # Updated weight vector with this learning rate
+    fig.add_trace(go.Scatter(
+        x=[0, w_new[0]], y=[0, w_new[1]],
+        mode='lines+markers+text',
+        name=f'Updated Weight Vector (w_new)',
+        line=dict(color='purple', width=3, dash='dash'),
+        marker=dict(size=4),
+        showlegend=(col==1)
+    ), row=1, col=col)
+
+    # Optimal weight
+    fig.add_trace(go.Scatter(
+        x=[w_opt[0]], y=[w_opt[1]],
+        mode='markers+text',
+        name='True Minimum (w*)',
+        marker=dict(color='orange', size=10, symbol='x'),
+        showlegend=(col==1)
+    ), row=1, col=col)
+
+# Add traces to both panes
+add_all_traces(fig, col=1, w_new=w_new_left, eta=eta_left)
+add_all_traces(fig, col=2, w_new=w_new_right, eta=eta_right)
+
+# Define axis lines as shapes
+axes_shapes = []
+
+# Left subplot axes
+axes_shapes.append(dict(
+    type="line",
+    xref="x1", yref="y1",
+    x0=-2, y0=0, x1=9, y1=0,
+    line=dict(color="black", width=3)
+))
+axes_shapes.append(dict(
+    type="line",
+    xref="x1", yref="y1",
+    x0=0, y0=-2, x1=0, y1=9,
+    line=dict(color="black", width=3)
+))
+
+# Right subplot axes
+axes_shapes.append(dict(
+    type="line",
+    xref="x2", yref="y2",
+    x0=-2, y0=0, x1=9, y1=0,
+    line=dict(color="black", width=3)
+))
+axes_shapes.append(dict(
+    type="line",
+    xref="x2", yref="y2",
+    x0=0, y0=-2, x1=0, y1=9,
+    line=dict(color="black", width=3)
+))
+
+# Update layout
+fig.update_layout(
+    height=600, width=700,
+    margin=dict(l=0, r=0, t=40, b=0),
+    showlegend=True,
+    shapes=axes_shapes,
+    legend=dict(
+        x=0,               # centered horizontally
+        y=1.3,              # above the plots
+        xanchor="center",
+        yanchor="top"
+    )
+)
+
+# Update axes titles and ranges
+fig.update_xaxes(title_text='w₀', range=[-2, 9], zeroline=False, row=1, col=1)
+fig.update_yaxes(title_text='w₁', range=[-2, 9], zeroline=False, row=1, col=1)
+fig.update_xaxes(title_text='w₀', range=[-2, 9], zeroline=False, row=1, col=2)
+fig.update_yaxes(title_text='w₁', range=[-2, 9], zeroline=False, row=1, col=2)
+
+fig.show()
+
+
+```

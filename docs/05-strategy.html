@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Scott Murff">
-<meta name="dcterms.date" content="2025-05-10">
 
-<title>STRAT 490R - Understanding AI: From Foundations to Strategy</title>
+<title>7&nbsp; AI Strategy – STRAT 490R - Understanding AI: From Foundations to Strategy</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -32,7 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./00-math-primer.html" rel="next">
+<link href="./90-resources.html" rel="next">
+<link href="./04-llms.html" rel="prev">
 <link href="./images/understanding-ai-favicon.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -84,7 +83,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Syllabus</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./05-strategy.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">AI Strategy</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -111,7 +110,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Syllabus</span></span></a>
   </div>
 </li>
@@ -147,7 +146,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./05-strategy.html" class="sidebar-item-text sidebar-link">
+  <a href="./05-strategy.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">AI Strategy</span></span></a>
   </div>
 </li>
@@ -179,25 +178,9 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#syllabus" id="toc-syllabus" class="nav-link active" data-scroll-target="#syllabus"><span class="header-section-number">1</span> Syllabus</a>
-  <ul class="collapse">
-  <li><a href="#content-overview" id="toc-content-overview" class="nav-link" data-scroll-target="#content-overview"><span class="header-section-number">1.1</span> Content Overview</a></li>
-  <li><a href="#who-should-take-this-course" id="toc-who-should-take-this-course" class="nav-link" data-scroll-target="#who-should-take-this-course"><span class="header-section-number">1.2</span> Who Should Take This Course</a></li>
-  <li><a href="#learning-outcomes" id="toc-learning-outcomes" class="nav-link" data-scroll-target="#learning-outcomes"><span class="header-section-number">1.3</span> Learning Outcomes</a></li>
-  <li><a href="#instructor-bio" id="toc-instructor-bio" class="nav-link" data-scroll-target="#instructor-bio"><span class="header-section-number">1.4</span> Instructor Bio</a></li>
-  <li><a href="#schedule" id="toc-schedule" class="nav-link" data-scroll-target="#schedule"><span class="header-section-number">1.5</span> Schedule</a></li>
-  <li><a href="#grading" id="toc-grading" class="nav-link" data-scroll-target="#grading"><span class="header-section-number">1.6</span> Grading</a>
-  <ul class="collapse">
-  <li><a href="#late-work-policy" id="toc-late-work-policy" class="nav-link" data-scroll-target="#late-work-policy"><span class="header-section-number">1.6.1</span> Late work policy</a></li>
-  </ul></li>
-  <li><a href="#classroom-culture" id="toc-classroom-culture" class="nav-link" data-scroll-target="#classroom-culture"><span class="header-section-number">1.7</span> Classroom Culture</a>
-  <ul class="collapse">
-  <li><a href="#mission-and-aims" id="toc-mission-and-aims" class="nav-link" data-scroll-target="#mission-and-aims"><span class="header-section-number">1.7.1</span> Mission and Aims</a></li>
-  </ul></li>
-  <li><a href="#required-materials" id="toc-required-materials" class="nav-link" data-scroll-target="#required-materials"><span class="header-section-number">1.8</span> Required Materials</a></li>
-  <li><a href="#getting-help" id="toc-getting-help" class="nav-link" data-scroll-target="#getting-help"><span class="header-section-number">1.9</span> Getting Help</a></li>
-  <li><a href="#pre-enrollment-assessment" id="toc-pre-enrollment-assessment" class="nav-link" data-scroll-target="#pre-enrollment-assessment"><span class="header-section-number">1.10</span> Pre-enrollment Assessment</a></li>
-  </ul></li>
+  <li><a href="#the-impacts-of-ai" id="toc-the-impacts-of-ai" class="nav-link active" data-scroll-target="#the-impacts-of-ai"><span class="header-section-number">7.1</span> The Impacts of AI</a></li>
+  <li><a href="#things-as-they-really-are" id="toc-things-as-they-really-are" class="nav-link" data-scroll-target="#things-as-they-really-are"><span class="header-section-number">7.2</span> Things as They Really Are</a></li>
+  <li><a href="#using-ai-for-good" id="toc-using-ai-for-good" class="nav-link" data-scroll-target="#using-ai-for-good"><span class="header-section-number">7.3</span> Using AI for Good</a></li>
   </ul>
 </nav>
     </div>
@@ -206,26 +189,14 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">STRAT 490R - Understanding AI: From Foundations to Strategy</h1>
+<h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">AI Strategy</span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Scott Murff </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">May 10, 2025</p>
-    </div>
-  </div>
   
     
   </div>
@@ -235,251 +206,35 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="syllabus" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Syllabus</h1>
-<p><em>FALL 2025</em></p>
-<p><strong>Instructor:</strong> Scott Murff<br>
-<strong>TAs:</strong> TBD <strong>Class Time:</strong> M/W, 3:30–4:45 PM<br>
-<strong>Class Location:</strong> TNRB W308<br>
-<strong>LMS:</strong> LearningSuite</p>
-<section id="content-overview" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="content-overview"><span class="header-section-number">1.1</span> Content Overview</h2>
-<p>Welcome to Understanding AI: From Foundations to Strategy. In this course, students will learn where large language models (LLMs) like ChatGPT fit into the broader landscape of Artificial Intelligence (AI). Students will then build an LLM from the ground up using Python. The course concludes with a strategic exploration of how AI is transforming companies and society and how to harness it for good.</p>
-<p>The course will begin with an essential math review but to excel in the course students should have some prior experience with differential calculus (i.e.&nbsp;derivatives), matrix multiplication (i.e.&nbsp;multiplying two or more matrices together), conditional probability, and basic Python programming.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/ai-mountain.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%"></p>
-</figure>
+<div class="under-construction-banner">
+<p><img src="images/under-construction.png" alt="Course Under Construction" class="under-construction-image"></p>
 </div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/ai-ml-map.png" class="img-fluid figure-img" style="width:70.0%"></p>
-<figcaption>Image source: <em>Build a Large Language Model (From Scratch)</em> by Sebastian Raschka</figcaption>
-</figure>
-</div>
+<style>
+.under-construction-banner {
+  background-color: #e0e0e0;  /* Light grey background */
+  padding: 1rem 1rem;         /* Makes the banner tall */
+  text-align: center;
+}
+
+.under-construction-image {
+  max-width: 250px;           /* Shrinks the image */
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 8px;
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.15);
+}
+</style>
+<section id="the-impacts-of-ai" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="the-impacts-of-ai"><span class="header-section-number">7.1</span> The Impacts of AI</h2>
 </section>
-<section id="who-should-take-this-course" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="who-should-take-this-course"><span class="header-section-number">1.2</span> Who Should Take This Course</h2>
-<p>This course is intended for advanced undergraduates and/or masters students who want a deep, technical introduction to LLMs alongside strategic insight into their real-world deployment.</p>
+<section id="things-as-they-really-are" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="things-as-they-really-are"><span class="header-section-number">7.2</span> Things as They Really Are</h2>
 </section>
-<section id="learning-outcomes" class="level2" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="learning-outcomes"><span class="header-section-number">1.3</span> Learning Outcomes</h2>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
-</colgroup>
-<thead>
-<tr class="header">
-<th><strong>Learning Outcome</strong></th>
-<th><strong>Target BYU Aim(s)</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>1. Students will be able to implement basic AI and machine learning algorithms from first principles, including linear regression and neural networks, and apply these to Generative AI and LLM use cases.</td>
-<td>Intellectually Enlarging</td>
-</tr>
-<tr class="even">
-<td>2. Students will analyze and explain the ethical, spiritual, and social implications of AI technologies, including their alignment (or misalignment) with eternal truths and principles of discipleship.</td>
-<td>Spiritually Strengthening, Character Building</td>
-</tr>
-<tr class="odd">
-<td>3. Students will demonstrate Christlike attributes such as diligence, humility, and purposeful curiosity in collaborative learning and problem-solving related to AI topics.</td>
-<td>Character Building</td>
-</tr>
-<tr class="even">
-<td>4. Students will articulate how their understanding of AI can be used to bless the lives of others and reflect their discipleship to Jesus Christ in the workplace and community.</td>
-<td>Lifelong Learning and Service, Spiritually Strengthening</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="instructor-bio" class="level2" data-number="1.4">
-<h2 data-number="1.4" class="anchored" data-anchor-id="instructor-bio"><span class="header-section-number">1.4</span> Instructor Bio</h2>
-<p>Scott Murff is an Associate Teaching Professor of Strategy at the BYU Marriott School of Business, where he also serves as program director and teaches courses on business strategy, decision-making, and artificial intelligence. He brings over 15 years of experience at the intersection of business and technology, having worked as a consultant, product manager, and data scientist.</p>
-<p>Prior to joining BYU, Scott spent nearly seven years at McKinsey &amp; Company in roles ranging from analytics specialist consultant to principal product manager, where he led product development and performance management initiatives for Fortune 500 clients. His earlier career includes building forecasting models as a VP at Zions Bancorporation and conducting regulatory research at the U.S. Office of the Comptroller of the Currency.</p>
-<p>Scott holds a Master’s degree in Management Science &amp; Engineering from Stanford University and a B.A. in Economics from BYU. He is passionate about helping students apply AI, analytics, and strategy to meaningful real-world problems with both rigor and purpose.</p>
-</section>
-<section id="schedule" class="level2" data-number="1.5">
-<h2 data-number="1.5" class="anchored" data-anchor-id="schedule"><span class="header-section-number">1.5</span> Schedule</h2>
-<p>Coming Soon.</p>
-</section>
-<section id="grading" class="level2" data-number="1.6">
-<h2 data-number="1.6" class="anchored" data-anchor-id="grading"><span class="header-section-number">1.6</span> Grading</h2>
-<p>The course is <strong>not</strong> graded on a curve. It’s possible for every student to earn an A. However, achieving an A is challenging and demonstrates true excellence. The grading scale is show below:</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Letter Grade</th>
-<th>Percentage Range</th>
-<th>GPA</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>A</td>
-<td>93–100%</td>
-<td>4.0</td>
-</tr>
-<tr class="even">
-<td>A-</td>
-<td>90–92%</td>
-<td>3.7</td>
-</tr>
-<tr class="odd">
-<td>B+</td>
-<td>87–89%</td>
-<td>3.4</td>
-</tr>
-<tr class="even">
-<td>B</td>
-<td>83–86%</td>
-<td>3.0</td>
-</tr>
-<tr class="odd">
-<td>B-</td>
-<td>80–82%</td>
-<td>2.7</td>
-</tr>
-<tr class="even">
-<td>C+</td>
-<td>77–79%</td>
-<td>2.4</td>
-</tr>
-<tr class="odd">
-<td>C</td>
-<td>73–76%</td>
-<td>2.0</td>
-</tr>
-<tr class="even">
-<td>C-</td>
-<td>70–72%</td>
-<td>1.7</td>
-</tr>
-<tr class="odd">
-<td>D+</td>
-<td>67–69%</td>
-<td>1.4</td>
-</tr>
-<tr class="even">
-<td>D</td>
-<td>63–66%</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td>D-</td>
-<td>60–62%</td>
-<td>0.7</td>
-</tr>
-<tr class="even">
-<td>E (Fail)</td>
-<td>Below 60%</td>
-<td>0.0</td>
-</tr>
-</tbody>
-</table>
-<section id="late-work-policy" class="level3" data-number="1.6.1">
-<h3 data-number="1.6.1" class="anchored" data-anchor-id="late-work-policy"><span class="header-section-number">1.6.1</span> Late work policy</h3>
-<p>Late work will be accepted up to 9 days late for partial credit with a 10% penalty per day according to the following schedule</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Days Late</th>
-<th>Late Penalty</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>1</td>
-<td>-10%</td>
-</tr>
-<tr class="even">
-<td>2</td>
-<td>-20%</td>
-</tr>
-<tr class="odd">
-<td>3</td>
-<td>-30%</td>
-</tr>
-<tr class="even">
-<td>4</td>
-<td>-40%</td>
-</tr>
-<tr class="odd">
-<td>5</td>
-<td>-50%</td>
-</tr>
-<tr class="even">
-<td>6</td>
-<td>-60%</td>
-</tr>
-<tr class="odd">
-<td>7</td>
-<td>-70%</td>
-</tr>
-<tr class="even">
-<td>8</td>
-<td>-80%</td>
-</tr>
-<tr class="odd">
-<td>9</td>
-<td>-90%</td>
-</tr>
-<tr class="even">
-<td>10</td>
-<td>No Credit</td>
-</tr>
-</tbody>
-</table>
-</section>
-</section>
-<section id="classroom-culture" class="level2" data-number="1.7">
-<h2 data-number="1.7" class="anchored" data-anchor-id="classroom-culture"><span class="header-section-number">1.7</span> Classroom Culture</h2>
-<section id="mission-and-aims" class="level3" data-number="1.7.1">
-<h3 data-number="1.7.1" class="anchored" data-anchor-id="mission-and-aims"><span class="header-section-number">1.7.1</span> Mission and Aims</h3>
-<p>The mission of Brigham Young University — founded, supported, and guided by The Church of Jesus Christ of Latter-day Saints — is to assist individuals in their quest for perfection and eternal life. That assistance should provide a period of intensive learning in a stimulating setting where a commitment to excellence is expected and the full realization of human potential is pursued.</p>
-<p>BYU seeks to develop students of faith, intellect, and character who have the skills and the desire to continue learning and to serve others throughout their lives.</p>
-<p>A BYU education should be (1) spiritually strengthening, (2) intellectually enlarging, and (3) character building, leading to (4) lifelong learning and service.</p>
-<p>Building on the foundational Mission and Aims, the Marriott School of Business aspires to transform the world through Christlike leadership by developing leaders of faith, intellect, and character guided by the following 4 values:</p>
-<ul>
-<li><p><strong>Faith in Christ</strong> - We value deep and abiding faith in Jesus Christ. Our faith gives us the capacity to envision a better future, the confidence to make that future happen, and the courage to act in the face of challenges.</p></li>
-<li><p><strong>Integrity in Action</strong> - We value integrity and hold ourselves to the highest moral and ethical standards. Acting with integrity builds trust, strengthens character, and focuses our ambitions on things of eternal consequence.</p></li>
-<li><p><strong>Respect for All</strong> - We value respect for all individuals as children of God and recognize the inherent worth, divine potential, and agency of each person. A climate of respect and belonging enhances our learning, facilitates collaboration, and encourages personal growth.</p></li>
-<li><p><strong>Excellence</strong> - We value excellence in learning, teaching, research, management, and leadership. An expectation of excellence magnifies our influence and motivates us to continually improve.</p></li>
-</ul>
-<p>We evaluate our decisions and actions by the impact they will have on the academic experience, professional preparation, character development, emotional well-being, and spiritual growth of our students.</p>
-<section id="prayer-in-class" class="level4" data-number="1.7.1.1">
-<h4 data-number="1.7.1.1" class="anchored" data-anchor-id="prayer-in-class"><span class="header-section-number">1.7.1.1</span> Prayer in class</h4>
-<p>We will begin each class with prayer. Each class member is invited to be voice for the prayer at least once throughout the semester. The TAs will reach out prior to class to invite you to pray on a particular day. If you’d rather not be voice for a prayer please let me know on the first day of class so I can instruct the TAs accordingly.</p>
-</section>
-<section id="laptop-policy" class="level4" data-number="1.7.1.2">
-<h4 data-number="1.7.1.2" class="anchored" data-anchor-id="laptop-policy"><span class="header-section-number">1.7.1.2</span> Laptop Policy</h4>
-<p>You may use laptops in class for note taking or other class related purposes. Laptops should not be used for activities that would be a distraction to nearby students when your screen is in their line of sight (e.g.&nbsp;sports, instagram, etc.)</p>
-</section>
-<section id="cold-calling" class="level4" data-number="1.7.1.3">
-<h4 data-number="1.7.1.3" class="anchored" data-anchor-id="cold-calling"><span class="header-section-number">1.7.1.3</span> Cold Calling</h4>
-<p>I teach in a fairly conversational style, which includes cold calling students to ask for your input or to pose questions. If you’d rather I not cold call on you please let me know on the first day of class so that I can avoid doing so. I have deep respect for individual learning styles and will make accommodations when needed.</p>
-</section>
-</section>
-</section>
-<section id="required-materials" class="level2" data-number="1.8">
-<h2 data-number="1.8" class="anchored" data-anchor-id="required-materials"><span class="header-section-number">1.8</span> Required Materials</h2>
-<ul>
-<li><a href="https://www.amazon.com/gp/product/1633437167">Build a Large Language Model From Scratch</a> or <a href="https://www.manning.com/books/build-a-large-language-model-from-scratch">here</a></li>
-</ul>
-<p>LMS: LearningSuite Class communication: Slack Required materials: The Lean Product Playbook: How to Innovate with Minimum Viable Products and Rapid Customer Feedback by Dan Olsen (physical copy recommended, $25 or less). Text and audio also available for free for BYU students digitally at O’Reilly books. Laptop or desktop (Mac or Windows) Install Mendix Studio Pro version 10.18.0 on Mac or Windows (free) Verify your student status with Figma and install desktop app for Mac or Windows (free)</p>
-</section>
-<section id="getting-help" class="level2" data-number="1.9">
-<h2 data-number="1.9" class="anchored" data-anchor-id="getting-help"><span class="header-section-number">1.9</span> Getting Help</h2>
-<p>The following resources are available to get help: - Start with AI chat bots and the course website to see if they can assist - Use the course Slack channel to ask classmates for help - Attend TA or Professor office hours (coming soon) - Use <strong>Slack</strong> or email to contact one of the course TAs - Use <strong>Slack</strong> or email to contact Professor Murff</p>
-</section>
-<section id="pre-enrollment-assessment" class="level2" data-number="1.10">
-<h2 data-number="1.10" class="anchored" data-anchor-id="pre-enrollment-assessment"><span class="header-section-number">1.10</span> Pre-enrollment Assessment</h2>
-<p>Coming soon.</p>
+<section id="using-ai-for-good" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="using-ai-for-good"><span class="header-section-number">7.3</span> Using AI for Good</h2>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -912,10 +667,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./04-llms.html" class="pagination-link" aria-label="Large Language Models">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Large Language Models</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./00-math-primer.html" class="pagination-link" aria-label="Math and Python Primer">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Math and Python Primer</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./90-resources.html" class="pagination-link" aria-label="Resources">
+        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Resources</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

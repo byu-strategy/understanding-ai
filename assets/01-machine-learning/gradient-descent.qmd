@@ -1,0 +1,143 @@
+```{python}
+#| label: gradient-descent
+#| fig-cap: "Visualizing Gradient Descent"
+#| echo: false
+#| warning: false
+#| fig-width: 8
+#| fig-height: 6
+#| interactive: true
+
+import numpy as np
+import plotly.graph_objects as go
+
+# 1. Define loss surface
+w0 = np.linspace(-2, 2, 200)
+w1 = np.linspace(-2, 2, 200)
+W0, W1 = np.meshgrid(w0, w1)
+Loss = W0**2 + W1**2
+
+# 2. Initial weights and gradient
+w0_init, w1_init = 1.0, 1.0
+grad = np.array([2*w0_init, 2*w1_init])
+lr = 0.25
+step = -lr * grad
+
+w0_next = w0_init + step[0]
+w1_next = w1_init + step[1]
+z_init = w0_init**2 + w1_init**2
+z_next = w0_next**2 + w1_next**2
+
+# 3. Plot surface
+surface = go.Surface(
+    x=W0, y=W1, z=Loss,
+    colorscale='Viridis',
+    showscale=False,
+    opacity=0.3,
+    contours=dict(z=dict(show=True, project_z=True))
+)
+
+# 4. Weight vector
+weight_vec = go.Scatter3d(
+    x=[0, w0_init], y=[0, w1_init], z=[0, 0],
+    mode='lines+markers+text',
+    line=dict(color='red', width=5),
+    marker=dict(size=4),
+    text=["", "w"],
+    textposition='top center',
+    name='Initial weight vector (1, 1)'
+)
+
+# 5. Gradient vector (orange, on surface)
+grad_vec_surface = go.Scatter3d(
+    x=[w0_init, w0_init + grad[0]],
+    y=[w1_init, w1_init + grad[1]],
+    z=[z_init, z_init],
+    mode='lines+markers+text',
+    line=dict(color='orange', width=4),
+    marker=dict(size=3),
+    text=["", "∇L(w)"],
+    textposition='top center',
+    name='∇L(w): Gradient at initial weight vector'
+)
+
+# 6. Descent vector (blue, on surface, opposite direction)
+# Descent vector = -η * ∇L(w)
+descent_vec = go.Scatter3d(
+    x=[w0_init, w0_init - lr * grad[0]],
+    y=[w1_init, w1_init - lr * grad[1]],
+    z=[z_init, z_init],
+    mode='lines+markers+text',
+    line=dict(color='blue', width=4),
+    marker=dict(size=3),
+    text=["", "-η∇L(w)"],
+    textposition='top center',
+    name='-η∇L(w): Descent step vector'
+)
+
+
+
+# 7. New weight vector (green)
+new_weight_vec = go.Scatter3d(
+    x=[0, w0_next], y=[0, w1_next], z=[0, 0],
+    mode='lines+markers+text',
+    line=dict(color='green', width=5),
+    marker=dict(size=4),
+    text=["", "w'"],
+    textposition='top center',
+    name='New weight vector (0.5, 0.5)'
+)
+
+# 8. Lifts to surface
+lift_to_surface = go.Scatter3d(
+    x=[w0_init, w0_init], y=[w1_init, w1_init], z=[0, z_init],
+    mode='lines', line=dict(color='black', dash='dot', width=3),
+    showlegend=False
+)
+lift_new = go.Scatter3d(
+    x=[w0_next, w0_next], y=[w1_next, w1_next], z=[0, z_next],
+    mode='lines', line=dict(color='black', dash='dot', width=3),
+    showlegend=False
+)
+
+# 9. Drop in loss surface
+surface_arc = go.Scatter3d(
+    x=[w0_init, w0_next], y=[w1_init, w1_next], z=[z_init, z_next],
+    mode='lines', line=dict(color='black', dash='dot', width=3),
+    showlegend=False
+)
+
+# 10. Dot at updated weight location on surface
+dot_updated_weight = go.Scatter3d(
+    x=[w0_next], y=[w1_next], z=[z_next],
+    mode='markers',
+    marker=dict(size=3, color='blue'),
+    showlegend=False
+)
+
+# 11. Combine and show
+fig = go.Figure(data=[
+    surface,
+    weight_vec,
+    grad_vec_surface,
+    descent_vec,
+    new_weight_vec,
+    lift_to_surface,
+    lift_new,
+    surface_arc,
+    dot_updated_weight
+])
+
+fig.update_layout(
+    scene=dict(
+        xaxis_title='w₀',
+        yaxis_title='w₁',
+        zaxis_title='Loss',
+        zaxis=dict(range=[0, 5])
+    ),
+    title="Gradient Descent: Subtracting ∇L(w) to Update Weights",
+    margin=dict(l=0, r=0, t=30, b=0)
+)
+
+fig.show()
+
+```

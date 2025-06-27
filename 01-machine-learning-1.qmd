@@ -1,10 +1,6 @@
 ---
-title: "Machine Learning"
+title: "Machine Learning I"
 ---
-
-::: under-construction-banner
-<img src="images/under-construction.png" alt="Course Under Construction" class="under-construction-image"/>
-:::
 
 ```{=html}
 <style>
@@ -45,7 +41,18 @@ To build a machine learning model, we need four key ingredients:
 3.  **A loss function:** A mathematical expression that measures how far off the model’s predictions are from the correct answers. It provides feedback to help the model improve over time.
 4.  **A training algorithm:** A step-by-step procedure that combines the first three ingredients in a way that minimizes the prediction errors produced by the model. This is where the so-called *learning* takes place.
 
-So what exactly is being *learned*? The computer is *learning* the *weights* (parameters) of the chosen model. This is best understood through an example. We’ll start with the simplest possible machine learning model: simple linear regression. It’s a powerful tool that helps us understand the core ideas behind more complex models, including the ones that power today’s cutting-edge AI systems like ChatGPT.
+There are many business use cases for machine learning, a few of which are listed below. We’ll start with the simplest possible machine learning model: simple linear regression. It’s a powerful tool that helps us understand the core ideas behind more complex models, including the ones that power today’s cutting-edge AI systems like ChatGPT and several of the examples in the table below. 
+
+| Use Case                | Sample Inputs                            | What does the model output?                  | What Business Question is Being Answered?                                  |
+|-------------------------|------------------------------------------|-------------------------------------------|-----------------------------------------------------------------------------|
+| Price Prediction        | Property size, location, features       | Numeric price estimate                   | How should I price products to stay competitive and profitable?           |
+| Demand Forecasting      | Historical sales, promotions, holidays  | Predicted sales volume                   | How can I manage inventory or staffing to meet demand?                     |
+| Credit Risk Scoring     | Income, credit history, employment data | Risk category (e.g., low/medium/high)    | Should I approve this loan, and at what interest rate?                     |
+| Email Spam Detection    | Email content, sender info, subject line| Binary label: spam or not spam           | How can I prevent unwanted emails from reaching users’ inboxes?            |
+| Sentiment Analysis      | Review text, social media posts         | Sentiment label (positive/negative)      | What is the public opinion about my product or brand?                      |
+| Disease Diagnosis       | Symptoms, test results, demographics    | Disease class (e.g., flu, COVID, none)   | How can I assist doctors in making accurate and timely diagnoses?          |
+| Energy Usage Estimation | Time of day, weather, appliance usage   | Predicted energy consumption             | How should I manage power supply or optimize grid efficiency?              |
+
 
 ## Simple Linear Regression
 
@@ -208,55 +215,85 @@ In different fields and contexts, we often use different terms for the same unde
 
 There are actually four equivalent ways of representing a dataset, each useful in different contexts. You will be greatly aided in your study of machine learning if you can recognize and switch between all four forms with ease. Different textbooks, courses, tutorials and code libraries will use different representations so developing fluency in all of them will help you understand ideas more deeply and communicate more clearly.
 
-1.  **Mathematical Set Notation:**\
-    This is the notation we just introduced:\
-    $$
-    \{(x^{(i)}, y^{(i)})\}_{i=1}^n
-    $$
+1.  **Mathematical Set Notation:**
+
+This is the notation we just introduced:
+
+$$
+\{(x^{(i)}, y^{(i)})\}_{i=1}^n
+$$
 
 It represents the dataset as a collection of $n$ input-output pairs, where each $x^{(i)}$ is an input and each $y^{(i)}$ is the corresponding output. This form is widely used in textbooks and research papers because of its compactness and precision. It’s the language of mathematics, and it's especially helpful when trying to understand what’s happening *under the hood* as computer code executes. By using this notation, we can reason more clearly about how models learn and make predictions.
 
-2.  **Spreadsheet or Table Format:**\
-    This is the most familiar form for most people and is often used in business and statistics. Each row represents an example; each column represents a variable or feature.
+2.  **Spreadsheet or Table Format:**
 
-    | Example ($i$) | $x^{(i)}$ = Input (e.g., SqFt) | $y^{(i)}$ = Output (e.g., Price) |
-    |----|----|----|
-    | 1 | 1200 | 250,000 |
-    | 2 | 1400 | 275,000 |
-    | 3 | 1600 | 300,000 |
-    | ... | ... | ... |
-    | $n$ | — | — |
+This is the most familiar form for most people and is often used in business and statistics. Each row represents an example; each column represents a variable or feature.
 
-    This is also the format used in tools like Excel, Google Sheets, or data frames in Python and R.
+| Example ($i$) | $x^{(i)}$ = Input (e.g., SqFt) | $y^{(i)}$ = Output (e.g., Price) |
+|----|----|----|
+| 1 | 1200 | 250,000 |
+| 2 | 1400 | 275,000 |
+| 3 | 1600 | 300,000 |
+| ... | ... | ... |
+| $n$ | — | — |
 
-3.  **Mathematical Matrix Notation:**\
-    Matrix notation is a compact and powerful mathematical way to represent an entire dataset, especially when trying to understand what calculations the computer is making while executing machine learning algorithms (discussed in the next section). In matrix form:
+This is also the format used in tools like Excel, Google Sheets, or data frames in Python and R.
 
--   The **inputs** are stored in a matrix called $X$, with $n$ rows (one for each example) and $d$ columns (one for each feature or input variable).
--   The **outputs** are stored in a column vector called $y$, with $n$ rows (one for each label or true value).
+3.  **Mathematical Matrix Notation:**
+  
+Matrix notation is a **compact and powerful** way to represent datasets and linear regression models. It helps us generalize models to many inputs and use efficient numerical libraries for computation.
 
-If each input has just one feature (like square footage), then $X$ is simply a single column of numbers (a vector). But if we have **more than one input feature**, for example, both square footage and number of bedrooms, then $X$ becomes a matrix with multiple columns, like this:
+In matrix form, a simple linear regression with one input variable looks like this:
 
 $$
-X =
+\hat{y} =
 \begin{bmatrix}
-x_1^{(1)} & x_2^{(1)} \\
-x_1^{(2)} & x_2^{(2)} \\
-\vdots & \vdots \\
-x_1^{(n)} & x_2^{(n)}
+1 & x
 \end{bmatrix}
+\begin{bmatrix}
+w_0 \\
+w_1
+\end{bmatrix}
+= w_0 + w_1 x.
 $$
 
 Here:
 
--   Each **row** represents one house (one example from the dataset).
--   Each **column** represents a feature:
-    -   $x_1^{(i)}$ might be the square footage of house $i$
-    -   $x_2^{(i)}$ might be the number of bedrooms in house $i$
+- The “1” in the input vector allows us to represent the intercept term $w_0$ together with the slope $w_1$.
+- This convention turns the model into a **dot product** (vector multiplication).
 
-This structure easily extends to more features. For example, if we also include number of bathrooms, year built, and lot size, then $X$ would have 5 columns total (one for each feature).
+While this may initially feel like a notational trick, it is a standard approach in regression modeling and is essential for applying matrix operations efficiently.
 
-The output vector $y$ stays the same regardless of the number of inputs with one value per row, like the price of the home:
+This notation extends naturally to represent the entire training dataset. When including an intercept, we create an input matrix (also called a **design matrix**) by adding a column of ones on the left:
+
+$$
+\mathbf{X} =
+\begin{bmatrix}
+1 & x^{(1)} \\
+1 & x^{(2)} \\
+\vdots & \vdots \\
+1 & x^{(n)}
+\end{bmatrix},
+$$
+More generally:
+
+- The **design matrix** $\mathbf{X}$ has shape $(n, d + 1)$, where:
+  - $n$ = number of training examples (rows).
+  - $d$ = number of input features.
+  - The extra column of ones accounts for the intercept (also called the **bias term**).
+
+If we have more than one input feature (for example, square footage and number of bedrooms, etc), $\mathbf{X}$ becomes:
+
+$$
+\begin{bmatrix}
+1 & x_1^{(1)} & x_2^{(1)} & \cdots & x_d^{(1)} \\
+1 & x_1^{(2)} & x_2^{(2)} & \cdots & x_d^{(2)} \\
+\vdots & \vdots & \vdots & \ddots & \vdots \\
+1 & x_1^{(n)} & x_2^{(n)} & \cdots & x_d^{(n)}
+\end{bmatrix}
+$$
+
+The output vector $\hat{\mathbf{y}}$ stores the predicted values (e.g., house prices):
 
 $$
 y =
@@ -268,11 +305,38 @@ y^{(n)}
 \end{bmatrix}
 $$
 
-> Matrix notation lets us express model computations in a **compact, efficient** form that computers can execute quickly.
->
-> It will be essential when we **scale up** to more than one input feature. It illustrates how a machine *thinks.* It’s ideal for: - Handling **many examples and features** - Performing **vectorized calculations** like dot products and gradients - Writing models in **clean, code-friendly format**
->
-> Matrix notation makes your reasoning and implementation **faster, clearer, and more powerful**. We'll use it throughout the course.
+The weight vector $\mathbf{w}$ stores the weight parameters:
+
+$$
+\mathbf{w} =
+\begin{bmatrix}
+w_0 \\
+w_1 \\
+\vdots \\
+w_{d}
+\end{bmatrix}
+$$
+This leads to the **compact matrix equation** for all predictions:
+
+$$
+\hat{\mathbf{y}} = \mathbf{X} \mathbf{w}
+=
+\begin{bmatrix}
+1 & x_1^{(1)} & x_2^{(1)} & \cdots & x_d^{(1)} \\
+1 & x_1^{(2)} & x_2^{(2)} & \cdots & x_d^{(2)} \\
+\vdots & \vdots & \vdots & \ddots & \vdots \\
+1 & x_1^{(n)} & x_2^{(n)} & \cdots & x_d^{(n)}
+\end{bmatrix}
+\begin{bmatrix}
+w_0 \\
+w_1 \\
+w_2 \\
+\vdots \\
+w_d
+\end{bmatrix}
+$$
+> **Matrix notation** helps us express models clearly and allows computers to compute predictions for all examples at once. This approach is essential when scaling to many features and large datasets. We will rely on this notation throughout the course.
+
 
 4.  **Code Representation (Arrays or Tensors):**\
     When implementing models in code, we typically use arrays (Python's NumPy package) or tensors (Python's PyTorch package) which are data structures that store values in memory for numerical computation.
@@ -476,6 +540,8 @@ As the saying goes, *a picture is worth a thousand words*, so let’s visualize 
 
 In the plot below, we graph the loss function $\mathcal{L}(w_0, w_1)$ to see it as a 3D surface, with $w_0$ on the x-axis, $w_1$ on the y-axis, and the height of the surface representing the mean squared error loss $\mathcal{L}$. This gives us a *landscape* of possible values of $w_0$ and $w_1$ to choose from.
 
+The plot also includes contour lines, which are like the topographical lines you see on a map. These contours help you visualize the height of the surface even when looking down from above onto the flat 2D plane. The contour lines will be especially helpful in the next section when we explore how adjusting the weights changes the loss value. 
+
 {{< include assets/01-machine-learning/bowl_surface_plot.qmd >}}
 
 As can be seen from the plot, there are many possible choices of $w_0$ and $w_1$, each resulting in a different loss value. In the next section, we will study a foundational algorithm called gradient descent which is designed to intelligently and iteratively explore different combinations of $w_0$ and $w_1$, calculating the loss that results from each combination. The process continues until **convergence** occurs, that is, until the algorithm believes it has found the best choice of weights that minimize the loss. We’ll explore the details of how gradient descent works in the next section.
@@ -500,26 +566,30 @@ These properties make MSE both practical and theoretically sound for training mo
 
 ### 4th Ingredient: Training Algorithm
 
-Once we have selected a loss function, our next task is to find the values of $w_0$ and $w_1$ that minimize it. But how do we actually do that?
+Once we’ve selected a loss function, the next challenge is figuring out how to minimize it, that is, how to find the values of $w_0$ and $w_1$ that make the loss as small as possible.
 
-Imagine you’re hiking on the inside of bowl-shaped surface of the loss function plot we explored in the previous section. Where you are standing corresponds to a specific combination of $w_0$ and $w_1$. Your goal is to get to the lowest possible point on the surface, the bottom of the bowl, where the loss is minimized and the model makes the best possible predictions.
+To build intuition, imagine you’re standing somewhere on the inside of a smooth, canyon-shaped surface like the 3D plot shown in the last section. This surface represents the loss function, and your location corresponds to a specific pair of weights: $(w_0, w_1)$. Your goal is to hike down to the very bottom of the canyon, the point where the loss is lowest and your model makes its best predictions.
 
-The training algorithm called **gradient descent** helps you do exactly that in a very clever and efficient way.
+But how do you know which way to step?
 
-Before taking the next step down the hill, it asks:
+This is where the **training algorithm** called **gradient descent** comes in. It uses the concept of a derivative (a rate of change from calculus) to calculate the slope of the loss surface at your current position. Then it suggests a small step in the direction that will reduce the loss the fastest: the steepest descent.
 
-> “Which direction should I go to decrease the loss most quickly? Or equivalently, which direction is the steepest and will get me to the bottom of this bowl as fast as possible.”
+It’s called an **algorithm** because it repeats this process: take a step, recalculate the slope, take another step while gradually working its way toward the minimum.
 
-To answer that question, gradient descent uses a mathematical tool called the **gradient**, just a fancy word for the direction of *steepest ascent* (what we’d call the **slope** in calculus). Since we want to go downhill, toward lower loss, we will actually move in the opposite (i.e. negative) direction of the gradient.
+In this way, gradient descent acts like a smart compass that always points you downhill in the direction that leads most quickly to better predictions.
 
-Since we are working with a loss function of two variables, $\mathcal{L}(w_0, w_1)$, there are two different directions in play for each step we take down the hill. Hence, in this case, the **gradient** will be a vector with two components, one representing each direction (you can think of each component as the the "slope" in a certain direction):
+That explains what *descent* means in gradient descent, but what about *gradient*? 
 
--   $\frac{\partial \mathcal{L}}{\partial w_0}$: how the loss changes when we adjust $w_0$
--   $\frac{\partial \mathcal{L}}{\partial w_1}$: how the loss changes when we adjust $w_1$
+**Gradient** is just a fancy word for the direction of steepest *ascent* (what we’d call the *slope* in single variable calculus). Since we want to go downhill, toward lower loss, we will actually move in the opposite (i.e. negative) direction of the gradient, hence the name *gradient descent*.
 
-These are called the **partial derivatives** of the function. They measure how sensitive the loss is to each parameter. They tell us the function's rate of change as we vary **one parameter at a time**, holding the others constant.
+Since we are working with a loss function of two variables (the weights), $\mathcal{L}(w_0, w_1)$, there are two directions in play for each step we take down the hill. In this case, the gradient is a vector with two components, each representing the rate of change of the loss with respect to one of the weights (you can think of each component as the "slope" in a particular direction). Mathematically, these components are written as:
 
-We represent the gradient vector in the following mathematical notation:
+$\frac{\partial \mathcal{L}}{\partial w_0}$: how the loss changes when we adjust $w_0$
+$\frac{\partial \mathcal{L}}{\partial w_1}$: how the loss changes when we adjust $w_1$
+
+Together, these two components form the **gradient vector** of the loss function.
+
+This is written using the **nabla symbol** $\nabla$ (pronounced *“nabla”*, named after an ancient harp), which represents the gradient operator:
 
 $$
 \nabla \mathcal{L}(w_0, w_1) =
@@ -529,76 +599,129 @@ $$
 \end{bmatrix}
 $$
 
-::: {.callout-tip collapse="true" collapsed="true" title="Understanding the Gradient Notation"}
-The expressions
+The notation looks intimidating, but let's break it down symbol by symbol:
 
-$$
-\frac{\partial \mathcal{L}}{\partial w_0} \quad \text{and} \quad \frac{\partial \mathcal{L}}{\partial w_1}
-$$
-
-are called **partial derivatives**. They measure how sensitive the loss is to each parameter, essentially, how steep the slope is along each direction of the surface plot.
-
-Here's what the notation means:
-
--   The **partial derivative symbol** $\partial$ (pronounced *“partial”*) means we’re measuring the rate of change with respect to just **one** variable, keeping the others constant.
+-   $\nabla$ is a mathematical operator implying an action is being taken, in this case, computing a series of partial derivatives with respect to each weight
+-   The **partial derivative symbol** $\partial$ (pronounced *“partial”*) means we’re measuring the rate of change of the loss $\mathcal{L}$ with respect to just **one** variable $w_0$ or $w_0$, keeping the other constant.
 -   $\mathcal{L}$ (script L) represents the **loss function**, which tells us how far off our model’s predictions are from the actual outcomes.
 -   $w_0$ and $w_1$ are the **parameters** of our model.
+-   $\begin{bmatrix}\end{bmatrix}$ combines all components into a single vector
 
-So:
+Just like other more familiar mathematical operators, such as addition $+$ and multiplication $\times$, the $\nabla$ operator means we will perform some *operation* on whatever equation or numbers we are applying to. In our case, we are taking the **partial derivatives** of the loss function with respect to each weight in order to obtain the gradient vector. Below, we will show how the partial derivitives of the loss function using rules from calculus. 
 
--   $\frac{\partial \mathcal{L}}{\partial w_0}$ tells us how the loss changes if we slightly increase $w_0$, holding $w_1$ fixed.
--   $\frac{\partial \mathcal{L}}{\partial w_1}$ tells us how the loss changes with respect to $w_1$, keeping $w_0$ fixed.
+::: {.callout-tip collapse="true" collapsed="true" title="What is a derivative?"}
 
-Together, these two values form the **gradient vector** of the loss function.
+A **derivative** is a way of measuring **how fast something is changing**.
 
-This is written compactly using the **nabla symbol** $\nabla$ (pronounced *“nabla”*, named after an ancient harp), which represents the gradient operator:
+In simple terms, the derivative tells you the **slope of a function** at a specific point—that is, how steep the function is at that spot.
+
+**Imagine this:**
+
+You're walking up a hill, and you want to know how steep it is right where you're standing. That steepness, the **instantaneous slope**, is the derivative.
+
+- If the slope is positive, you're going uphill.
+- If the slope is negative, you're going downhill.
+- If the slope is zero, you're on flat ground (maybe the top or bottom of the hill).
+
+**Mathematically:**
+
+If $f(x) = x^2$, then the derivative is:
 
 $$
-\nabla \mathcal{L}(w_0, w_1) =
-\begin{bmatrix}
-\frac{\partial \mathcal{L}}{\partial w_0} \\
-\frac{\partial \mathcal{L}}{\partial w_1}
-\end{bmatrix}
+\frac{df}{dx} = 2x
 $$
 
-This vector points in the direction of steepest increase in loss. In **gradient descent**, we take the negative of the gradient to move in the opposite direction (steepest decent), toward the minimum.
+At $x = 3$, the slope is $2 \cdot 3 = 6$, so the curve is rising steeply.
 
-| Symbol | Name | Meaning |
-|----|----|----|
-| $\mathcal{L}$ | Script L | The loss function |
-| $\partial$ | Partial | Derivative with respect to one variable (holds others constant) |
-| $\nabla$ | Nabla | The gradient operator—produces a vector of partial derivatives |
+In gradient descent, we're just following the steepest slope as we hike downhill toward the lowest point.
+
 :::
 
-The gradient of a function always points in the direction of steepest *ascent.* We actually want to know the direction of the steepest **descent** (to get to the bottom of the bowl-shaped surface) hence will be most interested in the negative gradient (i.e. the exact opposite direction).
 
-If you move in a direction other than the gradient, the loss value will either stay the same or change at a slower rate.
+::: {.callout-tip collapse="true" collapsed="true" title="What is a partial derivative?"}
 
-The illustration below demonstrates taking steps down the side of the bowl.
+A **partial derivative** is just the derivative of a multivariable function with respect to **one variable at a time**, while holding all the other variables constant.
 
-## The Gradient of the MSE Loss Function
+Think of it like asking:  
+> "If I only adjust this one knob (say, $w_0$), how does the output change, assuming all other knobs stay fixed?"
 
-In the context of the **Mean Squared Error (MSE)** loss function for simple linear regression, the **gradient** tells us how to adjust our model parameters to reduce the prediction error.
+**Example:**
 
-### Linear Model
-
-We model the prediction $\hat{y}^{(i)}$ as:
+Suppose we have this function with two variables:
 
 $$
-\hat{y}^{(i)} = w_0 + w_1 x^{(i)}
+f(w_0, w_1) = w_0^2 + 3w_0 w_1 + w_1^2
 $$
 
-### MSE Loss Function
+We can take the partial derivatives:
 
-The loss function over $n$ training examples is:
+- With respect to $w_0$:
+  $$
+  \frac{\partial f}{\partial w_0} = 2w_0 + 3w_1
+  $$
+- With respect to $w_1$:
+
+  $$
+  \frac{\partial f}{\partial w_1} = 3w_0 + 2w_1
+  $$
+
+Each tells us how the function changes **in that direction**, treating the other variable like a constant.
+
+This is essential for gradient descent: we compute the slope in each direction (each weight), then use those partials to form the gradient vector.
+
+:::
+
+Recall that our mean squared error (MSE) loss function is:
 
 $$
-\mathcal{L}(w_0, w_1) = \frac{1}{n} \sum_{i=1}^n \left( \hat{y}^{(i)} - y^{(i)} \right)^2 = \frac{1}{n} \sum_{i=1}^n \left( w_0 + w_1 x^{(i)} - y^{(i)} \right)^2
+\mathcal{L}(w_0, w_1) = \frac{1}{n} \sum_{i=1}^n (\hat{y}^{(i)} - y^{(i)})^2 = \frac{1}{n} \sum_{i=1}^n (w_0 + w_1 x^{(i)} - y^{(i)})^2 
+$$
+To take the partial derivatives we apply the **chain rule** which gives us:
+
+::: {.callout-tip collapse="true" collapsed="true" title="What is the Chain Rule"}
+
+The **chain rule** is a way to take the derivative of a *function inside another function*.
+
+Think of it like peeling an onion: you take the derivative of the outer layer, then multiply it by the derivative of the inner layer.
+
+**Example:**
+
+Suppose you have:
+
+$$
+f(x) = (3x + 1)^2
 $$
 
-### Gradient of the Loss
+This is a composition of two functions:
 
-The **gradient** is a vector of partial derivatives with respect to each parameter:
+- Outer function: $u^2$
+- Inner function: $u = 3x + 1$
+
+Using the chain rule:
+
+$$
+\frac{df}{dx} = \frac{d}{du}(u^2) \cdot \frac{du}{dx} = 2u \cdot 3 = 2(3x + 1) \cdot 3 = 6(3x + 1)
+$$
+
+So even though the original function looks complicated, we can compute the derivative one layer at a time and then multiply the results from each layer.
+
+This same principle is applied to find the partial derivatives of a loss function like MSE.
+
+:::
+
+**Partial Derivative with respect to $w_0$**
+
+$$
+\frac{\partial \mathcal{L}}{\partial w_0} = \frac{2}{n} \sum_{i=1}^n (w_0 + w_1 x^{(i)} - y^{(i)}) \times 1 = \frac{2}{n} \sum_{i=1}^n (w_0 + w_1 x^{(i)} - y^{(i)})
+$$
+
+**Partial Derivative with respect to $w_1$**
+
+$$
+\frac{\partial \mathcal{L}}{\partial w_1} = \frac{2}{n} \sum_{i=1}^n (w_0 + w_1 x^{(i)} - y^{(i)}) \times x^{(i)}
+$$
+
+Putting the two partial derivtives into a vector gives us the gradient of the loss function:
 
 $$
 \nabla \mathcal{L}(w_0, w_1) =
@@ -607,49 +730,193 @@ $$
 \frac{\partial \mathcal{L}}{\partial w_1}
 \end{bmatrix}
 =
-\frac{2}{n}
+\frac{2}{n} \sum_{i=1}^n
 \begin{bmatrix}
-\sum_{i=1}^n \left( w_0 + w_1 x^{(i)} - y^{(i)} \right) \\
-\sum_{i=1}^n \left( w_0 + w_1 x^{(i)} - y^{(i)} \right) x^{(i)}
+w_0 + w_1 x^{(i)} - y^{(i)} \\
+(w_0 + w_1 x^{(i)} - y^{(i)}) \cdot x^{(i)}
+\end{bmatrix}
+$$
+Don't lose sight of the fact that this apparently complex notation just represents simple numbers in the end.
+
+For example, let’s assume our training data was:
+
+- $x^{(1)} = 0, \; y^{(1)} = 1$  
+- $x^{(2)} = 1, \; y^{(2)} = 3$  
+- $x^{(3)} = 2, \; y^{(3)} = 5$  
+- $x^{(4)} = 3, \; y^{(4)} = 7$
+
+With initial weights of: $w_0 = 1, \; w_1 = 1$
+
+Then, substituting all these values into the gradient equation above we get:
+
+$$
+\begin{align*}
+&= \frac{2}{4} \Bigg(
+\begin{bmatrix}
+1 + 1 \cdot 0 - 1 \\
+(1 + 1 \cdot 0 - 1) \cdot 0
+\end{bmatrix}
++
+\begin{bmatrix}
+1 + 1 \cdot 1 - 3 \\
+(1 + 1 \cdot 1 - 3) \cdot 1
+\end{bmatrix}
++
+\begin{bmatrix}
+1 + 1 \cdot 2 - 5 \\
+(1 + 1 \cdot 2 - 5) \cdot 2
+\end{bmatrix}
++
+\begin{bmatrix}
+1 + 1 \cdot 3 - 7 \\
+(1 + 1 \cdot 3 - 7) \cdot 3
+\end{bmatrix}
+\Bigg) \\
+&= \frac{2}{4} \left(
+\begin{bmatrix}
+0 \\
+0
+\end{bmatrix}
++
+\begin{bmatrix}
+-1 \\
+-1
+\end{bmatrix}
++
+\begin{bmatrix}
+-2 \\
+-4
+\end{bmatrix}
++
+\begin{bmatrix}
+-3 \\
+-9
+\end{bmatrix}
+\right) \\
+&= \frac{2}{4}
+\begin{bmatrix}
+-6 \\
+-14
+\end{bmatrix} \\
+&=
+\begin{bmatrix}
+-3 \\
+-7
+\end{bmatrix}
+\end{align*}
+$$
+
+So the **negative** gradient of the loss function calculated at:
+
+$$
+\begin{bmatrix}w_0 \\ w_1 \end{bmatrix} = \begin{bmatrix} 1 \\ 1 \end{bmatrix}
+$$  
+is:
+
+$$
+\nabla \mathcal{L}(w_0, w_1) =
+\begin{bmatrix}
+3 \\
+7
 \end{bmatrix}
 $$
 
-### Interpretation
+The weight vector and the gradient vector always have the same number of components because the gradient is composed of the partial derivatives with respect to each weight, one for every weight parameter.
 
--   The first component, $\frac{\partial \mathcal{L}}{\partial w_0}$, measures how the loss changes if we nudge the **intercept** $w_0$.
--   The second component, $\frac{\partial \mathcal{L}}{\partial w_1}$, measures how the loss changes if we adjust the **slope** $w_1$.
+Our goal is to use the information enocoded in the gradient vector to update the weight vector and reduce the loss.
 
-We use this gradient in **gradient descent** to update each weight:
+We will first explore what this looks like geometrically in order to build our intuition and then we will introduce the mathematical equation that performs this task for us which is the core of the gradient descent algorithm.
+
+The left plot below shows the initial weight vector originating from the origin (point $(0,0)$), and then shows the **gradient descent vector** (the negative of the gradient) orginating from the tip of the weight vector since this is the point at which the gradient is calculated.
+
+The left plot also shows the combination of weight values that would result in minimum loss. This is ultimately where we'd like to get to. The dashed line shows the resulting new weight vector when we sum of the existing weight vector with the gradient *descent* vector. Notice how the gradient *descent* vector shoots straight through the minimum (i.e the direction of steepest descent), but unfortunately it leaps over it, missing our goal and actually taking us to a place of higher loss. The right plot shows how we address this by introducing a **learning rate** which is described next.
+
+{{< include assets/01-machine-learning/plot-update-rule.qmd >}}
+
+Because of this risk of overshooting the minimum by taking two large of a step, we introduce a concept called a **learning rate** that governs the size of the step that we take. The learning rate is a number generally between 0 and 1 that shrinks the magnitude (length) of the gradient descent vector while maintaining its direction. Mathematically, the step size can be written as the product of the learning rate (a scalar) and the gradient vector:
 
 $$
-w_j \leftarrow w_j - \alpha \cdot \frac{\partial \mathcal{L}}{\partial w_j}
+\text{Step size} = \eta \cdot \nabla L(\mathbf{w})
 $$
 
-where $\alpha$ is the learning rate.
+Where:
 
-This iterative update rule allows us to **minimize the loss** by moving in the direction of steepest descent.
+- $\eta$ (the Greek letter "eta") is the **learning rate**, a positive scalar that determines how big a step we take
+- $\nabla L(\mathbf{w})$ is the gradient of the loss function evaluated at the current weight vector $\mathbf{w}$.
+  - to make our notation more compact and prepare for situations where there are more than two weights, we introduce bold face vector notation where a bold $\mathbf{w}$ represents a vector of all the weights:
 
-::: {.callout-tip collapse="true" collapsed="true"}
-## Why are we calling this "supervised" machine learning and what other types are there?
+$$
+\mathbf{w}
+=
+\begin{bmatrix}
+w_0 \\
+w_1
+\end{bmatrix}
+$$
+To update the weights, we add the the weight vector to the negative scaled gradient (calculated at the current weights). This is equivalent to subtraction which is generally how you will see the update rule written:
+
+$$
+\mathbf{w}_{\text{old}} + (- \eta \cdot \nabla L(\mathbf{w}_{\text{old}})) = \mathbf{w}_{\text{old}} - \eta \cdot \nabla L(\mathbf{w}_{\text{old}})
+$$
+
+$$
+\mathbf{w}_{\text{new}} \leftarrow \mathbf{w}_{\text{old}} - \eta \cdot \nabla L(\mathbf{w}_{\text{old}})
+$$
+
+This equation is the **heart of gradient descent**. It tells us:
+
+- Calculate how the loss changes in response to each weight (the gradient).
+- Scale this change by the learning rate to control the step size.
+- Move the weights in the *opposite direction* of the gradient to reduce the loss (geometrically adding the current weight vector with the negative of the gradient)
+
+Over multiple iterations, this process gradually guides the weights toward the combination that minimizes the loss function, ideally reaching or approaching the global minimum.
+
+In practice, choosing an appropriate learning rate $\eta$ is critical:
+
+- If $\eta$ is too large, the steps may overshoot the minimum and cause divergence or oscillation.
+- If $\eta$ is too small, convergence will be very slow, requiring many updates to reach a good solution.
+
+We can now summarize the gradient desecent algorithm:
+
+::: {.callout-note title="Summary of the Gradient Descent Algorithm"}
+
+1. **Initialize weights**  
+   Start with random or zero values for the components of the weight vector $\mathbf{w}$.
+
+2. **Compute predictions**  
+   Use the current weights to compute predictions $\hat{y}$ for all training examples.
+
+3. **Evaluate the loss**  
+   Measure how far off the predictions are from the true values using a loss function $\mathcal{L}(\mathbf{w})$.
+
+4. **Compute the gradient**  
+   Calculate the gradient $\nabla \mathcal{L}(\mathbf{w})$, which points in the direction of steepest increase in loss.
+
+5. **Update the weights**  
+   Move the weights in the opposite direction of the gradient using the update rule:
+
+   $$
+   \mathbf{w}_{\text{new}} \leftarrow \mathbf{w}_{\text{old}} - \eta \cdot \nabla L(\mathbf{w}_{\text{old}})
+   $$
+6. **Repeat**  
+   Repeat steps 2–5 until the loss stops decreasing (or decreases very slowly), indicating **convergence.**
+
 :::
 
-In our example, **training data**,
 
-**machine learning algorithm**
-
-**parameters or "weights"**
-
-(read as y-hat, the "hat" signifies that a prediction is being made. Writing $y$ without the "hat" would mean no prediction has yet been attempted).
-
-uch as a zestimate from Zillow
+4. The **gradient vector** lives in the **same 2D space as the weight vector**, because it is made up of the **partial derivatives with respect to each weight**. If the weight vector has two components, the gradient vector will also have two components — one for each direction in weight space. Visually, the gradient can be drawn as an arrow on the 2D floor, pointing in the direction of steepest ascent.
 
 ## Glossary
 
 **Simple Linear Regression**
 
+**training data**
+
+**machine learning algorithm**
+
 **parameters or "weights"**
 
-**training data**,
+**parameters or "weights"**
 
 **machine learning algorithm**
 
@@ -659,138 +926,9 @@ uch as a zestimate from Zillow
 
 **Epoch**
 
--   $w_0$ is the intercept (bias term),
--   $w_1$ is the slope (weight).
+**Supervised Learning**: Supervised learning is the most widely used type of machine learning and significantly overlaps with the methodologies of other quantitative fields, such as statistics and econometrics. Supervised learning gets its name from the fact that the input data set has examples of both inputs and outputs. The outputs are called labels, hence you will sometime hear the term "labeled dataset."
 
-To bring this to life, let's consider a concrete where we'd like to predict the price of a home.
-
-Let:
-
--   $\hat{y}$ be the predicted price of a house (in thousands of dollars),
--   $x$ be the size of the house in square feet.
-
-Suppose we have fit a linear model to a dataset and obtained:
-
-$$
-\hat{y} = 50 + 0.2 x
-$$
-
-This means: - The base price of any house (intercept) is \$50,000. - For each additional square foot, the price increases by \$200.
-
-### Example
-
-For a house that is 1,000 square feet:
-
-$$
-\hat{y} = 50 + 0.2 \cdot 1000 = 250
-$$
-
-So, the model predicts a price of \$250,000 for a 1,000 square foot house.
-
-------------------------------------------------------------------------
-
-#### Target Variable and Input Variable
-
--   **Target Variable** ($y$): the outcome we are trying to predict.
--   **Input Variable** ($x$): the feature used to make the prediction.
-
-------------------------------------------------------------------------
-
-#### Training and Validation Sets
-
--   **Training set**: used to learn the model parameters.
--   **Validation set**: used to evaluate how well the model generalizes to unseen data.
-
-------------------------------------------------------------------------
-
-#### Model Approximation and Noise
-
-The model approximates an unknown true function: $$
-y = f^*(x) + \varepsilon
-$$ where $\varepsilon$ is the irreducible error.
-
-------------------------------------------------------------------------
-
-#### Residuals
-
-The residuals measure the difference between actual and predicted values: $$
-e_i = y_i - \hat{y}_i
-$$
-
-------------------------------------------------------------------------
-
-#### Loss Function (Mean Squared Error)
-
-To measure model performance: $$
-\mathcal{L}(w_0, w_1) = \frac{1}{n} \sum_{i=1}^n (y_i - \hat{y}_i)^2
-$$
-
-------------------------------------------------------------------------
-
-#### Design Matrix
-
-With $n$ observations, the design matrix includes a bias term: $$
-\mathbf{X} = \begin{bmatrix}
-1 & x_1 \\
-1 & x_2 \\
-\vdots & \vdots \\
-1 & x_n
-\end{bmatrix}
-$$
-
-------------------------------------------------------------------------
-
-#### Closed-form Solution (Normal Equation)
-
-We can directly compute the optimal weights: $$
-\mathbf{w} = (\mathbf{X}^\top \mathbf{X})^{-1} \mathbf{X}^\top \mathbf{y}
-$$
-
-------------------------------------------------------------------------
-
-#### Parameters and Estimation
-
--   **Parameters**: $w_0$, $w_1$
--   **Goal**: estimate parameters that minimize the loss function
-
-------------------------------------------------------------------------
-
-#### Gradient Descent
-
-When a closed-form is not used, we apply an iterative optimization: $$
-w_j \leftarrow w_j - \eta \frac{\partial \mathcal{L}}{\partial w_j}
-$$
-
-With gradients: $$
-\frac{\partial \mathcal{L}}{\partial w_j} = -\frac{2}{n} \sum_{i=1}^n x_{ij}(y_i - \hat{y}_i)
-$$
-
-------------------------------------------------------------------------
-
-#### Overfitting and Underfitting
-
--   **Underfitting**: model too simple to capture data patterns
--   **Overfitting**: model too complex, captures noise instead of signal
--   **Validation** helps detect these behaviors.
-
-### Multiple Linear Regression
-
-### Logistic Regression
-
-### Classification
-
-## Loss Functions
-
-A loss function is a mathematical function that measures the difference between a model's predicted output and the true target value from a training dataset. It produces a scalar value representing the error for a single data point or the average error over a batch.
-
--   **Cross entropy loss**: “cross entropy” and “negative average log probability” related and often used interchangeably in practice.”
-
--   **Perplexity**: “Perplexity is a measure often used alongside cross entropy loss to evaluate the performance of models in tasks like language modeling. ”
-
-## Gradient Descent
-
-::: {.callout-tip collapse="true" collapsed="true"}
-## Synonyms Across Fields
+### Synonyms Across Fields
 
 Different disciplines often use different terms for the same concepts. Here's a helpful guide:
 
@@ -805,77 +943,12 @@ Different disciplines often use different terms for the same concepts. Here's a 
 | Loss function | **Loss** | **Objective function**, **Criterion function** |
 | Learn model parameters | **Training**, **Fitting** | **Estimation** |
 
-Understanding these parallels can make it much easier to bridge terminology between fields as you move through the course.
-:::
+## Appendix 
 
-### Supervised Learning Use Cases
+### Closed-form Solution (Normal Equation)
 
-**Supervised Learning (Regression) Use Cases**
+We can directly compute the optimal weights: 
 
-| Use Case | Sample Inputs | Model Output Description | What ML Question is Being Answered? | What Business Question is Being Answered? | Example Algorithm(s) |
-|----|----|----|----|----|----|
-| Price Prediction | Property size, location, features | Numeric price | What is the expected price of this item? | How should I price products to stay competitive and profitable? | Linear Regression, CatBoost |
-| Demand Forecasting | Historical sales, promotions, holidays | Predicted sales volume | What will sales be next week/month? | How can I manage inventory or staffing to meet demand? | Linear Regression, LSTM |
-| Medical Risk Score | Patient vitals, history | Risk score (e.g., probability of event) | How likely is a medical event to occur? | How should I prioritize preventive care for patients? | Random Forest, Ridge Reg. |
-| Revenue Forecasting | Past financials, seasonality | Revenue over next time period | How much revenue will we make? | How can I allocate budgets or set growth targets? | Time Series Models, XGBoost |
-| Energy Usage Estimation | Time of day, weather, appliance use | Predicted energy consumption | How much energy will be used in this period? | How should I manage power supply or optimize grid efficiency? | Linear Regression, SVR |
-
-**Supervised Learning (Classification) Use Cases**
-
-| Use Case | Sample Inputs | Model Output Description | What ML Question is Being Answered? | What Business Question is Being Answered? | Example Algorithm(s) |
-|----|----|----|----|----|----|
-| Email Spam Detection | Email content, sender info, subject line | Binary label: spam or not spam | Is this email spam? | How can I prevent unwanted emails from reaching users’ inboxes? | Logistic Regression, SVM |
-| Credit Risk Scoring | Income, credit history, employment data | Risk category (e.g., low/medium/high) | Will this applicant default? | Should I approve this loan, and at what interest rate? | Decision Tree, XGBoost |
-| Image Classification | Pixel values from an image | Object class label (e.g., “cat”, “dog”) | What object is in this image? | How can I organize photos or automate product tagging? | CNNs, ResNet |
-| Sentiment Analysis | Review text, social media posts | Sentiment label (positive/negative) | What sentiment is being expressed? | What is the public opinion about my product or brand? | Naive Bayes, BERT |
-| Disease Diagnosis | Symptoms, test results, demographics | Disease class (e.g., flu, COVID, none) | What condition does this patient likely have? | How can I assist doctors in making accurate and timely diagnoses? | Random Forest, Neural Nets |
-
-## Unsupervised Learning
-
-### Unsupervised Learning Use Cases
-
-| Use Case | Sample Inputs | Model Output Description | What ML Question is Being Answered? | What Business Question is Being Answered? | Example Algorithm(s) |
-|----|----|----|----|----|----|
-| Customer Segmentation | Age, income, purchase history | Cluster/group labels for each customer | What types of customers exist in my data? | How can I tailor marketing strategies to different customer types? | K-means, DBSCAN |
-| Topic Modeling | Articles or documents | Topics with keywords per document | What topics are being discussed? | What content themes resonate most with my audience or market? | LDA, NMF |
-| Anomaly Detection | Transaction logs, sensor data | Anomaly score or binary flag | Which data points are unusual? | Are there fraudulent transactions or system failures I need to act on? | Isolation Forest, Autoencoder |
-| Dimensionality Reduction | High-dimensional features (e.g., pixels) | 2D or 3D projections for analysis or visualization | How can I reduce feature space while preserving info? | How can I visualize or simplify complex data for human analysis or modeling? | PCA, t-SNE, UMAP |
-| Market Basket Analysis | Sets of purchased items | Association rules (A & B → C) | What items co-occur frequently in purchases? | Which product bundles or cross-sell offers should I promote? | Apriori, FP-Growth |
-| Word Embedding | Text corpus | Word vectors capturing semantic similarity | What are the contextual relationships between words? | How can I build a smarter search engine or chatbot that understands language context? | Word2Vec, GloVe |
-| Image Compression | Raw pixel arrays | Compressed version of the image | How can I represent this image with fewer features? | How can I reduce storage or transmission costs for image data? | Autoencoders |
-
-## Reinforcement Learning
-
-### Reinforcement Learning Use Cases
-
-| Use Case | Sample Inputs | Model Output Description | What ML Question is Being Answered? | What Business Question is Being Answered? | Example Algorithm(s) |
-|----|----|----|----|----|----|
-| Game Playing | Game state (e.g., board, score) | Action to take | What should I do to win the game? | How can I build an AI that outperforms humans or creates adaptive gameplay? | Q-learning, DQN |
-| Robotics & Control | Sensor data (angles, velocities, etc.) | Movement or control signals | How should the agent move next to reach a goal? | How can I automate physical tasks like picking, sorting, or navigating? | PPO, SAC, DDPG |
-| Autonomous Vehicles | Sensor input (camera, LIDAR, speed, GPS) | Driving action | What’s the optimal next driving move? | How can I develop a safe and efficient self-driving vehicle system? | Deep RL + sensor fusion |
-| Recommendation Systems | User history, preferences, session behavior | Recommended item | What should I recommend next? | How can I increase user retention, engagement, or sales? | Contextual Bandits, RL |
-| Portfolio Management | Financial indicators, stock prices | Asset allocation decision | How should I invest to maximize return? | How can I build an automated trading or portfolio optimization system? | Actor-Critic methods |
-| Personalized Education | Student progress and quiz results | Next learning step | What lesson or content should come next? | How can I boost student outcomes by personalizing learning pathways? | Multi-armed bandits |
-| Healthcare Treatment | Patient history and vitals | Treatment or intervention strategy | What care plan maximizes long-term patient health? | How can I optimize healthcare outcomes while reducing costs and readmissions? | Off-policy RL, POMDPs |
-
-## Machine Learning
-
-Supervised Learning: "Here’s the question and the right answer."\
-Unsupervised Learning: "Here is some data, can you find patterns and/or organize it in a meaningful way?"\
-Reinforcement Learning: "You’re an agent playing a, figure out the best strategy through trial and error, using only points (rewards) as feedback."
-
-"During training, a machine learning algorithm processes a dataset and chooses the function that best matches the patterns in the data."
-
-supervised, unsupervised, and reinforcement.
-
-## Supervised Learning
-
-Supervised learning is the most widely used type of machine learning and significantly overlaps with the methodologies of other quantitative fields, such as statistics and econometrics.
-
-Supervised learning gets its name from the fact that the input data set has examples of both inputs and outputs.
-
-The outputs are called labels, hence you will sometime hear the term "labeled dataset."
-
--   **logistic (sigmoid) function**:
-
--   **Softmax**:
+$$
+\mathbf{w} = (\mathbf{X}^\top \mathbf{X})^{-1} \mathbf{X}^\top \mathbf{y}
+$$
