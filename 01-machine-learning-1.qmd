@@ -38,7 +38,7 @@ To build a machine learning model, we need four key ingredients:
 :::
 
 2.  **Training data:** A collection of real-world examples that pair inputs with their corresponding outputs. The quality and relevance of this data are crucial to how well the model can learn and make accurate predictions.
-3.  **A loss function:** A mathematical expression that measures how far off the model’s predictions are from the correct answers. It provides feedback to help the model improve over time.
+3.  **A "loss" function:** A mathematical expression that measures how far off the model’s predictions are from the correct answers. It provides feedback to help the model improve over time.
 4.  **A training algorithm:** A step-by-step procedure that combines the first three ingredients in a way that minimizes the prediction errors produced by the model. This is where the so-called *learning* takes place.
 
 There are many business use cases for machine learning, a few of which are listed below. We’ll start with the simplest possible machine learning model: simple linear regression. It’s a powerful tool that helps us understand the core ideas behind more complex models, including the ones that power today’s cutting-edge AI systems like ChatGPT and several of the examples in the table below. 
@@ -70,9 +70,9 @@ Where $y$ represents the home *value* and $x$ represents the *square footage*.
 
 In machine learning jargon $w_0$ and $w_1$ are called the **parameters** or **weights** of the model (hence the use of $w$ in the notation) and describe the nature of the relationship between $x$ and $y$. $w_0$ and $w_1$ are the numbers that the computer will *learn* (i.e. derive) based on what is observed in real life which will be encoded into *training data* discussed in the next section.
 
-In other fields such as econometrics these might be introduced using the greek alphabet notation of $\alpha$ and $\beta$.
+In other fields such as econometrics the weights (also called coefficients) might be introduced using the Greek alphabet notation of $\alpha$ and $\beta$.
 
-You might recognize this equation as the equation for a line in *slope-intercept* from which is often presented as:
+Simple linear regression might bring to mind the equation of a line in *slope-intercept* which is often presented as:
 
 $$
 y = mx + b
@@ -827,7 +827,7 @@ Our goal is to use the information enocoded in the gradient vector to update the
 
 We will first explore what this looks like geometrically in order to build our intuition and then we will introduce the mathematical equation that performs this task for us which is the core of the gradient descent algorithm.
 
-The left plot below shows the initial weight vector originating from the origin (point $(0,0)$), and then shows the **gradient descent vector** (the negative of the gradient) orginating from the tip of the weight vector since this is the point at which the gradient is calculated.
+The left plot below shows the initial weight vector originating from the origin (point $(0,0)$), and then shows the **gradient descent vector** (the negative of the gradient) orginating from the tip of the weight vector since this is the point at which the gradient is calculated. Note that the **gradient vector** lives in the same 2D space as the weight vector, because it is made up of the partial derivatives with respect to each weight. If the weight vector has two components, the gradient vector will also have two components, one for each direction in the **weight space**. Visually, the gradient can be drawn as an arrow on the 2D floor, pointing in the direction of steepest ascent.
 
 The left plot also shows the combination of weight values that would result in minimum loss. This is ultimately where we'd like to get to. The dashed line shows the resulting new weight vector when we sum of the existing weight vector with the gradient *descent* vector. Notice how the gradient *descent* vector shoots straight through the minimum (i.e the direction of steepest descent), but unfortunately it leaps over it, missing our goal and actually taking us to a place of higher loss. The right plot shows how we address this by introducing a **learning rate** which is described next.
 
@@ -900,11 +900,52 @@ We can now summarize the gradient desecent algorithm:
    $$
 6. **Repeat**  
    Repeat steps 2–5 until the loss stops decreasing (or decreases very slowly), indicating **convergence.**
+   
+
+### Mixing the Ingredients and Baking the Cake
+
+We are now ready to combine all of the ingredients using Python to fit a machine learning model and use it for prediction. You should copy paste the code and run it on your own machine as we go.
+
+The first ingredient is our mathematical model which we've already selected as a simple linear regression:
+
+$$
+y = w_0 + w_1 x
+$$
+The second ingredient is training data. Given the model we have selected, we need a dataset that contains a single output that we want to predict based on a single input. Let's continue to use the home price predicted by square footage example. 
+
+We can get such a data set from [Kaggle](https://www.kaggle.com/), a platform for learning and competing in Machine Learning and Data Science. 
+
+Kaggle's *House Price Prediction Dataset* has 2,000 rows of data with 8 total columns (7 features and 1 target). The table below describes each column in the dataset. For our simple linear regression, we will only need the first column (area) and the last column (price).
+
+
+| Feature               | Description                                                                                                                                                                        |
+|------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Area**               | Square footage of the house, which is generally one of the most important predictors of price.                                                                                    |
+| **Bedrooms & Bathrooms** | The number of rooms in a house significantly affects its value. Homes with more rooms tend to be priced higher.                                                                  |
+| **Floors**             | The number of floors in a house could indicate a larger, more luxurious home, potentially raising its price.                                                                      |
+| **Year Built**         | The age of the house can affect its condition and value. Newly built houses are generally more expensive than older ones.                                                         |
+| **Location**           | Houses in desirable locations such as downtown or urban areas tend to be priced higher than those in suburban or rural areas.                                                     |
+| **Condition**          | The current condition of the house is critical, as well-maintained houses (in 'Excellent' or 'Good' condition) will attract higher prices compared to houses in 'Fair' or 'Poor' condition. |
+| **Garage**             | Availability of a garage can increase the price due to added convenience and space.                                                                                               |
+| **Price**              | The target variable, representing the sale price of the house, used to train machine learning models to predict house prices based on the other features.                         |
+All steps are implemented below. 
+
+```{python}
+import pandas as pd
+
+# 1. Load data
+url = "https://raw.githubusercontent.com/byu-strategy/understanding-ai/main/data/house-price-prediction-dataset.csv"
+df = pd.read_csv(url)
+df.head()
+
+# 2. Features and targets
+features = df['Area'].values.reshape(-1,1)
+target = df['Price'].values
+
+```
+
 
 :::
-
-
-4. The **gradient vector** lives in the **same 2D space as the weight vector**, because it is made up of the **partial derivatives with respect to each weight**. If the weight vector has two components, the gradient vector will also have two components — one for each direction in weight space. Visually, the gradient can be drawn as an arrow on the 2D floor, pointing in the direction of steepest ascent.
 
 ## Glossary
 
